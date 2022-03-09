@@ -1,0 +1,86 @@
+'======================================================================================================================================
+Public Function IDS_OFF_TEST(AHB_WRITE_OPTION As Boolean, FLAT_PATTERN_OPTION As Boolean) As Long
+
+    Dim Realy_On as string
+    Dim Relay_Off as string
+    Dim WaitTime as double
+<#Loop#>
+    Dim <#PinName#><#/PinName#>_val As New SiteDouble
+<#/Loop#>
+<#Loop#>
+    Dim TestName<#SeqNum Start="1"#><#/SeqNum#> As String
+<#/Loop#>
+<#Loop Groupby="IRange"#>
+    Dim meas<#SeqNum Start="1"#><#/SeqNum#> As New PinListData
+<#/Loop#>
+
+    Realy_On = "<#AllPinSetting Get="On_Relay"#><#/AllPinSetting#>"
+    Relay_Off = "<#AllPinSetting Get="Off_Relay"#><#/AllPinSetting#>"
+    WaitTime = <#AllPinSetting Get="WaitTime"#><#/AllPinSetting#>
+
+
+'===================== Relay setup =====================
+    TheHdw.Utility.Pins(Relay_Off).State = tlUtilBitOff
+    TheHdw.Utility.Pins(Realy_On).State = tlUtilBitOn
+
+
+'===================== Special Pin status setup according to project =====================
+'user need to put special setting in here 
+'Like some pin need force H/L or some pin need disconnect
+    TheHdw.Digital.ApplyLevelsTiming True, True, False, tlPowered
+
+
+'===================== Instrument setup =====================
+<#Loop Groupby="IRange"#>
+    With TheHdw.DCVI.Pins("<#PinName Join=","#><#/PinName#>")
+        .Mode = tlDCVIModeVoltage
+        .SetCurrentAndRange <#IRange#><#/IRange#>, Abs(<#IRange#><#/IRange#>)
+        .Meter.Mode = tlDCVIMeterCurrent
+        .Connect
+        TheHdw.Wait 1 * ms
+        .Gate = True
+    End With
+<#/Loop#>
+    TheHdw.Wait WaitTime
+
+'===================== Measure =====================
+    If TheExec.TesterMode = testModeOffline Then
+<#Loop#>
+        <#PinName#><#/PinName#>_val = 1
+<#/Loop#>
+    Else
+<#Loop Groupby="IRange"#>
+        meas<#SeqNum Start="1"#><#/SeqNum#> = TheHdw.DCVI.Pins("<#PinName Join=","#><#/PinName#>").Meter.Read(tlStrobe, 100, 100 * KHz, tlDCVIMeterReadingFormatAverage)
+<#Groupby#>        <#PinName#><#/PinName#>_val = meas<#SeqNum Start="1"#><#/SeqNum#>.Pins("<#PinName#><#/PinName#>")<#/Groupby#>
+<#/Loop#>
+
+    End If
+
+
+'===================== Datalog =====================
+'===================== TestName num depend on power pin =====================
+<#Loop#>
+    TestName<#SeqNum Start="1"#><#/SeqNum#> = "IDS_OFF_<#PinName ReplaceOld="_" ReplaceNew="-"#><#/PinName#>_X_X_X_P_X_X_MeasI_X_X"
+<#/Loop#>
+
+
+'===================== Hi/Low limit according to Fuji PE =====================
+<#Loop#>
+    Call TheExec.Flow.TestLimit(ResultVal:=<#PinName#><#/PinName#>_val, TName:=TestName<#SeqNum Start="1"#><#/SeqNum#>, hiVal:=<#HighLimit#><#/HighLimit#>, lowVal:=<#LowLimit#><#/LowLimit#>, Unit:=unitAmp, formatStr:="%6.4f", scaletype:=scaleMicro)
+<#/Loop#>
+
+
+'===================== Special Pin status setup according to project =====================
+    '' User need to put special pin reset setting in here
+
+
+'===================== Relay reset =====================
+    TheHdw.Utility.Pins(Relay_On).State = tlUtilBitOff
+    TheHdw.Utility.Pins(Relay_Off).State = tlUtilBitOn
+
+    Exit Function
+
+ErrHandler:
+    If AbortTest Then Exit Function Else Resume Next
+
+End Function

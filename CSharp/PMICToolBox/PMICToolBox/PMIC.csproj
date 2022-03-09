@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C003A9C-6D20-42C6-AAEA-C15821A571B4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PmicAutomation</RootNamespace>
+    <AssemblyName>PMIC-ToolBox</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Builder\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <LangVersion>5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Automation.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\002-pantone .ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=5.1.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ExtendedLinguisticServices, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Sensors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.Sensors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack.1.1.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.Ribbon">
+      <HintPath>..\packages\System.Windows.Forms.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyControls\MyButtonRunDownload.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControls\MyButtonRunDownload.Designer.cs">
+      <DependentUpon>MyButtonRunDownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\MyStatus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControls\MyButtonTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControls\MyDownloadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyControls\MyDownloadForm.Designer.cs">
+      <DependentUpon>MyDownloadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\MyFileOpen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControls\MyFileOpen.Designer.cs">
+      <DependentUpon>MyFileOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\MyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\DatalogComparator\DatalogComparatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\DatalogComparator\DatalogComparatorForm.designer.cs">
+      <DependentUpon>DatalogComparatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\ErrorHandler\ErrorHandlerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\ErrorHandler\ErrorHandlerForm.Designer.cs">
+      <DependentUpon>ErrorHandlerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\ErrorHandler\ErrorHandlerMain.cs" />
+    <Compile Include="Utility\ErrorHandler\Result.cs" />
+    <Compile Include="Utility\OTPRegisterMap\Input\OTPFileReader.cs" />
+    <Compile Include="Utility\OTPRegisterMap\Base\OTPRegisterItem.cs" />
+    <Compile Include="Utility\OTPRegisterMap\OTPRegisterMapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\OTPRegisterMap\OTPRegisterMapForm.Designer.cs">
+      <DependentUpon>OTPRegisterMapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\OTPRegisterMap\OTPRegisterMapMain.cs" />
+    <Compile Include="Utility\OTPRegisterMap\Output\WriterOTPRegisterMap.cs" />
+    <Compile Include="Utility\PatSetsAll\Function\GenPatSetsAll.cs" />
+    <Compile Include="Utility\PatSetsAll\IGXLVersionEnum.cs" />
+    <Compile Include="Utility\PatSetsAll\PatSetsAllForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\PatSetsAll\PatSetsAllForm.Designer.cs">
+      <DependentUpon>PatSetsAllForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\PatSetsAll\PatSetsAllMain.cs" />
+    <Compile Include="Utility\AHBEnum\AHBEnumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\AHBEnum\AHBEnumForm.Designer.cs">
+      <DependentUpon>AHBEnumForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\AHBEnum\AHBMain.cs" />
+    <Compile Include="Utility\AHBEnum\Input\AhbChecker.cs" />
+    <Compile Include="PMICMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PMICMainForm.Designer.cs">
+      <DependentUpon>PMICMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\AHBEnum\Input\AhbRegisterMapReader.cs" />
+    <Compile Include="Utility\nWire\Component\ProgressBarEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utility\nWire\nWireForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\nWire\nWireForm.Designer.cs">
+      <DependentUpon>nWireForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\PA\Base\DgsPool.cs" />
+    <Compile Include="Utility\PA\Function\GenTimeSet.cs" />
+    <Compile Include="Utility\PA\Function\GenPattern.cs" />
+    <Compile Include="Utility\PA\Function\GroupPins.cs" />
+    <Compile Include="Utility\Relay\Input\Adg1414Reader.cs" />
+    <Compile Include="Utility\Relay\Output\GenADG1414File.cs" />
+    <Compile Include="Utility\Relay\RelayMain.cs" />
+    <Compile Include="Utility\TCMIDComparator\Business\TcmIDCompare.cs" />
+    <Compile Include="Utility\TCMIDComparator\DataStructure\EnumStore.cs" />
+    <Compile Include="Utility\TCMIDComparator\TCMIDComparatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\TCMIDComparator\TCMIDComparatorForm.Designer.cs">
+      <DependentUpon>TCMIDComparatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\TCMID\Business\TcmIDFactory.cs" />
+    <Compile Include="Utility\TCMID\Business\TcmIDGenBase.cs" />
+    <Compile Include="Utility\TCMID\Business\TcmIDGenConti.cs" />
+    <Compile Include="Utility\TCMID\Business\TcmIDGenIDS.cs" />
+    <Compile Include="Utility\TCMID\Business\TcmIDGenLeakage.cs" />
+    <Compile Include="Utility\TCMID\Business\TcmIDGenOthers.cs" />
+    <Compile Include="Utility\TCMID\DataStructure\EnumStore.cs" />
+    <Compile Include="Utility\TCMID\DataStructure\TcmIdEntry.cs" />
+    <Compile Include="Utility\TCMID\TCMIDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\TCMID\TCMIDForm.Designer.cs">
+      <DependentUpon>TCMIDForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\TCMID\TCMIDMain.cs" />
+    <Compile Include="Utility\VbtGenerator\Function\MyXml.cs" />
+    <Compile Include="Utility\VbtGenerator\Input\PmicIdsTableReader.cs" />
+    <Compile Include="Utility\VbtGenerator\Input\TableFactory.cs" />
+    <Compile Include="Utility\VbtGenerator\Input\CommonTableReader.cs" />
+    <Compile Include="Utility\VbtGenerator\VbtGeneratorFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\VbtGenerator\VbtGeneratorFrom.Designer.cs">
+      <DependentUpon>VbtGeneratorFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\VbtGenerator\Input\TableSheet.cs" />
+    <Compile Include="Utility\VbtGenerator\Function\BasParser.cs" />
+    <Compile Include="Utility\PA\Function\GenChannelMap.cs" />
+    <Compile Include="Utility\PA\Function\GenPinMap.cs" />
+    <Compile Include="Utility\PA\Base\PaGroup.cs" />
+    <Compile Include="Utility\PA\Check\PaChecker.cs" />
+    <Compile Include="Utility\PA\PaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\PA\PaForm.Designer.cs">
+      <DependentUpon>PaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\PA\Base\PaBase.cs" />
+    <Compile Include="Utility\PA\Input\PaReader.cs" />
+    <Compile Include="Utility\PA\PaMain.cs" />
+    <Compile Include="Utility\PA\Input\TesterConfig.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\Relay\Input\AdgMatrixReader.cs" />
+    <Compile Include="Utility\Relay\Base\AdgMatrix.cs" />
+    <Compile Include="Utility\Relay\Base\RelayBase.cs" />
+    <Compile Include="Utility\Relay\Output\GenRelayFile.cs" />
+    <Compile Include="Utility\Relay\Function\SearchRelay.cs" />
+    <Compile Include="Utility\Relay\Input\LinkedNodeRuleReader.cs" />
+    <Compile Include="Utility\Relay\Input\PinFilterReader.cs" />
+    <Compile Include="Utility\Relay\Input\ComPinReader.cs" />
+    <Compile Include="Utility\Relay\RelayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\Relay\RelayForm.Designer.cs">
+      <DependentUpon>RelayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\VbtGenerator\VbtGeneratorMain.cs" />
+    <Compile Include="Utility\VbtGenToolTemplate\Input\TcmReader.cs" />
+    <Compile Include="Utility\VbtGenToolTemplate\VbtGenToolTemplateFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\VbtGenToolTemplate\VbtGenToolTemplateFrom.Designer.cs">
+      <DependentUpon>VbtGenToolTemplateFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\VbtGenToolTemplate\Base\VbtTestPlan.cs" />
+    <Compile Include="Utility\VbtGenToolTemplate\VbtGenToolTemplateMain.cs" />
+    <EmbeddedResource Include="Utility\DatalogComparator\Template\DataLog_Before.txt" />
+    <EmbeddedResource Include="Utility\DatalogComparator\Template\DataLog_After.txt" />
+    <EmbeddedResource Include="Utility\TCMIDComparator\Template\LDO_LimitSheet_V04A.txt" />
+    <EmbeddedResource Include="Utility\TCMIDComparator\Template\LDO_LimitSheet_V05B.txt" />
+    <EmbeddedResource Include="Utility\TCMID\Template\LimitSheet_Example2.txt" />
+    <EmbeddedResource Include="Utility\TCMID\Template\LDO_LimitSheet.txt" />
+    <EmbeddedResource Include="MyControls\MyButtonRunDownload.resx">
+      <DependentUpon>MyButtonRunDownload.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControls\MyStatus.resx">
+      <DependentUpon>MyStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControls\MyButtonTextBox.resx">
+      <DependentUpon>MyButtonTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControls\MyDownloadForm.resx">
+      <DependentUpon>MyDownloadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControls\MyFileOpen.resx">
+      <DependentUpon>MyFileOpen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControls\MyForm.resx">
+      <DependentUpon>MyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\DatalogComparator\DatalogComparatorForm.resx">
+      <DependentUpon>DatalogComparatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\ErrorHandler\ErrorHandlerForm.resx">
+      <DependentUpon>ErrorHandlerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\OTPRegisterMap\OTPRegisterMapForm.resx">
+      <DependentUpon>OTPRegisterMapForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\PatSetsAll\PatSetsAllForm.resx">
+      <DependentUpon>PatSetsAllForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\AHBEnum\AHBEnumForm.resx">
+      <DependentUpon>AHBEnumForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PMICMainForm.resx">
+      <DependentUpon>PMICMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\nWire\nWireForm.resx">
+      <DependentUpon>nWireForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\TCMIDComparator\TCMIDComparatorForm.resx">
+      <DependentUpon>TCMIDComparatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\TCMID\TCMIDForm.resx">
+      <DependentUpon>TCMIDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\VbtGenerator\VbtGeneratorFrom.resx">
+      <DependentUpon>VbtGeneratorFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\PA\PaForm.resx">
+      <DependentUpon>PaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\Relay\RelayForm.resx">
+      <DependentUpon>RelayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\VbtGenToolTemplate\VbtGenToolTemplateFrom.resx">
+      <DependentUpon>VbtGenToolTemplateFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <EmbeddedResource Include="Utility\Relay\Template\Component_Pin_Report.xlsx" />
+    <EmbeddedResource Include="Utility\Relay\Template\RelayConfig.xlsm" />
+    <EmbeddedResource Include="Utility\VbtGenerator\Template\DCEnum\SP_Conti_Pins_Cond.tmp" />
+    <EmbeddedResource Include="Utility\VbtGenerator\Template\DCEnum\SP_Leak_Pins_Cond.tmp" />
+    <EmbeddedResource Include="Utility\VbtGenerator\Template\PowerUp\PowerUp.tmp" />
+    <EmbeddedResource Include="Utility\VbtGenerator\Template\PowerUp\VDD_Level_From_TestPlan.xlsx" />
+    <EmbeddedResource Include="Utility\VbtGenToolTemplate\Template\Sylvester_TCM.xlsx" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="UserManual\nWire Definition Extraction tool user maunal.pptx" />
+    <EmbeddedResource Include="Utility\AHBEnum\UserManual\AHB Enum User Manual.pptx" />
+    <EmbeddedResource Include="Utility\nWire\Template\XMLFILE\Field_Segment.tmp">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\nWire\Template\XMLFILE\Frame_Segment.tmp" />
+    <EmbeddedResource Include="Utility\nWire\Template\XMLFILE\Protocol.tmp">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\PA\UserManual\PinMap and Channel Map Generator User Manual.pptx" />
+    <EmbeddedResource Include="Utility\VbtGenerator\UserManual\VBT Generator User Manual.pptx" />
+    <EmbeddedResource Include="Utility\Relay\UserManual\Relay User Manual.pptx" />
+    <EmbeddedResource Include="Utility\VbtGenToolTemplate\UserManual\VBT Gen Tool Template Generator User Manual.pptx" />
+    <EmbeddedResource Include="Utility\PatSetsAll\UserManual\PatSets All user manual.pptx" />
+    <EmbeddedResource Include="Utility\OTPRegisterMap\UserManual\OTP user manual.pptx" />
+    <EmbeddedResource Include="Utility\OTPRegisterMap\Template\OTP_register_map.yaml" />
+    <EmbeddedResource Include="Utility\OTPRegisterMap\Template\A0_otp_AVA.otp" />
+    <EmbeddedResource Include="Utility\ErrorHandler\UserManual\Check Error Handler user manual.pptx" />
+    <EmbeddedResource Include="Utility\VbtGenerator\Template\DCEnum\SP_Conti_Pins_Cond.xlsx" />
+    <EmbeddedResource Include="Utility\VbtGenerator\Template\DCEnum\SP_Leak_Pins_Cond.xlsx" />
+    <EmbeddedResource Include="Utility\AHBEnum\Template\AHB_register_map.xlsx" />
+    <EmbeddedResource Include="Utility\TCMID\UserManual\TCMID User Manual.pptx" />
+    <EmbeddedResource Include="UserManual\PinNameRemoval tool user maunal.pptx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Settings\SkipItem.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="UserManual\PMIC_BinCheck_Tool.pptx" />
+    <EmbeddedResource Include="UserManual\CLBist Data Converter User Manual.pptx" />
+    <EmbeddedResource Include="UserManual\Datalog Comparator User Manual.pptx" />
+    <EmbeddedResource Include="UserManual\VBTPOP_Gen tool user manual.pptx" />
+    <EmbeddedResource Include="Utility\PA\Template\Example_PA_File.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlarmChekc\AlarmChekc.csproj">
+      <Project>{6be11ace-82e2-4e02-9b9f-9f0b656038fa}</Project>
+      <Name>AlarmChekc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BinOutCheck\BinOutCheck.csproj">
+      <Project>{13E25055-41F1-4582-AC81-76C3DA36C1B2}</Project>
+      <Name>BinOutCheck</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CLBistDataConverter\CLBistDataConverter.csproj">
+      <Project>{69f436bb-f1a3-4e4e-b00e-98832d73ed1c}</Project>
+      <Name>CLBistDataConverter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{8eead19d-ead8-4a6d-819c-ac47b59a08f1}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frame\Frame.csproj">
+      <Project>{81598C48-1826-4D68-AEF7-B03259E03163}</Project>
+      <Name>Frame</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\IgxlData\IgxlData.csproj">
+      <Project>{7245b663-677c-4445-bad5-36af145959fd}</Project>
+      <Name>IgxlData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library\Library.csproj">
+      <Project>{195599dc-5b9f-4f35-971b-bd475f55fde6}</Project>
+      <Name>Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OTPFileComparison\OTPFileComparison.csproj">
+      <Project>{f003928a-c2e1-45cc-ac00-88dfb94cb325}</Project>
+      <Name>OTPFileComparison</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PinNameRemoval\PinNameRemoval.csproj">
+      <Project>{cdd57f77-a046-40a5-b5af-c9f5f51d4dac}</Project>
+      <Name>PinNameRemoval</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProfileTool_PMIC\ProfileTool_PMIC.csproj">
+      <Project>{370053c7-7eed-423a-b22a-8298299110b2}</Project>
+      <Name>ProfileTool_PMIC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VBTPOPGen_PreCheck\VBTPOPGen_PreCheck.csproj">
+      <Project>{d50484df-85e8-4570-88a4-7dbbcacd554d}</Project>
+      <Name>VBTPOPGen_PreCheck</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Utility\PA\Template\TesterConfig_PMIC.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\001-printer.png" />
+    <Content Include="Resources\002-pantone .ico" />
+    <Content Include="Resources\002-pantone.png" />
+    <Content Include="Resources\002A-pantone.png" />
+    <Content Include="Resources\003-canvas.png" />
+    <Content Include="Resources\004-paint.png" />
+    <Content Include="Resources\005-rgb.png" />
+    <Content Include="Resources\005A-rgb.png" />
+    <Content Include="Resources\006-smartphone.png" />
+    <Content Include="Resources\007-photo-camera.png" />
+    <Content Include="Resources\008-pencil.png" />
+    <Content Include="Resources\008A-pencil.png" />
+    <Content Include="Resources\009-scanner.png" />
+    <Content Include="Resources\010-target.png" />
+    <Content Include="Resources\010A-target.png" />
+    <Content Include="Resources\011-measurent.png" />
+    <Content Include="Resources\011A-measurent.png" />
+    <Content Include="Resources\012-edit-text.png" />
+    <Content Include="Resources\013-creative.png" />
+    <Content Include="Resources\014-photography.png" />
+    <Content Include="Resources\015-monitor.png" />
+    <Content Include="Resources\016-grid.png" />
+    <Content Include="Resources\016A-grid.png" />
+    <Content Include="Resources\017-compass.png" />
+    <EmbeddedResource Include="Utility\TCMID\Template\LimitSheet_Example1.txt" />
+    <None Include="Resources\_015_monitor.png" />
+    <None Include="Resources\_025_sketchbook.bmp" />
+    <None Include="Resources\025_sketchbook.bmp" />
+    <Content Include="Settings\ParserSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Utility\ErrorHandler\Template\Test.bas" />
+    <None Include="Resources\017A-compass.png" />
+    <Content Include="Resources\018-photo-film.png" />
+    <None Include="Resources\018A-photo-film.png" />
+    <Content Include="Resources\019-picture.png" />
+    <Content Include="Resources\020-monitor-1.png" />
+    <Content Include="Resources\021-responsive.png" />
+    <Content Include="Resources\022-creative-1.png" />
+    <Content Include="Resources\023-idea.png" />
+    <Content Include="Resources\024-desk.png" />
+    <Content Include="Resources\025-sketchbook.png" />
+    <Content Include="Resources\025A-sketchbook.jpg" />
+    <Content Include="Resources\026-graphic-tablet.png" />
+    <Content Include="Resources\027-pendrive.png" />
+    <Content Include="Resources\028-picture-1.png" />
+    <Content Include="Resources\029-pencil-1.png" />
+    <Content Include="Resources\030-design.png" />
+    <Content Include="Resources\031-pantone-1.png" />
+    <Content Include="Resources\031A-pantone-1.png" />
+    <Content Include="Resources\032-sketch.png" />
+    <Content Include="Resources\033-image.png" />
+    <Content Include="Resources\034-folder.png" />
+    <Content Include="Resources\035-psd.png" />
+    <Content Include="Resources\036-ai.png" />
+    <Content Include="Resources\037-spray-can.png" />
+    <Content Include="Resources\038-delete.png" />
+    <Content Include="Resources\039-memory.png" />
+    <Content Include="Resources\040-layers.png" />
+    <Content Include="Resources\041-portfolio.png" />
+    <Content Include="Resources\042-photography-1.png" />
+    <Content Include="Resources\043-laptop.png" />
+    <Content Include="Resources\044-svg.png" />
+    <Content Include="Resources\045-eps.png" />
+    <Content Include="Resources\046-wireframe-1.png" />
+    <Content Include="Resources\047-artwork.png" />
+    <Content Include="Resources\048-indd.png" />
+    <Content Include="Resources\049-wireframe.png" />
+    <Content Include="Resources\openFile.ico" />
+    <Content Include="Resources\shell32_3191.ico" />
+    <EmbeddedResource Include="Utility\nWire\Configs\ProtocolConfigure.xml" />
+    <EmbeddedResource Include="Utility\nWire\Configs\FileGeneratorMapperConfigure.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\nWire\Configs\DispatherConfigure.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utility\TCMIDComparator\UserManual\" />
+    <Folder Include="Utility\VbtGenerator\Template\IDSEnum\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "$(TargetDir)Configure"
+
+xcopy /e /r /y   "$(ProjectDir)Utility\nWire\Configs\FileGeneratorMapperConfigure.xml" "$(TargetDir)Configure"
+
+mkdir "$(TargetDir)Dlls"
+
+xcopy /r /y   "$(TargetDir)*.*" "$(TargetDir)Dlls"
+
+del  /Q "$(TargetDir)"
+
+move  "$(TargetDir)Dlls\$(TargetFileName)" "$(TargetDir)"
+
+move "$(TargetDir)Dlls\$(TargetFileName).config" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

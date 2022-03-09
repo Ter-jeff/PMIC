@@ -1,0 +1,6 @@
+obj\Debug\Product.wixobj
+C:\01.Jeffli\GitLab\AutoGen_Team\CSharp\PMICAutogenAddIn\WixSetupProject\bin\Debug\PMICAutogenAddIn_V1.2.0.10.msi
+C:\01.Jeffli\GitLab\AutoGen_Team\CSharp\PMICAutogenAddIn\WixSetupProject\bin\Debug\PMICAutogenAddIn_V1.2.0.10.wixpdb
+obj\Debug\WixSetupProject.wixproj.BindContentsFileListnull.txt
+obj\Debug\WixSetupProject.wixproj.BindOutputsFileListnull.txt
+obj\Debug\WixSetupProject.wixproj.BindBuiltOutputsFileListnull.txt

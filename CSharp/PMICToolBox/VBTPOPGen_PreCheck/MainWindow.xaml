@@ -1,0 +1,36 @@
+﻿<Window x:Class="VBTPOPGen_PreCheck.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OTPOwnerCheck"
+        mc:Ignorable="d"
+        Title="VBTPOPGen_PreCheck V1.0.0.0" Height="500" Width="525">
+    <Grid Name="grid" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="228*"/>
+            <ColumnDefinition Width="31*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="groupBox1" Header="Output" HorizontalAlignment="Left" Height="73" Margin="27,294,0,0" VerticalAlignment="Top" Width="461" Grid.ColumnSpan="2">
+            <TextBox x:Name="tbOutput" HorizontalAlignment="Right" Height="38" Margin="0,6,96,0" TextWrapping="Wrap" Text="Select output path" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="336"/>
+        </GroupBox>
+        <GroupBox x:Name="groupBox" Header="Input" HorizontalAlignment="Left" Height="259" Margin="27,24,0,0" VerticalAlignment="Top" Width="461" Grid.ColumnSpan="2">
+            <Grid Margin="0,6,0,-28.2">
+                <TextBox x:Name="tbTestplan" Height="38" Margin="16,10,97,0" TextWrapping="Wrap" Text="Select testplan folder" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="tbOTPRegMap" Height="38" Margin="16,70,97,0" TextWrapping="Wrap" Text="Select OTP_Register_Map" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="tbAhbRegMap" Height="38" Margin="16,128,97,0" TextWrapping="Wrap" Text="Select AHB_Register_Map" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="tbPinMap" Height="38" Margin="16,184,97,-0.4" TextWrapping="Wrap" Text="Select PinMap" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+                <Button x:Name="btnAhbRegMap" Content="..." HorizontalAlignment="Left" Height="38" Margin="375,127,0,0" VerticalAlignment="Top" Width="55" Click="btnAHBRegMap_Click"/>
+                <Button x:Name="btnPinMap" Content="..." HorizontalAlignment="Left" Height="38" Margin="375,184,0,0" VerticalAlignment="Top" Width="55" Click="btnPinMap_Click"/>
+            </Grid>
+        </GroupBox>
+        <ProgressBar x:Name="pbStatus" Value="{Binding Path=ProgressValue, Mode=TwoWay}" HorizontalAlignment="Left" Height="26" Margin="27,390,0,0" VerticalAlignment="Top" Width="461" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Height="25" Margin="237,431,0,0" VerticalAlignment="Top" Width="45" Click="btnGo_Click"/>
+        <Button x:Name="btnTestplan" Content="..." HorizontalAlignment="Left" Height="38" Margin="409,56,0,0" VerticalAlignment="Top" Width="55" Click="btnTestplan_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnOTPRegMap" Content="..." HorizontalAlignment="Left" Height="38" Margin="409,116,0,0" VerticalAlignment="Top" Width="55" Click="btnOTPRegMap_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnOutput" Content="..." HorizontalAlignment="Left" Height="38" Margin="409,316,0,0" VerticalAlignment="Top" Width="55" Click="btnOutput_Click" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelStatus" Content="{Binding Path=UISateInfo, Mode=TwoWay}" HorizontalAlignment="Left" Margin="32,391,0,0" VerticalAlignment="Top" Width="456" Height="25" Grid.ColumnSpan="2"/>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="Template" HorizontalAlignment="Left" Margin="409,431,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="button_Click"/>
+
+    </Grid>
+</Window>

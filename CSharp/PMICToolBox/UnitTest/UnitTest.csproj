@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E3C32544-6B67-4519-BE32-94C6D061D489}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitTest</RootNamespace>
+    <AssemblyName>UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UnitTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Utility\AHBEnum\Input\TestPlan.xlsx" />
+    <None Include="Utility\PA\Expected\Error.xlsx" />
+    <None Include="Utility\PA\Input\Suzuka_CP_PA.csv" />
+    <None Include="Utility\PA\Output\Error.xlsx" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB0_DC30_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB0_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB0_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB1_DC30_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB1_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB1_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB2_DC30_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB2_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB2_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB3_DC30_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB3_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_ATB3_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_SVDDH_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_SVDD_HP0_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_SVDD_HP1_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_SVDD_LP0_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_SVDD_LP1_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_UDB_ATB0_UVI80_SENSE_BUFFER.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_UDB_ATB0_UVI80_S_TO_75R.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_UDB_ATB1_UVI80_SENSE_BUFFER.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_UDB_ATB2_UVI80_SENSE_BUFFER.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_UDB_ATB3_UVI80_SENSE_BUFFER.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VDDC_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VDDH_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VDDH_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VDDIO_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VDD_DIG_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT0A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT0A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT0B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT0B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT12A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT12A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT12B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT12B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT16A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT16A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT16B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT16B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT20A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT20A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT20B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT20B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT24A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT24A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT24B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT24B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT4A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT4A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT4B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT4B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT8A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT8A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT8B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VOUT8B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S0_VRR_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_ATB0_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_ATB0_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_ATB1_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_ATB1_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_ATB2_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_ATB2_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_ATB3_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_ATB3_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT0A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT0A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT0B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT0B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT12A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT12A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT12B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT12B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT16A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT16A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT16B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT16B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT20A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT20A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT20B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT20B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT24A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT24A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT24B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT24B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT4A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT4A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT4B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT4B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT8A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT8A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT8B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VOUT8B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Expected\PinToPin\S1_VRR_UVI80_F.ini" />
+    <None Include="Utility\Relay\Expected\Trace_Based_Relay_Control.xlsx" />
+    <None Include="Utility\Relay\Input\Component_Pin_Report.xlsx" />
+    <None Include="Utility\Relay\Input\RelayConfig.xlsm" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB0_DC30_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB0_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB0_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB1_DC30_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB1_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB1_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB2_DC30_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB2_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB2_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB3_DC30_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB3_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_ATB3_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_SVDDH_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_SVDD_HP0_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_SVDD_HP1_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_SVDD_LP0_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_SVDD_LP1_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_UDB_ATB0_UVI80_SENSE_BUFFER.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_UDB_ATB0_UVI80_S_TO_75R.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_UDB_ATB1_UVI80_SENSE_BUFFER.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_UDB_ATB2_UVI80_SENSE_BUFFER.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_UDB_ATB3_UVI80_SENSE_BUFFER.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VDDC_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VDDH_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VDDH_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VDDIO_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VDD_DIG_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT0A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT0A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT0B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT0B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT12A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT12A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT12B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT12B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT16A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT16A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT16B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT16B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT20A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT20A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT20B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT20B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT24A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT24A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT24B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT24B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT4A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT4A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT4B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT4B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT8A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT8A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT8B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VOUT8B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S0_VRR_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_ATB0_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_ATB0_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_ATB1_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_ATB1_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_ATB2_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_ATB2_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_ATB3_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_ATB3_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT0A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT0A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT0B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT0B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT12A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT12A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT12B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT12B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT16A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT16A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT16B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT16B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT20A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT20A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT20B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT20B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT24A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT24A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT24B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT24B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT4A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT4A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT4B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT4B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT8A_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT8A_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT8B_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VOUT8B_UVI80_S.ini" />
+    <None Include="Utility\Relay\Output\PinToPin\S1_VRR_UVI80_F.ini" />
+    <None Include="Utility\Relay\Output\Trace_Based_Relay_Control.xlsx" />
+    <None Include="Utility\VbtGenerator\DCEnum\Input\DCEnum.xlsx" />
+    <None Include="Utility\VbtGenerator\DCEnum\Input\SP_Conti_Pins_Cond.tmp" />
+    <None Include="Utility\VbtGenerator\DCEnum\Input\SP_Leak_Pins_Cond.tmp" />
+    <None Include="Utility\VbtGenerator\IDSEnum\Input\ActiveSetting.tmp" />
+    <None Include="Utility\VbtGenerator\IDSEnum\Input\OffSetting.tmp" />
+    <None Include="Utility\VbtGenerator\IDSEnum\Input\SP_IDS_Pins_Cond.xlsx" />
+    <None Include="Utility\VbtGenerator\PowerUp\Input\PowerUp.tmp" />
+    <None Include="Utility\VbtGenerator\PowerUp\Input\VDD_Level_From_TestPlan.xlsx" />
+    <None Include="Utility\VbtGenToolTemplate\Input\Sylvester_TCM.xlsx" />
+    <None Include="WinMerge\COPYING">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Docs\WinMerge.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Docs\WinMerge.chw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\ADAMulti.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\ASPNET.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\CSharp_loose.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\Delphi.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\FileFilter.tmpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\Frontpage.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\MASM.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\Merge_GnuC_loose.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\Merge_VB_loose.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\Merge_VC_loose.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\SourceControl.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\Symbian.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Filters\XML_html.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Frhed\Docs\Sample.tpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Frhed\Languages\de.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Frhed\Languages\fr.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Frhed\Languages\heksedit.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Frhed\Languages\ja.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Frhed\Languages\nl.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\bin\patch.exe.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\contrib\patch\2.5.9\patch-2.5.9-7-GnuWin32.README">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\contrib\patch\2.5.9\patch-2.5.9-src\AUTHORS">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\contrib\patch\2.5.9\patch-2.5.9-src\ChangeLog">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\contrib\patch\2.5.9\patch-2.5.9-src\COPYING">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\contrib\patch\2.5.9\patch-2.5.9-src\INSTALL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\contrib\patch\2.5.9\patch-2.5.9-src\NEWS">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\contrib\patch\2.5.9\patch-2.5.9-src\pc\djgpp\README">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\contrib\patch\2.5.9\patch-2.5.9-src\README">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\manifest\patch-2.5.9-7-bin.mft">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\GnuWin32\manifest\patch-2.5.9-7-bin.ver">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Basque.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Brazilian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Bulgarian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Catalan.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\ChineseSimplified.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\ChineseTraditional.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Croatian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Czech.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Danish.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Dutch.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Finnish.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\French.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Galician.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\German.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Greek.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Hungarian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Italian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Japanese.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Korean.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Lithuanian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Norwegian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Persian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Polish.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Portuguese.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Romanian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Russian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Serbian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Sinhala.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Slovak.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Slovenian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Spanish.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Swedish.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Turkish.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Languages\Ukrainian.po">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\Register.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WinMerge\UnRegister.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PMICToolBox\Pmic.csproj">
+      <Project>{3C003A9C-6D20-42C6-AAEA-C15821A571B4}</Project>
+      <Name>Pmic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library\Library.csproj">
+      <Project>{195599dc-5b9f-4f35-971b-bd475f55fde6}</Project>
+      <Name>Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Utility\AHBEnum\Expected\Abh_REG_MAP1.bas" />
+    <Content Include="Utility\AHBEnum\Expected\Abh_REG_MAP2.bas" />
+    <Content Include="Utility\AHBEnum\Expected\Abh_REG_MAP3.bas" />
+    <Content Include="Utility\AHBEnum\Expected\Abh_REG_MAP4.bas" />
+    <Content Include="Utility\AHBEnum\Output\Abh_REG_MAP1.bas" />
+    <Content Include="Utility\AHBEnum\Output\Abh_REG_MAP2.bas" />
+    <Content Include="Utility\AHBEnum\Output\Abh_REG_MAP3.bas" />
+    <Content Include="Utility\AHBEnum\Output\Abh_REG_MAP4.bas" />
+    <Content Include="Utility\PA\Expected\ChannelMap_2_site_Suzuka_CP_PA.csv.txt" />
+    <Content Include="Utility\PA\Expected\PinMap_PA.txt" />
+    <Content Include="Utility\PA\Input\TesterConfig_PMIC.xml" />
+    <Content Include="Utility\PA\Output\ChannelMap_2_site_Suzuka_CP_PA.csv.txt" />
+    <Content Include="Utility\PA\Output\PinMap_PA.txt" />
+    <Content Include="Utility\Relay\Expected\RelaysOnTrace_Case.txt" />
+    <Content Include="Utility\Relay\Expected\RelaysOnTrace_Enum.txt" />
+    <Content Include="Utility\Relay\Expected\RelaysOnTrace_EnumToString.txt" />
+    <Content Include="Utility\Relay\Expected\SIN_Extract.txt" />
+    <Content Include="Utility\Relay\Output\RelaysOnTrace_Case.txt" />
+    <Content Include="Utility\Relay\Output\RelaysOnTrace_Enum.txt" />
+    <Content Include="Utility\Relay\Output\RelaysOnTrace_EnumToString.txt" />
+    <Content Include="Utility\Relay\Output\SIN_Extract.txt" />
+    <Content Include="Utility\VbtGenerator\DCEnum\Expected\DCEnum.bas" />
+    <Content Include="Utility\VbtGenerator\DCEnum\Output\DCEnum.bas" />
+    <Content Include="Utility\VbtGenerator\IDSEnum\Expected\SP_IDS_Pins_Cond.bas" />
+    <Content Include="Utility\VbtGenerator\IDSEnum\Output\SP_IDS_Pins_Cond.bas" />
+    <Content Include="Utility\VbtGenerator\PowerUp\Expected\VDD_Level_From_TestPlan.bas" />
+    <Content Include="Utility\VbtGenerator\PowerUp\Output\VDD_Level_From_TestPlan.bas" />
+    <Content Include="Utility\VbtGenToolTemplate\Expected\ADC.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Expected\ADC_Post.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Expected\Bias.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Expected\Bias_Test.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Expected\RCOSC.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Expected\RCOSC_Post.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Expected\RCOSC_Test.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Output\ADC_Post.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Output\Bias.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Output\Bias_Test.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Output\RCOSC.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Output\RCOSC_Post.txt" />
+    <Content Include="Utility\VbtGenToolTemplate\Output\RCOSC_Test.txt" />
+    <Content Include="WinMerge\Contributors.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ChangeLog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Basque.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Brazilian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Bulgarian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Catalan.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-ChineseSimplified.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-ChineseTraditional.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Croatian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Dutch.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Finnish.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-French.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Galician.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Greek.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Japanese.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Lithuanian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Portuguese.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Romanian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Serbian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Spanish.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Swedish.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Turkish.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReadMe-Ukrainian.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Docs\ReleaseNotes.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Files.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Frhed\Docs\ChangeLog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Frhed\Docs\Contributors.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Frhed\Docs\History.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Frhed\Docs\Links.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Frhed\GPL.txt" />
+    <Content Include="WinMerge\Frhed\hekseditU.dll" />
+    <Content Include="WinMerge\GnuWin32\bin\patch.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\GnuWin32\man\cat1p\patch.1p.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\GnuWin32\man\cat1\patch.1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\7z.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\History.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\af.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\an.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ar.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ast.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\az.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ba.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\be.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\bg.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\bn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\br.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ca.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\co.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\cs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\cy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\da.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\de.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\el.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\eo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\es.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\et.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\eu.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ext.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\fa.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\fi.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\fr.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\fur.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\fy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ga.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\gl.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\gu.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\he.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\hi.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\hr.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\hu.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\hy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\id.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\io.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\is.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\it.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ja.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ka.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\kaa.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\kab.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\kk.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ko.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ku-ckb.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ku.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ky.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\lij.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\lt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\lv.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\mk.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\mn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\mng.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\mng2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\mr.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ms.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\nb.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ne.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\nl.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\nn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\pa-in.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\pl.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ps.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\pt-br.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\pt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ro.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ru.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\sa.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\si.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\sk.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\sl.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\sq.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\sr-spc.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\sr-spl.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\sv.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ta.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\th.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\tr.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\tt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\ug.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\uk.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\uz.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\va.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\vi.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\yo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\zh-cn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Lang\zh-tw.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\Merge7z\Merge7z.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\ApplyPatch.sct">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\CompareMSExcelFiles.sct">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\CompareMSPowerPointFiles.sct">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\CompareMSWordFiles.sct">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\editor addin.sct">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\IgnoreColumns.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\IgnoreCommentsC.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\IgnoreFieldsComma.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\IgnoreFieldsTab.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\insert datetime.sct">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\MergePlugins\PrediffLineFilter.sct">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\ShellExtensionU.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\ShellExtensionX64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\vcomp140.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\WinIMerge\freeimage-license-gplv2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\WinIMerge\GPL.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\WinIMerge\WinIMergeLib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\WinMerge32BitPluginProxy.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinMerge\WinMergeU.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" />
+</Project>

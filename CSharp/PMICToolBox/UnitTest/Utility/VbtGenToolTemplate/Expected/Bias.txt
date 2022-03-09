@@ -1,0 +1,7 @@
+Start_End_Setup	start_of_test	Test_Plan_Name																					
+Etc	DATALOG		ATE datalog Name (follow name standard)					Unit	Lower	Upper												Comments	
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	2_Trims																					
+																							
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	Gen_Complete																						

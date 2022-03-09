@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <ItemDefine>
+    <item name ="Number">
+      <pattern sample="5302     ">\d+\s*</pattern>
+    </item>
+    <item name ="Site">
+      <pattern sample="4     ">\d\s*</pattern>
+    </item>
+    <item name ="Test Name">
+      <pattern sample="Conti1_CFSB     ">\S+\s*</pattern>
+    </item>
+    <item name ="Pin">
+      <pattern sample="CFSB                  ">\w+\s*</pattern>
+      <pattern sample="                      ">\s*</pattern>
+    </item>
+    <item name ="Channel">
+      <pattern sample="-1">-1\s+</pattern>
+      <pattern sample="2.t404">\d+[.]\S+</pattern>
+    </item>
+    <item name ="Low">
+      <pattern sample="84.0000">\d+[.]\d+</pattern>
+      <pattern sample="100.000 mV">\d+[.]\d+\s+[mV]</pattern>
+    </item>
+    <item name ="Measured">
+      <pattern sample="84.0000        (F)">\d+[.]\d+</pattern>
+      <pattern sample="253.392 mV">\d+[.]\d+</pattern>
+    </item>
+    <item name ="High">
+      <pattern sample="850.000 mV">\d+[.]\d+</pattern>
+    </item>
+    <item name ="Force">
+      <pattern sample="0.0000">\d+[.]\d+</pattern>
+      <pattern sample="100.000 uA">\d+[.]\d+</pattern>
+    </item>
+    <item name ="Loc">
+      <pattern sample="0">\d+</pattern>
+    </item>
+    <item name="Pattern">
+      <pattern sample="PP_SCYA0_S_FULP_EF_EF01_ECD_DAA_SNS_ALLFV_SI_1_A0_1905151712">\S+\s*</pattern>
+    </item>
+    <item name="1st Failed Cycle">
+      <pattern sample="N/A">\S+\s*</pattern>
+    </item>
+    <item name="Total Failed Cycles">
+      <pattern sample="N/A">\S+\s*</pattern>
+    </item>
+  </ItemDefine>
+  <HeaderPatterns>
+    <HeaderPattern name="MeasureTest" pattern="^(Number)\s+(Site)\s+(Test Name)\s+((Pin)\s+)?((Channel)\s+)?(Low)\s+(Measured)\s+(High)\s+(Force)\s+(Loc)$">
+      <item name="Number" missingpossible="false">\d+</item>
+      <item name="Site" missingpossible="false">\d+</item>
+      <item name="TestName" missingpossible="false">\S+</item>
+      <item name="Pin" missingpossible="true">[\w+|-]+</item>
+      <!--11.f409     11.f409.     11.f409.f     11.f409.f4     11.f409.f41     11.f409.f413 N/A -1-->
+      <item name="Channel" missingpossible="true">(N/A)|(-1)|(\d+.\w+[\.]?([\w]+)?)</item>
+      <!--Low,Measured,High unit should support uA/V-->
+      <item name="Low" missingpossible="false">(N/A)|(([-]?\d+([.]\d+)?)(\s([a-z]|[\/])+)?)</item>
+      <item name="Measured" missingpossible="false">(N/A)|(([-]?\d+([.]\d+)?)(\s([a-z]|[\/])+)?(\s+[(][a-z]+[)])?)</item>
+      <item name="High" missingpossible="false">(N/A)|(([-]?\d+([.]\d+)?)(\s([a-z]|[\/])+)?)</item>
+      <item name="Force" missingpossible="false">(N/A)|(([-]?\d+([.]\d+)?)(\s([a-z]|[\/])+)?)</item>
+      <item name="Loc" missingpossible="false">\d+</item>
+    </HeaderPattern>
+    <HeaderPattern name="FunctionTest" pattern="^(Number)\s+(Site)\s+(Test Name)\s+(Pattern)\s+((1st Failed Cycle)\s+)?(Total Failed Cycles)$">
+      <item name="Number"  missingpossible="false">\d+</item>
+      <item name="Site" missingpossible="false">\d+</item>
+      <item name="TestName" missingpossible="false">\S+</item>
+      <item name="Pattern" missingpossible="false">\w+</item>
+      <item name="FirstFailedCycle" missingpossible="false">(N/A)|(\w+)</item>
+      <item name="TotalFailedCycles" missingpossible="false">(N/A)|(\w+)</item>
+    </HeaderPattern>
+  </HeaderPatterns>
+  <LogRowType>
+    <item name="DeviceNumber">
+      <pattern>^Device#:([\s]*)(?&lt;deviceNumber&gt;(.*)+)$</pattern>
+    </item>
+    <item name="InstanceLogHeader">
+      <pattern>^Number([\s]+)Site([\s]+)Test Name</pattern>
+    </item>
+    <item name="InstanceName">
+      <pattern>^[\&lt;](?&lt;instanceName&gt;[\w]+)[\&gt;]$</pattern>
+    </item>
+    <item name="InstanceLog">
+      <pattern>^[\d]+[\s]+[\d]+[\s]+[a-z]</pattern>
+    </item>
+    <item name="ForceCondition">
+      <pattern>^Force[\s]+Condtion[\s]*[:](?&lt;forcecondition&gt;.*)$</pattern>
+    </item>
+    <item name="RestoreForceCondition">
+      <pattern>^restore[\s]+(.*)Force[\s]+Condtion[\s]*[:](?&lt;forcecondition&gt;.*)$</pattern>
+    </item>
+    <item name="SpecialForceCondition">
+      <pattern>^[\w]+[\s]*([=]{5}[\>])[\s]*(?&lt;forcecondition&gt;.*)$</pattern>
+    </item>
+    <item name="DigSrcStart">
+      <pattern>^[=]+[\s]+Setup[\s]+Dig[\s]+Src[\s]+Test[\s]+Start[\s]+[=]+$</pattern>
+    </item>
+    <item name="DigSrcEnd">
+      <pattern>^[=]+[\s]+Setup[\s]+Dig[\s]+Src[\s]+Test[\s]+End[\s]+[=]+$</pattern>
+    </item>
+    <item name="DigCapStart">
+      <pattern>^[=]+[\s]+Setup[\s]+Dig[\s]+Cap[\s]+Test[\s]+Start[\s]+[=]+$</pattern>
+    </item>
+    <item name="DigCapEnd">
+      <pattern>^[=]+[\s]+Setup[\s]+Dig[\s]+Cap[\s]+Test[\s]+End[\s]+[=]+$</pattern>
+    </item>
+    <item name="SrcBits">
+      <pattern>^Src[\s]+Bits[\s]*[=][\s]*(?&lt;srcbits&gt;[\d]+)$</pattern>
+    </item>
+    <item name="SrcPin">
+      <pattern>^SrcPin[\s]*[=][\s]*(?&lt;srcpin&gt;.*)$</pattern>
+    </item>
+    <item name="DataSequence">
+      <pattern>^DataSequence[\s]*[:][\s]*(?&lt;datasequence&gt;.*)$</pattern>
+    </item>
+    <item name="Assignment">
+      <pattern>^Assignment[\s]*[:][\s]*(?&lt;assignment&gt;.*)$</pattern>
+    </item>
+    <item name="DsscOut">
+      <pattern>^DSSC_OUT[,]</pattern>
+    </item>
+    <item name="CapBits">
+      <pattern>^Cap[\s]+Bits[\s]*[=][\s]*(?&lt;capbits&gt;[\d]+)$</pattern>
+    </item>
+    <item name="CapPin">
+      <pattern>^Cap[\s]+Pin[\s]*[=][\s]*(?&lt;cappin&gt;.*)$</pattern>
+    </item>
+  </LogRowType>
+  <IgnoredItem>
+    <item name="RelayOnOffInstance">
+      <pattern>Relay[_]?(on|off)</pattern>
+    </item>
+  </IgnoredItem>
+</Settings>

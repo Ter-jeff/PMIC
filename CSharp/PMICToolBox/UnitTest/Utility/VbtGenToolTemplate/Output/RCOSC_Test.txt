@@ -1,0 +1,13 @@
+Start_End_Setup	start_of_test	Trim_OSCPOR_BandGap_Voltage																					
+Etc	DATALOG		OSC_VBG_X_X_X_X_FinalTrim_T_NV_MeasV_X_X					V	?	?												For Trims, used +-3/4 LSB.	
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Trim_VBGR_current_from_OSCPOR																					
+Etc	DATALOG		OSC_VBGR-Current_X_X_X_X_FinalTrim_T_NV_MeasI_X_X					V	?	?												For Trims, used +-3/4 LSB.	
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Trim_VGSR_current_from_OSCPOR																					
+Etc	DATALOG		OSC_VGSR-Current_X_X_X_X_FinalTrim_T_NV_MeasI_X_X					V	?	?												For Trims, used +-3/4 LSB.	
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Trim_Oscillator_Frequency																					
+Etc	DATALOG		OSC_Frequency_X_X_X_X_FinalTrim_T_NV_MeasF_X_X					Mhz	?	?												For Trims, used +-3/4 LSB.	
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	Gen_Complete																						

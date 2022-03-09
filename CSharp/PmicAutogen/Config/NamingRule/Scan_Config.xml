@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ScanConfig>
+  <PayloadType>
+    <KeyPosition>0,4,6</KeyPosition>
+    <Key>
+      <Td>PP,SC,TDF</Td>
+      <Td>CZ,SC,TDF</Td>
+      <TdChain>PP,CH,TDF</TdChain>
+      <TdChain>CZ,CH,TDF</TdChain>
+      <Sa>PP,SC,SAA</Sa>
+      <Sa>CZ,SC,SAA</Sa>
+      <Sa>PP,SC,BFS</Sa>
+      <Sa>PP,SC,BDF</Sa>
+      <SaChain>HT,CH,SAA</SaChain>
+      <SaChain>PP,CH,SAA</SaChain>
+      <SaChain>CZ,CH,SAA</SaChain>
+    </Key>
+  </PayloadType>
+</ScanConfig>

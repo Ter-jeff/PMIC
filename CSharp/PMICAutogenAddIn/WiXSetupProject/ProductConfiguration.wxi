@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+	<!-- Setup Configuration -->
+	<?define ProductName = "PMIC Autogen" ?>
+	<?define ProductManufacturer = "Teradyne" ?>
+	<?define ProductVersion = "1.2.0.10" ?>
+	<?define ProductUpgradeCode = "79B9AD7F-200C-4250-A814-F9A8F37E8B5B" ?>
+  <!--<UI Dialog="VerifyReadyDlg" Control="InstallNoShield" Width="56" />
+  <UI Dialog="VerifyReadyDlg" Control="Back" X="5" />
+  <UI Dialog="VerifyReadyDlg" Control="Ready to Install" Width="5000" />-->
+  <!--“$(WIX)bin\heat.exe” dir “$(SolutionDir)PMICAutogenAddIn\bin\Debug” -cg SuperFormFiles -gg -scom -sreg -sfrag -srd -dr INSTALLDIR -var env.SuperFormFilesDir -out “$(ProjectDir)FilesFragment.wxs”-->
+</Include>

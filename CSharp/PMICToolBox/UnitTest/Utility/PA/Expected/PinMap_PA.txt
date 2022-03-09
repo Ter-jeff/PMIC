@@ -1,0 +1,1124 @@
+DTPinMap,version=2.1:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Pin Map
+					
+	Group Name	Pin Name	Type	Comment
+		ACTIVE_READY	I/O	
+		ADC_IN	I/O	
+		ADC_IN_UVI80	Analog	
+		ADC_IN_UVI80_DM	Analog	
+		ADC_IN_UVI80_DT	Analog	
+		ADG1414_DIN	I/O	
+		ADG1414_RESET	I/O	
+		ADG1414_SCLK	I/O	
+		ADG1414_SDO	I/O	
+		ADG1414_SYNC	I/O	
+		AMUX_A2	I/O	
+		AMUX_A3	I/O	
+		AMUX_A4	I/O	
+		AMUX_A5	I/O	
+		AMUX_A6	I/O	
+		AMUX_A7	I/O	
+		AMUX_AY	I/O	
+		AMUX_AY_DC30	Analog	
+		AMUX_AY_DC30_DM	Analog	
+		AMUX_AY_DC30_DT	Analog	
+		AMUX_AY_UVI80	Analog	
+		AMUX_AY_UVI80_DM	Analog	
+		AMUX_AY_UVI80_DT	Analog	
+		AMUX_B0	I/O	
+		AMUX_B1	I/O	
+		AMUX_B2	I/O	
+		AMUX_B3	I/O	
+		AMUX_B4	I/O	
+		AMUX_B5	I/O	
+		AMUX_B6	I/O	
+		AMUX_B7	I/O	
+		AMUX_BY	I/O	
+		AMUX_BY_DC30	Analog	
+		AMUX_BY_DC30_DM	Analog	
+		AMUX_BY_DC30_DT	Analog	
+		AMUX_BY_UVI80	Analog	
+		AMUX_BY_UVI80_DM	Analog	
+		AMUX_BY_UVI80_DT	Analog	
+		AMUX_N0	I/O	
+		AMUX_P0	I/O	
+		ATB3_CAL_UVI80_HI	Analog	
+		ATB3_CAL_UVI80_HI_DM	Analog	
+		ATB3_CAL_UVI80_HI_DT	Analog	
+		ATB3_CAL_UVI80_LOW	Analog	
+		ATB3_CAL_UVI80_LOW_DM	Analog	
+		ATB3_CAL_UVI80_LOW_DT	Analog	
+		BRICK_ID1_UVI80	Analog	
+		BRICK_ID1_UVI80_DM	Analog	
+		BRICK_ID1_UVI80_DT	Analog	
+		BRICK_ID2_UVI80	Analog	
+		BRICK_ID2_UVI80_DM	Analog	
+		BRICK_ID2_UVI80_DT	Analog	
+		BSTLQ_LX_UVI80	Analog	
+		BSTLQ_LX_UVI80_DM	Analog	
+		BSTLQ_LX_UVI80_DT	Analog	
+		BSTLQ_VOUT_UVI80	Analog	
+		BSTLQ_VOUT_UVI80_DM	Analog	
+		BSTLQ_VOUT_UVI80_DT	Analog	
+		BUCK_SWI0_IN_UVI80	power	
+		BUCK_SWI0_IN_UVI80_DM	Analog	
+		BUCK_SWI0_IN_UVI80_DT	Analog	
+		BUCK_SWI1_IN_UVI80	power	
+		BUCK_SWI1_IN_UVI80_DM	Analog	
+		BUCK_SWI1_IN_UVI80_DT	Analog	
+		BUCK2_CBOT_UVI80	Analog	
+		BUCK2_CBOT_UVI80_DM	Analog	
+		BUCK2_CBOT_UVI80_DT	Analog	
+		BUCK2_CTOP_UVI80	Analog	
+		BUCK2_CTOP_UVI80_DM	Analog	
+		BUCK2_CTOP_UVI80_DT	Analog	
+		BUCK2_FB_UVI80	Analog	
+		BUCK2_FB_UVI80_DM	Analog	
+		BUCK2_FB_UVI80_DT	Analog	
+		BUCK2_LX	I/O	
+		BUCK2_LX_UVI80	Analog	
+		BUCK2_LX_UVI80_DM	Analog	
+		BUCK2_LX_UVI80_DT	Analog	
+		BUCK6_FB_UVI80	Analog	
+		BUCK6_FB_UVI80_DM	Analog	
+		BUCK6_FB_UVI80_DT	Analog	
+		BUCK6_LX	I/O	
+		BUCK6_LX_UVI80	Analog	
+		BUCK6_LX_UVI80_DM	Analog	
+		BUCK6_LX_UVI80_DT	Analog	
+		BUCK6_VOUT_UVI80	Analog	
+		BUCK6_VOUT_UVI80_DM	Analog	
+		BUCK6_VOUT_UVI80_DT	Analog	
+		BUTTON1	I/O	
+		BUTTON2	I/O	
+		BUTTON3	I/O	
+		BUTTON4	I/O	
+		BUTTONO1	I/O	
+		BUTTONO2	I/O	
+		BUTTONO3	I/O	
+		CB_BSTLQ_LX_UVI80	I/O	
+		CB_VDD_BSTLQ_IN_BSTLQ_VOUT	I/O	
+		CPU_TRIGGER0_L	I/O	
+		CPU_TRIGGER1_L	I/O	
+		CRASH_L	I/O	
+		DBLCLICK_DET	I/O	
+		DC30_DGS_1_DM	Analog	
+		DC30_DGS_2_DM	Analog	
+		DC30_DGS_3_DM	Analog	
+		DC30_DGS_4_DM	Analog	
+		DFT_CTRL_0	I/O	
+		DFT_CTRL_1	I/O	
+		FAULT_OUT_L	I/O	
+		FORCE_SYNC	I/O	
+		GPIO1	I/O	
+		GPIO10	I/O	
+		GPIO11	I/O	
+		GPIO12	I/O	
+		GPIO13	I/O	
+		GPIO14	I/O	
+		GPIO15	I/O	
+		GPIO16	I/O	
+		GPIO17	I/O	
+		GPIO18	I/O	
+		GPIO19	I/O	
+		GPIO2	I/O	
+		GPIO20	I/O	
+		GPIO21	I/O	
+		GPIO22	I/O	
+		GPIO23	I/O	
+		GPIO24	I/O	
+		GPIO25	I/O	
+		GPIO3	I/O	
+		GPIO4	I/O	
+		GPIO5	I/O	
+		GPIO6	I/O	
+		GPIO7	I/O	
+		GPIO8	I/O	
+		GPIO9	I/O	
+		GPU_TRIGGER0_L	I/O	
+		GPU_TRIGGER1_L	I/O	
+		IBAT_UVI80	Analog	
+		IBAT_UVI80_DM	Analog	
+		IBAT_UVI80_DT	Analog	
+		IDAC_11_6_10_BUS_UVI80	Analog	
+		IDAC_11_6_10_BUS_UVI80_DM	Analog	
+		IDAC_11_6_10_BUS_UVI80_DT	Analog	
+		IDAC_11_6_11_BUS_UVI80	Analog	
+		IDAC_11_6_11_BUS_UVI80_DM	Analog	
+		IDAC_11_6_11_BUS_UVI80_DT	Analog	
+		IDAC_11_6_6_BUS_UVI80	Analog	
+		IDAC_11_6_6_BUS_UVI80_DM	Analog	
+		IDAC_11_6_6_BUS_UVI80_DT	Analog	
+		IDAC_11_6_7_BUS_UVI80	Analog	
+		IDAC_11_6_7_BUS_UVI80_DM	Analog	
+		IDAC_11_6_7_BUS_UVI80_DT	Analog	
+		IDAC_11_6_8_BUS_UVI80	Analog	
+		IDAC_11_6_8_BUS_UVI80_DM	Analog	
+		IDAC_11_6_8_BUS_UVI80_DT	Analog	
+		IDAC_11_6_9_BUS_UVI80	Analog	
+		IDAC_11_6_9_BUS_UVI80_DM	Analog	
+		IDAC_11_6_9_BUS_UVI80_DT	Analog	
+		IDAC_17_12_1_BUS_UVI80	Analog	
+		IDAC_17_12_1_BUS_UVI80_DM	Analog	
+		IDAC_17_12_1_BUS_UVI80_DT	Analog	
+		IDAC_5_0_BUS_UVI80	Analog	
+		IDAC_5_0_BUS_UVI80_DM	Analog	
+		IDAC_5_0_BUS_UVI80_DT	Analog	
+		IDAC_OUT_0_DC30	Analog	
+		IDAC_OUT_0_DC30_DM	Analog	
+		IDAC_OUT_0_DC30_DT	Analog	
+		IDAC_OUT_0_UVI80	Analog	
+		IDAC_OUT_0_UVI80_DM	Analog	
+		IDAC_OUT_0_UVI80_DT	Analog	
+		IDAC_OUT_1_DC30	Analog	
+		IDAC_OUT_1_DC30_DM	Analog	
+		IDAC_OUT_1_DC30_DT	Analog	
+		IDAC_OUT_1_UVI80	Analog	
+		IDAC_OUT_1_UVI80_DM	Analog	
+		IDAC_OUT_1_UVI80_DT	Analog	
+		IDAC_OUT_10_DC30	Analog	
+		IDAC_OUT_10_DC30_DM	Analog	
+		IDAC_OUT_10_DC30_DT	Analog	
+		IDAC_OUT_10_UVI80	Analog	
+		IDAC_OUT_10_UVI80_DM	Analog	
+		IDAC_OUT_10_UVI80_DT	Analog	
+		IDAC_OUT_11_DC30	Analog	
+		IDAC_OUT_11_DC30_DM	Analog	
+		IDAC_OUT_11_DC30_DT	Analog	
+		IDAC_OUT_11_UVI80	Analog	
+		IDAC_OUT_11_UVI80_DM	Analog	
+		IDAC_OUT_11_UVI80_DT	Analog	
+		IDAC_OUT_12_DC30	Analog	
+		IDAC_OUT_12_DC30_DM	Analog	
+		IDAC_OUT_12_DC30_DT	Analog	
+		IDAC_OUT_12_UVI80	Analog	
+		IDAC_OUT_12_UVI80_DM	Analog	
+		IDAC_OUT_12_UVI80_DT	Analog	
+		IDAC_OUT_13_DC30	Analog	
+		IDAC_OUT_13_DC30_DM	Analog	
+		IDAC_OUT_13_DC30_DT	Analog	
+		IDAC_OUT_13_UVI80	Analog	
+		IDAC_OUT_13_UVI80_DM	Analog	
+		IDAC_OUT_13_UVI80_DT	Analog	
+		IDAC_OUT_14_DC30	Analog	
+		IDAC_OUT_14_DC30_DM	Analog	
+		IDAC_OUT_14_DC30_DT	Analog	
+		IDAC_OUT_14_UVI80	Analog	
+		IDAC_OUT_14_UVI80_DM	Analog	
+		IDAC_OUT_14_UVI80_DT	Analog	
+		IDAC_OUT_15_DC30	Analog	
+		IDAC_OUT_15_DC30_DM	Analog	
+		IDAC_OUT_15_DC30_DT	Analog	
+		IDAC_OUT_15_UVI80	Analog	
+		IDAC_OUT_15_UVI80_DM	Analog	
+		IDAC_OUT_15_UVI80_DT	Analog	
+		IDAC_OUT_16_DC30	Analog	
+		IDAC_OUT_16_DC30_DM	Analog	
+		IDAC_OUT_16_DC30_DT	Analog	
+		IDAC_OUT_16_UVI80	Analog	
+		IDAC_OUT_16_UVI80_DM	Analog	
+		IDAC_OUT_16_UVI80_DT	Analog	
+		IDAC_OUT_17_DC30	Analog	
+		IDAC_OUT_17_DC30_DM	Analog	
+		IDAC_OUT_17_DC30_DT	Analog	
+		IDAC_OUT_17_UVI80	Analog	
+		IDAC_OUT_17_UVI80_DM	Analog	
+		IDAC_OUT_17_UVI80_DT	Analog	
+		IDAC_OUT_2_DC30	Analog	
+		IDAC_OUT_2_DC30_DM	Analog	
+		IDAC_OUT_2_DC30_DT	Analog	
+		IDAC_OUT_2_UVI80	Analog	
+		IDAC_OUT_2_UVI80_DM	Analog	
+		IDAC_OUT_2_UVI80_DT	Analog	
+		IDAC_OUT_3_DC30	Analog	
+		IDAC_OUT_3_DC30_DM	Analog	
+		IDAC_OUT_3_DC30_DT	Analog	
+		IDAC_OUT_3_UVI80	Analog	
+		IDAC_OUT_3_UVI80_DM	Analog	
+		IDAC_OUT_3_UVI80_DT	Analog	
+		IDAC_OUT_4_DC30	Analog	
+		IDAC_OUT_4_DC30_DM	Analog	
+		IDAC_OUT_4_DC30_DT	Analog	
+		IDAC_OUT_4_UVI80	Analog	
+		IDAC_OUT_4_UVI80_DM	Analog	
+		IDAC_OUT_4_UVI80_DT	Analog	
+		IDAC_OUT_5_DC30	Analog	
+		IDAC_OUT_5_DC30_DM	Analog	
+		IDAC_OUT_5_DC30_DT	Analog	
+		IDAC_OUT_5_UVI80	Analog	
+		IDAC_OUT_5_UVI80_DM	Analog	
+		IDAC_OUT_5_UVI80_DT	Analog	
+		IDAC_OUT_6_DC30	Analog	
+		IDAC_OUT_6_DC30_DM	Analog	
+		IDAC_OUT_6_DC30_DT	Analog	
+		IDAC_OUT_6_UVI80	Analog	
+		IDAC_OUT_6_UVI80_DM	Analog	
+		IDAC_OUT_6_UVI80_DT	Analog	
+		IDAC_OUT_7_DC30	Analog	
+		IDAC_OUT_7_DC30_DM	Analog	
+		IDAC_OUT_7_DC30_DT	Analog	
+		IDAC_OUT_7_UVI80	Analog	
+		IDAC_OUT_7_UVI80_DM	Analog	
+		IDAC_OUT_7_UVI80_DT	Analog	
+		IDAC_OUT_8_DC30	Analog	
+		IDAC_OUT_8_DC30_DM	Analog	
+		IDAC_OUT_8_DC30_DT	Analog	
+		IDAC_OUT_8_UVI80	Analog	
+		IDAC_OUT_8_UVI80_DM	Analog	
+		IDAC_OUT_8_UVI80_DT	Analog	
+		IDAC_OUT_9_DC30	Analog	
+		IDAC_OUT_9_DC30_DM	Analog	
+		IDAC_OUT_9_DC30_DT	Analog	
+		IDAC_OUT_9_UVI80	Analog	
+		IDAC_OUT_9_UVI80_DM	Analog	
+		IDAC_OUT_9_UVI80_DT	Analog	
+		IREF_UVI80	Analog	
+		IREF_UVI80_DM	Analog	
+		IREF_UVI80_DT	Analog	
+		K1001	Utility	
+		K1002	Utility	
+		K1003	Utility	
+		K1004	Utility	
+		K1005	Utility	
+		K1006	Utility	
+		K1007	Utility	
+		K1008	Utility	
+		K1009	Utility	
+		K1010	Utility	
+		K1011	Utility	
+		K1012	Utility	
+		K1013	Utility	
+		K1014	Utility	
+		K1015	Utility	
+		K1016	Utility	
+		K1017	Utility	
+		K1018	Utility	
+		K1019	Utility	
+		K1020	Utility	
+		K1021	Utility	
+		K1022	Utility	
+		K1023	Utility	
+		K1024	Utility	
+		K1025	Utility	
+		K1026	Utility	
+		K1027	Utility	
+		K1028	Utility	
+		K1029	Utility	
+		K1030	Utility	
+		K1031	Utility	
+		K1032	Utility	
+		K1033	Utility	
+		K1034	Utility	
+		K1035	Utility	
+		K1036	Utility	
+		K1037	Utility	
+		K1038	Utility	
+		K1039	Utility	
+		K1040	Utility	
+		K1041	Utility	
+		K1042	Utility	
+		K1043	Utility	
+		K1044	Utility	
+		K1045	Utility	
+		K1046	Utility	
+		K1047	Utility	
+		K1048	Utility	
+		K1049	Utility	
+		K1050	Utility	
+		K1051	Utility	
+		K1052	Utility	
+		K1053	Utility	
+		K1054	Utility	
+		K1055	Utility	
+		K1056	Utility	
+		K1057	Utility	
+		K1058	Utility	
+		K1059	Utility	
+		K1060	Utility	
+		K1061	Utility	
+		K1062	Utility	
+		K1063	Utility	
+		K1064	Utility	
+		K1065	Utility	
+		K1066	Utility	
+		K1067	Utility	
+		K1068	Utility	
+		K1069	Utility	
+		K1070	Utility	
+		K1071	Utility	
+		K1072	Utility	
+		K1402	Utility	
+		K1403	Utility	
+		K1404	Utility	
+		K1601	Utility	
+		K2101	Utility	
+		K2102	Utility	
+		K2103	Utility	
+		K2104	Utility	
+		K2105	Utility	
+		K2106	Utility	
+		K2107	Utility	
+		K3101	Utility	
+		K3901	Utility	
+		K3902	Utility	
+		K3903	Utility	
+		K3904	Utility	
+		K4101	Utility	
+		K4201	Utility	
+		K4202	Utility	
+		K4701	Utility	
+		K4702	Utility	
+		K4703	Utility	
+		K4801	Utility	
+		K4802	Utility	
+		K4901	Utility	
+		K4902	Utility	
+		K5001	Utility	
+		K5002	Utility	
+		K5101	Utility	
+		K5102	Utility	
+		K5201	Utility	
+		K5202	Utility	
+		K5301	Utility	
+		K5601	Utility	
+		K5701	Utility	
+		K6301	Utility	
+		K6302	Utility	
+		K6303	Utility	
+		K6304	Utility	
+		K6305	Utility	
+		K6306	Utility	
+		K6307	Utility	
+		K6308	Utility	
+		K6309	Utility	
+		K6801	Utility	
+		K6802	Utility	
+		K6803	Utility	
+		K6901	Utility	
+		K6902	Utility	
+		K6903	Utility	
+		K6904	Utility	
+		K7001	Utility	
+		K7002	Utility	
+		K7003	Utility	
+		K7004	Utility	
+		K7005	Utility	
+		K7006	Utility	
+		K7007	Utility	
+		K7008	Utility	
+		K7009	Utility	
+		K7010	Utility	
+		K7011	Utility	
+		K7012	Utility	
+		K7013	Utility	
+		K7014	Utility	
+		K7015	Utility	
+		LDO13_EN	I/O	
+		MONITOR_CHANNEL	I/O	
+		NXTAL_MEMS	I/O	
+		OUT_32K	I/O	
+		RC_VOUT_UVI80	Analog	
+		RC_VOUT_UVI80_DM	Analog	
+		RC_VOUT_UVI80_DT	Analog	
+		REFCLK_32KHZ_PA	I/O	
+		RESET_IN1	I/O	
+		RESET_IN2	I/O	
+		RESET_IN3	I/O	
+		RESET_L	I/O	
+		SHDN	I/O	
+		SLEEP_32K	I/O	
+		SPMI_SCLK	I/O	
+		SPMI_SDATA	I/O	
+		SYS_ALIVE	I/O	
+		TCAL	I/O	
+		TCAL_DC30	Analog	
+		TCAL_DC30_DM	Analog	
+		TCAL_DC30_DT	Analog	
+		TCAL_UVI80	Analog	
+		TCAL_UVI80_DM	Analog	
+		TCAL_UVI80_DT	Analog	
+		TDEV1	I/O	
+		TDEV1_DC30	Analog	
+		TDEV1_DC30_DM	Analog	
+		TDEV1_DC30_DT	Analog	
+		TDEV1_UVI80_0	Analog	
+		TDEV1_UVI80_0_DM	Analog	
+		TDEV1_UVI80_0_DT	Analog	
+		TDEV2	I/O	
+		TDEV3	I/O	
+		TDEV4	I/O	
+		TDEV5	I/O	
+		UVI80_DGS_1_DM	Analog	
+		UVI80_DGS_2_DM	Analog	
+		UVI80_DGS_3_DM	Analog	
+		UVI80_DGS_4_DM	Analog	
+		UVI80_DGS_5_DM	Analog	
+		UVI80_DGS_6_DM	Analog	
+		UVI80_DGS_7_DM	Analog	
+		UVI80_DGS_8_DM	Analog	
+		UVWARN_L	I/O	
+		VBAT_UVI80	Analog	
+		VBAT_UVI80_DM	Analog	
+		VBAT_UVI80_DT	Analog	
+		VCP_UVI80	power	
+		VCP_UVI80_DM	Analog	
+		VCP_UVI80_DT	Analog	
+		VDD_ANA_UVI80	power	
+		VDD_ANA_UVI80_DM	Analog	
+		VDD_ANA_UVI80_DT	Analog	
+		VDD_B12_LDO_UVI80	power	
+		VDD_B12_LDO_UVI80_DM	Analog	
+		VDD_B12_LDO_UVI80_DT	Analog	
+		VDD_B4_S_UVI80	power	
+		VDD_B4_S_UVI80_DM	Analog	
+		VDD_B4_S_UVI80_DT	Analog	
+		VDD_B4_UVI80	power	
+		VDD_B4_UVI80_DM	Analog	
+		VDD_B4_UVI80_DT	Analog	
+		VDD_B6_LDO_UVI80	power	
+		VDD_B6_LDO_UVI80_DM	Analog	
+		VDD_B6_LDO_UVI80_DT	Analog	
+		VDD_BOOST_LDO_UVI80	power	
+		VDD_BOOST_LDO_UVI80_DM	Analog	
+		VDD_BOOST_LDO_UVI80_DT	Analog	
+		VDD_BOOST_LNV_UVI80	power	
+		VDD_BOOST_LNV_UVI80_DM	Analog	
+		VDD_BOOST_LNV_UVI80_DT	Analog	
+		VDD_BOOST_UVI80	power	
+		VDD_BOOST_UVI80_DM	Analog	
+		VDD_BOOST_UVI80_DT	Analog	
+		VDD_BOOST_UVLO_L	I/O	
+		VDD_BOOST1_UVI80	power	
+		VDD_BOOST1_UVI80_DM	Analog	
+		VDD_BOOST1_UVI80_DT	Analog	
+		VDD_BSTLQ_IN_UVI80	power	
+		VDD_BSTLQ_IN_UVI80_DM	Analog	
+		VDD_BSTLQ_IN_UVI80_DT	Analog	
+		VDD_BUCK2_UVI80	power	
+		VDD_BUCK2_UVI80_DM	Analog	
+		VDD_BUCK2_UVI80_DT	Analog	
+		VDD_BUCK6_UVI80	power	
+		VDD_BUCK6_UVI80_DM	Analog	
+		VDD_BUCK6_UVI80_DT	Analog	
+		VDD_DIG_UVI80	power	
+		VDD_DIG_UVI80_DM	Analog	
+		VDD_DIG_UVI80_DT	Analog	
+		VDD_LDO14_UVI80	power	
+		VDD_LDO14_UVI80_DM	Analog	
+		VDD_LDO14_UVI80_DT	Analog	
+		VDD_LDO6_UVI80	power	
+		VDD_LDO6_UVI80_DM	Analog	
+		VDD_LDO6_UVI80_DT	Analog	
+		VDD_LDO7_UVI80	power	
+		VDD_LDO7_UVI80_DM	Analog	
+		VDD_LDO7_UVI80_DT	Analog	
+		VDD_MAIN_BSTLQ_UVI80	power	
+		VDD_MAIN_BSTLQ_UVI80_DM	Analog	
+		VDD_MAIN_BSTLQ_UVI80_DT	Analog	
+		VDD_MAIN_DRV_UVI80	power	
+		VDD_MAIN_DRV_UVI80_DM	Analog	
+		VDD_MAIN_DRV_UVI80_DT	Analog	
+		VDD_MAIN_LDO_UVI80	power	
+		VDD_MAIN_LDO_UVI80_DM	Analog	
+		VDD_MAIN_LDO_UVI80_DT	Analog	
+		VDD_MAIN_SNS_UVI80	power	
+		VDD_MAIN_SNS_UVI80_DM	Analog	
+		VDD_MAIN_SNS_UVI80_DT	Analog	
+		VDD_MAIN_SNS_WLED_UVI80	power	
+		VDD_MAIN_SNS_WLED_UVI80_DM	Analog	
+		VDD_MAIN_SNS_WLED_UVI80_DT	Analog	
+		VDD_MAIN_UVI80	power	
+		VDD_MAIN_UVI80_DM	Analog	
+		VDD_MAIN_UVI80_DT	Analog	
+		VDD_MAIN_WLED_UVI80	power	
+		VDD_MAIN_WLED_UVI80_DM	Analog	
+		VDD_MAIN_WLED_UVI80_DT	Analog	
+		VDDIO1V2_UVI80	power	
+		VDDIO1V2_UVI80_DM	Analog	
+		VDDIO1V2_UVI80_DT	Analog	
+		VLDO1_UVI80	Analog	
+		VLDO1_UVI80_DM	Analog	
+		VLDO1_UVI80_DT	Analog	
+		VLDO10_UVI80	Analog	
+		VLDO10_UVI80_DM	Analog	
+		VLDO10_UVI80_DT	Analog	
+		VLDO11_UVI80	Analog	
+		VLDO11_UVI80_DM	Analog	
+		VLDO11_UVI80_DT	Analog	
+		VLDO12_UVI80	Analog	
+		VLDO12_UVI80_DM	Analog	
+		VLDO12_UVI80_DT	Analog	
+		VLDO13_UVI80	Analog	
+		VLDO13_UVI80_DM	Analog	
+		VLDO13_UVI80_DT	Analog	
+		VLDO14_UVI80	Analog	
+		VLDO14_UVI80_DM	Analog	
+		VLDO14_UVI80_DT	Analog	
+		VLDO2_UVI80	Analog	
+		VLDO2_UVI80_DM	Analog	
+		VLDO2_UVI80_DT	Analog	
+		VLDO3_UVI80	Analog	
+		VLDO3_UVI80_DM	Analog	
+		VLDO3_UVI80_DT	Analog	
+		VLDO4_UVI80	Analog	
+		VLDO4_UVI80_DM	Analog	
+		VLDO4_UVI80_DT	Analog	
+		VLDO5_UVI80	Analog	
+		VLDO5_UVI80_DM	Analog	
+		VLDO5_UVI80_DT	Analog	
+		VLDO6_UVI80	Analog	
+		VLDO6_UVI80_DM	Analog	
+		VLDO6_UVI80_DT	Analog	
+		VLDO7_UVI80	Analog	
+		VLDO7_UVI80_DM	Analog	
+		VLDO7_UVI80_DT	Analog	
+		VLDO8_UVI80	Analog	
+		VLDO8_UVI80_DM	Analog	
+		VLDO8_UVI80_DT	Analog	
+		VLDO9_UVI80	Analog	
+		VLDO9_UVI80_DM	Analog	
+		VLDO9_UVI80_DT	Analog	
+		VLDOINT_UVI80	Analog	
+		VLDOINT_UVI80_DM	Analog	
+		VLDOINT_UVI80_DT	Analog	
+		VMBX_UVI80	Analog	
+		VMBX_UVI80_DM	Analog	
+		VMBX_UVI80_DT	Analog	
+		VPP	I/O	
+		VPP_DC30	power	
+		VPP_DC30_DM	Analog	
+		VPP_DC30_DT	Analog	
+		VREF_ADC_DC30	Analog	
+		VREF_ADC_DC30_DM	Analog	
+		VREF_ADC_DC30_DT	Analog	
+		VREF_DC30	Analog	
+		VREF_DC30_DM	Analog	
+		VREF_DC30_DT	Analog	
+		VREF_UVI80	Analog	
+		VREF_UVI80_DM	Analog	
+		VREF_UVI80_DT	Analog	
+		VSS_DFT_2	I/O	
+		VSS_REF	I/O	
+		VSS_S_UVI80	Analog	
+		VSS_S_UVI80_DM	Analog	
+		VSS_S_UVI80_DT	Analog	
+		WLED_HP_LX_UVI80	Analog	
+		WLED_HP_LX_UVI80_DM	Analog	
+		WLED_HP_LX_UVI80_DT	Analog	
+		WLED_HP1_LX_DC30_0	Analog	
+		WLED_HP1_LX_DC30_0_DM	Analog	
+		WLED_HP1_LX_DC30_0_DT	Analog	
+		WLED_HP1_LX_DC30_1	Analog	
+		WLED_HP1_LX_DC30_1_DM	Analog	
+		WLED_HP1_LX_DC30_1_DT	Analog	
+		WLED_HP2_LX_DC30_0	Analog	
+		WLED_HP2_LX_DC30_0_DM	Analog	
+		WLED_HP2_LX_DC30_0_DT	Analog	
+		WLED_HP2_LX_DC30_1	Analog	
+		WLED_HP2_LX_DC30_1_DM	Analog	
+		WLED_HP2_LX_DC30_1_DT	Analog	
+		WLED_LP_LX_DC30_0	Analog	
+		WLED_LP_LX_DC30_0_DM	Analog	
+		WLED_LP_LX_DC30_0_DT	Analog	
+		WLED_LP_LX_DC30_1	Analog	
+		WLED_LP_LX_DC30_1_DM	Analog	
+		WLED_LP_LX_DC30_1_DT	Analog	
+		WLED_VOUT_FB_DC30	Analog	
+		WLED_VOUT_FB_DC30_DM	Analog	
+		WLED_VOUT_FB_DC30_DT	Analog	
+		WLED_VOUT_FB_UVI80	Analog	
+		WLED_VOUT_FB_UVI80_DM	Analog	
+		WLED_VOUT_FB_UVI80_DT	Analog	
+		XIN	I/O	
+		XOUT	I/O	
+	All_IO	ACTIVE_READY	I/O	
+	All_IO	ADC_IN	I/O	
+	All_IO	ADG1414_DIN	I/O	
+	All_IO	ADG1414_RESET	I/O	
+	All_IO	ADG1414_SCLK	I/O	
+	All_IO	ADG1414_SDO	I/O	
+	All_IO	ADG1414_SYNC	I/O	
+	All_IO	AMUX_A2	I/O	
+	All_IO	AMUX_A3	I/O	
+	All_IO	AMUX_A4	I/O	
+	All_IO	AMUX_A5	I/O	
+	All_IO	AMUX_A6	I/O	
+	All_IO	AMUX_A7	I/O	
+	All_IO	AMUX_AY	I/O	
+	All_IO	AMUX_B0	I/O	
+	All_IO	AMUX_B1	I/O	
+	All_IO	AMUX_B2	I/O	
+	All_IO	AMUX_B3	I/O	
+	All_IO	AMUX_B4	I/O	
+	All_IO	AMUX_B5	I/O	
+	All_IO	AMUX_B6	I/O	
+	All_IO	AMUX_B7	I/O	
+	All_IO	AMUX_BY	I/O	
+	All_IO	AMUX_N0	I/O	
+	All_IO	AMUX_P0	I/O	
+	All_IO	BUCK2_LX	I/O	
+	All_IO	BUCK6_LX	I/O	
+	All_IO	BUTTON1	I/O	
+	All_IO	BUTTON2	I/O	
+	All_IO	BUTTON3	I/O	
+	All_IO	BUTTON4	I/O	
+	All_IO	BUTTONO1	I/O	
+	All_IO	BUTTONO2	I/O	
+	All_IO	BUTTONO3	I/O	
+	All_IO	CB_BSTLQ_LX_UVI80	I/O	
+	All_IO	CB_VDD_BSTLQ_IN_BSTLQ_VOUT	I/O	
+	All_IO	CPU_TRIGGER0_L	I/O	
+	All_IO	CPU_TRIGGER1_L	I/O	
+	All_IO	CRASH_L	I/O	
+	All_IO	DBLCLICK_DET	I/O	
+	All_IO	DFT_CTRL_0	I/O	
+	All_IO	DFT_CTRL_1	I/O	
+	All_IO	FAULT_OUT_L	I/O	
+	All_IO	FORCE_SYNC	I/O	
+	All_IO	GPIO1	I/O	
+	All_IO	GPIO2	I/O	
+	All_IO	GPIO3	I/O	
+	All_IO	GPIO4	I/O	
+	All_IO	GPIO5	I/O	
+	All_IO	GPIO6	I/O	
+	All_IO	GPIO7	I/O	
+	All_IO	GPIO8	I/O	
+	All_IO	GPIO9	I/O	
+	All_IO	GPIO10	I/O	
+	All_IO	GPIO11	I/O	
+	All_IO	GPIO12	I/O	
+	All_IO	GPIO13	I/O	
+	All_IO	GPIO14	I/O	
+	All_IO	GPIO15	I/O	
+	All_IO	GPIO16	I/O	
+	All_IO	GPIO17	I/O	
+	All_IO	GPIO18	I/O	
+	All_IO	GPIO19	I/O	
+	All_IO	GPIO20	I/O	
+	All_IO	GPIO21	I/O	
+	All_IO	GPIO22	I/O	
+	All_IO	GPIO23	I/O	
+	All_IO	GPIO24	I/O	
+	All_IO	GPIO25	I/O	
+	All_IO	GPU_TRIGGER0_L	I/O	
+	All_IO	GPU_TRIGGER1_L	I/O	
+	All_IO	LDO13_EN	I/O	
+	All_IO	MONITOR_CHANNEL	I/O	
+	All_IO	NXTAL_MEMS	I/O	
+	All_IO	OUT_32K	I/O	
+	All_IO	REFCLK_32KHZ_PA	I/O	
+	All_IO	RESET_IN1	I/O	
+	All_IO	RESET_IN2	I/O	
+	All_IO	RESET_IN3	I/O	
+	All_IO	RESET_L	I/O	
+	All_IO	SHDN	I/O	
+	All_IO	SLEEP_32K	I/O	
+	All_IO	SPMI_SCLK	I/O	
+	All_IO	SPMI_SDATA	I/O	
+	All_IO	SYS_ALIVE	I/O	
+	All_IO	TCAL	I/O	
+	All_IO	TDEV1	I/O	
+	All_IO	TDEV2	I/O	
+	All_IO	TDEV3	I/O	
+	All_IO	TDEV4	I/O	
+	All_IO	TDEV5	I/O	
+	All_IO	UVWARN_L	I/O	
+	All_IO	VDD_BOOST_UVLO_L	I/O	
+	All_IO	VPP	I/O	
+	All_IO	VSS_DFT_2	I/O	
+	All_IO	VSS_REF	I/O	
+	All_IO	XIN	I/O	
+	All_IO	XOUT	I/O	
+	All_UVI80_Analog	ADC_IN_UVI80	Analog	
+	All_UVI80_Analog	AMUX_AY_UVI80	Analog	
+	All_UVI80_Analog	AMUX_BY_UVI80	Analog	
+	All_UVI80_Analog	ATB3_CAL_UVI80_HI	Analog	
+	All_UVI80_Analog	ATB3_CAL_UVI80_LOW	Analog	
+	All_UVI80_Analog	BRICK_ID1_UVI80	Analog	
+	All_UVI80_Analog	BRICK_ID2_UVI80	Analog	
+	All_UVI80_Analog	BSTLQ_LX_UVI80	Analog	
+	All_UVI80_Analog	BSTLQ_VOUT_UVI80	Analog	
+	All_UVI80_Analog	BUCK2_CBOT_UVI80	Analog	
+	All_UVI80_Analog	BUCK2_CTOP_UVI80	Analog	
+	All_UVI80_Analog	BUCK2_FB_UVI80	Analog	
+	All_UVI80_Analog	BUCK2_LX_UVI80	Analog	
+	All_UVI80_Analog	BUCK6_FB_UVI80	Analog	
+	All_UVI80_Analog	BUCK6_LX_UVI80	Analog	
+	All_UVI80_Analog	BUCK6_VOUT_UVI80	Analog	
+	All_UVI80_Analog	IBAT_UVI80	Analog	
+	All_UVI80_Analog	IDAC_11_6_10_BUS_UVI80	Analog	
+	All_UVI80_Analog	IDAC_11_6_11_BUS_UVI80	Analog	
+	All_UVI80_Analog	IDAC_11_6_6_BUS_UVI80	Analog	
+	All_UVI80_Analog	IDAC_11_6_7_BUS_UVI80	Analog	
+	All_UVI80_Analog	IDAC_11_6_8_BUS_UVI80	Analog	
+	All_UVI80_Analog	IDAC_11_6_9_BUS_UVI80	Analog	
+	All_UVI80_Analog	IDAC_17_12_1_BUS_UVI80	Analog	
+	All_UVI80_Analog	IDAC_5_0_BUS_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_0_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_10_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_11_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_12_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_13_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_14_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_15_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_16_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_17_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_1_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_2_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_3_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_4_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_5_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_6_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_7_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_8_UVI80	Analog	
+	All_UVI80_Analog	IDAC_OUT_9_UVI80	Analog	
+	All_UVI80_Analog	IREF_UVI80	Analog	
+	All_UVI80_Analog	RC_VOUT_UVI80	Analog	
+	All_UVI80_Analog	TCAL_UVI80	Analog	
+	All_UVI80_Analog	TDEV1_UVI80_0	Analog	
+	All_UVI80_Analog	VBAT_UVI80	Analog	
+	All_UVI80_Analog	VLDO10_UVI80	Analog	
+	All_UVI80_Analog	VLDO11_UVI80	Analog	
+	All_UVI80_Analog	VLDO12_UVI80	Analog	
+	All_UVI80_Analog	VLDO13_UVI80	Analog	
+	All_UVI80_Analog	VLDO14_UVI80	Analog	
+	All_UVI80_Analog	VLDO1_UVI80	Analog	
+	All_UVI80_Analog	VLDO2_UVI80	Analog	
+	All_UVI80_Analog	VLDO3_UVI80	Analog	
+	All_UVI80_Analog	VLDO4_UVI80	Analog	
+	All_UVI80_Analog	VLDO5_UVI80	Analog	
+	All_UVI80_Analog	VLDO6_UVI80	Analog	
+	All_UVI80_Analog	VLDO7_UVI80	Analog	
+	All_UVI80_Analog	VLDO8_UVI80	Analog	
+	All_UVI80_Analog	VLDO9_UVI80	Analog	
+	All_UVI80_Analog	VLDOINT_UVI80	Analog	
+	All_UVI80_Analog	VMBX_UVI80	Analog	
+	All_UVI80_Analog	VREF_UVI80	Analog	
+	All_UVI80_Analog	VSS_S_UVI80	Analog	
+	All_UVI80_Analog	WLED_HP_LX_UVI80	Analog	
+	All_UVI80_Analog	WLED_VOUT_FB_UVI80	Analog	
+	All_UVI80_power	BUCK_SWI0_IN_UVI80	power	
+	All_UVI80_power	BUCK_SWI1_IN_UVI80	power	
+	All_UVI80_power	VCP_UVI80	power	
+	All_UVI80_power	VDDIO1V2_UVI80	power	
+	All_UVI80_power	VDD_ANA_UVI80	power	
+	All_UVI80_power	VDD_B12_LDO_UVI80	power	
+	All_UVI80_power	VDD_B4_S_UVI80	power	
+	All_UVI80_power	VDD_B4_UVI80	power	
+	All_UVI80_power	VDD_B6_LDO_UVI80	power	
+	All_UVI80_power	VDD_BOOST1_UVI80	power	
+	All_UVI80_power	VDD_BOOST_LDO_UVI80	power	
+	All_UVI80_power	VDD_BOOST_LNV_UVI80	power	
+	All_UVI80_power	VDD_BOOST_UVI80	power	
+	All_UVI80_power	VDD_BSTLQ_IN_UVI80	power	
+	All_UVI80_power	VDD_BUCK2_UVI80	power	
+	All_UVI80_power	VDD_BUCK6_UVI80	power	
+	All_UVI80_power	VDD_DIG_UVI80	power	
+	All_UVI80_power	VDD_LDO14_UVI80	power	
+	All_UVI80_power	VDD_LDO6_UVI80	power	
+	All_UVI80_power	VDD_LDO7_UVI80	power	
+	All_UVI80_power	VDD_MAIN_BSTLQ_UVI80	power	
+	All_UVI80_power	VDD_MAIN_DRV_UVI80	power	
+	All_UVI80_power	VDD_MAIN_LDO_UVI80	power	
+	All_UVI80_power	VDD_MAIN_SNS_UVI80	power	
+	All_UVI80_power	VDD_MAIN_SNS_WLED_UVI80	power	
+	All_UVI80_power	VDD_MAIN_UVI80	power	
+	All_UVI80_power	VDD_MAIN_WLED_UVI80	power	
+	All_DC30_Analog	AMUX_AY_DC30	Analog	
+	All_DC30_Analog	AMUX_BY_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_0_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_10_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_11_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_12_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_13_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_14_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_15_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_16_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_17_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_1_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_2_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_3_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_4_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_5_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_6_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_7_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_8_DC30	Analog	
+	All_DC30_Analog	IDAC_OUT_9_DC30	Analog	
+	All_DC30_Analog	TCAL_DC30	Analog	
+	All_DC30_Analog	TDEV1_DC30	Analog	
+	All_DC30_Analog	VREF_ADC_DC30	Analog	
+	All_DC30_Analog	VREF_DC30	Analog	
+	All_DC30_Analog	WLED_HP1_LX_DC30_0	Analog	
+	All_DC30_Analog	WLED_HP1_LX_DC30_1	Analog	
+	All_DC30_Analog	WLED_HP2_LX_DC30_0	Analog	
+	All_DC30_Analog	WLED_HP2_LX_DC30_1	Analog	
+	All_DC30_Analog	WLED_LP_LX_DC30_0	Analog	
+	All_DC30_Analog	WLED_LP_LX_DC30_1	Analog	
+	All_DC30_Analog	WLED_VOUT_FB_DC30	Analog	
+	All_DC30_power	VPP_DC30	power	
+	All_Support	K1001	Utility	
+	All_Support	K1002	Utility	
+	All_Support	K1003	Utility	
+	All_Support	K1004	Utility	
+	All_Support	K1005	Utility	
+	All_Support	K1006	Utility	
+	All_Support	K1007	Utility	
+	All_Support	K1008	Utility	
+	All_Support	K1009	Utility	
+	All_Support	K1010	Utility	
+	All_Support	K1011	Utility	
+	All_Support	K1012	Utility	
+	All_Support	K1013	Utility	
+	All_Support	K1014	Utility	
+	All_Support	K1015	Utility	
+	All_Support	K1016	Utility	
+	All_Support	K1017	Utility	
+	All_Support	K1018	Utility	
+	All_Support	K1019	Utility	
+	All_Support	K1020	Utility	
+	All_Support	K1021	Utility	
+	All_Support	K1022	Utility	
+	All_Support	K1023	Utility	
+	All_Support	K1024	Utility	
+	All_Support	K1025	Utility	
+	All_Support	K1026	Utility	
+	All_Support	K1027	Utility	
+	All_Support	K1028	Utility	
+	All_Support	K1029	Utility	
+	All_Support	K1030	Utility	
+	All_Support	K1031	Utility	
+	All_Support	K1032	Utility	
+	All_Support	K1033	Utility	
+	All_Support	K1034	Utility	
+	All_Support	K1035	Utility	
+	All_Support	K1036	Utility	
+	All_Support	K1037	Utility	
+	All_Support	K1038	Utility	
+	All_Support	K1039	Utility	
+	All_Support	K1040	Utility	
+	All_Support	K1041	Utility	
+	All_Support	K1042	Utility	
+	All_Support	K1043	Utility	
+	All_Support	K1044	Utility	
+	All_Support	K1045	Utility	
+	All_Support	K1046	Utility	
+	All_Support	K1047	Utility	
+	All_Support	K1048	Utility	
+	All_Support	K1049	Utility	
+	All_Support	K1050	Utility	
+	All_Support	K1051	Utility	
+	All_Support	K1052	Utility	
+	All_Support	K1053	Utility	
+	All_Support	K1054	Utility	
+	All_Support	K1055	Utility	
+	All_Support	K1056	Utility	
+	All_Support	K1057	Utility	
+	All_Support	K1058	Utility	
+	All_Support	K1059	Utility	
+	All_Support	K1060	Utility	
+	All_Support	K1061	Utility	
+	All_Support	K1062	Utility	
+	All_Support	K1063	Utility	
+	All_Support	K1064	Utility	
+	All_Support	K1065	Utility	
+	All_Support	K1066	Utility	
+	All_Support	K1067	Utility	
+	All_Support	K1068	Utility	
+	All_Support	K1069	Utility	
+	All_Support	K1070	Utility	
+	All_Support	K1071	Utility	
+	All_Support	K1072	Utility	
+	All_Support	K1402	Utility	
+	All_Support	K1403	Utility	
+	All_Support	K1404	Utility	
+	All_Support	K1601	Utility	
+	All_Support	K2101	Utility	
+	All_Support	K2102	Utility	
+	All_Support	K2103	Utility	
+	All_Support	K2104	Utility	
+	All_Support	K2105	Utility	
+	All_Support	K2106	Utility	
+	All_Support	K2107	Utility	
+	All_Support	K3101	Utility	
+	All_Support	K3901	Utility	
+	All_Support	K3902	Utility	
+	All_Support	K3903	Utility	
+	All_Support	K3904	Utility	
+	All_Support	K4101	Utility	
+	All_Support	K4201	Utility	
+	All_Support	K4202	Utility	
+	All_Support	K4701	Utility	
+	All_Support	K4702	Utility	
+	All_Support	K4703	Utility	
+	All_Support	K4801	Utility	
+	All_Support	K4802	Utility	
+	All_Support	K4901	Utility	
+	All_Support	K4902	Utility	
+	All_Support	K5001	Utility	
+	All_Support	K5002	Utility	
+	All_Support	K5101	Utility	
+	All_Support	K5102	Utility	
+	All_Support	K5201	Utility	
+	All_Support	K5202	Utility	
+	All_Support	K5301	Utility	
+	All_Support	K5601	Utility	
+	All_Support	K5701	Utility	
+	All_Support	K6301	Utility	
+	All_Support	K6302	Utility	
+	All_Support	K6303	Utility	
+	All_Support	K6304	Utility	
+	All_Support	K6305	Utility	
+	All_Support	K6306	Utility	
+	All_Support	K6307	Utility	
+	All_Support	K6308	Utility	
+	All_Support	K6309	Utility	
+	All_Support	K6801	Utility	
+	All_Support	K6802	Utility	
+	All_Support	K6803	Utility	
+	All_Support	K6901	Utility	
+	All_Support	K6902	Utility	
+	All_Support	K6903	Utility	
+	All_Support	K6904	Utility	
+	All_Support	K7001	Utility	
+	All_Support	K7002	Utility	
+	All_Support	K7003	Utility	
+	All_Support	K7004	Utility	
+	All_Support	K7005	Utility	
+	All_Support	K7006	Utility	
+	All_Support	K7007	Utility	
+	All_Support	K7008	Utility	
+	All_Support	K7009	Utility	
+	All_Support	K7010	Utility	
+	All_Support	K7011	Utility	
+	All_Support	K7012	Utility	
+	All_Support	K7013	Utility	
+	All_Support	K7014	Utility	
+	All_Support	K7015	Utility	
+	DCVI	BUCK_SWI0_IN_UVI80	power	
+	DCVI	BUCK_SWI1_IN_UVI80	power	
+	DCVI	VCP_UVI80	power	
+	DCVI	VDDIO1V2_UVI80	power	
+	DCVI	VDD_ANA_UVI80	power	
+	DCVI	VDD_B12_LDO_UVI80	power	
+	DCVI	VDD_B4_S_UVI80	power	
+	DCVI	VDD_B4_UVI80	power	
+	DCVI	VDD_B6_LDO_UVI80	power	
+	DCVI	VDD_BOOST1_UVI80	power	
+	DCVI	VDD_BOOST_LDO_UVI80	power	
+	DCVI	VDD_BOOST_LNV_UVI80	power	
+	DCVI	VDD_BOOST_UVI80	power	
+	DCVI	VDD_BSTLQ_IN_UVI80	power	
+	DCVI	VDD_BUCK2_UVI80	power	
+	DCVI	VDD_BUCK6_UVI80	power	
+	DCVI	VDD_DIG_UVI80	power	
+	DCVI	VDD_LDO14_UVI80	power	
+	DCVI	VDD_LDO6_UVI80	power	
+	DCVI	VDD_LDO7_UVI80	power	
+	DCVI	VDD_MAIN_BSTLQ_UVI80	power	
+	DCVI	VDD_MAIN_DRV_UVI80	power	
+	DCVI	VDD_MAIN_LDO_UVI80	power	
+	DCVI	VDD_MAIN_SNS_UVI80	power	
+	DCVI	VDD_MAIN_SNS_WLED_UVI80	power	
+	DCVI	VDD_MAIN_UVI80	power	
+	DCVI	VDD_MAIN_WLED_UVI80	power	
+	DCVI	VPP_DC30	power	
+	DCVI_Analog	ADC_IN_UVI80	Analog	
+	DCVI_Analog	AMUX_AY_DC30	Analog	
+	DCVI_Analog	AMUX_AY_UVI80	Analog	
+	DCVI_Analog	AMUX_BY_DC30	Analog	
+	DCVI_Analog	AMUX_BY_UVI80	Analog	
+	DCVI_Analog	ATB3_CAL_UVI80_HI	Analog	
+	DCVI_Analog	ATB3_CAL_UVI80_LOW	Analog	
+	DCVI_Analog	BRICK_ID1_UVI80	Analog	
+	DCVI_Analog	BRICK_ID2_UVI80	Analog	
+	DCVI_Analog	BSTLQ_LX_UVI80	Analog	
+	DCVI_Analog	BSTLQ_VOUT_UVI80	Analog	
+	DCVI_Analog	BUCK2_CBOT_UVI80	Analog	
+	DCVI_Analog	BUCK2_CTOP_UVI80	Analog	
+	DCVI_Analog	BUCK2_FB_UVI80	Analog	
+	DCVI_Analog	BUCK2_LX_UVI80	Analog	
+	DCVI_Analog	BUCK6_FB_UVI80	Analog	
+	DCVI_Analog	BUCK6_LX_UVI80	Analog	
+	DCVI_Analog	BUCK6_VOUT_UVI80	Analog	
+	DCVI_Analog	IBAT_UVI80	Analog	
+	DCVI_Analog	IDAC_11_6_10_BUS_UVI80	Analog	
+	DCVI_Analog	IDAC_11_6_11_BUS_UVI80	Analog	
+	DCVI_Analog	IDAC_11_6_6_BUS_UVI80	Analog	
+	DCVI_Analog	IDAC_11_6_7_BUS_UVI80	Analog	
+	DCVI_Analog	IDAC_11_6_8_BUS_UVI80	Analog	
+	DCVI_Analog	IDAC_11_6_9_BUS_UVI80	Analog	
+	DCVI_Analog	IDAC_17_12_1_BUS_UVI80	Analog	
+	DCVI_Analog	IDAC_5_0_BUS_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_0_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_0_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_10_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_10_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_11_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_11_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_12_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_12_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_13_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_13_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_14_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_14_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_15_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_15_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_16_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_16_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_17_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_17_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_1_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_1_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_2_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_2_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_3_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_3_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_4_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_4_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_5_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_5_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_6_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_6_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_7_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_7_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_8_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_8_UVI80	Analog	
+	DCVI_Analog	IDAC_OUT_9_DC30	Analog	
+	DCVI_Analog	IDAC_OUT_9_UVI80	Analog	
+	DCVI_Analog	IREF_UVI80	Analog	
+	DCVI_Analog	RC_VOUT_UVI80	Analog	
+	DCVI_Analog	TCAL_DC30	Analog	
+	DCVI_Analog	TCAL_UVI80	Analog	
+	DCVI_Analog	TDEV1_DC30	Analog	
+	DCVI_Analog	TDEV1_UVI80_0	Analog	
+	DCVI_Analog	VBAT_UVI80	Analog	
+	DCVI_Analog	VLDO10_UVI80	Analog	
+	DCVI_Analog	VLDO11_UVI80	Analog	
+	DCVI_Analog	VLDO12_UVI80	Analog	
+	DCVI_Analog	VLDO13_UVI80	Analog	
+	DCVI_Analog	VLDO14_UVI80	Analog	
+	DCVI_Analog	VLDO1_UVI80	Analog	
+	DCVI_Analog	VLDO2_UVI80	Analog	
+	DCVI_Analog	VLDO3_UVI80	Analog	
+	DCVI_Analog	VLDO4_UVI80	Analog	
+	DCVI_Analog	VLDO5_UVI80	Analog	
+	DCVI_Analog	VLDO6_UVI80	Analog	
+	DCVI_Analog	VLDO7_UVI80	Analog	
+	DCVI_Analog	VLDO8_UVI80	Analog	
+	DCVI_Analog	VLDO9_UVI80	Analog	
+	DCVI_Analog	VLDOINT_UVI80	Analog	
+	DCVI_Analog	VMBX_UVI80	Analog	
+	DCVI_Analog	VREF_ADC_DC30	Analog	
+	DCVI_Analog	VREF_DC30	Analog	
+	DCVI_Analog	VREF_UVI80	Analog	
+	DCVI_Analog	VSS_S_UVI80	Analog	
+	DCVI_Analog	WLED_HP1_LX_DC30_0	Analog	
+	DCVI_Analog	WLED_HP1_LX_DC30_1	Analog	
+	DCVI_Analog	WLED_HP2_LX_DC30_0	Analog	
+	DCVI_Analog	WLED_HP2_LX_DC30_1	Analog	
+	DCVI_Analog	WLED_HP_LX_UVI80	Analog	
+	DCVI_Analog	WLED_LP_LX_DC30_0	Analog	
+	DCVI_Analog	WLED_LP_LX_DC30_1	Analog	
+	DCVI_Analog	WLED_VOUT_FB_DC30	Analog	
+	DCVI_Analog	WLED_VOUT_FB_UVI80	Analog	
+	AMUX_0_Diff	AMUX_N0	Differential	
+	AMUX_0_Diff	AMUX_P0	Differential	

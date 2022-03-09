@@ -1,0 +1,125 @@
+Start_End_Setup	start_of_test	ADC_Supply_Current																					
+Etc	DATALOG		ADC_Current_IDDref_X_X_X_P_X_NV_MeasI_X_X						NA	NA													
+Etc	DATALOG		ADC_Current_IDDminusIDDref_X_X_X_P_X_NV_MeasI_X_X					uA	170	230													
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	ADC_Gain_and_Offset																					
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Left_BufOut_X_50mV_X_P_X_NV_MeasV_X_X					mV	40	60													
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Left_BufOut_X_-50mV_X_P_X_NV_MeasV_X_X						NA	NA													
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Left_Gain_X_X_X_P_X_NV_MeasV_X_X					V	2.3?	2.5?													
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Left_Offset_X_X_X_P_X_NV_MeasV_X_X					mV	-10	10													
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Right_BufOut_X_50mV_X_P_X_NV_MeasV_X_X					mV	40	60													
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Right_BufOut_X_-50mV_X_P_X_NV_MeasV_X_X						NA	NA													
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Right_Gain_X_X_X_P_X_NV_MeasV_X_X					V	2.3?	2.5?													
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Right_Offset_X_X_X_P_X_NV_MeasV_X_X					mV	-10	10													
+Etc	DATALOG		ADC_TempSensor-TOP-Left_BufOut_X_50mV_X_P_X_NV_MeasV_X_X					mV	40	60													
+Etc	DATALOG		ADC_TempSensor-TOP-Left_BufOut_X_-50mV_X_P_X_NV_MeasV_X_X						NA	NA													
+Etc	DATALOG		ADC_TempSensor-TOP-Left_Gain_X_X_X_P_X_NV_MeasV_X_X					V	2.3?	2.5?													
+Etc	DATALOG		ADC_TempSensor-TOP-Left_Offset_X_X_X_P_X_NV_MeasV_X_X					mV	-10	10													
+Etc	DATALOG		ADC_TempSensor-TOP-Right_BufOut_X_50mV_X_P_X_NV_MeasV_X_X					mV	40	60													
+Etc	DATALOG		ADC_TempSensor-TOP-Right_BufOut_X_-50mV_X_P_X_NV_MeasV_X_X						NA	NA													
+Etc	DATALOG		ADC_TempSensor-TOP-Right_Gain_X_X_X_P_X_NV_MeasV_X_X					V	2.3?	2.5?													
+Etc	DATALOG		ADC_TempSensor-TOP-Right_Offset_X_X_X_P_X_NV_MeasV_X_X					mV	-10	10													
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	ADC_DNL_and_INL																					
+Etc	DATALOG		ADC_R_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																			ATE cannot sweep at 100uV steps. ATE force accuracy is 1.5mV.	
+Etc	DATALOG		ADC_R_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_R_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_R_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_G_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_G_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_G_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_G_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_B_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_B_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_B_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_B_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u0-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u0-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u0-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u0-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u1-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u1-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u1-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u1-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u2-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u2-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u2-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u2-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u3-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u3-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u3-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u3-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u4-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u4-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u4-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u4-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u5-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u5-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u5-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u5-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u6-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u6-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u6-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u6-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u7-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u7-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u7-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u7-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u8-TOP_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u8-TOP_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u8-TOP_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u8-TOP_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u0-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u0-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u0-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u0-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u1-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u1-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u1-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u1-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u2-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u2-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u2-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u2-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u3-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u3-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u3-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u3-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u4-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u4-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u4-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u4-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u5-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u5-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u5-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u5-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u6-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u6-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u6-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u6-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u7-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u7-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u7-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u7-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u8-BOTTOM_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u8-BOTTOM_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u8-BOTTOM_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_u8-BOTTOM_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Left_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Left_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Left_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Left_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Right_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Right_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Right_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-BOTTOM-Right_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-TOP-Left_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-TOP-Left_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-TOP-Left_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-TOP-Left_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-TOP-Right_X_Vin_-1.0V_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-TOP-Right_X_Vin_-50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-TOP-Right_X_Vin_50mV_X_P_X_NV_MeasCode_X_X																				
+Etc	DATALOG		ADC_TempSensor-TOP-Right_X_Vin_1.0V_X_P_X_NV_MeasCode_X_X																				
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	Gen_Complete																						

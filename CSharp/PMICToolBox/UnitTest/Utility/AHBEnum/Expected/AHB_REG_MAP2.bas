@@ -1,0 +1,5284 @@
+Attribute VB_Name = "AHB_REG_MAP2"
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_12
+    Addr = &H338c&
+    BUCK_CONFIG_CFG_PH_B1_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_13
+    Addr = &H338d&
+    BUCK_CONFIG_CFG_PH_B1_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_14
+    Addr = &H338e&
+    BUCK_CONFIG_CFG_PH_B1_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_15
+    Addr = &H338f&
+    BUCK_CONFIG_CFG_PH_B1_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_16
+    Addr = &H3390&
+    BUCK_CONFIG_CFG_PH_B1_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B1_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B1_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B1_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B1_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_17
+    Addr = &H3391&
+    BUCK_CONFIG_CFG_PH_B1_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_18
+    Addr = &H3392&
+    BUCK_CONFIG_CFG_PH_B1_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_19
+    Addr = &H3393&
+    BUCK_CONFIG_CFG_PH_B1_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_21
+    Addr = &H3395&
+    BUCK_CONFIG_CFG_PH_B1_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_22
+    Addr = &H3396&
+    BUCK_CONFIG_CFG_PH_B1_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B1_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_23
+    Addr = &H3397&
+    BUCK_CONFIG_CFG_PH_B1_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B1_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_24
+    Addr = &H3398&
+    BUCK_CONFIG_CFG_PH_B1_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B1_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_25
+    Addr = &H3399&
+    BUCK_CONFIG_CFG_PH_B1_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B1_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_26
+    Addr = &H339a&
+    BUCK_CONFIG_CFG_PH_B1_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_27
+    Addr = &H339b&
+    BUCK_CONFIG_CFG_PH_B1_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B1_CFG_28
+    Addr = &H339c&
+    BUCK_CONFIG_CFG_PH_B1_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_0
+    Addr = &H33a0&
+    BUCK_CONFIG_CFG_PH_A2_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_1
+    Addr = &H33a1&
+    BUCK_CONFIG_CFG_PH_A2_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_2
+    Addr = &H33a2&
+    BUCK_CONFIG_CFG_PH_A2_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_3
+    Addr = &H33a3&
+    BUCK_CONFIG_CFG_PH_A2_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_4
+    Addr = &H33a4&
+    BUCK_CONFIG_CFG_PH_A2_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_5
+    Addr = &H33a5&
+    BUCK_CONFIG_CFG_PH_A2_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_6
+    Addr = &H33a6&
+    BUCK_CONFIG_CFG_PH_A2_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_7
+    Addr = &H33a7&
+    BUCK_CONFIG_CFG_PH_A2_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_8
+    Addr = &H33a8&
+    BUCK_CONFIG_CFG_PH_A2_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_9
+    Addr = &H33a9&
+    BUCK_CONFIG_CFG_PH_A2_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_10
+    Addr = &H33aa&
+    BUCK_CONFIG_CFG_PH_A2_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_11
+    Addr = &H33ab&
+    BUCK_CONFIG_CFG_PH_A2_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_12
+    Addr = &H33ac&
+    BUCK_CONFIG_CFG_PH_A2_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_13
+    Addr = &H33ad&
+    BUCK_CONFIG_CFG_PH_A2_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_14
+    Addr = &H33ae&
+    BUCK_CONFIG_CFG_PH_A2_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_15
+    Addr = &H33af&
+    BUCK_CONFIG_CFG_PH_A2_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_16
+    Addr = &H33b0&
+    BUCK_CONFIG_CFG_PH_A2_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A2_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A2_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A2_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A2_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_17
+    Addr = &H33b1&
+    BUCK_CONFIG_CFG_PH_A2_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_18
+    Addr = &H33b2&
+    BUCK_CONFIG_CFG_PH_A2_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_19
+    Addr = &H33b3&
+    BUCK_CONFIG_CFG_PH_A2_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_21
+    Addr = &H33b5&
+    BUCK_CONFIG_CFG_PH_A2_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_22
+    Addr = &H33b6&
+    BUCK_CONFIG_CFG_PH_A2_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A2_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_23
+    Addr = &H33b7&
+    BUCK_CONFIG_CFG_PH_A2_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A2_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_24
+    Addr = &H33b8&
+    BUCK_CONFIG_CFG_PH_A2_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A2_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_25
+    Addr = &H33b9&
+    BUCK_CONFIG_CFG_PH_A2_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A2_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_26
+    Addr = &H33ba&
+    BUCK_CONFIG_CFG_PH_A2_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_27
+    Addr = &H33bb&
+    BUCK_CONFIG_CFG_PH_A2_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A2_CFG_28
+    Addr = &H33bc&
+    BUCK_CONFIG_CFG_PH_A2_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_0
+    Addr = &H33c0&
+    BUCK_CONFIG_CFG_PH_B2_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_1
+    Addr = &H33c1&
+    BUCK_CONFIG_CFG_PH_B2_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_2
+    Addr = &H33c2&
+    BUCK_CONFIG_CFG_PH_B2_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_3
+    Addr = &H33c3&
+    BUCK_CONFIG_CFG_PH_B2_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_4
+    Addr = &H33c4&
+    BUCK_CONFIG_CFG_PH_B2_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_5
+    Addr = &H33c5&
+    BUCK_CONFIG_CFG_PH_B2_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_6
+    Addr = &H33c6&
+    BUCK_CONFIG_CFG_PH_B2_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_7
+    Addr = &H33c7&
+    BUCK_CONFIG_CFG_PH_B2_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_8
+    Addr = &H33c8&
+    BUCK_CONFIG_CFG_PH_B2_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_9
+    Addr = &H33c9&
+    BUCK_CONFIG_CFG_PH_B2_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_10
+    Addr = &H33ca&
+    BUCK_CONFIG_CFG_PH_B2_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_11
+    Addr = &H33cb&
+    BUCK_CONFIG_CFG_PH_B2_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_12
+    Addr = &H33cc&
+    BUCK_CONFIG_CFG_PH_B2_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_13
+    Addr = &H33cd&
+    BUCK_CONFIG_CFG_PH_B2_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_14
+    Addr = &H33ce&
+    BUCK_CONFIG_CFG_PH_B2_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_15
+    Addr = &H33cf&
+    BUCK_CONFIG_CFG_PH_B2_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_16
+    Addr = &H33d0&
+    BUCK_CONFIG_CFG_PH_B2_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B2_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B2_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B2_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B2_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_17
+    Addr = &H33d1&
+    BUCK_CONFIG_CFG_PH_B2_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_18
+    Addr = &H33d2&
+    BUCK_CONFIG_CFG_PH_B2_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_19
+    Addr = &H33d3&
+    BUCK_CONFIG_CFG_PH_B2_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_21
+    Addr = &H33d5&
+    BUCK_CONFIG_CFG_PH_B2_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_22
+    Addr = &H33d6&
+    BUCK_CONFIG_CFG_PH_B2_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B2_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_23
+    Addr = &H33d7&
+    BUCK_CONFIG_CFG_PH_B2_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B2_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_24
+    Addr = &H33d8&
+    BUCK_CONFIG_CFG_PH_B2_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B2_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_25
+    Addr = &H33d9&
+    BUCK_CONFIG_CFG_PH_B2_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B2_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_26
+    Addr = &H33da&
+    BUCK_CONFIG_CFG_PH_B2_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_27
+    Addr = &H33db&
+    BUCK_CONFIG_CFG_PH_B2_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B2_CFG_28
+    Addr = &H33dc&
+    BUCK_CONFIG_CFG_PH_B2_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_0
+    Addr = &H33e0&
+    BUCK_CONFIG_CFG_PH_A3_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_1
+    Addr = &H33e1&
+    BUCK_CONFIG_CFG_PH_A3_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_2
+    Addr = &H33e2&
+    BUCK_CONFIG_CFG_PH_A3_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_3
+    Addr = &H33e3&
+    BUCK_CONFIG_CFG_PH_A3_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_4
+    Addr = &H33e4&
+    BUCK_CONFIG_CFG_PH_A3_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_5
+    Addr = &H33e5&
+    BUCK_CONFIG_CFG_PH_A3_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_6
+    Addr = &H33e6&
+    BUCK_CONFIG_CFG_PH_A3_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_7
+    Addr = &H33e7&
+    BUCK_CONFIG_CFG_PH_A3_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_8
+    Addr = &H33e8&
+    BUCK_CONFIG_CFG_PH_A3_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_9
+    Addr = &H33e9&
+    BUCK_CONFIG_CFG_PH_A3_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_10
+    Addr = &H33ea&
+    BUCK_CONFIG_CFG_PH_A3_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_11
+    Addr = &H33eb&
+    BUCK_CONFIG_CFG_PH_A3_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_12
+    Addr = &H33ec&
+    BUCK_CONFIG_CFG_PH_A3_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_13
+    Addr = &H33ed&
+    BUCK_CONFIG_CFG_PH_A3_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_14
+    Addr = &H33ee&
+    BUCK_CONFIG_CFG_PH_A3_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_15
+    Addr = &H33ef&
+    BUCK_CONFIG_CFG_PH_A3_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_16
+    Addr = &H33f0&
+    BUCK_CONFIG_CFG_PH_A3_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A3_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A3_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A3_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A3_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_17
+    Addr = &H33f1&
+    BUCK_CONFIG_CFG_PH_A3_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_18
+    Addr = &H33f2&
+    BUCK_CONFIG_CFG_PH_A3_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_19
+    Addr = &H33f3&
+    BUCK_CONFIG_CFG_PH_A3_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_21
+    Addr = &H33f5&
+    BUCK_CONFIG_CFG_PH_A3_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_22
+    Addr = &H33f6&
+    BUCK_CONFIG_CFG_PH_A3_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A3_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_23
+    Addr = &H33f7&
+    BUCK_CONFIG_CFG_PH_A3_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A3_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_24
+    Addr = &H33f8&
+    BUCK_CONFIG_CFG_PH_A3_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A3_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_25
+    Addr = &H33f9&
+    BUCK_CONFIG_CFG_PH_A3_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A3_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_26
+    Addr = &H33fa&
+    BUCK_CONFIG_CFG_PH_A3_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_27
+    Addr = &H33fb&
+    BUCK_CONFIG_CFG_PH_A3_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A3_CFG_28
+    Addr = &H33fc&
+    BUCK_CONFIG_CFG_PH_A3_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_0
+    Addr = &H3400&
+    BUCK_CONFIG_CFG_PH_B3_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_1
+    Addr = &H3401&
+    BUCK_CONFIG_CFG_PH_B3_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_2
+    Addr = &H3402&
+    BUCK_CONFIG_CFG_PH_B3_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_3
+    Addr = &H3403&
+    BUCK_CONFIG_CFG_PH_B3_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_4
+    Addr = &H3404&
+    BUCK_CONFIG_CFG_PH_B3_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_5
+    Addr = &H3405&
+    BUCK_CONFIG_CFG_PH_B3_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_6
+    Addr = &H3406&
+    BUCK_CONFIG_CFG_PH_B3_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_7
+    Addr = &H3407&
+    BUCK_CONFIG_CFG_PH_B3_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_8
+    Addr = &H3408&
+    BUCK_CONFIG_CFG_PH_B3_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_9
+    Addr = &H3409&
+    BUCK_CONFIG_CFG_PH_B3_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_10
+    Addr = &H340a&
+    BUCK_CONFIG_CFG_PH_B3_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_11
+    Addr = &H340b&
+    BUCK_CONFIG_CFG_PH_B3_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_12
+    Addr = &H340c&
+    BUCK_CONFIG_CFG_PH_B3_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_13
+    Addr = &H340d&
+    BUCK_CONFIG_CFG_PH_B3_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_14
+    Addr = &H340e&
+    BUCK_CONFIG_CFG_PH_B3_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_15
+    Addr = &H340f&
+    BUCK_CONFIG_CFG_PH_B3_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_16
+    Addr = &H3410&
+    BUCK_CONFIG_CFG_PH_B3_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B3_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B3_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B3_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B3_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_17
+    Addr = &H3411&
+    BUCK_CONFIG_CFG_PH_B3_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_18
+    Addr = &H3412&
+    BUCK_CONFIG_CFG_PH_B3_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_19
+    Addr = &H3413&
+    BUCK_CONFIG_CFG_PH_B3_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_21
+    Addr = &H3415&
+    BUCK_CONFIG_CFG_PH_B3_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_22
+    Addr = &H3416&
+    BUCK_CONFIG_CFG_PH_B3_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B3_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_23
+    Addr = &H3417&
+    BUCK_CONFIG_CFG_PH_B3_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B3_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_24
+    Addr = &H3418&
+    BUCK_CONFIG_CFG_PH_B3_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B3_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_25
+    Addr = &H3419&
+    BUCK_CONFIG_CFG_PH_B3_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B3_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_26
+    Addr = &H341a&
+    BUCK_CONFIG_CFG_PH_B3_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_27
+    Addr = &H341b&
+    BUCK_CONFIG_CFG_PH_B3_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B3_CFG_28
+    Addr = &H341c&
+    BUCK_CONFIG_CFG_PH_B3_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_0
+    Addr = &H3420&
+    BUCK_CONFIG_CFG_PH_A4_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_1
+    Addr = &H3421&
+    BUCK_CONFIG_CFG_PH_A4_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_2
+    Addr = &H3422&
+    BUCK_CONFIG_CFG_PH_A4_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_3
+    Addr = &H3423&
+    BUCK_CONFIG_CFG_PH_A4_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_4
+    Addr = &H3424&
+    BUCK_CONFIG_CFG_PH_A4_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_5
+    Addr = &H3425&
+    BUCK_CONFIG_CFG_PH_A4_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_6
+    Addr = &H3426&
+    BUCK_CONFIG_CFG_PH_A4_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_7
+    Addr = &H3427&
+    BUCK_CONFIG_CFG_PH_A4_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_8
+    Addr = &H3428&
+    BUCK_CONFIG_CFG_PH_A4_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_9
+    Addr = &H3429&
+    BUCK_CONFIG_CFG_PH_A4_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_10
+    Addr = &H342a&
+    BUCK_CONFIG_CFG_PH_A4_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_11
+    Addr = &H342b&
+    BUCK_CONFIG_CFG_PH_A4_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_12
+    Addr = &H342c&
+    BUCK_CONFIG_CFG_PH_A4_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_13
+    Addr = &H342d&
+    BUCK_CONFIG_CFG_PH_A4_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_14
+    Addr = &H342e&
+    BUCK_CONFIG_CFG_PH_A4_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_15
+    Addr = &H342f&
+    BUCK_CONFIG_CFG_PH_A4_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_16
+    Addr = &H3430&
+    BUCK_CONFIG_CFG_PH_A4_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A4_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A4_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A4_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A4_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_17
+    Addr = &H3431&
+    BUCK_CONFIG_CFG_PH_A4_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_18
+    Addr = &H3432&
+    BUCK_CONFIG_CFG_PH_A4_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_19
+    Addr = &H3433&
+    BUCK_CONFIG_CFG_PH_A4_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_21
+    Addr = &H3435&
+    BUCK_CONFIG_CFG_PH_A4_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_22
+    Addr = &H3436&
+    BUCK_CONFIG_CFG_PH_A4_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A4_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_23
+    Addr = &H3437&
+    BUCK_CONFIG_CFG_PH_A4_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A4_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_24
+    Addr = &H3438&
+    BUCK_CONFIG_CFG_PH_A4_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A4_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_25
+    Addr = &H3439&
+    BUCK_CONFIG_CFG_PH_A4_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A4_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_26
+    Addr = &H343a&
+    BUCK_CONFIG_CFG_PH_A4_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_27
+    Addr = &H343b&
+    BUCK_CONFIG_CFG_PH_A4_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A4_CFG_28
+    Addr = &H343c&
+    BUCK_CONFIG_CFG_PH_A4_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_0
+    Addr = &H3440&
+    BUCK_CONFIG_CFG_PH_B4_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_1
+    Addr = &H3441&
+    BUCK_CONFIG_CFG_PH_B4_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_2
+    Addr = &H3442&
+    BUCK_CONFIG_CFG_PH_B4_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_3
+    Addr = &H3443&
+    BUCK_CONFIG_CFG_PH_B4_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_4
+    Addr = &H3444&
+    BUCK_CONFIG_CFG_PH_B4_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_5
+    Addr = &H3445&
+    BUCK_CONFIG_CFG_PH_B4_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_6
+    Addr = &H3446&
+    BUCK_CONFIG_CFG_PH_B4_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_7
+    Addr = &H3447&
+    BUCK_CONFIG_CFG_PH_B4_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_8
+    Addr = &H3448&
+    BUCK_CONFIG_CFG_PH_B4_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_9
+    Addr = &H3449&
+    BUCK_CONFIG_CFG_PH_B4_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_10
+    Addr = &H344a&
+    BUCK_CONFIG_CFG_PH_B4_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_11
+    Addr = &H344b&
+    BUCK_CONFIG_CFG_PH_B4_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_12
+    Addr = &H344c&
+    BUCK_CONFIG_CFG_PH_B4_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_13
+    Addr = &H344d&
+    BUCK_CONFIG_CFG_PH_B4_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_14
+    Addr = &H344e&
+    BUCK_CONFIG_CFG_PH_B4_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_15
+    Addr = &H344f&
+    BUCK_CONFIG_CFG_PH_B4_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_16
+    Addr = &H3450&
+    BUCK_CONFIG_CFG_PH_B4_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B4_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B4_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B4_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B4_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_17
+    Addr = &H3451&
+    BUCK_CONFIG_CFG_PH_B4_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_18
+    Addr = &H3452&
+    BUCK_CONFIG_CFG_PH_B4_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_19
+    Addr = &H3453&
+    BUCK_CONFIG_CFG_PH_B4_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_21
+    Addr = &H3455&
+    BUCK_CONFIG_CFG_PH_B4_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_22
+    Addr = &H3456&
+    BUCK_CONFIG_CFG_PH_B4_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B4_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_23
+    Addr = &H3457&
+    BUCK_CONFIG_CFG_PH_B4_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B4_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_24
+    Addr = &H3458&
+    BUCK_CONFIG_CFG_PH_B4_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B4_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_25
+    Addr = &H3459&
+    BUCK_CONFIG_CFG_PH_B4_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B4_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_26
+    Addr = &H345a&
+    BUCK_CONFIG_CFG_PH_B4_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_27
+    Addr = &H345b&
+    BUCK_CONFIG_CFG_PH_B4_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B4_CFG_28
+    Addr = &H345c&
+    BUCK_CONFIG_CFG_PH_B4_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_0
+    Addr = &H3460&
+    BUCK_CONFIG_CFG_PH_A5_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_1
+    Addr = &H3461&
+    BUCK_CONFIG_CFG_PH_A5_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_2
+    Addr = &H3462&
+    BUCK_CONFIG_CFG_PH_A5_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_3
+    Addr = &H3463&
+    BUCK_CONFIG_CFG_PH_A5_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_4
+    Addr = &H3464&
+    BUCK_CONFIG_CFG_PH_A5_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_5
+    Addr = &H3465&
+    BUCK_CONFIG_CFG_PH_A5_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_6
+    Addr = &H3466&
+    BUCK_CONFIG_CFG_PH_A5_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_7
+    Addr = &H3467&
+    BUCK_CONFIG_CFG_PH_A5_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_8
+    Addr = &H3468&
+    BUCK_CONFIG_CFG_PH_A5_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_9
+    Addr = &H3469&
+    BUCK_CONFIG_CFG_PH_A5_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_10
+    Addr = &H346a&
+    BUCK_CONFIG_CFG_PH_A5_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_11
+    Addr = &H346b&
+    BUCK_CONFIG_CFG_PH_A5_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_12
+    Addr = &H346c&
+    BUCK_CONFIG_CFG_PH_A5_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_13
+    Addr = &H346d&
+    BUCK_CONFIG_CFG_PH_A5_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_14
+    Addr = &H346e&
+    BUCK_CONFIG_CFG_PH_A5_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_15
+    Addr = &H346f&
+    BUCK_CONFIG_CFG_PH_A5_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_16
+    Addr = &H3470&
+    BUCK_CONFIG_CFG_PH_A5_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A5_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A5_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A5_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A5_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_17
+    Addr = &H3471&
+    BUCK_CONFIG_CFG_PH_A5_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_18
+    Addr = &H3472&
+    BUCK_CONFIG_CFG_PH_A5_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_19
+    Addr = &H3473&
+    BUCK_CONFIG_CFG_PH_A5_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_21
+    Addr = &H3475&
+    BUCK_CONFIG_CFG_PH_A5_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_22
+    Addr = &H3476&
+    BUCK_CONFIG_CFG_PH_A5_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A5_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_23
+    Addr = &H3477&
+    BUCK_CONFIG_CFG_PH_A5_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A5_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_24
+    Addr = &H3478&
+    BUCK_CONFIG_CFG_PH_A5_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A5_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_25
+    Addr = &H3479&
+    BUCK_CONFIG_CFG_PH_A5_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A5_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_26
+    Addr = &H347a&
+    BUCK_CONFIG_CFG_PH_A5_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_27
+    Addr = &H347b&
+    BUCK_CONFIG_CFG_PH_A5_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A5_CFG_28
+    Addr = &H347c&
+    BUCK_CONFIG_CFG_PH_A5_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_0
+    Addr = &H3480&
+    BUCK_CONFIG_CFG_PH_B5_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_1
+    Addr = &H3481&
+    BUCK_CONFIG_CFG_PH_B5_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_2
+    Addr = &H3482&
+    BUCK_CONFIG_CFG_PH_B5_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_3
+    Addr = &H3483&
+    BUCK_CONFIG_CFG_PH_B5_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_4
+    Addr = &H3484&
+    BUCK_CONFIG_CFG_PH_B5_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_5
+    Addr = &H3485&
+    BUCK_CONFIG_CFG_PH_B5_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_6
+    Addr = &H3486&
+    BUCK_CONFIG_CFG_PH_B5_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_7
+    Addr = &H3487&
+    BUCK_CONFIG_CFG_PH_B5_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_8
+    Addr = &H3488&
+    BUCK_CONFIG_CFG_PH_B5_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_9
+    Addr = &H3489&
+    BUCK_CONFIG_CFG_PH_B5_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_10
+    Addr = &H348a&
+    BUCK_CONFIG_CFG_PH_B5_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_11
+    Addr = &H348b&
+    BUCK_CONFIG_CFG_PH_B5_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_12
+    Addr = &H348c&
+    BUCK_CONFIG_CFG_PH_B5_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_13
+    Addr = &H348d&
+    BUCK_CONFIG_CFG_PH_B5_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_14
+    Addr = &H348e&
+    BUCK_CONFIG_CFG_PH_B5_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_15
+    Addr = &H348f&
+    BUCK_CONFIG_CFG_PH_B5_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_16
+    Addr = &H3490&
+    BUCK_CONFIG_CFG_PH_B5_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B5_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B5_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B5_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B5_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_17
+    Addr = &H3491&
+    BUCK_CONFIG_CFG_PH_B5_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_18
+    Addr = &H3492&
+    BUCK_CONFIG_CFG_PH_B5_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_19
+    Addr = &H3493&
+    BUCK_CONFIG_CFG_PH_B5_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_21
+    Addr = &H3495&
+    BUCK_CONFIG_CFG_PH_B5_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_22
+    Addr = &H3496&
+    BUCK_CONFIG_CFG_PH_B5_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B5_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_23
+    Addr = &H3497&
+    BUCK_CONFIG_CFG_PH_B5_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B5_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_24
+    Addr = &H3498&
+    BUCK_CONFIG_CFG_PH_B5_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B5_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_25
+    Addr = &H3499&
+    BUCK_CONFIG_CFG_PH_B5_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B5_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_26
+    Addr = &H349a&
+    BUCK_CONFIG_CFG_PH_B5_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_27
+    Addr = &H349b&
+    BUCK_CONFIG_CFG_PH_B5_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B5_CFG_28
+    Addr = &H349c&
+    BUCK_CONFIG_CFG_PH_B5_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_0
+    Addr = &H34a0&
+    BUCK_CONFIG_CFG_PH_A6_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_1
+    Addr = &H34a1&
+    BUCK_CONFIG_CFG_PH_A6_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_2
+    Addr = &H34a2&
+    BUCK_CONFIG_CFG_PH_A6_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_3
+    Addr = &H34a3&
+    BUCK_CONFIG_CFG_PH_A6_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_4
+    Addr = &H34a4&
+    BUCK_CONFIG_CFG_PH_A6_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_5
+    Addr = &H34a5&
+    BUCK_CONFIG_CFG_PH_A6_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_6
+    Addr = &H34a6&
+    BUCK_CONFIG_CFG_PH_A6_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_7
+    Addr = &H34a7&
+    BUCK_CONFIG_CFG_PH_A6_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_8
+    Addr = &H34a8&
+    BUCK_CONFIG_CFG_PH_A6_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_9
+    Addr = &H34a9&
+    BUCK_CONFIG_CFG_PH_A6_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_10
+    Addr = &H34aa&
+    BUCK_CONFIG_CFG_PH_A6_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_11
+    Addr = &H34ab&
+    BUCK_CONFIG_CFG_PH_A6_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_12
+    Addr = &H34ac&
+    BUCK_CONFIG_CFG_PH_A6_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_13
+    Addr = &H34ad&
+    BUCK_CONFIG_CFG_PH_A6_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_14
+    Addr = &H34ae&
+    BUCK_CONFIG_CFG_PH_A6_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_15
+    Addr = &H34af&
+    BUCK_CONFIG_CFG_PH_A6_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_16
+    Addr = &H34b0&
+    BUCK_CONFIG_CFG_PH_A6_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A6_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A6_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A6_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A6_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_17
+    Addr = &H34b1&
+    BUCK_CONFIG_CFG_PH_A6_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_18
+    Addr = &H34b2&
+    BUCK_CONFIG_CFG_PH_A6_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_19
+    Addr = &H34b3&
+    BUCK_CONFIG_CFG_PH_A6_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_21
+    Addr = &H34b5&
+    BUCK_CONFIG_CFG_PH_A6_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_22
+    Addr = &H34b6&
+    BUCK_CONFIG_CFG_PH_A6_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A6_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_23
+    Addr = &H34b7&
+    BUCK_CONFIG_CFG_PH_A6_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A6_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_24
+    Addr = &H34b8&
+    BUCK_CONFIG_CFG_PH_A6_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A6_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_25
+    Addr = &H34b9&
+    BUCK_CONFIG_CFG_PH_A6_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A6_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_26
+    Addr = &H34ba&
+    BUCK_CONFIG_CFG_PH_A6_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_27
+    Addr = &H34bb&
+    BUCK_CONFIG_CFG_PH_A6_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A6_CFG_28
+    Addr = &H34bc&
+    BUCK_CONFIG_CFG_PH_A6_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_0
+    Addr = &H34c0&
+    BUCK_CONFIG_CFG_PH_B6_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_1
+    Addr = &H34c1&
+    BUCK_CONFIG_CFG_PH_B6_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_2
+    Addr = &H34c2&
+    BUCK_CONFIG_CFG_PH_B6_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_3
+    Addr = &H34c3&
+    BUCK_CONFIG_CFG_PH_B6_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_4
+    Addr = &H34c4&
+    BUCK_CONFIG_CFG_PH_B6_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_5
+    Addr = &H34c5&
+    BUCK_CONFIG_CFG_PH_B6_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_6
+    Addr = &H34c6&
+    BUCK_CONFIG_CFG_PH_B6_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_7
+    Addr = &H34c7&
+    BUCK_CONFIG_CFG_PH_B6_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_8
+    Addr = &H34c8&
+    BUCK_CONFIG_CFG_PH_B6_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_9
+    Addr = &H34c9&
+    BUCK_CONFIG_CFG_PH_B6_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_10
+    Addr = &H34ca&
+    BUCK_CONFIG_CFG_PH_B6_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_11
+    Addr = &H34cb&
+    BUCK_CONFIG_CFG_PH_B6_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_12
+    Addr = &H34cc&
+    BUCK_CONFIG_CFG_PH_B6_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_13
+    Addr = &H34cd&
+    BUCK_CONFIG_CFG_PH_B6_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_14
+    Addr = &H34ce&
+    BUCK_CONFIG_CFG_PH_B6_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_15
+    Addr = &H34cf&
+    BUCK_CONFIG_CFG_PH_B6_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_16
+    Addr = &H34d0&
+    BUCK_CONFIG_CFG_PH_B6_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B6_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B6_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B6_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B6_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_17
+    Addr = &H34d1&
+    BUCK_CONFIG_CFG_PH_B6_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_18
+    Addr = &H34d2&
+    BUCK_CONFIG_CFG_PH_B6_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_19
+    Addr = &H34d3&
+    BUCK_CONFIG_CFG_PH_B6_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_21
+    Addr = &H34d5&
+    BUCK_CONFIG_CFG_PH_B6_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_22
+    Addr = &H34d6&
+    BUCK_CONFIG_CFG_PH_B6_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B6_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_23
+    Addr = &H34d7&
+    BUCK_CONFIG_CFG_PH_B6_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B6_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_24
+    Addr = &H34d8&
+    BUCK_CONFIG_CFG_PH_B6_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B6_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_25
+    Addr = &H34d9&
+    BUCK_CONFIG_CFG_PH_B6_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B6_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_26
+    Addr = &H34da&
+    BUCK_CONFIG_CFG_PH_B6_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_27
+    Addr = &H34db&
+    BUCK_CONFIG_CFG_PH_B6_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B6_CFG_28
+    Addr = &H34dc&
+    BUCK_CONFIG_CFG_PH_B6_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_0
+    Addr = &H34e0&
+    BUCK_CONFIG_CFG_PH_A7_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_1
+    Addr = &H34e1&
+    BUCK_CONFIG_CFG_PH_A7_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_2
+    Addr = &H34e2&
+    BUCK_CONFIG_CFG_PH_A7_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_3
+    Addr = &H34e3&
+    BUCK_CONFIG_CFG_PH_A7_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_4
+    Addr = &H34e4&
+    BUCK_CONFIG_CFG_PH_A7_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_5
+    Addr = &H34e5&
+    BUCK_CONFIG_CFG_PH_A7_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_6
+    Addr = &H34e6&
+    BUCK_CONFIG_CFG_PH_A7_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_7
+    Addr = &H34e7&
+    BUCK_CONFIG_CFG_PH_A7_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_8
+    Addr = &H34e8&
+    BUCK_CONFIG_CFG_PH_A7_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_9
+    Addr = &H34e9&
+    BUCK_CONFIG_CFG_PH_A7_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_10
+    Addr = &H34ea&
+    BUCK_CONFIG_CFG_PH_A7_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_11
+    Addr = &H34eb&
+    BUCK_CONFIG_CFG_PH_A7_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_12
+    Addr = &H34ec&
+    BUCK_CONFIG_CFG_PH_A7_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_13
+    Addr = &H34ed&
+    BUCK_CONFIG_CFG_PH_A7_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_14
+    Addr = &H34ee&
+    BUCK_CONFIG_CFG_PH_A7_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_15
+    Addr = &H34ef&
+    BUCK_CONFIG_CFG_PH_A7_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_16
+    Addr = &H34f0&
+    BUCK_CONFIG_CFG_PH_A7_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A7_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A7_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A7_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A7_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_17
+    Addr = &H34f1&
+    BUCK_CONFIG_CFG_PH_A7_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_18
+    Addr = &H34f2&
+    BUCK_CONFIG_CFG_PH_A7_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_19
+    Addr = &H34f3&
+    BUCK_CONFIG_CFG_PH_A7_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_21
+    Addr = &H34f5&
+    BUCK_CONFIG_CFG_PH_A7_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_22
+    Addr = &H34f6&
+    BUCK_CONFIG_CFG_PH_A7_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A7_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_23
+    Addr = &H34f7&
+    BUCK_CONFIG_CFG_PH_A7_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A7_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_24
+    Addr = &H34f8&
+    BUCK_CONFIG_CFG_PH_A7_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A7_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_25
+    Addr = &H34f9&
+    BUCK_CONFIG_CFG_PH_A7_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A7_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_26
+    Addr = &H34fa&
+    BUCK_CONFIG_CFG_PH_A7_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_27
+    Addr = &H34fb&
+    BUCK_CONFIG_CFG_PH_A7_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A7_CFG_28
+    Addr = &H34fc&
+    BUCK_CONFIG_CFG_PH_A7_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_0
+    Addr = &H3500&
+    BUCK_CONFIG_CFG_PH_B7_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_1
+    Addr = &H3501&
+    BUCK_CONFIG_CFG_PH_B7_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_2
+    Addr = &H3502&
+    BUCK_CONFIG_CFG_PH_B7_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_3
+    Addr = &H3503&
+    BUCK_CONFIG_CFG_PH_B7_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_4
+    Addr = &H3504&
+    BUCK_CONFIG_CFG_PH_B7_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_5
+    Addr = &H3505&
+    BUCK_CONFIG_CFG_PH_B7_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_6
+    Addr = &H3506&
+    BUCK_CONFIG_CFG_PH_B7_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_7
+    Addr = &H3507&
+    BUCK_CONFIG_CFG_PH_B7_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_8
+    Addr = &H3508&
+    BUCK_CONFIG_CFG_PH_B7_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_9
+    Addr = &H3509&
+    BUCK_CONFIG_CFG_PH_B7_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_10
+    Addr = &H350a&
+    BUCK_CONFIG_CFG_PH_B7_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_11
+    Addr = &H350b&
+    BUCK_CONFIG_CFG_PH_B7_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_12
+    Addr = &H350c&
+    BUCK_CONFIG_CFG_PH_B7_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_13
+    Addr = &H350d&
+    BUCK_CONFIG_CFG_PH_B7_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_14
+    Addr = &H350e&
+    BUCK_CONFIG_CFG_PH_B7_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_15
+    Addr = &H350f&
+    BUCK_CONFIG_CFG_PH_B7_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_16
+    Addr = &H3510&
+    BUCK_CONFIG_CFG_PH_B7_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B7_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B7_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B7_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B7_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_17
+    Addr = &H3511&
+    BUCK_CONFIG_CFG_PH_B7_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_18
+    Addr = &H3512&
+    BUCK_CONFIG_CFG_PH_B7_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_19
+    Addr = &H3513&
+    BUCK_CONFIG_CFG_PH_B7_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_21
+    Addr = &H3515&
+    BUCK_CONFIG_CFG_PH_B7_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_22
+    Addr = &H3516&
+    BUCK_CONFIG_CFG_PH_B7_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B7_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_23
+    Addr = &H3517&
+    BUCK_CONFIG_CFG_PH_B7_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B7_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_24
+    Addr = &H3518&
+    BUCK_CONFIG_CFG_PH_B7_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B7_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_25
+    Addr = &H3519&
+    BUCK_CONFIG_CFG_PH_B7_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B7_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_26
+    Addr = &H351a&
+    BUCK_CONFIG_CFG_PH_B7_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_27
+    Addr = &H351b&
+    BUCK_CONFIG_CFG_PH_B7_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B7_CFG_28
+    Addr = &H351c&
+    BUCK_CONFIG_CFG_PH_B7_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_0
+    Addr = &H3520&
+    BUCK_CONFIG_CFG_PH_A8_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_1
+    Addr = &H3521&
+    BUCK_CONFIG_CFG_PH_A8_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_2
+    Addr = &H3522&
+    BUCK_CONFIG_CFG_PH_A8_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_3
+    Addr = &H3523&
+    BUCK_CONFIG_CFG_PH_A8_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_4
+    Addr = &H3524&
+    BUCK_CONFIG_CFG_PH_A8_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_5
+    Addr = &H3525&
+    BUCK_CONFIG_CFG_PH_A8_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_6
+    Addr = &H3526&
+    BUCK_CONFIG_CFG_PH_A8_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_7
+    Addr = &H3527&
+    BUCK_CONFIG_CFG_PH_A8_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_8
+    Addr = &H3528&
+    BUCK_CONFIG_CFG_PH_A8_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_9
+    Addr = &H3529&
+    BUCK_CONFIG_CFG_PH_A8_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_10
+    Addr = &H352a&
+    BUCK_CONFIG_CFG_PH_A8_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_11
+    Addr = &H352b&
+    BUCK_CONFIG_CFG_PH_A8_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_12
+    Addr = &H352c&
+    BUCK_CONFIG_CFG_PH_A8_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_13
+    Addr = &H352d&
+    BUCK_CONFIG_CFG_PH_A8_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_14
+    Addr = &H352e&
+    BUCK_CONFIG_CFG_PH_A8_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_15
+    Addr = &H352f&
+    BUCK_CONFIG_CFG_PH_A8_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_16
+    Addr = &H3530&
+    BUCK_CONFIG_CFG_PH_A8_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A8_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A8_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A8_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A8_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_17
+    Addr = &H3531&
+    BUCK_CONFIG_CFG_PH_A8_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_18
+    Addr = &H3532&
+    BUCK_CONFIG_CFG_PH_A8_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_19
+    Addr = &H3533&
+    BUCK_CONFIG_CFG_PH_A8_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_21
+    Addr = &H3535&
+    BUCK_CONFIG_CFG_PH_A8_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_22
+    Addr = &H3536&
+    BUCK_CONFIG_CFG_PH_A8_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A8_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_23
+    Addr = &H3537&
+    BUCK_CONFIG_CFG_PH_A8_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A8_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_24
+    Addr = &H3538&
+    BUCK_CONFIG_CFG_PH_A8_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A8_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_25
+    Addr = &H3539&
+    BUCK_CONFIG_CFG_PH_A8_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A8_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_26
+    Addr = &H353a&
+    BUCK_CONFIG_CFG_PH_A8_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_27
+    Addr = &H353b&
+    BUCK_CONFIG_CFG_PH_A8_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A8_CFG_28
+    Addr = &H353c&
+    BUCK_CONFIG_CFG_PH_A8_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_0
+    Addr = &H3540&
+    BUCK_CONFIG_CFG_PH_B8_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_1
+    Addr = &H3541&
+    BUCK_CONFIG_CFG_PH_B8_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_2
+    Addr = &H3542&
+    BUCK_CONFIG_CFG_PH_B8_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_3
+    Addr = &H3543&
+    BUCK_CONFIG_CFG_PH_B8_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_4
+    Addr = &H3544&
+    BUCK_CONFIG_CFG_PH_B8_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_5
+    Addr = &H3545&
+    BUCK_CONFIG_CFG_PH_B8_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_6
+    Addr = &H3546&
+    BUCK_CONFIG_CFG_PH_B8_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_7
+    Addr = &H3547&
+    BUCK_CONFIG_CFG_PH_B8_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_8
+    Addr = &H3548&
+    BUCK_CONFIG_CFG_PH_B8_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_9
+    Addr = &H3549&
+    BUCK_CONFIG_CFG_PH_B8_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_10
+    Addr = &H354a&
+    BUCK_CONFIG_CFG_PH_B8_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_11
+    Addr = &H354b&
+    BUCK_CONFIG_CFG_PH_B8_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_12
+    Addr = &H354c&
+    BUCK_CONFIG_CFG_PH_B8_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_13
+    Addr = &H354d&
+    BUCK_CONFIG_CFG_PH_B8_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_14
+    Addr = &H354e&
+    BUCK_CONFIG_CFG_PH_B8_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_15
+    Addr = &H354f&
+    BUCK_CONFIG_CFG_PH_B8_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_16
+    Addr = &H3550&
+    BUCK_CONFIG_CFG_PH_B8_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B8_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B8_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B8_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B8_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_17
+    Addr = &H3551&
+    BUCK_CONFIG_CFG_PH_B8_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_18
+    Addr = &H3552&
+    BUCK_CONFIG_CFG_PH_B8_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_19
+    Addr = &H3553&
+    BUCK_CONFIG_CFG_PH_B8_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_21
+    Addr = &H3555&
+    BUCK_CONFIG_CFG_PH_B8_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_22
+    Addr = &H3556&
+    BUCK_CONFIG_CFG_PH_B8_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B8_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_23
+    Addr = &H3557&
+    BUCK_CONFIG_CFG_PH_B8_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B8_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_24
+    Addr = &H3558&
+    BUCK_CONFIG_CFG_PH_B8_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B8_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_25
+    Addr = &H3559&
+    BUCK_CONFIG_CFG_PH_B8_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B8_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_26
+    Addr = &H355a&
+    BUCK_CONFIG_CFG_PH_B8_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_27
+    Addr = &H355b&
+    BUCK_CONFIG_CFG_PH_B8_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B8_CFG_28
+    Addr = &H355c&
+    BUCK_CONFIG_CFG_PH_B8_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_0
+    Addr = &H3560&
+    BUCK_CONFIG_CFG_PH_A9_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_1
+    Addr = &H3561&
+    BUCK_CONFIG_CFG_PH_A9_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_2
+    Addr = &H3562&
+    BUCK_CONFIG_CFG_PH_A9_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_3
+    Addr = &H3563&
+    BUCK_CONFIG_CFG_PH_A9_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_4
+    Addr = &H3564&
+    BUCK_CONFIG_CFG_PH_A9_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_5
+    Addr = &H3565&
+    BUCK_CONFIG_CFG_PH_A9_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_6
+    Addr = &H3566&
+    BUCK_CONFIG_CFG_PH_A9_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_7
+    Addr = &H3567&
+    BUCK_CONFIG_CFG_PH_A9_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_8
+    Addr = &H3568&
+    BUCK_CONFIG_CFG_PH_A9_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_9
+    Addr = &H3569&
+    BUCK_CONFIG_CFG_PH_A9_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_10
+    Addr = &H356a&
+    BUCK_CONFIG_CFG_PH_A9_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_11
+    Addr = &H356b&
+    BUCK_CONFIG_CFG_PH_A9_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_12
+    Addr = &H356c&
+    BUCK_CONFIG_CFG_PH_A9_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_13
+    Addr = &H356d&
+    BUCK_CONFIG_CFG_PH_A9_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_14
+    Addr = &H356e&
+    BUCK_CONFIG_CFG_PH_A9_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_15
+    Addr = &H356f&
+    BUCK_CONFIG_CFG_PH_A9_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_16
+    Addr = &H3570&
+    BUCK_CONFIG_CFG_PH_A9_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A9_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A9_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A9_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A9_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_17
+    Addr = &H3571&
+    BUCK_CONFIG_CFG_PH_A9_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_18
+    Addr = &H3572&
+    BUCK_CONFIG_CFG_PH_A9_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_19
+    Addr = &H3573&
+    BUCK_CONFIG_CFG_PH_A9_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_21
+    Addr = &H3575&
+    BUCK_CONFIG_CFG_PH_A9_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_22
+    Addr = &H3576&
+    BUCK_CONFIG_CFG_PH_A9_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A9_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_23
+    Addr = &H3577&
+    BUCK_CONFIG_CFG_PH_A9_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A9_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_24
+    Addr = &H3578&
+    BUCK_CONFIG_CFG_PH_A9_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A9_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_25
+    Addr = &H3579&
+    BUCK_CONFIG_CFG_PH_A9_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A9_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_26
+    Addr = &H357a&
+    BUCK_CONFIG_CFG_PH_A9_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_27
+    Addr = &H357b&
+    BUCK_CONFIG_CFG_PH_A9_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A9_CFG_28
+    Addr = &H357c&
+    BUCK_CONFIG_CFG_PH_A9_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_0
+    Addr = &H3580&
+    BUCK_CONFIG_CFG_PH_B9_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_1
+    Addr = &H3581&
+    BUCK_CONFIG_CFG_PH_B9_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_2
+    Addr = &H3582&
+    BUCK_CONFIG_CFG_PH_B9_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_3
+    Addr = &H3583&
+    BUCK_CONFIG_CFG_PH_B9_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_4
+    Addr = &H3584&
+    BUCK_CONFIG_CFG_PH_B9_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_5
+    Addr = &H3585&
+    BUCK_CONFIG_CFG_PH_B9_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_6
+    Addr = &H3586&
+    BUCK_CONFIG_CFG_PH_B9_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_7
+    Addr = &H3587&
+    BUCK_CONFIG_CFG_PH_B9_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_8
+    Addr = &H3588&
+    BUCK_CONFIG_CFG_PH_B9_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_9
+    Addr = &H3589&
+    BUCK_CONFIG_CFG_PH_B9_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_10
+    Addr = &H358a&
+    BUCK_CONFIG_CFG_PH_B9_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_11
+    Addr = &H358b&
+    BUCK_CONFIG_CFG_PH_B9_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_12
+    Addr = &H358c&
+    BUCK_CONFIG_CFG_PH_B9_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_13
+    Addr = &H358d&
+    BUCK_CONFIG_CFG_PH_B9_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_14
+    Addr = &H358e&
+    BUCK_CONFIG_CFG_PH_B9_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_15
+    Addr = &H358f&
+    BUCK_CONFIG_CFG_PH_B9_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_16
+    Addr = &H3590&
+    BUCK_CONFIG_CFG_PH_B9_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B9_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B9_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B9_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B9_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_17
+    Addr = &H3591&
+    BUCK_CONFIG_CFG_PH_B9_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_18
+    Addr = &H3592&
+    BUCK_CONFIG_CFG_PH_B9_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_19
+    Addr = &H3593&
+    BUCK_CONFIG_CFG_PH_B9_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_21
+    Addr = &H3595&
+    BUCK_CONFIG_CFG_PH_B9_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_22
+    Addr = &H3596&
+    BUCK_CONFIG_CFG_PH_B9_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B9_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_23
+    Addr = &H3597&
+    BUCK_CONFIG_CFG_PH_B9_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B9_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_24
+    Addr = &H3598&
+    BUCK_CONFIG_CFG_PH_B9_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B9_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_25
+    Addr = &H3599&
+    BUCK_CONFIG_CFG_PH_B9_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B9_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_26
+    Addr = &H359a&
+    BUCK_CONFIG_CFG_PH_B9_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_27
+    Addr = &H359b&
+    BUCK_CONFIG_CFG_PH_B9_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B9_CFG_28
+    Addr = &H359c&
+    BUCK_CONFIG_CFG_PH_B9_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_0
+    Addr = &H35a0&
+    BUCK_CONFIG_CFG_PH_A10_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_1
+    Addr = &H35a1&
+    BUCK_CONFIG_CFG_PH_A10_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_2
+    Addr = &H35a2&
+    BUCK_CONFIG_CFG_PH_A10_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_3
+    Addr = &H35a3&
+    BUCK_CONFIG_CFG_PH_A10_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_4
+    Addr = &H35a4&
+    BUCK_CONFIG_CFG_PH_A10_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_5
+    Addr = &H35a5&
+    BUCK_CONFIG_CFG_PH_A10_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_6
+    Addr = &H35a6&
+    BUCK_CONFIG_CFG_PH_A10_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_7
+    Addr = &H35a7&
+    BUCK_CONFIG_CFG_PH_A10_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_8
+    Addr = &H35a8&
+    BUCK_CONFIG_CFG_PH_A10_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_9
+    Addr = &H35a9&
+    BUCK_CONFIG_CFG_PH_A10_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_10
+    Addr = &H35aa&
+    BUCK_CONFIG_CFG_PH_A10_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_11
+    Addr = &H35ab&
+    BUCK_CONFIG_CFG_PH_A10_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_12
+    Addr = &H35ac&
+    BUCK_CONFIG_CFG_PH_A10_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_13
+    Addr = &H35ad&
+    BUCK_CONFIG_CFG_PH_A10_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_14
+    Addr = &H35ae&
+    BUCK_CONFIG_CFG_PH_A10_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_15
+    Addr = &H35af&
+    BUCK_CONFIG_CFG_PH_A10_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_16
+    Addr = &H35b0&
+    BUCK_CONFIG_CFG_PH_A10_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A10_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A10_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A10_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A10_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_17
+    Addr = &H35b1&
+    BUCK_CONFIG_CFG_PH_A10_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_18
+    Addr = &H35b2&
+    BUCK_CONFIG_CFG_PH_A10_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_19
+    Addr = &H35b3&
+    BUCK_CONFIG_CFG_PH_A10_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_21
+    Addr = &H35b5&
+    BUCK_CONFIG_CFG_PH_A10_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_22
+    Addr = &H35b6&
+    BUCK_CONFIG_CFG_PH_A10_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A10_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_23
+    Addr = &H35b7&
+    BUCK_CONFIG_CFG_PH_A10_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A10_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_24
+    Addr = &H35b8&
+    BUCK_CONFIG_CFG_PH_A10_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A10_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_25
+    Addr = &H35b9&
+    BUCK_CONFIG_CFG_PH_A10_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A10_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_26
+    Addr = &H35ba&
+    BUCK_CONFIG_CFG_PH_A10_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_27
+    Addr = &H35bb&
+    BUCK_CONFIG_CFG_PH_A10_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A10_CFG_28
+    Addr = &H35bc&
+    BUCK_CONFIG_CFG_PH_A10_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_0
+    Addr = &H35c0&
+    BUCK_CONFIG_CFG_PH_B10_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_1
+    Addr = &H35c1&
+    BUCK_CONFIG_CFG_PH_B10_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_2
+    Addr = &H35c2&
+    BUCK_CONFIG_CFG_PH_B10_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_3
+    Addr = &H35c3&
+    BUCK_CONFIG_CFG_PH_B10_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_4
+    Addr = &H35c4&
+    BUCK_CONFIG_CFG_PH_B10_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_5
+    Addr = &H35c5&
+    BUCK_CONFIG_CFG_PH_B10_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_6
+    Addr = &H35c6&
+    BUCK_CONFIG_CFG_PH_B10_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_7
+    Addr = &H35c7&
+    BUCK_CONFIG_CFG_PH_B10_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_8
+    Addr = &H35c8&
+    BUCK_CONFIG_CFG_PH_B10_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_9
+    Addr = &H35c9&
+    BUCK_CONFIG_CFG_PH_B10_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_10
+    Addr = &H35ca&
+    BUCK_CONFIG_CFG_PH_B10_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_11
+    Addr = &H35cb&
+    BUCK_CONFIG_CFG_PH_B10_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_12
+    Addr = &H35cc&
+    BUCK_CONFIG_CFG_PH_B10_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_13
+    Addr = &H35cd&
+    BUCK_CONFIG_CFG_PH_B10_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_14
+    Addr = &H35ce&
+    BUCK_CONFIG_CFG_PH_B10_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_15
+    Addr = &H35cf&
+    BUCK_CONFIG_CFG_PH_B10_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_16
+    Addr = &H35d0&
+    BUCK_CONFIG_CFG_PH_B10_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B10_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B10_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B10_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B10_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_17
+    Addr = &H35d1&
+    BUCK_CONFIG_CFG_PH_B10_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_18
+    Addr = &H35d2&
+    BUCK_CONFIG_CFG_PH_B10_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_19
+    Addr = &H35d3&
+    BUCK_CONFIG_CFG_PH_B10_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_21
+    Addr = &H35d5&
+    BUCK_CONFIG_CFG_PH_B10_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_22
+    Addr = &H35d6&
+    BUCK_CONFIG_CFG_PH_B10_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B10_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_23
+    Addr = &H35d7&
+    BUCK_CONFIG_CFG_PH_B10_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B10_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_24
+    Addr = &H35d8&
+    BUCK_CONFIG_CFG_PH_B10_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B10_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_25
+    Addr = &H35d9&
+    BUCK_CONFIG_CFG_PH_B10_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B10_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_26
+    Addr = &H35da&
+    BUCK_CONFIG_CFG_PH_B10_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_27
+    Addr = &H35db&
+    BUCK_CONFIG_CFG_PH_B10_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B10_CFG_28
+    Addr = &H35dc&
+    BUCK_CONFIG_CFG_PH_B10_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_0
+    Addr = &H35e0&
+    BUCK_CONFIG_CFG_PH_A11_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_1
+    Addr = &H35e1&
+    BUCK_CONFIG_CFG_PH_A11_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_2
+    Addr = &H35e2&
+    BUCK_CONFIG_CFG_PH_A11_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_3
+    Addr = &H35e3&
+    BUCK_CONFIG_CFG_PH_A11_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_4
+    Addr = &H35e4&
+    BUCK_CONFIG_CFG_PH_A11_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_5
+    Addr = &H35e5&
+    BUCK_CONFIG_CFG_PH_A11_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_6
+    Addr = &H35e6&
+    BUCK_CONFIG_CFG_PH_A11_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_7
+    Addr = &H35e7&
+    BUCK_CONFIG_CFG_PH_A11_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_8
+    Addr = &H35e8&
+    BUCK_CONFIG_CFG_PH_A11_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_9
+    Addr = &H35e9&
+    BUCK_CONFIG_CFG_PH_A11_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_10
+    Addr = &H35ea&
+    BUCK_CONFIG_CFG_PH_A11_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_11
+    Addr = &H35eb&
+    BUCK_CONFIG_CFG_PH_A11_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_12
+    Addr = &H35ec&
+    BUCK_CONFIG_CFG_PH_A11_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_13
+    Addr = &H35ed&
+    BUCK_CONFIG_CFG_PH_A11_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_14
+    Addr = &H35ee&
+    BUCK_CONFIG_CFG_PH_A11_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_15
+    Addr = &H35ef&
+    BUCK_CONFIG_CFG_PH_A11_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_16
+    Addr = &H35f0&
+    BUCK_CONFIG_CFG_PH_A11_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A11_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A11_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A11_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A11_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_17
+    Addr = &H35f1&
+    BUCK_CONFIG_CFG_PH_A11_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_18
+    Addr = &H35f2&
+    BUCK_CONFIG_CFG_PH_A11_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_19
+    Addr = &H35f3&
+    BUCK_CONFIG_CFG_PH_A11_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_21
+    Addr = &H35f5&
+    BUCK_CONFIG_CFG_PH_A11_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_22
+    Addr = &H35f6&
+    BUCK_CONFIG_CFG_PH_A11_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A11_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_23
+    Addr = &H35f7&
+    BUCK_CONFIG_CFG_PH_A11_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A11_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_24
+    Addr = &H35f8&
+    BUCK_CONFIG_CFG_PH_A11_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A11_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_25
+    Addr = &H35f9&
+    BUCK_CONFIG_CFG_PH_A11_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A11_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_26
+    Addr = &H35fa&
+    BUCK_CONFIG_CFG_PH_A11_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_27
+    Addr = &H35fb&
+    BUCK_CONFIG_CFG_PH_A11_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A11_CFG_28
+    Addr = &H35fc&
+    BUCK_CONFIG_CFG_PH_A11_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_0
+    Addr = &H3600&
+    BUCK_CONFIG_CFG_PH_B11_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_1
+    Addr = &H3601&
+    BUCK_CONFIG_CFG_PH_B11_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_2
+    Addr = &H3602&
+    BUCK_CONFIG_CFG_PH_B11_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_3
+    Addr = &H3603&
+    BUCK_CONFIG_CFG_PH_B11_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_4
+    Addr = &H3604&
+    BUCK_CONFIG_CFG_PH_B11_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_5
+    Addr = &H3605&
+    BUCK_CONFIG_CFG_PH_B11_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_6
+    Addr = &H3606&
+    BUCK_CONFIG_CFG_PH_B11_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_7
+    Addr = &H3607&
+    BUCK_CONFIG_CFG_PH_B11_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_8
+    Addr = &H3608&
+    BUCK_CONFIG_CFG_PH_B11_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_9
+    Addr = &H3609&
+    BUCK_CONFIG_CFG_PH_B11_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_10
+    Addr = &H360a&
+    BUCK_CONFIG_CFG_PH_B11_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_11
+    Addr = &H360b&
+    BUCK_CONFIG_CFG_PH_B11_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_12
+    Addr = &H360c&
+    BUCK_CONFIG_CFG_PH_B11_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_13
+    Addr = &H360d&
+    BUCK_CONFIG_CFG_PH_B11_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_14
+    Addr = &H360e&
+    BUCK_CONFIG_CFG_PH_B11_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_15
+    Addr = &H360f&
+    BUCK_CONFIG_CFG_PH_B11_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_16
+    Addr = &H3610&
+    BUCK_CONFIG_CFG_PH_B11_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B11_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B11_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B11_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B11_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_17
+    Addr = &H3611&
+    BUCK_CONFIG_CFG_PH_B11_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_18
+    Addr = &H3612&
+    BUCK_CONFIG_CFG_PH_B11_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_19
+    Addr = &H3613&
+    BUCK_CONFIG_CFG_PH_B11_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_21
+    Addr = &H3615&
+    BUCK_CONFIG_CFG_PH_B11_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_22
+    Addr = &H3616&
+    BUCK_CONFIG_CFG_PH_B11_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B11_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_23
+    Addr = &H3617&
+    BUCK_CONFIG_CFG_PH_B11_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B11_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_24
+    Addr = &H3618&
+    BUCK_CONFIG_CFG_PH_B11_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B11_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_25
+    Addr = &H3619&
+    BUCK_CONFIG_CFG_PH_B11_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B11_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_26
+    Addr = &H361a&
+    BUCK_CONFIG_CFG_PH_B11_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_27
+    Addr = &H361b&
+    BUCK_CONFIG_CFG_PH_B11_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B11_CFG_28
+    Addr = &H361c&
+    BUCK_CONFIG_CFG_PH_B11_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_0
+    Addr = &H3620&
+    BUCK_CONFIG_CFG_PH_A12_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_1
+    Addr = &H3621&
+    BUCK_CONFIG_CFG_PH_A12_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_2
+    Addr = &H3622&
+    BUCK_CONFIG_CFG_PH_A12_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_3
+    Addr = &H3623&
+    BUCK_CONFIG_CFG_PH_A12_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_4
+    Addr = &H3624&
+    BUCK_CONFIG_CFG_PH_A12_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_5
+    Addr = &H3625&
+    BUCK_CONFIG_CFG_PH_A12_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_6
+    Addr = &H3626&
+    BUCK_CONFIG_CFG_PH_A12_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_7
+    Addr = &H3627&
+    BUCK_CONFIG_CFG_PH_A12_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_8
+    Addr = &H3628&
+    BUCK_CONFIG_CFG_PH_A12_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_9
+    Addr = &H3629&
+    BUCK_CONFIG_CFG_PH_A12_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_10
+    Addr = &H362a&
+    BUCK_CONFIG_CFG_PH_A12_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_11
+    Addr = &H362b&
+    BUCK_CONFIG_CFG_PH_A12_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_12
+    Addr = &H362c&
+    BUCK_CONFIG_CFG_PH_A12_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_13
+    Addr = &H362d&
+    BUCK_CONFIG_CFG_PH_A12_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_14
+    Addr = &H362e&
+    BUCK_CONFIG_CFG_PH_A12_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_15
+    Addr = &H362f&
+    BUCK_CONFIG_CFG_PH_A12_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_16
+    Addr = &H3630&
+    BUCK_CONFIG_CFG_PH_A12_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A12_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A12_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A12_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A12_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_17
+    Addr = &H3631&
+    BUCK_CONFIG_CFG_PH_A12_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_18
+    Addr = &H3632&
+    BUCK_CONFIG_CFG_PH_A12_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_19
+    Addr = &H3633&
+    BUCK_CONFIG_CFG_PH_A12_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_21
+    Addr = &H3635&
+    BUCK_CONFIG_CFG_PH_A12_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_22
+    Addr = &H3636&
+    BUCK_CONFIG_CFG_PH_A12_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A12_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_23
+    Addr = &H3637&
+    BUCK_CONFIG_CFG_PH_A12_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A12_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_24
+    Addr = &H3638&
+    BUCK_CONFIG_CFG_PH_A12_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A12_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_25
+    Addr = &H3639&
+    BUCK_CONFIG_CFG_PH_A12_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A12_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_26
+    Addr = &H363a&
+    BUCK_CONFIG_CFG_PH_A12_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_27
+    Addr = &H363b&
+    BUCK_CONFIG_CFG_PH_A12_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A12_CFG_28
+    Addr = &H363c&
+    BUCK_CONFIG_CFG_PH_A12_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_0
+    Addr = &H3640&
+    BUCK_CONFIG_CFG_PH_B12_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_1
+    Addr = &H3641&
+    BUCK_CONFIG_CFG_PH_B12_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_2
+    Addr = &H3642&
+    BUCK_CONFIG_CFG_PH_B12_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_3
+    Addr = &H3643&
+    BUCK_CONFIG_CFG_PH_B12_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_4
+    Addr = &H3644&
+    BUCK_CONFIG_CFG_PH_B12_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_5
+    Addr = &H3645&
+    BUCK_CONFIG_CFG_PH_B12_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_6
+    Addr = &H3646&
+    BUCK_CONFIG_CFG_PH_B12_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_7
+    Addr = &H3647&
+    BUCK_CONFIG_CFG_PH_B12_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_8
+    Addr = &H3648&
+    BUCK_CONFIG_CFG_PH_B12_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_9
+    Addr = &H3649&
+    BUCK_CONFIG_CFG_PH_B12_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_10
+    Addr = &H364a&
+    BUCK_CONFIG_CFG_PH_B12_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_11
+    Addr = &H364b&
+    BUCK_CONFIG_CFG_PH_B12_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_12
+    Addr = &H364c&
+    BUCK_CONFIG_CFG_PH_B12_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_13
+    Addr = &H364d&
+    BUCK_CONFIG_CFG_PH_B12_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_14
+    Addr = &H364e&
+    BUCK_CONFIG_CFG_PH_B12_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_15
+    Addr = &H364f&
+    BUCK_CONFIG_CFG_PH_B12_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_16
+    Addr = &H3650&
+    BUCK_CONFIG_CFG_PH_B12_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B12_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B12_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B12_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B12_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_17
+    Addr = &H3651&
+    BUCK_CONFIG_CFG_PH_B12_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_18
+    Addr = &H3652&
+    BUCK_CONFIG_CFG_PH_B12_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_19
+    Addr = &H3653&
+    BUCK_CONFIG_CFG_PH_B12_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_21
+    Addr = &H3655&
+    BUCK_CONFIG_CFG_PH_B12_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_22
+    Addr = &H3656&
+    BUCK_CONFIG_CFG_PH_B12_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B12_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_23
+    Addr = &H3657&
+    BUCK_CONFIG_CFG_PH_B12_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B12_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_24
+    Addr = &H3658&
+    BUCK_CONFIG_CFG_PH_B12_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B12_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_25
+    Addr = &H3659&
+    BUCK_CONFIG_CFG_PH_B12_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B12_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_26
+    Addr = &H365a&
+    BUCK_CONFIG_CFG_PH_B12_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_27
+    Addr = &H365b&
+    BUCK_CONFIG_CFG_PH_B12_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B12_CFG_28
+    Addr = &H365c&
+    BUCK_CONFIG_CFG_PH_B12_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_0
+    Addr = &H3660&
+    BUCK_CONFIG_CFG_PH_A13_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_1
+    Addr = &H3661&
+    BUCK_CONFIG_CFG_PH_A13_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_2
+    Addr = &H3662&
+    BUCK_CONFIG_CFG_PH_A13_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_3
+    Addr = &H3663&
+    BUCK_CONFIG_CFG_PH_A13_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_4
+    Addr = &H3664&
+    BUCK_CONFIG_CFG_PH_A13_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_5
+    Addr = &H3665&
+    BUCK_CONFIG_CFG_PH_A13_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_6
+    Addr = &H3666&
+    BUCK_CONFIG_CFG_PH_A13_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_7
+    Addr = &H3667&
+    BUCK_CONFIG_CFG_PH_A13_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_8
+    Addr = &H3668&
+    BUCK_CONFIG_CFG_PH_A13_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_9
+    Addr = &H3669&
+    BUCK_CONFIG_CFG_PH_A13_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_10
+    Addr = &H366a&
+    BUCK_CONFIG_CFG_PH_A13_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_11
+    Addr = &H366b&
+    BUCK_CONFIG_CFG_PH_A13_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_12
+    Addr = &H366c&
+    BUCK_CONFIG_CFG_PH_A13_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_13
+    Addr = &H366d&
+    BUCK_CONFIG_CFG_PH_A13_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_14
+    Addr = &H366e&
+    BUCK_CONFIG_CFG_PH_A13_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_15
+    Addr = &H366f&
+    BUCK_CONFIG_CFG_PH_A13_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_16
+    Addr = &H3670&
+    BUCK_CONFIG_CFG_PH_A13_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A13_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A13_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A13_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A13_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_17
+    Addr = &H3671&
+    BUCK_CONFIG_CFG_PH_A13_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_18
+    Addr = &H3672&
+    BUCK_CONFIG_CFG_PH_A13_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_19
+    Addr = &H3673&
+    BUCK_CONFIG_CFG_PH_A13_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_21
+    Addr = &H3675&
+    BUCK_CONFIG_CFG_PH_A13_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_22
+    Addr = &H3676&
+    BUCK_CONFIG_CFG_PH_A13_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A13_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_23
+    Addr = &H3677&
+    BUCK_CONFIG_CFG_PH_A13_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A13_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_24
+    Addr = &H3678&
+    BUCK_CONFIG_CFG_PH_A13_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A13_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_25
+    Addr = &H3679&
+    BUCK_CONFIG_CFG_PH_A13_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A13_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_26
+    Addr = &H367a&
+    BUCK_CONFIG_CFG_PH_A13_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_27
+    Addr = &H367b&
+    BUCK_CONFIG_CFG_PH_A13_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A13_CFG_28
+    Addr = &H367c&
+    BUCK_CONFIG_CFG_PH_A13_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_0
+    Addr = &H3680&
+    BUCK_CONFIG_CFG_PH_B13_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_1
+    Addr = &H3681&
+    BUCK_CONFIG_CFG_PH_B13_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_2
+    Addr = &H3682&
+    BUCK_CONFIG_CFG_PH_B13_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_3
+    Addr = &H3683&
+    BUCK_CONFIG_CFG_PH_B13_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_4
+    Addr = &H3684&
+    BUCK_CONFIG_CFG_PH_B13_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_5
+    Addr = &H3685&
+    BUCK_CONFIG_CFG_PH_B13_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_6
+    Addr = &H3686&
+    BUCK_CONFIG_CFG_PH_B13_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_7
+    Addr = &H3687&
+    BUCK_CONFIG_CFG_PH_B13_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_8
+    Addr = &H3688&
+    BUCK_CONFIG_CFG_PH_B13_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_9
+    Addr = &H3689&
+    BUCK_CONFIG_CFG_PH_B13_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_10
+    Addr = &H368a&
+    BUCK_CONFIG_CFG_PH_B13_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_11
+    Addr = &H368b&
+    BUCK_CONFIG_CFG_PH_B13_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_12
+    Addr = &H368c&
+    BUCK_CONFIG_CFG_PH_B13_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_13
+    Addr = &H368d&
+    BUCK_CONFIG_CFG_PH_B13_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_14
+    Addr = &H368e&
+    BUCK_CONFIG_CFG_PH_B13_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_15
+    Addr = &H368f&
+    BUCK_CONFIG_CFG_PH_B13_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_16
+    Addr = &H3690&
+    BUCK_CONFIG_CFG_PH_B13_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B13_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B13_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B13_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B13_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_17
+    Addr = &H3691&
+    BUCK_CONFIG_CFG_PH_B13_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_18
+    Addr = &H3692&
+    BUCK_CONFIG_CFG_PH_B13_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_19
+    Addr = &H3693&
+    BUCK_CONFIG_CFG_PH_B13_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_21
+    Addr = &H3695&
+    BUCK_CONFIG_CFG_PH_B13_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_22
+    Addr = &H3696&
+    BUCK_CONFIG_CFG_PH_B13_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B13_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_23
+    Addr = &H3697&
+    BUCK_CONFIG_CFG_PH_B13_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B13_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_24
+    Addr = &H3698&
+    BUCK_CONFIG_CFG_PH_B13_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B13_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_25
+    Addr = &H3699&
+    BUCK_CONFIG_CFG_PH_B13_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B13_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_26
+    Addr = &H369a&
+    BUCK_CONFIG_CFG_PH_B13_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_27
+    Addr = &H369b&
+    BUCK_CONFIG_CFG_PH_B13_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B13_CFG_28
+    Addr = &H369c&
+    BUCK_CONFIG_CFG_PH_B13_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_0
+    Addr = &H36a0&
+    BUCK_CONFIG_CFG_PH_A14_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_1
+    Addr = &H36a1&
+    BUCK_CONFIG_CFG_PH_A14_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_2
+    Addr = &H36a2&
+    BUCK_CONFIG_CFG_PH_A14_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_3
+    Addr = &H36a3&
+    BUCK_CONFIG_CFG_PH_A14_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_4
+    Addr = &H36a4&
+    BUCK_CONFIG_CFG_PH_A14_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_5
+    Addr = &H36a5&
+    BUCK_CONFIG_CFG_PH_A14_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_6
+    Addr = &H36a6&
+    BUCK_CONFIG_CFG_PH_A14_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_7
+    Addr = &H36a7&
+    BUCK_CONFIG_CFG_PH_A14_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_8
+    Addr = &H36a8&
+    BUCK_CONFIG_CFG_PH_A14_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_9
+    Addr = &H36a9&
+    BUCK_CONFIG_CFG_PH_A14_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_10
+    Addr = &H36aa&
+    BUCK_CONFIG_CFG_PH_A14_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_11
+    Addr = &H36ab&
+    BUCK_CONFIG_CFG_PH_A14_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_12
+    Addr = &H36ac&
+    BUCK_CONFIG_CFG_PH_A14_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_13
+    Addr = &H36ad&
+    BUCK_CONFIG_CFG_PH_A14_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_14
+    Addr = &H36ae&
+    BUCK_CONFIG_CFG_PH_A14_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_15
+    Addr = &H36af&
+    BUCK_CONFIG_CFG_PH_A14_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_16
+    Addr = &H36b0&
+    BUCK_CONFIG_CFG_PH_A14_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A14_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A14_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A14_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A14_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_17
+    Addr = &H36b1&
+    BUCK_CONFIG_CFG_PH_A14_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_18
+    Addr = &H36b2&
+    BUCK_CONFIG_CFG_PH_A14_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_19
+    Addr = &H36b3&
+    BUCK_CONFIG_CFG_PH_A14_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_21
+    Addr = &H36b5&
+    BUCK_CONFIG_CFG_PH_A14_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_22
+    Addr = &H36b6&
+    BUCK_CONFIG_CFG_PH_A14_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A14_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_23
+    Addr = &H36b7&
+    BUCK_CONFIG_CFG_PH_A14_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A14_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_24
+    Addr = &H36b8&
+    BUCK_CONFIG_CFG_PH_A14_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A14_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_25
+    Addr = &H36b9&
+    BUCK_CONFIG_CFG_PH_A14_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A14_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_26
+    Addr = &H36ba&
+    BUCK_CONFIG_CFG_PH_A14_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_27
+    Addr = &H36bb&
+    BUCK_CONFIG_CFG_PH_A14_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A14_CFG_28
+    Addr = &H36bc&
+    BUCK_CONFIG_CFG_PH_A14_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_0
+    Addr = &H36c0&
+    BUCK_CONFIG_CFG_PH_B14_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_1
+    Addr = &H36c1&
+    BUCK_CONFIG_CFG_PH_B14_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_2
+    Addr = &H36c2&
+    BUCK_CONFIG_CFG_PH_B14_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_3
+    Addr = &H36c3&
+    BUCK_CONFIG_CFG_PH_B14_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_4
+    Addr = &H36c4&
+    BUCK_CONFIG_CFG_PH_B14_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_5
+    Addr = &H36c5&
+    BUCK_CONFIG_CFG_PH_B14_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_6
+    Addr = &H36c6&
+    BUCK_CONFIG_CFG_PH_B14_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_7
+    Addr = &H36c7&
+    BUCK_CONFIG_CFG_PH_B14_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_8
+    Addr = &H36c8&
+    BUCK_CONFIG_CFG_PH_B14_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_9
+    Addr = &H36c9&
+    BUCK_CONFIG_CFG_PH_B14_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_10
+    Addr = &H36ca&
+    BUCK_CONFIG_CFG_PH_B14_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_11
+    Addr = &H36cb&
+    BUCK_CONFIG_CFG_PH_B14_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_12
+    Addr = &H36cc&
+    BUCK_CONFIG_CFG_PH_B14_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_13
+    Addr = &H36cd&
+    BUCK_CONFIG_CFG_PH_B14_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_14
+    Addr = &H36ce&
+    BUCK_CONFIG_CFG_PH_B14_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_15
+    Addr = &H36cf&
+    BUCK_CONFIG_CFG_PH_B14_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_16
+    Addr = &H36d0&
+    BUCK_CONFIG_CFG_PH_B14_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B14_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B14_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B14_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B14_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_17
+    Addr = &H36d1&
+    BUCK_CONFIG_CFG_PH_B14_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_18
+    Addr = &H36d2&
+    BUCK_CONFIG_CFG_PH_B14_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_19
+    Addr = &H36d3&
+    BUCK_CONFIG_CFG_PH_B14_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_21
+    Addr = &H36d5&
+    BUCK_CONFIG_CFG_PH_B14_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_22
+    Addr = &H36d6&
+    BUCK_CONFIG_CFG_PH_B14_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B14_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_23
+    Addr = &H36d7&
+    BUCK_CONFIG_CFG_PH_B14_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B14_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_24
+    Addr = &H36d8&
+    BUCK_CONFIG_CFG_PH_B14_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B14_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_25
+    Addr = &H36d9&
+    BUCK_CONFIG_CFG_PH_B14_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B14_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_26
+    Addr = &H36da&
+    BUCK_CONFIG_CFG_PH_B14_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_27
+    Addr = &H36db&
+    BUCK_CONFIG_CFG_PH_B14_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B14_CFG_28
+    Addr = &H36dc&
+    BUCK_CONFIG_CFG_PH_B14_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_0
+    Addr = &H36e0&
+    BUCK_CONFIG_CFG_PH_A15_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_1
+    Addr = &H36e1&
+    BUCK_CONFIG_CFG_PH_A15_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_2
+    Addr = &H36e2&
+    BUCK_CONFIG_CFG_PH_A15_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_3
+    Addr = &H36e3&
+    BUCK_CONFIG_CFG_PH_A15_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_4
+    Addr = &H36e4&
+    BUCK_CONFIG_CFG_PH_A15_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_5
+    Addr = &H36e5&
+    BUCK_CONFIG_CFG_PH_A15_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_6
+    Addr = &H36e6&
+    BUCK_CONFIG_CFG_PH_A15_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_7
+    Addr = &H36e7&
+    BUCK_CONFIG_CFG_PH_A15_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_8
+    Addr = &H36e8&
+    BUCK_CONFIG_CFG_PH_A15_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_9
+    Addr = &H36e9&
+    BUCK_CONFIG_CFG_PH_A15_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_10
+    Addr = &H36ea&
+    BUCK_CONFIG_CFG_PH_A15_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_11
+    Addr = &H36eb&
+    BUCK_CONFIG_CFG_PH_A15_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_12
+    Addr = &H36ec&
+    BUCK_CONFIG_CFG_PH_A15_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_13
+    Addr = &H36ed&
+    BUCK_CONFIG_CFG_PH_A15_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_14
+    Addr = &H36ee&
+    BUCK_CONFIG_CFG_PH_A15_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_15
+    Addr = &H36ef&
+    BUCK_CONFIG_CFG_PH_A15_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_16
+    Addr = &H36f0&
+    BUCK_CONFIG_CFG_PH_A15_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A15_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A15_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A15_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A15_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_17
+    Addr = &H36f1&
+    BUCK_CONFIG_CFG_PH_A15_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_18
+    Addr = &H36f2&
+    BUCK_CONFIG_CFG_PH_A15_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_19
+    Addr = &H36f3&
+    BUCK_CONFIG_CFG_PH_A15_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_21
+    Addr = &H36f5&
+    BUCK_CONFIG_CFG_PH_A15_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_22
+    Addr = &H36f6&
+    BUCK_CONFIG_CFG_PH_A15_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A15_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_23
+    Addr = &H36f7&
+    BUCK_CONFIG_CFG_PH_A15_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A15_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_24
+    Addr = &H36f8&
+    BUCK_CONFIG_CFG_PH_A15_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A15_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_25
+    Addr = &H36f9&
+    BUCK_CONFIG_CFG_PH_A15_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A15_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_26
+    Addr = &H36fa&
+    BUCK_CONFIG_CFG_PH_A15_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_27
+    Addr = &H36fb&
+    BUCK_CONFIG_CFG_PH_A15_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A15_CFG_28
+    Addr = &H36fc&
+    BUCK_CONFIG_CFG_PH_A15_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_0
+    Addr = &H3700&
+    BUCK_CONFIG_CFG_PH_B15_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_1
+    Addr = &H3701&
+    BUCK_CONFIG_CFG_PH_B15_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_2
+    Addr = &H3702&
+    BUCK_CONFIG_CFG_PH_B15_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_3
+    Addr = &H3703&
+    BUCK_CONFIG_CFG_PH_B15_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_4
+    Addr = &H3704&
+    BUCK_CONFIG_CFG_PH_B15_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_5
+    Addr = &H3705&
+    BUCK_CONFIG_CFG_PH_B15_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_6
+    Addr = &H3706&
+    BUCK_CONFIG_CFG_PH_B15_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_7
+    Addr = &H3707&
+    BUCK_CONFIG_CFG_PH_B15_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_8
+    Addr = &H3708&
+    BUCK_CONFIG_CFG_PH_B15_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_9
+    Addr = &H3709&
+    BUCK_CONFIG_CFG_PH_B15_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_10
+    Addr = &H370a&
+    BUCK_CONFIG_CFG_PH_B15_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_11
+    Addr = &H370b&
+    BUCK_CONFIG_CFG_PH_B15_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_12
+    Addr = &H370c&
+    BUCK_CONFIG_CFG_PH_B15_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_13
+    Addr = &H370d&
+    BUCK_CONFIG_CFG_PH_B15_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_14
+    Addr = &H370e&
+    BUCK_CONFIG_CFG_PH_B15_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_15
+    Addr = &H370f&
+    BUCK_CONFIG_CFG_PH_B15_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_16
+    Addr = &H3710&
+    BUCK_CONFIG_CFG_PH_B15_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B15_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B15_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B15_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B15_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_17
+    Addr = &H3711&
+    BUCK_CONFIG_CFG_PH_B15_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_18
+    Addr = &H3712&
+    BUCK_CONFIG_CFG_PH_B15_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_19
+    Addr = &H3713&
+    BUCK_CONFIG_CFG_PH_B15_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_21
+    Addr = &H3715&
+    BUCK_CONFIG_CFG_PH_B15_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_22
+    Addr = &H3716&
+    BUCK_CONFIG_CFG_PH_B15_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B15_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_23
+    Addr = &H3717&
+    BUCK_CONFIG_CFG_PH_B15_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B15_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_24
+    Addr = &H3718&
+    BUCK_CONFIG_CFG_PH_B15_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B15_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_25
+    Addr = &H3719&
+    BUCK_CONFIG_CFG_PH_B15_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B15_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_26
+    Addr = &H371a&
+    BUCK_CONFIG_CFG_PH_B15_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_27
+    Addr = &H371b&
+    BUCK_CONFIG_CFG_PH_B15_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B15_CFG_28
+    Addr = &H371c&
+    BUCK_CONFIG_CFG_PH_B15_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_0
+    Addr = &H3720&
+    BUCK_CONFIG_CFG_PH_A16_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_1
+    Addr = &H3721&
+    BUCK_CONFIG_CFG_PH_A16_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_2
+    Addr = &H3722&
+    BUCK_CONFIG_CFG_PH_A16_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_3
+    Addr = &H3723&
+    BUCK_CONFIG_CFG_PH_A16_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_4
+    Addr = &H3724&
+    BUCK_CONFIG_CFG_PH_A16_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_5
+    Addr = &H3725&
+    BUCK_CONFIG_CFG_PH_A16_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_6
+    Addr = &H3726&
+    BUCK_CONFIG_CFG_PH_A16_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_7
+    Addr = &H3727&
+    BUCK_CONFIG_CFG_PH_A16_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_8
+    Addr = &H3728&
+    BUCK_CONFIG_CFG_PH_A16_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_9
+    Addr = &H3729&
+    BUCK_CONFIG_CFG_PH_A16_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_10
+    Addr = &H372a&
+    BUCK_CONFIG_CFG_PH_A16_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_11
+    Addr = &H372b&
+    BUCK_CONFIG_CFG_PH_A16_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_12
+    Addr = &H372c&
+    BUCK_CONFIG_CFG_PH_A16_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_13
+    Addr = &H372d&
+    BUCK_CONFIG_CFG_PH_A16_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_14
+    Addr = &H372e&
+    BUCK_CONFIG_CFG_PH_A16_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_15
+    Addr = &H372f&
+    BUCK_CONFIG_CFG_PH_A16_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_16
+    Addr = &H3730&
+    BUCK_CONFIG_CFG_PH_A16_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A16_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A16_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A16_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A16_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_17
+    Addr = &H3731&
+    BUCK_CONFIG_CFG_PH_A16_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_18
+    Addr = &H3732&
+    BUCK_CONFIG_CFG_PH_A16_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_19
+    Addr = &H3733&
+    BUCK_CONFIG_CFG_PH_A16_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_21
+    Addr = &H3735&
+    BUCK_CONFIG_CFG_PH_A16_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_22
+    Addr = &H3736&
+    BUCK_CONFIG_CFG_PH_A16_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A16_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_23
+    Addr = &H3737&
+    BUCK_CONFIG_CFG_PH_A16_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A16_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_24
+    Addr = &H3738&
+    BUCK_CONFIG_CFG_PH_A16_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A16_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_25
+    Addr = &H3739&
+    BUCK_CONFIG_CFG_PH_A16_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A16_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_26
+    Addr = &H373a&
+    BUCK_CONFIG_CFG_PH_A16_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_27
+    Addr = &H373b&
+    BUCK_CONFIG_CFG_PH_A16_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A16_CFG_28
+    Addr = &H373c&
+    BUCK_CONFIG_CFG_PH_A16_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_0
+    Addr = &H3740&
+    BUCK_CONFIG_CFG_PH_B16_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_1
+    Addr = &H3741&
+    BUCK_CONFIG_CFG_PH_B16_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_2
+    Addr = &H3742&
+    BUCK_CONFIG_CFG_PH_B16_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_3
+    Addr = &H3743&
+    BUCK_CONFIG_CFG_PH_B16_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_4
+    Addr = &H3744&
+    BUCK_CONFIG_CFG_PH_B16_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_5
+    Addr = &H3745&
+    BUCK_CONFIG_CFG_PH_B16_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_6
+    Addr = &H3746&
+    BUCK_CONFIG_CFG_PH_B16_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_7
+    Addr = &H3747&
+    BUCK_CONFIG_CFG_PH_B16_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_8
+    Addr = &H3748&
+    BUCK_CONFIG_CFG_PH_B16_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_9
+    Addr = &H3749&
+    BUCK_CONFIG_CFG_PH_B16_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_10
+    Addr = &H374a&
+    BUCK_CONFIG_CFG_PH_B16_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_11
+    Addr = &H374b&
+    BUCK_CONFIG_CFG_PH_B16_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_12
+    Addr = &H374c&
+    BUCK_CONFIG_CFG_PH_B16_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_13
+    Addr = &H374d&
+    BUCK_CONFIG_CFG_PH_B16_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_14
+    Addr = &H374e&
+    BUCK_CONFIG_CFG_PH_B16_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_15
+    Addr = &H374f&
+    BUCK_CONFIG_CFG_PH_B16_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_16
+    Addr = &H3750&
+    BUCK_CONFIG_CFG_PH_B16_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B16_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B16_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B16_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B16_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_17
+    Addr = &H3751&
+    BUCK_CONFIG_CFG_PH_B16_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_18
+    Addr = &H3752&
+    BUCK_CONFIG_CFG_PH_B16_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_19
+    Addr = &H3753&
+    BUCK_CONFIG_CFG_PH_B16_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_21
+    Addr = &H3755&
+    BUCK_CONFIG_CFG_PH_B16_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_22
+    Addr = &H3756&
+    BUCK_CONFIG_CFG_PH_B16_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B16_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_23
+    Addr = &H3757&
+    BUCK_CONFIG_CFG_PH_B16_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B16_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_24
+    Addr = &H3758&
+    BUCK_CONFIG_CFG_PH_B16_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B16_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_25
+    Addr = &H3759&
+    BUCK_CONFIG_CFG_PH_B16_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B16_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_26
+    Addr = &H375a&
+    BUCK_CONFIG_CFG_PH_B16_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_27
+    Addr = &H375b&
+    BUCK_CONFIG_CFG_PH_B16_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B16_CFG_28
+    Addr = &H375c&
+    BUCK_CONFIG_CFG_PH_B16_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_0
+    Addr = &H3760&
+    BUCK_CONFIG_CFG_PH_A17_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_1
+    Addr = &H3761&
+    BUCK_CONFIG_CFG_PH_A17_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_2
+    Addr = &H3762&
+    BUCK_CONFIG_CFG_PH_A17_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_3
+    Addr = &H3763&
+    BUCK_CONFIG_CFG_PH_A17_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_4
+    Addr = &H3764&
+    BUCK_CONFIG_CFG_PH_A17_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_5
+    Addr = &H3765&
+    BUCK_CONFIG_CFG_PH_A17_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_6
+    Addr = &H3766&
+    BUCK_CONFIG_CFG_PH_A17_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_7
+    Addr = &H3767&
+    BUCK_CONFIG_CFG_PH_A17_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_8
+    Addr = &H3768&
+    BUCK_CONFIG_CFG_PH_A17_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_9
+    Addr = &H3769&
+    BUCK_CONFIG_CFG_PH_A17_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_10
+    Addr = &H376a&
+    BUCK_CONFIG_CFG_PH_A17_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_11
+    Addr = &H376b&
+    BUCK_CONFIG_CFG_PH_A17_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_12
+    Addr = &H376c&
+    BUCK_CONFIG_CFG_PH_A17_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_13
+    Addr = &H376d&
+    BUCK_CONFIG_CFG_PH_A17_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_14
+    Addr = &H376e&
+    BUCK_CONFIG_CFG_PH_A17_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_15
+    Addr = &H376f&
+    BUCK_CONFIG_CFG_PH_A17_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_16
+    Addr = &H3770&
+    BUCK_CONFIG_CFG_PH_A17_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A17_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A17_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A17_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A17_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_17
+    Addr = &H3771&
+    BUCK_CONFIG_CFG_PH_A17_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_18
+    Addr = &H3772&
+    BUCK_CONFIG_CFG_PH_A17_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_19
+    Addr = &H3773&
+    BUCK_CONFIG_CFG_PH_A17_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_21
+    Addr = &H3775&
+    BUCK_CONFIG_CFG_PH_A17_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_22
+    Addr = &H3776&
+    BUCK_CONFIG_CFG_PH_A17_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A17_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_23
+    Addr = &H3777&
+    BUCK_CONFIG_CFG_PH_A17_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A17_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_24
+    Addr = &H3778&
+    BUCK_CONFIG_CFG_PH_A17_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A17_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_25
+    Addr = &H3779&
+    BUCK_CONFIG_CFG_PH_A17_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A17_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_26
+    Addr = &H377a&
+    BUCK_CONFIG_CFG_PH_A17_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_27
+    Addr = &H377b&
+    BUCK_CONFIG_CFG_PH_A17_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A17_CFG_28
+    Addr = &H377c&
+    BUCK_CONFIG_CFG_PH_A17_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_0
+    Addr = &H3780&
+    BUCK_CONFIG_CFG_PH_B17_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_1
+    Addr = &H3781&
+    BUCK_CONFIG_CFG_PH_B17_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_2
+    Addr = &H3782&
+    BUCK_CONFIG_CFG_PH_B17_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_3
+    Addr = &H3783&
+    BUCK_CONFIG_CFG_PH_B17_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_4
+    Addr = &H3784&
+    BUCK_CONFIG_CFG_PH_B17_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_5
+    Addr = &H3785&
+    BUCK_CONFIG_CFG_PH_B17_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_6
+    Addr = &H3786&
+    BUCK_CONFIG_CFG_PH_B17_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_7
+    Addr = &H3787&
+    BUCK_CONFIG_CFG_PH_B17_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_8
+    Addr = &H3788&
+    BUCK_CONFIG_CFG_PH_B17_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_9
+    Addr = &H3789&
+    BUCK_CONFIG_CFG_PH_B17_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_10
+    Addr = &H378a&
+    BUCK_CONFIG_CFG_PH_B17_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_11
+    Addr = &H378b&
+    BUCK_CONFIG_CFG_PH_B17_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_12
+    Addr = &H378c&
+    BUCK_CONFIG_CFG_PH_B17_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_13
+    Addr = &H378d&
+    BUCK_CONFIG_CFG_PH_B17_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_14
+    Addr = &H378e&
+    BUCK_CONFIG_CFG_PH_B17_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_15
+    Addr = &H378f&
+    BUCK_CONFIG_CFG_PH_B17_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_16
+    Addr = &H3790&
+    BUCK_CONFIG_CFG_PH_B17_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B17_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B17_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B17_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B17_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_17
+    Addr = &H3791&
+    BUCK_CONFIG_CFG_PH_B17_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_18
+    Addr = &H3792&
+    BUCK_CONFIG_CFG_PH_B17_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_19
+    Addr = &H3793&
+    BUCK_CONFIG_CFG_PH_B17_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_21
+    Addr = &H3795&
+    BUCK_CONFIG_CFG_PH_B17_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_22
+    Addr = &H3796&
+    BUCK_CONFIG_CFG_PH_B17_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B17_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_23
+    Addr = &H3797&
+    BUCK_CONFIG_CFG_PH_B17_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B17_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_24
+    Addr = &H3798&
+    BUCK_CONFIG_CFG_PH_B17_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B17_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_25
+    Addr = &H3799&
+    BUCK_CONFIG_CFG_PH_B17_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B17_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_26
+    Addr = &H379a&
+    BUCK_CONFIG_CFG_PH_B17_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_27
+    Addr = &H379b&
+    BUCK_CONFIG_CFG_PH_B17_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B17_CFG_28
+    Addr = &H379c&
+    BUCK_CONFIG_CFG_PH_B17_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_0
+    Addr = &H37a0&
+    BUCK_CONFIG_CFG_PH_A18_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_1
+    Addr = &H37a1&
+    BUCK_CONFIG_CFG_PH_A18_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_2
+    Addr = &H37a2&
+    BUCK_CONFIG_CFG_PH_A18_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_3
+    Addr = &H37a3&
+    BUCK_CONFIG_CFG_PH_A18_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_4
+    Addr = &H37a4&
+    BUCK_CONFIG_CFG_PH_A18_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_5
+    Addr = &H37a5&
+    BUCK_CONFIG_CFG_PH_A18_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_6
+    Addr = &H37a6&
+    BUCK_CONFIG_CFG_PH_A18_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_7
+    Addr = &H37a7&
+    BUCK_CONFIG_CFG_PH_A18_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_8
+    Addr = &H37a8&
+    BUCK_CONFIG_CFG_PH_A18_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_9
+    Addr = &H37a9&
+    BUCK_CONFIG_CFG_PH_A18_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_10
+    Addr = &H37aa&
+    BUCK_CONFIG_CFG_PH_A18_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_11
+    Addr = &H37ab&
+    BUCK_CONFIG_CFG_PH_A18_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_12
+    Addr = &H37ac&
+    BUCK_CONFIG_CFG_PH_A18_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_13
+    Addr = &H37ad&
+    BUCK_CONFIG_CFG_PH_A18_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_14
+    Addr = &H37ae&
+    BUCK_CONFIG_CFG_PH_A18_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_15
+    Addr = &H37af&
+    BUCK_CONFIG_CFG_PH_A18_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_16
+    Addr = &H37b0&
+    BUCK_CONFIG_CFG_PH_A18_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A18_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A18_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A18_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A18_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_17
+    Addr = &H37b1&
+    BUCK_CONFIG_CFG_PH_A18_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_18
+    Addr = &H37b2&
+    BUCK_CONFIG_CFG_PH_A18_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_19
+    Addr = &H37b3&
+    BUCK_CONFIG_CFG_PH_A18_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_21
+    Addr = &H37b5&
+    BUCK_CONFIG_CFG_PH_A18_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_22
+    Addr = &H37b6&
+    BUCK_CONFIG_CFG_PH_A18_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A18_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_23
+    Addr = &H37b7&
+    BUCK_CONFIG_CFG_PH_A18_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A18_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_24
+    Addr = &H37b8&
+    BUCK_CONFIG_CFG_PH_A18_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A18_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_25
+    Addr = &H37b9&
+    BUCK_CONFIG_CFG_PH_A18_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A18_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_26
+    Addr = &H37ba&
+    BUCK_CONFIG_CFG_PH_A18_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_27
+    Addr = &H37bb&
+    BUCK_CONFIG_CFG_PH_A18_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A18_CFG_28
+    Addr = &H37bc&
+    BUCK_CONFIG_CFG_PH_A18_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_0
+    Addr = &H37c0&
+    BUCK_CONFIG_CFG_PH_B18_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_1
+    Addr = &H37c1&
+    BUCK_CONFIG_CFG_PH_B18_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_2
+    Addr = &H37c2&
+    BUCK_CONFIG_CFG_PH_B18_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_3
+    Addr = &H37c3&
+    BUCK_CONFIG_CFG_PH_B18_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_4
+    Addr = &H37c4&
+    BUCK_CONFIG_CFG_PH_B18_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_5
+    Addr = &H37c5&
+    BUCK_CONFIG_CFG_PH_B18_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_6
+    Addr = &H37c6&
+    BUCK_CONFIG_CFG_PH_B18_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_7
+    Addr = &H37c7&
+    BUCK_CONFIG_CFG_PH_B18_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_8
+    Addr = &H37c8&
+    BUCK_CONFIG_CFG_PH_B18_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_9
+    Addr = &H37c9&
+    BUCK_CONFIG_CFG_PH_B18_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_10
+    Addr = &H37ca&
+    BUCK_CONFIG_CFG_PH_B18_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_11
+    Addr = &H37cb&
+    BUCK_CONFIG_CFG_PH_B18_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_12
+    Addr = &H37cc&
+    BUCK_CONFIG_CFG_PH_B18_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_13
+    Addr = &H37cd&
+    BUCK_CONFIG_CFG_PH_B18_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_14
+    Addr = &H37ce&
+    BUCK_CONFIG_CFG_PH_B18_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_15
+    Addr = &H37cf&
+    BUCK_CONFIG_CFG_PH_B18_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_16
+    Addr = &H37d0&
+    BUCK_CONFIG_CFG_PH_B18_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_B18_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_B18_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_B18_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_B18_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_17
+    Addr = &H37d1&
+    BUCK_CONFIG_CFG_PH_B18_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_18
+    Addr = &H37d2&
+    BUCK_CONFIG_CFG_PH_B18_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_19
+    Addr = &H37d3&
+    BUCK_CONFIG_CFG_PH_B18_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_21
+    Addr = &H37d5&
+    BUCK_CONFIG_CFG_PH_B18_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_22
+    Addr = &H37d6&
+    BUCK_CONFIG_CFG_PH_B18_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_B18_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_23
+    Addr = &H37d7&
+    BUCK_CONFIG_CFG_PH_B18_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_B18_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_24
+    Addr = &H37d8&
+    BUCK_CONFIG_CFG_PH_B18_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B18_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_25
+    Addr = &H37d9&
+    BUCK_CONFIG_CFG_PH_B18_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_B18_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_26
+    Addr = &H37da&
+    BUCK_CONFIG_CFG_PH_B18_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_27
+    Addr = &H37db&
+    BUCK_CONFIG_CFG_PH_B18_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B18_CFG_28
+    Addr = &H37dc&
+    BUCK_CONFIG_CFG_PH_B18_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_0
+    Addr = &H37e0&
+    BUCK_CONFIG_CFG_PH_A19_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_1
+    Addr = &H37e1&
+    BUCK_CONFIG_CFG_PH_A19_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_2
+    Addr = &H37e2&
+    BUCK_CONFIG_CFG_PH_A19_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_3
+    Addr = &H37e3&
+    BUCK_CONFIG_CFG_PH_A19_CFG_3_SC_AZ_TIME = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_4
+    Addr = &H37e4&
+    BUCK_CONFIG_CFG_PH_A19_CFG_4_IDEM_GAIN_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_5
+    Addr = &H37e5&
+    BUCK_CONFIG_CFG_PH_A19_CFG_5_IDEM_OFFSET = &HF0
+    Default = &H0C
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_6
+    Addr = &H37e6&
+    BUCK_CONFIG_CFG_PH_A19_CFG_6_PWRTILE_CFG_0 = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_7
+    Addr = &H37e7&
+    BUCK_CONFIG_CFG_PH_A19_CFG_7_PWRTILE_CFG_1 = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_8
+    Addr = &H37e8&
+    BUCK_CONFIG_CFG_PH_A19_CFG_8_CS_OFFSET = &HC0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_9
+    Addr = &H37e9&
+    BUCK_CONFIG_CFG_PH_A19_CFG_9_CS_GAIN_TRIM = &HE0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_10
+    Addr = &H37ea&
+    BUCK_CONFIG_CFG_PH_A19_CFG_10_CS_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_11
+    Addr = &H37eb&
+    BUCK_CONFIG_CFG_PH_A19_CFG_11_CS_BW_LIMIT = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_12
+    Addr = &H37ec&
+    BUCK_CONFIG_CFG_PH_A19_CFG_12_ZC_IN_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_13
+    Addr = &H37ed&
+    BUCK_CONFIG_CFG_PH_A19_CFG_13_ZC_OUT_DELAY = &HF8
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_14
+    Addr = &H37ee&
+    BUCK_CONFIG_CFG_PH_A19_CFG_14_ZC_NEG_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_15
+    Addr = &H37ef&
+    BUCK_CONFIG_CFG_PH_A19_CFG_15_ZC_POS_OFFSET = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_16
+    Addr = &H37f0&
+    BUCK_CONFIG_CFG_PH_A19_CFG_16_CLC_EN_BIAS = &HFE
+    BUCK_CONFIG_CFG_PH_A19_CFG_16_CLC_EN_DAC = &HFD
+    BUCK_CONFIG_CFG_PH_A19_CFG_16_CLC_EN_LOAD = &HFB
+    BUCK_CONFIG_CFG_PH_A19_CFG_16_CLC_EN_PRE = &HF7
+    BUCK_CONFIG_CFG_PH_A19_CFG_16_CLC_EN_RAMP = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_17
+    Addr = &H37f1&
+    BUCK_CONFIG_CFG_PH_A19_CFG_17_CLC_BIREF = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_18
+    Addr = &H37f2&
+    BUCK_CONFIG_CFG_PH_A19_CFG_18_CLC_BDAC = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_19
+    Addr = &H37f3&
+    BUCK_CONFIG_CFG_PH_A19_CFG_19_CLC_BREFTEST = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_21
+    Addr = &H37f5&
+    BUCK_CONFIG_CFG_PH_A19_CFG_21_SC_AZ_DISABLE = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_22
+    Addr = &H37f6&
+    BUCK_CONFIG_CFG_PH_A19_CFG_22_SC_OFFSET_ADJ = &HF0
+    BUCK_CONFIG_CFG_PH_A19_CFG_22_ILIMIT_EN = &HEF
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_23
+    Addr = &H37f7&
+    BUCK_CONFIG_CFG_PH_A19_CFG_23_ONEXT_BIAS = &H80
+    BUCK_CONFIG_CFG_PH_A19_CFG_23_ONEXT_EN = &H7F
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_24
+    Addr = &H37f8&
+    BUCK_CONFIG_CFG_PH_A19_CFG_24_TM_ATB_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A19_CFG_24_TM_ATB_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_25
+    Addr = &H37f9&
+    BUCK_CONFIG_CFG_PH_A19_CFG_25_TM_IBIST_SEL = &HFC
+    BUCK_CONFIG_CFG_PH_A19_CFG_25_TM_IBIST_EN = &HFB
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_26
+    Addr = &H37fa&
+    BUCK_CONFIG_CFG_PH_A19_CFG_26_TM_IDEM_EN = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_27
+    Addr = &H37fb&
+    BUCK_CONFIG_CFG_PH_A19_CFG_27_TM_TEMPSNS_SEL = &HFE
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_A19_CFG_28
+    Addr = &H37fc&
+    BUCK_CONFIG_CFG_PH_A19_CFG_28_SPARE = &H00
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B19_CFG_0
+    Addr = &H3800&
+    BUCK_CONFIG_CFG_PH_B19_CFG_0_REF_TRIM = &HF0
+    Default = &H00
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B19_CFG_1
+    Addr = &H3801&
+    BUCK_CONFIG_CFG_PH_B19_CFG_1_SC_SLOPE = &HF0
+    Default = &H08
+End Enum
+Public Enum BUCK_CONFIG_CFG_PH_B19_CFG_2
+    Addr = &H3802&
+    BUCK_CONFIG_CFG_PH_B19_CFG_2_SC_SLOPE_TRIM = &HE0
+    Default = &H00
+End Enum

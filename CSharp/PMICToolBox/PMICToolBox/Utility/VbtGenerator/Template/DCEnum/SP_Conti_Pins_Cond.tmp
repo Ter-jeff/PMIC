@@ -1,0 +1,414 @@
+Option Explicit
+Public Enum SP_Conti_Pins
+<#Loop#>
+    <#PinName#><#/PinName#> = <#SeqNum#><#/SeqNum#>
+<#/Loop#>
+End Enum
+
+Public Function <#SheetName#><#/SheetName#>(idx As Double) As String
+On Error GoTo ErrHandler
+Dim errorFuncName As String:: errorFuncName = "SP_Conti_Pins_Cond"
+Dim SP_PinName, SPForceI, Wait_Time, On_Relay, Off_Relay, MustDiscnctPins, SPCondPin, SPCondPinV_I, TestItem, Output As String
+
+    Select Case idx
+<#Loop IsInsertNewLine="TRUE"#>
+    Case <#SeqNum#><#/SeqNum#>                                                           <#PinName Left="80" Comment="TRUE"#><#/PinName#>
+        SP_PinName = "<#PinName#><#/PinName#>"
+        SPForceI = "<#SpecificLimit#><#/SpecificLimit#>"                           <#PinName Left="80" Comment="TRUE"#>SpecificLimit|SPLimit = <#/PinName#> 
+        Wait_Time = "<#SpecificWaitTime#><#/SpecificWaitTime#>"                    <#PinName Left="80" Comment="TRUE"#>SpecificWaitTime|Wait_Time =<#/PinName#> 
+        On_Relay = "<#On_Relay#><#/On_Relay#>"                                     <#PinName Left="80" Comment="TRUE"#>On_Relay|On_Relay =<#/PinName#> 
+        Off_Relay = "<#Off_Relay#><#/Off_Relay#>"                                  <#PinName Left="80" Comment="TRUE"#>Off_Relay|Off_Relay =<#/PinName#> 
+        MustDiscnctPins = "<#MustDiscnctPins#><#/MustDiscnctPins#>"                <#PinName Left="80" Comment="TRUE"#>MustDiscnctPins|MustDiscnctPins =<#/PinName#> 
+        SPCondPin = "<#SpecCondiPin#><#/SpecCondiPin#>"                            <#PinName Left="80" Comment="TRUE"#>SpecCondiPin|SPCondPin =<#/PinName#>
+        SPCondPinV_I = "<#SpecCondiPinVolt_Current#><#/SpecCondiPinVolt_Current#>" <#PinName Left="80" Comment="TRUE"#>SpecCondiPinVolt_Current|SPCondPinV_I =<#/PinName#> 
+        TestItem =  "<#TestItem#><#/TestItem#>"                                  <#PinName Left="80" Comment="TRUE"#>TestItem|TM_IIL_IIH =<#/PinName#>
+<#/Loop#>
+    Case Else
+             'SP_Leak_Pins_Cond = "Wrong_Enum_Input"
+    End Select
+
+    <#SheetName#><#/SheetName#>= SP_PinName + "&" + SPForceI + "&" + Wait_Time + "&" + On_Relay + "&" + Off_Relay + "&" + MustDiscnctPins + "&" + SPCondPin + "&" + SPCondPinV_I + "&" + TestItem
+Exit Function
+ErrHandler:
+    TheExec.AddOutput "<Error> " + errorFuncName + ":: please Check it out."
+    TheExec.Datalog.WriteComment "<Error> " + errorFuncName + ":: please check it out."
+    If AbortTest Then Exit Function Else Resume Next
+End Function
+
+
+Public Function GenContiPinDic()
+On Error GoTo ErrHandler
+Dim errorFuncName As String:: errorFuncName = "GenContiPinDic"
+Dim idx As Double
+Dim Pin_Num As Double
+Dim PinName() As String
+Pin_Num = <#Count#><#/Count#>
+ReDim SPPins(<#Count#>-1<#/Count#>) As String
+
+Dim Dic_PinName() As String
+ReDim Preserve Dic_PinName(Pin_Num)
+
+    For idx = 0 To Pin_Num
+
+    ReDim Preserve PinName(Pin_Num)
+    PinName(idx) = Split_Concat(SP_Conti_Pins_Cond(idx), 0) '.SP_Leak_Pins
+
+    Dic_PinName(idx) = PinName(idx)
+
+    If ContiPinDic.Exists(Dic_PinName(idx)) Then
+    Else
+       ContiPinDic.Add Dic_PinName(idx), idx     'add key and item to dictionary
+    End If
+    Next idx
+Exit Function
+ErrHandler:
+    TheExec.AddOutput "<Error> " + errorFuncName + ":: please Check it out."
+    TheExec.Datalog.WriteComment "<Error> " + errorFuncName + ":: please check it out."
+    If AbortTest Then Exit Function Else Resume Next
+End Function
+
+
+Public Function SearchDicIdx_Conti(PinName As String) As Double
+On Error GoTo ErrHandler
+Dim errorFuncName As String:: errorFuncName = "SearchDicIdx_Conti"
+Dim idx As Double
+For idx = 0 To <#Count#><#/Count#>
+    If ContiPinDic.Keys(idx) = PinName Then
+    SearchDicIdx_Conti = idx
+    Exit For
+    End If
+Next idx
+
+Exit Function
+ErrHandler:
+    TheExec.AddOutput "<Error> " + errorFuncName + ":: please Check it out."
+    TheExec.Datalog.WriteComment "<Error> " + errorFuncName + ":: please check it out."
+    If AbortTest Then Exit Function Else Resume Next
+End Function
+
+Public Function Conti_PerPinSetting(PinName As String, _
+                            Optional SpecificForceI As String = "X", _
+                            Optional SpecificWaitTime As String = "X", _
+                            Optional OnRelay As String = "X", _
+                            Optional OffRelay As String = "X", _
+                            Optional MustDiscnctPin As String = "X", _
+                            Optional SpecialCondiPin As String = "X", _
+                            Optional SpacialConPinVoltCurr As String = "X", _
+                            Optional ByRef Index As Integer, _
+                            Optional DatalogPinSeq As String, _
+                            Optional b_restore As Boolean = False)
+
+
+
+On Error GoTo ErrHandler
+                            
+'Dim CurrentRange_status As Double:: CurrentRange_status = TheHdw.DCVI.Pins(PinName).CurrentRange
+'Dim Current_status As Double:: Current_status = TheHdw.DCVI.Pins(PinName).Current
+Dim SpacialConPinVolt As Double
+Dim SpacialConPinCurr As Double
+Dim SpePinArray() As String
+Dim SpePinVoltCurrArray() As String
+Dim MustDiscnctPinArray() As String
+Dim SpePin_index As Integer
+Dim MustDiscnctPin_index As Integer
+Dim b_DebugMode As Boolean: b_DebugMode = True
+If (g_bTTR_ALL) = True Then b_DebugMode = False
+
+b_DebugMode = False '20200217
+'********************************************************
+'                    MustDiscnctPin
+'********************************************************
+If b_restore = False Then
+    If MustDiscnctPin <> "" And MustDiscnctPin <> "X" Then
+        If InStr(MustDiscnctPin, PIN_COND_SPLIT) > 0 Then
+            MustDiscnctPinArray = Split(MustDiscnctPin, PIN_COND_SPLIT) 'PIN_COND_SPLIT= ";"
+        Else
+            ReDim MustDiscnctPinArray(0)
+            MustDiscnctPinArray(0) = MustDiscnctPin
+        End If
+    
+        For MustDiscnctPin_index = 0 To UBound(MustDiscnctPinArray)
+        
+            If UCase(MustDiscnctPinArray(MustDiscnctPin_index)) Like "*PPMU*" Then
+                MustDiscnctPinArray(MustDiscnctPin_index) = Left(MustDiscnctPinArray(MustDiscnctPin_index), InStr(MustDiscnctPinArray(MustDiscnctPin_index), "(") - 1)
+                TheHdw.PPMU.Pins(MustDiscnctPinArray(MustDiscnctPin_index)).Disconnect
+                If b_DebugMode Then TheExec.Datalog.WriteComment MustDiscnctPinArray(MustDiscnctPin_index) & " Disconnect"
+            ElseIf UCase(MustDiscnctPinArray(MustDiscnctPin_index)) Like "*DIGITAL*" Then
+                MustDiscnctPinArray(MustDiscnctPin_index) = Left(MustDiscnctPinArray(MustDiscnctPin_index), InStr(MustDiscnctPinArray(MustDiscnctPin_index), "(") - 1)
+                TheHdw.Digital.Pins(MustDiscnctPinArray(SpePin_index)).Disconnect
+                If b_DebugMode Then TheExec.Datalog.WriteComment MustDiscnctPinArray(MustDiscnctPin_index) & " Disconnect"
+            ElseIf UCase(MustDiscnctPinArray(MustDiscnctPin_index)) Like "*DCVI*" Then
+                MustDiscnctPinArray(MustDiscnctPin_index) = Left(MustDiscnctPinArray(MustDiscnctPin_index), InStr(MustDiscnctPinArray(MustDiscnctPin_index), "(") - 1)
+                With TheHdw.DCVI.Pins(MustDiscnctPinArray(MustDiscnctPin_index))
+                    .Gate = tlOff
+                    .Disconnect
+                End With
+                If b_DebugMode Then TheExec.Datalog.WriteComment MustDiscnctPinArray(MustDiscnctPin_index) & " Disconnect"
+            End If
+        Next MustDiscnctPin_index
+    End If
+End If
+'********************************************************
+'                       Off Relay
+'********************************************************
+If b_restore = False Then
+    If OffRelay <> "" And OffRelay <> "X" Then
+        TheHdw.Utility.Pins(OffRelay).State = tlUtilBitOff
+        If b_DebugMode Then TheExec.Datalog.WriteComment " Relay : " & OffRelay & " Off"
+    End If
+End If
+'********************************************************
+'                       On Relay
+'********************************************************
+'If PinName Like "*BUS*" Then Stop
+
+If OnRelay <> "" And OnRelay <> "X" Then
+
+    Dim IDAC_RelayArray() As String
+    'Dim RelayStarNum As Integer
+    'If UCase(PinName) Like "*IDAC*" Then Stop
+    If InStr(OnRelay, "/") > 0 Then
+        g_RelayStarNum = CInt(Left(OnRelay, InStr(OnRelay, "/") - 1)) '= UBound(IDAC_RelayArray)
+        OnRelay = Right(OnRelay, Len(OnRelay) - InStr(OnRelay, "/"))
+    End If
+    
+    IDAC_RelayArray = Split(OnRelay, ";")
+    
+    
+    If b_restore = False Then
+        'ini
+        DatalogPinSeq = ""
+        If g_RelayOnIndex <= UBound(IDAC_RelayArray) And UBound(IDAC_RelayArray) <> 0 Then
+            'DatalogPinName = "OnRelay " + IDAC_RelayArray(g_RelayOnIndex) + " : " + CStr(g_RelayOnIndex + g_RelayStarNum)
+            DatalogPinSeq = CStr(g_RelayOnIndex + g_RelayStarNum)
+            
+        End If
+    End If
+
+    
+    If b_restore = False Then
+        TheHdw.Utility.Pins(IDAC_RelayArray(g_RelayOnIndex)).State = tlUtilBitOn
+        If b_DebugMode Then TheExec.Datalog.WriteComment " Relay : " & OffRelay & " On"
+'        Debug.Print PinName & "_on : " & IDAC_RelayArray(g_RelayOnIndex)
+    Else ' restore
+        TheHdw.Utility.Pins(IDAC_RelayArray(g_RelayOnIndex)).State = tlUtilBitOff
+        If b_DebugMode Then TheExec.Datalog.WriteComment " Relay : " & OffRelay & " Off"
+'        Debug.Print PinName & "_off : " & IDAC_RelayArray(g_RelayOnIndex)
+        If UBound(IDAC_RelayArray) <> 0 Then g_RelayOnIndex = g_RelayOnIndex + 1
+        
+        If g_RelayOnIndex <= UBound(IDAC_RelayArray) And UBound(IDAC_RelayArray) <> 0 Then Index = Index - 1
+    End If
+End If
+'********************************************************
+'                   ADG1414 Control
+'********************************************************
+
+If b_restore = False Then
+    '20190906 add for ADG1414 Control
+    'If PinName = "BUCK7_LX0_UVI80" Then Relay_On Trace.BUCK7_LX0_UVI80_S2BUCK7_LX0
+
+Else
+    '20190906 add for ADG1414 Control
+    'If PinName = "BUCK7_LX0_UVI80" Then Relay_Off Trace.BUCK7_LX0_UVI80_S2BUCK7_LX0
+
+End If
+
+'********************************************************
+'            SpecialCondiPin & SpacialConPinVoltCurr
+'********************************************************
+If SpecialCondiPin <> "" And SpecialCondiPin <> "X" Then
+
+
+    If InStr(SpecialCondiPin, PIN_COND_SPLIT) > 0 Then
+        SpePinArray = Split(SpecialCondiPin, PIN_COND_SPLIT) 'PIN_COND_SPLIT= ";"
+    Else
+        ReDim SpePinArray(0)
+        SpePinArray(0) = SpecialCondiPin
+    End If
+    
+        
+        If InStr(SpacialConPinVoltCurr, PIN_COND_SPLIT) > 0 Then   'PIN_COND_SPLIT = ";"
+            SpePinVoltCurrArray = Split(SpacialConPinVoltCurr, PIN_COND_SPLIT)
+        Else
+            ReDim SpePinVoltCurrArray(0)
+            SpePinVoltCurrArray(0) = SpacialConPinVoltCurr
+        End If
+
+
+
+    For SpePin_index = 0 To UBound(SpePinArray)
+    
+        If InStr(SpePinVoltCurrArray(SpePin_index), VOLT_CUR_SPLIT) > 0 Then  'VOLT_CUR_SPLIT = "/"
+            SpacialConPinVolt = CDbl(Left(SpePinVoltCurrArray(SpePin_index), InStr(SpePinVoltCurrArray(SpePin_index), VOLT_CUR_SPLIT) - 1))
+            SpacialConPinCurr = CDbl(Right(SpePinVoltCurrArray(SpePin_index), Len(SpePinVoltCurrArray(SpePin_index)) - InStr(SpePinVoltCurrArray(SpePin_index), VOLT_CUR_SPLIT)))
+        ElseIf LCase(SpacialConPinVoltCurr) Like "*same*" Then
+            SpacialConPinVolt = CDbl(TheHdw.DCVI.Pins(PinName).Voltage)
+            SpacialConPinCurr = CDbl(TheHdw.DCVI.Pins(PinName).Current)
+        Else
+            SpacialConPinVolt = CDbl(SpePinVoltCurrArray(SpePin_index))
+            SpacialConPinCurr = 0.02
+        End If
+        
+        
+        If UCase(SpePinArray(SpePin_index)) Like "*PPMU*" Then
+        
+            SpePinArray(SpePin_index) = Left(SpePinArray(SpePin_index), InStr(SpePinArray(SpePin_index), "(") - 1)
+            
+            
+            If b_restore = False Then
+                With TheHdw.PPMU.Pins(SpePinArray(SpePin_index))
+                    .Gate = tlOff
+                    .Disconnect
+                    .ForceV SpacialConPinVolt, SpacialConPinCurr 'Voltage, MeasureCurrentRange
+                    .Connect
+                    .Gate = tlOn
+                End With
+            Else
+                With TheHdw.PPMU.Pins(SpePinArray(SpePin_index))
+                    .Gate = tlOff
+                    .Disconnect
+                End With
+            End If
+
+        
+        Else
+            SpePinArray(SpePin_index) = Left(SpePinArray(SpePin_index), InStr(SpePinArray(SpePin_index), "(") - 1)
+            
+            If b_restore = False Then
+                With TheHdw.DCVI.Pins(SpePinArray(SpePin_index))
+                    .Gate = tlOff
+                    .Mode = tlDCVIModeVoltage
+                    .SetVoltageAndRange SpacialConPinVolt, 7
+                    .CurrentRange = 0.02
+                    .Current = SpacialConPinCurr
+                    .Meter.Mode = tlDCVIMeterCurrent
+                    .Connect
+                    .BleederResistor = tlDCVIBleederResistorOff
+                    .VoltageRange.AutoRange = False
+                    .Gate = tlOn
+                End With
+            Else
+                 With TheHdw.DCVI.Pins(SpePinArray(SpePin_index))
+                    .Gate = tlOff
+                    .Disconnect
+                End With
+            End If
+            
+        End If
+    Next SpePin_index
+    
+End If 'SpecialCondiPin <> "" And SpecialCondiPin <> "X"
+                            
+'********************************************************
+'                   SpecificForceI
+'********************************************************
+If SpecificForceI <> "" And SpecificForceI <> "X" Then
+    If b_restore = False Then
+    
+        With TheHdw.DCVI.Pins(PinName)
+            .Current = SpecificForceI
+        End With
+    Else 'restore
+
+
+    End If
+End If
+'********************************************************
+'                    SpecificWaitTime
+'********************************************************
+If b_restore = False Then
+    If SpecificWaitTime <> "" And SpecificWaitTime <> "X" Then
+        TheHdw.Wait CDbl(SpecificWaitTime)
+        If b_DebugMode Then TheExec.Datalog.WriteComment "WaitTime :" & SpecificWaitTime
+    End If
+End If
+    
+
+Exit Function
+
+ErrHandler:
+    TheExec.Datalog.WriteComment "error in Conti_PerPinSetting"
+    If AbortTest Then Exit Function Else Resume Next
+End Function
+
+
+Public Function Conti_PerPinSetting_afterMeasure(DUTPin As Variant)
+On Error GoTo ErrHandler
+    Dim errorFuncName As String:: errorFuncName = "Conti_PerPinSetting_afterMeasure"
+    '********************************************************
+    '              Special pin Settings
+    '********************************************************
+    'Dim SP_Leak_Pins, SPLimit, SPIRange, Wait_Time, On_Relay, Off_Relay, MustDiscnctPins, SPCondPin, SPCondPinV_I, TM_IIL_IIH, Output As String
+    'Dim SP_Conti_PinName, SPForceI, Wait_Time, On_Relay, Off_Relay, MustDiscnctPins, SPCondPin, SPCondPinV_I, TM_POS_NEG, Output As String
+    Dim Concat As String
+    Dim idx As Double
+    Dim ContiSpeciPin_index As Double   'was Integer
+    Dim InstNameTail As String
+
+    If ContiPinDic.Exists(CStr(DUTPin)) Then
+        'ContiSpeciPin_index = ContiPinDic(m_Pins(Perpin_Index).PinName) 'GetDictionary pin index
+        ContiSpeciPin_index = SearchDicIdx_Conti(CStr(DUTPin)) 'GetDictionary pin index
+        Concat = SP_Conti_Pins_Cond(ContiSpeciPin_index)
+        'Debug.Print m_Pins(Perpin_Index).PinName & "-" & ContiSpeciPin_index
+        'Debug.Print Concat
+
+        'If UCase(CStr(ContiDicItem.Items(ContiSpeciPin_index)(mcCol_TestItem - 2))) Like "BOTH" Or UCase(CStr(ContiDicItem.Items(ContiSpeciPin_index)(mcCol_TestItem - 2))) Like UCase(InstNameTail) Then
+        InstNameTail = Split(UCase(TheExec.DataManager.InstanceName), "_")(UBound(Split(LCase(TheExec.DataManager.InstanceName), "_")))
+        If UCase(Split_Concat(Concat, 8)) Like "BOTH" Or UCase(Split_Concat(Concat, 8)) Like UCase(InstNameTail) Then
+            'e.g. SP_Conti_Pins = Split_Concat(Concat, 0)
+
+            Conti_PerPinSetting Split_Concat(Concat, 0), Split_Concat(Concat, 1), Split_Concat(Concat, 2), Split_Concat(Concat, 3), _
+                                Split_Concat(Concat, 4), Split_Concat(Concat, 5), Split_Concat(Concat, 6), Split_Concat(Concat, 7), _
+                                , , True
+
+        End If
+    Else
+        'DatalogPinSeq = ""
+    End If
+Exit Function
+ErrHandler:
+    TheExec.AddOutput "<Error> " + errorFuncName + ":: please Check it out."
+    TheExec.Datalog.WriteComment "<Error> " + errorFuncName + ":: please check it out."
+    If AbortTest Then Exit Function Else Resume Next
+End Function
+
+
+Public Function Conti_PerPinSetting_beforeMeasure(DUTPin As Variant)
+On Error GoTo ErrHandler
+    Dim errorFuncName As String:: errorFuncName = "Conti_PerPinSetting_beforeMeasure"
+    '********************************************************
+    '              Special pin Settings
+    '********************************************************
+    'Dim SP_Leak_Pins, SPLimit, SPIRange, Wait_Time, On_Relay, Off_Relay, MustDiscnctPins, SPCondPin, SPCondPinV_I, TM_IIL_IIH, Output As String
+    'Dim SP_Conti_PinName, SPForceI, Wait_Time, On_Relay, Off_Relay, MustDiscnctPins, SPCondPin, SPCondPinV_I, TM_POS_NEG, Output As String
+    Dim Concat As String
+    Dim idx As Double
+    Dim ContiSpeciPin_index As Double   'was Integer
+    Dim InstNameTail As String
+    
+    If ContiPinDic.Exists(CStr(DUTPin)) Then
+        'ContiSpeciPin_index = ContiPinDic(m_Pins(Perpin_Index).PinName) 'GetDictionary pin index
+        ContiSpeciPin_index = SearchDicIdx_Conti(CStr(DUTPin)) 'GetDictionary pin index
+        Concat = SP_Conti_Pins_Cond(ContiSpeciPin_index)
+        'Debug.Print m_Pins(Perpin_Index).PinName & "-" & ContiSpeciPin_index
+        'Debug.Print Concat
+
+        'If UCase(CStr(ContiDicItem.Items(ContiSpeciPin_index)(mcCol_TestItem - 2))) Like "BOTH" Or UCase(CStr(ContiDicItem.Items(ContiSpeciPin_index)(mcCol_TestItem - 2))) Like UCase(InstNameTail) Then
+        InstNameTail = Split(UCase(TheExec.DataManager.InstanceName), "_")(UBound(Split(LCase(TheExec.DataManager.InstanceName), "_")))
+        If UCase(Split_Concat(Concat, 8)) Like "BOTH" Or UCase(Split_Concat(Concat, 8)) Like UCase(InstNameTail) Then
+            'e.g. SP_Conti_Pins = Split_Concat(Concat, 0)
+
+            Conti_PerPinSetting Split_Concat(Concat, 0), Split_Concat(Concat, 1), Split_Concat(Concat, 2), Split_Concat(Concat, 3), _
+                                Split_Concat(Concat, 4), Split_Concat(Concat, 5), Split_Concat(Concat, 6), Split_Concat(Concat, 7) ', _
+                                'Perpin_Index, DatalogPinSeq
+
+        End If
+    Else
+        'DatalogPinSeq = ""
+    End If
+Exit Function
+ErrHandler:
+    TheExec.AddOutput "<Error> " + errorFuncName + ":: please Check it out."
+    TheExec.Datalog.WriteComment "<Error> " + errorFuncName + ":: please check it out."
+    If AbortTest Then Exit Function Else Resume Next
+End Function

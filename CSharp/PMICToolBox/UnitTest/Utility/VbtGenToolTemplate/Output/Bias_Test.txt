@@ -1,0 +1,7 @@
+Start_End_Setup	start_of_test	Bias_VBG_test_&_trim																					
+Etc	DATALOG		Bias_VBG_X_X_X_X_FinalTrim_T_NV_MeasV_X_X					V	1.1994	1.2006												For Trims, since +-1/2 LSB was specified, which is too tight, used +-3/4 LSB for limits.	
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Trimmed_current_test_&_trim																					
+Etc	DATALOG		Bias_Iref_X_X_X_X_FinalTrim_T_NV_MeasI_X_X					uA	3.97	4.03												For ATE, need to verify tester accuracy can meet +-3/4LSB. Kurt indicates accuracy is 0.1% at 20uA range.	
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	Gen_Complete																						

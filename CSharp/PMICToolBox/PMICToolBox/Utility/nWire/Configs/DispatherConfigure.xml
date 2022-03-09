@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DispatherConfigure xmlns="http://www.teradyne.com/FWTool/Dispather.xsd">
+  <ChipConfigure>
+    <ChipType>nWireDefinition</ChipType>
+    <ControllerMappings>
+      <ControllerMapping>
+        <Command>GENERATE_PROTOCOL_DEFINITION</Command>
+        <InputLoaders>
+          <InputLoader>FWFrame.nWireDefinition.InputLoader.ProtocolConfigFileInputLoader</InputLoader>
+          <InputLoader>FWFrame.nWireDefinition.InputLoader.ReverseCompileFileInputLoader</InputLoader>
+          <InputLoader>FWFrame.nWireDefinition.InputLoader.AsciiPatternFileInputLoader</InputLoader>
+        </InputLoaders>
+        <ViewResolver>FWFrame.nWireDefinition.ViewResolver.NameAndTypeViewResolver</ViewResolver>
+        <Controller>FWFrame.nWireDefinition.Controller.GenerateProtocolDefinitionController</Controller>
+      </ControllerMapping>
+      <ControllerMapping>
+        <Command>RETRIEVE_PROTOCOL_INFO</Command>
+        <InputLoaders>
+          <InputLoader>FWFrame.nWireDefinition.InputLoader.ProtocolConfigFileInputLoader</InputLoader>
+        </InputLoaders>
+        <ViewResolver>FWFrame.nWireDefinition.ViewResolver.NameAndTypeViewResolver</ViewResolver>
+        <Controller>FWFrame.nWireDefinition.Controller.RetrieveProtocolInfoController</Controller>
+      </ControllerMapping>
+    </ControllerMappings>
+  </ChipConfigure>
+</DispatherConfigure>

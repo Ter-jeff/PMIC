@@ -1,0 +1,19 @@
+Start_End_Setup	start_of_test	Measure_OSC_scaled_down_VDDA1P5_ref_for_POR																					
+Etc	DATALOG		OSC_Reference-POR_X_X_X_X_P_X_NV_MeasV_X_X					V	1.1	NA													
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Measure_PTAT_current_from_OSCPOR																					
+Etc	DATALOG		OSC_PTAT_X_X_X_X_P_X_NV_MeasI_X_X						?	?													
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Measure_DVSS_voltage_in_OSCPOR																					
+Etc	DATALOG		OSC_DVSS_X_X_X_X_P_X_NV_MeasV_X_X						?	?													
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Measure_AVSS_voltage_in_OSCPOR																					
+Etc	DATALOG		OSC_AVSS_X_X_X_X_P_X_NV_MeasV_X_X						?	?													
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Measure_AVSS_REF_voltage_in_OSCPOR																					
+Etc	DATALOG		OSC_AVSS-REF_X_X_X_X_P_X_NV_MeasV_X_X						?	?													
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	start_of_test	Measure_VDD_FIXED_voltage_in_OSCPOR																					
+Etc	DATALOG		OSC_VDD-FIXED_X_X_X_X_P_X_NV_MeasV_X_X						?	?													
+Start_End_Setup	END_OF_TEST																						
+Start_End_Setup	Gen_Complete																						
