@@ -1,5 +1,0 @@
-<field name="{FIELD_NAME}" description="" length="0" variableLength="false">
-  {GROUP_START}
-  <bit function="{LIST_PORT_NAME}" cycle="{LIST_CYCLE_INDEX}" />
-  {GROUP_END}
-</field>

@@ -1,6 +1,0 @@
-C:\01.Jeffli\GitLab\AutoGen_Team\CSharp\PMICAutogenAddIn\WixBootstrapper\bin\Debug\Bootstrapper1.exe
-C:\01.Jeffli\GitLab\AutoGen_Team\CSharp\PMICAutogenAddIn\WixBootstrapper\bin\Debug\Bootstrapper1.wixpdb
-obj\Debug\Bundle.wixobj
-obj\Debug\WixBootstrapper.wixproj.BindContentsFileList.txt
-obj\Debug\WixBootstrapper.wixproj.BindOutputsFileList.txt
-obj\Debug\WixBootstrapper.wixproj.BindBuiltOutputsFileList.txt

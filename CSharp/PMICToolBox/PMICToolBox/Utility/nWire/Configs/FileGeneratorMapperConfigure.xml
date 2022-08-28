@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Mappings xmlns="http://www.teradyne.com/FWTool/FileGeneratorMapper.xsd">
-  <Mapping>
-    <GenerationType>GENERATE_PROTOCOL_DEFINITION</GenerationType>
-    <Generator>nWireDefinition.FileGenerator.ProtocolDefinitionFileGenerator</Generator>
-  </Mapping>
-</Mappings>

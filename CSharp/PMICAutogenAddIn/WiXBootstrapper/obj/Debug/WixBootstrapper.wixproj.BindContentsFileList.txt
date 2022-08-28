@@ -1,1 +1,0 @@
-C:\01.Jeffli\AutoGen_Team\trunk\CSharp\PMICAutogenAddIn\SetupProject1\bin\Debug\PMICAutogenAddIn_V1.2.0.10.msi

@@ -1,0 +1,52 @@
+stages:
+  - test
+  - build
+  - deploy
+
+build-job:
+  stage: build
+  tags:
+    - "build"
+  before_script:
+    - chcp 65001
+  script:
+    - echo "Hi, $GITLAB_USER_LOGIN!"
+    - certutil -user -p 123456 -importPFX CSharp\PMICAutogenAddIn\PMICAutogenAddIn\PMICAutogenAddIn_TemporaryKey.pfx
+    - C:\GitLab-Runner\nuget restore CSharp\PMICAutogenAddIn\PMICAutogenAddIn.sln -PackagesDirectory package
+    - msbuild CSharp\PMICAutogenAddIn\PMICAutogenAddIn.sln
+
+test-job:
+  stage: test
+  tags:
+    - "test"
+  before_script:
+    - chcp 65001
+  script:
+    - echo "This job tests something1"
+    #－ C:\GitLab-Runner\nuget restore CSharp\PMICAutogenAddIn\PMICAutogenAddIn\PMICAutogenAddIn.csproj -PackagesDirectory package
+    #- msbuild CSharp\PMICAutogenAddIn\PMICAutogenAddIn\PMICAutogenAddIn.csproj
+    - msbuild  CSharp\PMICAutogenAddIn\PMICAutogenAddIn.sln
+    - MSTest /testcontainer:C:\01.Jeffli\Git\VT3\PMIC\CSharp\PmicAutogen.Test\bin\Debug\PmicAutogen.Test.dll /test:TestMethodForCI /resultsfile:c:\temp\myresults.trx
+    #- del C:\temp\myresults.trx
+
+deploy-prod:
+  stage: deploy
+  tags:
+   - "deploy"
+  before_script:
+    - chcp 65001
+  script:
+   - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+   - certutil -user -p 123456 -importPFX CSharp\PMICAutogenAddIn\PMICAutogenAddIn\PMICAutogenAddIn_TemporaryKey.pfx
+   # C:\GitLab-Runner\nuget restore CSharp\PmicAutogen\PmicAutogen.csproj -PackagesDirectory package
+   # msbuild CSharp\PmicAutogen\PmicAutogen.csproj
+
+   - C:\GitLab-Runner\nuget restore CSharp\PMICAutogenAddIn\PMICAutogenAddIn\PMICAutogenAddIn.csproj -PackagesDirectory package
+   - msbuild CSharp\PMICAutogenAddIn\PMICAutogenAddIn\PMICAutogenAddIn.csproj
+   
+   - C:\GitLab-Runner\nuget restore CSharp\PMICAutogenAddIn\WiXSetupProject\WixSetupProject.wixproj -PackagesDirectory package
+   - msbuild CSharp\PMICAutogenAddIn\WiXSetupProject\WixSetupProject.wixproj
+
+   - net use "Z:" \\Yushan\fjor\ADC Jeffli@2022q2 /user:TER\lijeff /persistent:yes
+   - copy Publish\PMICAutoGenAddin\PMICAutogenAddIn_V1.2.0.10.msi Z:\T-Autogen
+   - net use "Z:" /Delete

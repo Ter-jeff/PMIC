@@ -1,2 +1,0 @@
-C:\01.Jeffli\GitLab\AutoGen_Team\CSharp\PMICAutogenAddIn\Bootstrapper1\bin\Debug\Bootstrapper1.exe
-C:\01.Jeffli\GitLab\AutoGen_Team\CSharp\PMICAutogenAddIn\Bootstrapper1\bin\Debug\Bootstrapper1.wixpdb
