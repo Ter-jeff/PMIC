@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <!--<ResourceDictionary Source="/CodeProjectLibrary;component/ResourceDictionaries/ImageButtonDictionary.xaml" />
+        -->
+        <!--<ResourceDictionary Source="/CodeProjectLibrary;component/ResourceDictionaries/ButtonDictionary.xaml"/>-->
+        <!--
+        <ResourceDictionary Source="/CodeProjectLibrary;component/MenuButton.xaml" />
+        <ResourceDictionary Source="/CodeProjectLibrary;component/GroupButton.xaml" />-->
+        <ResourceDictionary Source="/MyWpf;component/Styles/DefaultStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="/MyWpf;component/Styles/ColorTheme.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

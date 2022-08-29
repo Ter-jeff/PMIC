@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E1557014-BB6D-41BC-92F6-877002282CA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IgxlData</RootNamespace>
+    <AssemblyName>IgxlData</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IG-Data">
+      <HintPath>..\Packages\Oasis\IG-Data.dll</HintPath>
+    </Reference>
+    <Reference Include="IGLinkBase">
+      <HintPath>..\Packages\Oasis\IGLinkBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OasisUtilityLib">
+      <HintPath>..\Packages\Oasis\OasisUtilityLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IgxlBase\SheetType.cs" />
+    <Compile Include="IgxlManager\SheetTypeRow.cs" />
+    <Compile Include="IgxlReader\ReadPinMapSheet.cs" />
+    <Compile Include="IgxlSheets\OtherSheet.cs" />
+    <Compile Include="IgxlSheets\BasFile.cs" />
+    <Compile Include="Zip\ComHelper.cs" />
+    <Compile Include="Zip\CRC32.cs" />
+    <Compile Include="Zip\EncryptionAlgorithm.cs" />
+    <Compile Include="Zip\Events.cs" />
+    <Compile Include="Zip\Exceptions.cs" />
+    <Compile Include="Zip\ExtractExistingFileAction.cs" />
+    <Compile Include="Zip\FileSelector.cs" />
+    <Compile Include="Zip\OffsetStream.cs" />
+    <Compile Include="Zip\Shared.cs" />
+    <Compile Include="Zip\WinZipAes.cs" />
+    <Compile Include="Zip\ZipConstants.cs" />
+    <Compile Include="Zip\ZipCrypto.cs" />
+    <Compile Include="Zip\ZipDirEntry.cs" />
+    <Compile Include="Zip\ZipEntry.cs" />
+    <Compile Include="Zip\ZipEntry.Extract.cs" />
+    <Compile Include="Zip\ZipEntry.Read.cs" />
+    <Compile Include="Zip\ZipEntry.Write.cs" />
+    <Compile Include="Zip\ZipEntrySource.cs" />
+    <Compile Include="Zip\ZipErrorAction.cs" />
+    <Compile Include="Zip\ZipFile.AddUpdate.cs" />
+    <Compile Include="Zip\ZipFile.Check.cs" />
+    <Compile Include="Zip\ZipFile.cs" />
+    <Compile Include="Zip\ZipFile.Events.cs" />
+    <Compile Include="Zip\ZipFile.Extract.cs" />
+    <Compile Include="Zip\ZipFile.Read.cs" />
+    <Compile Include="Zip\ZipFile.Save.cs" />
+    <Compile Include="Zip\ZipFile.SaveSelfExtractor.cs" />
+    <Compile Include="Zip\ZipFile.Selector.cs" />
+    <Compile Include="Zip\ZipFile.x-IEnumerable.cs" />
+    <Compile Include="Zip\ZipInputStream.cs" />
+    <Compile Include="Zip\ZipOutputStream.cs" />
+    <Compile Include="Zip\ZipSegmentedStream.cs" />
+    <Compile Include="Zip\Zlib\Deflate.cs" />
+    <Compile Include="Zip\Zlib\DeflateStream.cs" />
+    <Compile Include="Zip\Zlib\GZipStream.cs" />
+    <Compile Include="Zip\Zlib\Inflate.cs" />
+    <Compile Include="Zip\Zlib\InfTree.cs" />
+    <Compile Include="Zip\Zlib\ParallelDeflateOutputStream.cs" />
+    <Compile Include="Zip\Zlib\Tree.cs" />
+    <Compile Include="Zip\Zlib\Zlib.cs" />
+    <Compile Include="Zip\Zlib\ZlibBaseStream.cs" />
+    <Compile Include="Zip\Zlib\ZlibCodec.cs" />
+    <Compile Include="Zip\Zlib\ZlibConstants.cs" />
+    <Compile Include="Zip\Zlib\ZlibStream.cs" />
+    <Compile Include="IgxlBase\BinTableRows.cs" />
+    <Compile Include="IgxlBase\FlowRows.cs" />
+    <Compile Include="IgxlBase\PSet.cs" />
+    <Compile Include="IgxlReader\ReadBintableSheet.cs" />
+    <Compile Include="IgxlReader\ReadDcSpecSheet.cs" />
+    <Compile Include="IgxlReader\ReadAcSpecSheet.cs" />
+    <Compile Include="IgxlReader\ReadJobListSheet.cs" />
+    <Compile Include="IgxlReader\ReadGlobalSpecSheet.cs" />
+    <Compile Include="IgxlReader\ReadPortMapSheet.cs" />
+    <Compile Include="IgxlReader\SheetType.cs" />
+    <Compile Include="IgxlSheets\PsetSheet.cs" />
+    <Compile Include="IgxlSheets\MainFlowSheet.cs" />
+    <Compile Include="NonIgxlSheets\NonIgxlSheets.cs" />
+    <Compile Include="NonIgxlSheets\Parameter.cs" />
+    <Compile Include="NonIgxlSheets\VbtFunctionLib.cs" />
+    <Compile Include="Others\MultiTimeSet\ComTimeSetBasic.cs" />
+    <Compile Include="Others\MultiTimeSet\ComTimeSetSheet.cs" />
+    <Compile Include="Others\MultiTimeSet\MultiTimeSetSheets.cs" />
+    <Compile Include="Others\DivideFlowMain.cs" />
+    <Compile Include="Others\SpecFormat.cs" />
+    <Compile Include="Others\MultiTimeSet\TimeRowConverter.cs" />
+    <Compile Include="Others\SpecFinder.cs" />
+    <Compile Include="Others\CurrentChannelReader.cs" />
+    <Compile Include="IgxlReader\IgxlSheetReader.cs" />
+    <Compile Include="IgxlReader\ReadChanMapSheet.cs" />
+    <Compile Include="IgxlReader\ReadFlowSheet.cs" />
+    <Compile Include="IgxlReader\ReadInstanceSheet.cs" />
+    <Compile Include="IgxlReader\ReadLevelSheet.cs" />
+    <Compile Include="IgxlReader\ReadPatSetSheet.cs" />
+    <Compile Include="IgxlReader\ReadTimeSetSheet.cs" />
+    <Compile Include="IgxlManager\IgxlManagerMain.cs" />
+    <Compile Include="IgxlBase\AcSpec.cs" />
+    <Compile Include="IgxlBase\BinTableRow.cs" />
+    <Compile Include="IgxlBase\CategroyItem.cs" />
+    <Compile Include="IgxlBase\ChannelMapRow.cs" />
+    <Compile Include="IgxlBase\CharSetup.cs" />
+    <Compile Include="IgxlBase\CharStep.cs" />
+    <Compile Include="IgxlBase\DcSpec.cs" />
+    <Compile Include="IgxlBase\DiffLevel.cs" />
+    <Compile Include="IgxlBase\FlowRow.cs" />
+    <Compile Include="IgxlBase\GlobalSpec.cs" />
+    <Compile Include="IgxlBase\IgxlItem.cs" />
+    <Compile Include="IgxlBase\InstanceRow.cs" />
+    <Compile Include="IgxlBase\InstrumentRow.cs" />
+    <Compile Include="IgxlBase\IOLevel.cs" />
+    <Compile Include="IgxlBase\JobRow.cs" />
+    <Compile Include="IgxlBase\LevelRow.cs" />
+    <Compile Include="IgxlBase\MixedSigRow.cs" />
+    <Compile Include="IgxlBase\PatSet.cs" />
+    <Compile Include="IgxlBase\PatSetRow.cs" />
+    <Compile Include="IgxlBase\PatSetSubRow.cs" />
+    <Compile Include="IgxlBase\Pin.cs" />
+    <Compile Include="IgxlBase\PinBase.cs" />
+    <Compile Include="IgxlBase\PinGroup.cs" />
+    <Compile Include="IgxlBase\PortRow.cs" />
+    <Compile Include="IgxlBase\PortSet.cs" />
+    <Compile Include="IgxlBase\PowerLevel.cs" />
+    <Compile Include="IgxlBase\Selector.cs" />
+    <Compile Include="IgxlBase\Spec.cs" />
+    <Compile Include="IgxlBase\TimeSetBasic.cs" />
+    <Compile Include="IgxlBase\TimingRow.cs" />
+    <Compile Include="IgxlBase\WaveDefRow.cs" />
+    <Compile Include="IgxlSheets\AcSpecSheet.cs" />
+    <Compile Include="IgxlSheets\BinTableSheet.cs" />
+    <Compile Include="IgxlSheets\ChannelMapSheet.cs" />
+    <Compile Include="IgxlSheets\CharSheet.cs" />
+    <Compile Include="IgxlSheets\DcSpecSheet.cs" />
+    <Compile Include="IgxlSheets\GlobalSpecSheet.cs" />
+    <Compile Include="IgxlSheets\IgxlSheet.cs" />
+    <Compile Include="IgxlSheets\InstanceSheet.cs" />
+    <Compile Include="IgxlSheets\JoblistSheet.cs" />
+    <Compile Include="IgxlSheets\LevelSheet.cs" />
+    <Compile Include="IgxlSheets\MixedSignalSheet.cs" />
+    <Compile Include="IgxlSheets\PatSetSheet.cs" />
+    <Compile Include="IgxlSheets\PatSetSubSheet.cs" />
+    <Compile Include="IgxlSheets\PinMapSheet.cs" />
+    <Compile Include="IgxlSheets\PortMapSheet.cs" />
+    <Compile Include="IgxlSheets\SubFlowSheet.cs" />
+    <Compile Include="IgxlSheets\TimeSetBasicSheet.cs" />
+    <Compile Include="IgxlSheets\WaveDefinitionSheet.cs" />
+    <Compile Include="IgxlSheets\IgxlSheetName.cs" />
+    <Compile Include="IgxlSheets\IgxlWorkBook.cs" />
+    <Compile Include="IgxlManager\ManifestSheet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VBT\VbtFunctionBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IGDataXML\IGXLSheetsVersion\IGXLSheets.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\IGXL.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v3.60_j750.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v5.30_flex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v8.10_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v8.20_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v8.30_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v9.00_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v3.60_j750.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v5.30_flex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v8.10_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v8.20_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v8.30_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v9.00_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v10.00_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v10.10_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v10.00_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v10.10_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v10.20_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v10.20_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{8eead19d-ead8-4a6d-819c-ac47b59a08f1}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
