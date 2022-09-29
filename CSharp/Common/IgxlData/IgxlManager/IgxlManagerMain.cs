@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using CommonLib.Enum;
+using IgxlData.IgxlReader;
+using IgxlData.IgxlSheets;
+using IgxlData.Zip;
+using Ionic.Zip;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using CommonLib.DataStructure;
-using IgxlData.IgxlReader;
-using IgxlData.IgxlSheets;
-using IgxlData.Zip;
 using Teradyne.Oasis;
 using Teradyne.Oasis.IGLinkBase;
 
@@ -18,8 +18,8 @@ namespace IgxlData.IgxlManager
     public class IgxlManagerMain
     {
         private const string IgLink = "IGLink";
-        public ManifestSheet Manifest;
-        private List<string> _excludes = new List<string>
+
+        private readonly List<string> _excludes = new List<string>
         {
             "ThisWorkbook.txt",
             "tl_WorkBookProperties_.txt",
@@ -27,20 +27,21 @@ namespace IgxlData.IgxlManager
             "_RangeNames_.txt"
         };
 
+        public ManifestSheet Manifest;
+
         public ZipEntry GetIgxlSheets(string igxl, string name)
         {
             using (var zip = new ZipFile(igxl))
             {
-                var zipArchiveEntries = zip.Entries.ToList();
-                foreach (var zipArchiveEntry in zipArchiveEntries)
+                var entries = zip.Entries.ToList();
+                foreach (var entry in entries)
                 {
-                    var sheetName = Path.GetFileNameWithoutExtension(zipArchiveEntry.FileName);
+                    var sheetName = Path.GetFileNameWithoutExtension(entry.FileName);
                     if (sheetName != null && sheetName.Equals(name, StringComparison.CurrentCulture))
-                    {
-                        return zipArchiveEntry;
-                    }
+                        return entry;
                 }
             }
+
             return null;
         }
 
@@ -97,23 +98,28 @@ namespace IgxlData.IgxlManager
                 zip.AddUpdateEntry(tlWorkBookProperties + ".txt", string.Join(Environment.NewLine, lines));
 
                 foreach (var igxlSheet in igxlSheets)
-                {
                     if (igxlSheet is BasFile)
                     {
                         igxlSheet.Write(Path.Combine(tempFolder, igxlSheet.SheetName));
-                        var content = File.ReadAllText(Path.Combine(tempFolder, igxlSheet.SheetName));
-                        var sheetName = igxlSheet.SheetName.Replace(" ", "%20");
-                        zip.AddUpdateEntry(sheetName, content);
+                        var file = Path.Combine(Path.Combine(tempFolder, igxlSheet.SheetName));
+                        if (File.Exists(file))
+                        {
+                            var content = File.ReadAllText(file);
+                            var sheetName = igxlSheet.SheetName.Replace(" ", "%20");
+                            zip.AddUpdateEntry(sheetName, content);
+                        }
                     }
                     else
                     {
                         igxlSheet.Write(Path.Combine(tempFolder, igxlSheet.SheetName + ".txt"));
-                        //igxlSheet.Write(Path.Combine(tempFolder, igxlSheet.SheetName + ".txt"));
-                        var content = File.ReadAllText(Path.Combine(tempFolder, igxlSheet.SheetName + ".txt"));
-                        var sheetName = igxlSheet.SheetName.Replace(" ", "%20") + ".txt";
-                        zip.AddUpdateEntry(sheetName, content);
+                        var file = Path.Combine(tempFolder, igxlSheet.SheetName + ".txt");
+                        if (File.Exists(file))
+                        {
+                            var content = File.ReadAllText(file);
+                            var sheetName = igxlSheet.SheetName.Replace(" ", "%20") + ".txt";
+                            zip.AddUpdateEntry(sheetName, content);
+                        }
                     }
-                }
 
                 zip.Save();
             }
@@ -151,7 +157,7 @@ namespace IgxlData.IgxlManager
         }
 
         public void GenIgxlProgram(List<string> sourceFiles, string outputFolder, string subProgramName,
-            IgxlWorkBook igxlWorkBook, Action<string, MessageLevel, int> report, string version)
+            IgxlWorkBook igxlWorkBook, Action<string, EnumMessageLevel, int> report, string version)
         {
             try
             {
@@ -200,29 +206,30 @@ namespace IgxlData.IgxlManager
 
                 nProject.SubPrograms.Add(nSubProgram);
 
-                report("Saving IGLink Project ...", MessageLevel.General, 40);
+                report("Saving IGLink Project ...", EnumMessageLevel.General, 40);
 
                 DeviceProject.SaveProjectCfg(nProject);
 
                 var versionDouble = double.Parse(version.Substring(1));
                 if (versionDouble < 9.0)
                 {
-                    report("Generating IGXL workbook ...", MessageLevel.General, 80);
+                    report("Generating IGXL workbook ...", EnumMessageLevel.General, 80);
                     GenerateIgxlProgram(Path.Combine(tmpIgLinkFolder, subProgramName + @".igxlProj"),
                         Path.Combine(tmpIgLinkFolder, nSubProgram.Name + ".xlsm"), nSubProgram.Name, " -e ", "");
                 }
                 else
                 {
-                    report("Creating IGXL workbook ...", MessageLevel.General, 80);
-                    GenerateIgxlProgram(Path.Combine(tmpIgLinkFolder, subProgramName + @".igxlProj"),
-                        Path.Combine(tmpIgLinkFolder, nSubProgram.Name + ".igxl"), nSubProgram.Name, " -g ", "");
+                    var igxl = Path.Combine(tmpIgLinkFolder, nSubProgram.Name + ".igxl");
+                    report("Creating IGXL workbook ...", EnumMessageLevel.General, 80);
+                    report(igxl, EnumMessageLevel.General, 80);
+                    GenerateIgxlProgram(Path.Combine(tmpIgLinkFolder, subProgramName + @".igxlProj"), igxl, nSubProgram.Name, " -g ", "");
                     GenerateIgxlProgram(Path.Combine(tmpIgLinkFolder, subProgramName + @".igxlProj"),
                         Path.Combine(tmpIgLinkFolder, nSubProgram.Name + ".xlsm"), nSubProgram.Name, " -e ", "");
                 }
             }
             catch (Exception e)
             {
-                report("Error occurs during generate IGLink Project" + e.Message, MessageLevel.Error, 100);
+                report("Error occurs during generate IGLink Project" + e.Message, EnumMessageLevel.Error, 100);
             }
         }
 
@@ -433,7 +440,8 @@ namespace IgxlData.IgxlManager
             return nVbModule;
         }
 
-        private void GenerateIgxlProgram(string linkProject, string outputFile, string subProgramName, string switchStr, string jobName)
+        private void GenerateIgxlProgram(string linkProject, string outputFile, string subProgramName, string switchStr,
+            string jobName)
         {
             var option = "";
             var oasisRootFolder = Environment.GetEnvironmentVariable("OASISROOT");
@@ -496,7 +504,7 @@ namespace IgxlData.IgxlManager
 
         public ObservableCollection<SheetTypeRow> GetIgxlSheetTypeRows(string testProgram)
         {
-            ObservableCollection<SheetTypeRow> sheetTypeRows = new ObservableCollection<SheetTypeRow>();
+            var sheetTypeRows = new ObservableCollection<SheetTypeRow>();
             var igxlSheetReader = new IgxlSheetReader();
             using (var zip = new ZipFile(testProgram))
             {
@@ -515,16 +523,14 @@ namespace IgxlData.IgxlManager
                         firstLine = sr.ReadLine();
                     }
 
-                    if (firstLine != null)
-                    {
-                        var sheetType = igxlSheetReader.GetIgxlSheetType(firstLine);
-                        SheetTypeRow sheetTypeRow = new SheetTypeRow();
-                        sheetTypeRow.Type = sheetType.ToString().Substring(2);
-                        sheetTypeRow.Name = sheetName.Replace("%20", " ");
-                        sheetTypeRows.Add(sheetTypeRow);
-                    }
+                    var sheetType = igxlSheetReader.GetIgxlSheetType(firstLine);
+                    var sheetTypeRow = new SheetTypeRow();
+                    sheetTypeRow.Type = sheetType.ToString().Substring(2);
+                    sheetTypeRow.Name = sheetName.Replace("%20", " ");
+                    sheetTypeRows.Add(sheetTypeRow);
                 }
             }
+
             return sheetTypeRows;
         }
 
@@ -537,16 +543,12 @@ namespace IgxlData.IgxlManager
                 firstLine = sr.ReadLine();
             }
 
-            if (firstLine != null)
-            {
-                var sheetType = igxlSheetReader.GetIgxlSheetType(firstLine);
-                SheetTypeRow sheetTypeRow = new SheetTypeRow();
-                var sheetName = Path.GetFileNameWithoutExtension(txt);
-                sheetTypeRow.Type = sheetType.ToString().Substring(2);
-                sheetTypeRow.Name = sheetName;
-                return sheetTypeRow;
-            }
-            return null;
+            var sheetType = igxlSheetReader.GetIgxlSheetType(firstLine);
+            var sheetTypeRow = new SheetTypeRow();
+            var sheetName = Path.GetFileNameWithoutExtension(txt);
+            sheetTypeRow.Type = sheetType.ToString().Substring(2);
+            sheetTypeRow.Name = sheetName;
+            return sheetTypeRow;
         }
 
         public void ExportTxt(string testProgram, string output)
@@ -585,7 +587,7 @@ namespace IgxlData.IgxlManager
                     var sheetName = Path.GetFileNameWithoutExtension(zipArchiveEntry.FileName);
                     if (sheetName != null && sheetName.Equals(tlWorkBookProperties, StringComparison.CurrentCulture))
                     {
-                        var stream = zipArchiveEntry.ArchiveStream;
+                        var stream = zipArchiveEntry.OpenReader();
                         using (var sr = new StreamReader(stream))
                         {
                             while (!sr.EndOfStream) lines.Add(sr.ReadLine());
@@ -624,6 +626,48 @@ namespace IgxlData.IgxlManager
 
                 zip.Save();
             }
+        }
+
+        public ZipEntry GetZipEntryByIgxl(string igxl, string name)
+        {
+            using (var zip = new ZipFile(igxl))
+            {
+                var zipArchiveEntries = zip.Entries.ToList();
+                foreach (var zipArchiveEntry in zipArchiveEntries)
+                    if (zipArchiveEntry.FileName.Equals(name, StringComparison.CurrentCulture))
+                        return zipArchiveEntry;
+            }
+
+            return null;
+        }
+
+        public IgxlSheet GetIgxlSheet(string igxl, string sheetName)
+        {
+            using (var zip = new ZipFile(igxl))
+            {
+                var zipArchiveEntries = zip.Entries.ToList();
+                var igxlSheetReader = new IgxlSheetReader();
+                foreach (var zipArchiveEntry in zipArchiveEntries)
+                {
+                    var name = Path.GetFileNameWithoutExtension(zipArchiveEntry.FileName);
+                    name = name.Replace("%20", " ");
+                    if (name == sheetName)
+                    {
+                        var stream = zipArchiveEntry.OpenReader();
+                        string firstLine;
+                        using (var sr = new StreamReader(stream))
+                        {
+                            firstLine = sr.ReadLine();
+                        }
+
+                        stream = zipArchiveEntry.OpenReader();
+                        var type = igxlSheetReader.GetIgxlSheetType(firstLine);
+                        return igxlSheetReader.GetIgxlSheet(stream, sheetName, type);
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

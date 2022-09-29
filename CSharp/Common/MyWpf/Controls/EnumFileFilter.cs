@@ -16,7 +16,5 @@
         BinCutPost,
         TestPlan,
         BdFile,
-        Dlex,
-        Bat
     }
 }

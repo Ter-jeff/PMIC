@@ -1,7 +1,6 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
 using System.Collections.Generic;
 using System.IO;
-using IgxlData.IgxlBase;
 
 namespace IgxlData.IgxlSheets
 {
@@ -24,20 +23,6 @@ namespace IgxlData.IgxlSheets
         public void AddRows(List<MixedSigRow> rows)
         {
             MixedSigRows.AddRange(rows);
-        }
-
-        protected override void WriteHeader()
-        {
-        }
-
-        protected override void WriteColumnsHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteRows()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Write(string fileName, string version = "")

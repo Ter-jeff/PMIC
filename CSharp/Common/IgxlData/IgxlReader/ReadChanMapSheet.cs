@@ -1,38 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using CommonLib.Utility;
+﻿using CommonLib.Extension;
 using IgxlData.IgxlBase;
 using IgxlData.IgxlSheets;
 using OfficeOpenXml;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace IgxlData.IgxlReader
 {
     public class ReadChanMapSheet : IgxlSheetReader
     {
-        private List<int> GetSiteColumnIndex(ExcelWorksheet wSheet)
+        private const int StartRowIndex = 6;
+
+        private List<int> GetSiteColumnIndex(ExcelWorksheet excelWorksheet)
         {
             var siteColumnIndex = new List<int>();
-            var endColumn = wSheet.Dimension.End.Column;
+            var endColumn = excelWorksheet.Dimension.End.Column;
             for (var col = 1; col <= endColumn; col++)
-                if (Regex.IsMatch(EpplusOperation.GetCellValue(wSheet, 6, col).ToLower(), @"^site\s*\d+"))
+                if (Regex.IsMatch(excelWorksheet.GetCellValue(6, col).ToLower(), @"^site\s*\d+"))
                     siteColumnIndex.Add(col);
             return siteColumnIndex;
         }
 
-        private bool GetViewMode(ExcelWorksheet wSheet)
+        private bool GetViewMode(ExcelWorksheet excelWorksheet)
         {
             for (var i = 1; i <= 7; i++)
-            for (var j = 1; j <= 10; j++)
-            {
-                var text = EpplusOperation.GetCellValue(wSheet, i, j);
-                if (text.Equals("View Mode:", StringComparison.OrdinalIgnoreCase))
+                for (var j = 1; j <= 10; j++)
                 {
-                    var mode = EpplusOperation.GetCellValue(wSheet, i, j + 1);
-                    if (mode.Equals("Pogo", StringComparison.OrdinalIgnoreCase))
-                        return true;
+                    var text = excelWorksheet.GetCellValue(i, j);
+                    if (text.Equals("View Mode:", StringComparison.OrdinalIgnoreCase))
+                    {
+                        var mode = excelWorksheet.GetCellValue(i, j + 1);
+                        if (mode.Equals("Pogo", StringComparison.OrdinalIgnoreCase))
+                            return true;
+                    }
                 }
-            }
 
             return false;
         }
@@ -56,35 +60,33 @@ namespace IgxlData.IgxlReader
             return "";
         }
 
-        #region public Function
-
-        public ChannelMapSheet ReadSheet(string fileName)
+        public ChannelMapSheet GetSheet(string fileName)
         {
-            return ReadSheet(ConvertTxtToExcelSheet(fileName));
+            return GetSheet(ConvertTxtToExcelSheet(fileName));
         }
 
-        public ChannelMapSheet ReadSheet(ExcelWorksheet wSheet)
+        public ChannelMapSheet GetSheet(ExcelWorksheet excelWorksheet)
         {
-            var endRow = wSheet.Dimension.End.Row;
-            var channelMapSheet = new ChannelMapSheet(wSheet);
-            var siteIndex = GetSiteColumnIndex(wSheet);
+            var endRow = excelWorksheet.Dimension.End.Row;
+            var channelMapSheet = new ChannelMapSheet(excelWorksheet);
+            var siteIndex = GetSiteColumnIndex(excelWorksheet);
             channelMapSheet.SiteNum = siteIndex.Count;
 
-            channelMapSheet.IsPogo = GetViewMode(wSheet);
+            channelMapSheet.IsPogo = GetViewMode(excelWorksheet);
             const string regWalkRoundChannel = @"(?<mainCh>\d+\.\d+)e\+(?<SubChan>\d+)";
             for (var i = 7; i <= endRow; i++)
             {
                 var channelMapRow = new ChannelMapRow();
                 channelMapRow.RowNum = i;
                 channelMapRow.DeviceUnderTestPinName =
-                    EpplusOperation.GetCellValue(wSheet, i, ChannelMapSheet.DeviceUnderTestPinName);
+                    excelWorksheet.GetCellValue(i, ChannelMapSheet.DeviceUnderTestPinName);
                 channelMapRow.DeviceUnderTestPackagePin =
-                    EpplusOperation.GetCellValue(wSheet, i, ChannelMapSheet.DeviceUnderTestPackagePin);
-                channelMapRow.Type = GetPinType(EpplusOperation.GetCellValue(wSheet, i, ChannelMapSheet.GetPinType));
+                    excelWorksheet.GetCellValue(i, ChannelMapSheet.DeviceUnderTestPackagePin);
+                channelMapRow.Type = GetPinType(excelWorksheet.GetCellValue(i, ChannelMapSheet.GetPinType));
 
                 foreach (var columnIndex in siteIndex)
                 {
-                    var siteValue = EpplusOperation.GetCellValue(wSheet, i, columnIndex);
+                    var siteValue = excelWorksheet.GetCellValue(i, columnIndex);
                     if (Regex.IsMatch(siteValue, regWalkRoundChannel, RegexOptions.IgnoreCase))
                     {
                         var mainChan = Regex.Match(siteValue, regWalkRoundChannel, RegexOptions.IgnoreCase)
@@ -121,6 +123,28 @@ namespace IgxlData.IgxlReader
             return channelMapSheet;
         }
 
-        #endregion
+        public List<string> GetSites(Stream stream, string sheetName)
+        {
+            var sites = new List<string>();
+            var i = 1;
+            using (var sr = new StreamReader(stream))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    var arr = line.Split('\t').ToList();
+                    if (i == StartRowIndex)
+                    {
+                        for (int j = 0; j < arr.Count; j++)
+                        {
+                            if (Regex.IsMatch(arr.ElementAt(j), @"^site\s*\d+", RegexOptions.IgnoreCase))
+                                sites.Add(arr.ElementAt(j));
+                        }
+                    }
+                    i++;
+                }
+            }
+            return sites;
+        }
     }
 }

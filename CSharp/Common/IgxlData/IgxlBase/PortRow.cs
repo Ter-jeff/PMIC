@@ -3,21 +3,14 @@ using System.Collections.Generic;
 
 namespace IgxlData.IgxlBase
 {
-    public class PortRow
+    public class PortRow : IgxlRow
     {
-        #region Constructor
-
         public PortRow()
         {
             ProtocolSettingValues = new List<string>();
             FunctionPropertyValues = new List<string>();
         }
 
-        #endregion
-
-        #region Property
-
-        public int RowNum;
         public string PortName { get; set; }
         public string ProtocolFamily { get; set; }
         public string ProtocolType { get; set; }
@@ -30,10 +23,6 @@ namespace IgxlData.IgxlBase
         public string Comment { get; set; }
         public const int ConSettingNumber = 10;
         public const int ConPropertyNumber = 10;
-
-        #endregion
-
-        #region Member Function
 
         public void AddProperty(string property)
         {
@@ -50,7 +39,5 @@ namespace IgxlData.IgxlBase
                     ConSettingNumber));
             ProtocolSettingValues.Add(setting);
         }
-
-        #endregion
     }
 }

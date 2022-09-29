@@ -2,9 +2,12 @@
 
 namespace IgxlData.IgxlBase
 {
-    public class PortSet : IgxlItem
+    public class PortSet
     {
-        #region Constructor
+        public PortSet()
+        {
+            PortRows = new List<PortRow>();
+        }
 
         public PortSet(string portName)
         {
@@ -12,22 +15,12 @@ namespace IgxlData.IgxlBase
             PortRows = new List<PortRow>();
         }
 
-        #endregion
-
-        #region Member Function
-
         public void AddPortRow(PortRow portRow)
         {
             PortRows.Add(portRow);
         }
 
-        #endregion
-
-        #region Property
-
         public string PortName { get; set; }
         public List<PortRow> PortRows { get; set; }
-
-        #endregion
     }
 }

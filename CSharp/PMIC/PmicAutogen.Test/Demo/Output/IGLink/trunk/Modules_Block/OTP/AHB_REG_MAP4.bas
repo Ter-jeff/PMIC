@@ -1,0 +1,4252 @@
+Attribute VB_Name = "AHB_REG_MAP4"
+'T-AutoGen-Version : 1.3.0.1
+'ProjectName_A1_TestPlan_20220226.xlsx
+'ProjectName_A0_otp_AVA.otp
+'ProjectName_A0_OTP_register_map.yaml
+'ProjectName_A0_Pattern_List_Ext_20190823.csv
+'ProjectName_A0_scgh_file#1_20200207.xlsx
+'ProjectName_A0_VBTPOP_Gen_tool_MP10P_BuckSW_UVI80_DiffMeter_20200430.xlsm
+'Public Enum WLED_IDAC_MAIN_CFG_2
+'Addr = &H68B6&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_MAIN_CFG_3
+'Addr = &H68B7&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_MAIN_CFG_4
+'Addr = &H68B8&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_MAIN_CFG_5
+'Addr = &H68B9&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_MAIN_CFG_6
+'Addr = &H68BA&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_MAIN_CFG_7
+'Addr = &H68BB&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_MAIN_TST_0
+'Addr = &H68BC&
+'TST_EN_UV_COMP = &HFE
+'TST_EN_IBIAS = &HFD
+'TST_EN_ISWITCHOVER = &HFB
+'TST_EN_DECODER = &HF7
+'TST_EN_MIN_SEL = &HBF
+'End Enum
+'Public Enum WLED_IDAC_MAIN_TST_1
+'Addr = &H68BD&
+'TST_EN_OPEN_SHORT = &HFE
+'TST_EN_DAC_CORE = &HFD
+'TST_EN_DIS_RDEF = &HFB
+'End Enum
+'Public Enum WLED_IDAC_MAIN_SPARE_0
+'Addr = &H68BE&
+'OTP_SPARE0 = &HFE
+'End Enum
+'Public Enum WLED_IDAC_MAIN_SPARE_1
+'Addr = &H68BF&
+'OTP_SPARE1 = &HFE
+'OTP_SPARE2 = &HF1
+'End Enum
+'Public Enum WLED_IDAC_MAIN_SPARE_2
+'Addr = &H68C0&
+'OTP_SPARE3 = &H0
+'End Enum
+'Public Enum WLED_IDAC_MAIN_SPARE_3
+'Addr = &H68C1&
+'OTP_SPARE4 = &H0
+'End Enum
+'Public Enum WLED_IDAC_MAIN_SPARE_4
+'Addr = &H68C2&
+'OTP_SPARE5 = &H0
+'End Enum
+'Public Enum WLED_IDAC_MAIN_SPARE_5
+'Addr = &H68C3&
+'OTP_SPARE6 = &H0
+'End Enum
+'Public Enum WLED_IDAC_1_CFG_0
+'Addr = &H68C4&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_1_CFG_1
+'Addr = &H68C5&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_1_CFG_2
+'Addr = &H68C6&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_1_CFG_3
+'Addr = &H68C7&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_1_CFG_4
+'Addr = &H68C8&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_1_CFG_5
+'Addr = &H68C9&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_1_CFG_6
+'Addr = &H68CA&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_1_TST_0
+'Addr = &H68CB&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_2_CFG_0
+'Addr = &H68CC&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_2_CFG_1
+'Addr = &H68CD&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_2_CFG_2
+'Addr = &H68CE&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_2_CFG_3
+'Addr = &H68CF&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_2_CFG_4
+'Addr = &H68D0&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_2_CFG_5
+'Addr = &H68D1&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_2_CFG_6
+'Addr = &H68D2&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_2_TST_0
+'Addr = &H68D3&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_3_CFG_0
+'Addr = &H68D4&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_3_CFG_1
+'Addr = &H68D5&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_3_CFG_2
+'Addr = &H68D6&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_3_CFG_3
+'Addr = &H68D7&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_3_CFG_4
+'Addr = &H68D8&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_3_CFG_5
+'Addr = &H68D9&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_3_CFG_6
+'Addr = &H68DA&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_3_TST_0
+'Addr = &H68DB&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_4_CFG_0
+'Addr = &H68DC&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_4_CFG_1
+'Addr = &H68DD&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_4_CFG_2
+'Addr = &H68DE&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_4_CFG_3
+'Addr = &H68DF&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_4_CFG_4
+'Addr = &H68E0&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_4_CFG_5
+'Addr = &H68E1&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_4_CFG_6
+'Addr = &H68E2&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_4_TST_0
+'Addr = &H68E3&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_5_CFG_0
+'Addr = &H68E4&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_5_CFG_1
+'Addr = &H68E5&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_5_CFG_2
+'Addr = &H68E6&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_5_CFG_3
+'Addr = &H68E7&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_5_CFG_4
+'Addr = &H68E8&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_5_CFG_5
+'Addr = &H68E9&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_5_CFG_6
+'Addr = &H68EA&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_5_TST_0
+'Addr = &H68EB&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_6_CFG_0
+'Addr = &H68EC&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_6_CFG_1
+'Addr = &H68ED&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_6_CFG_2
+'Addr = &H68EE&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_6_CFG_3
+'Addr = &H68EF&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_6_CFG_4
+'Addr = &H68F0&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_6_CFG_5
+'Addr = &H68F1&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_6_CFG_6
+'Addr = &H68F2&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_6_TST_0
+'Addr = &H68F3&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_7_CFG_0
+'Addr = &H68F4&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_7_CFG_1
+'Addr = &H68F5&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_7_CFG_2
+'Addr = &H68F6&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_7_CFG_3
+'Addr = &H68F7&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_7_CFG_4
+'Addr = &H68F8&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_7_CFG_5
+'Addr = &H68F9&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_7_CFG_6
+'Addr = &H68FA&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_7_TST_0
+'Addr = &H68FB&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_8_CFG_0
+'Addr = &H68FC&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_8_CFG_1
+'Addr = &H68FD&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_8_CFG_2
+'Addr = &H68FE&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_8_CFG_3
+'Addr = &H68FF&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_8_CFG_4
+'Addr = &H6900&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_8_CFG_5
+'Addr = &H6901&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_8_CFG_6
+'Addr = &H6902&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_8_TST_0
+'Addr = &H6903&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_9_CFG_0
+'Addr = &H6904&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_9_CFG_1
+'Addr = &H6905&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_9_CFG_2
+'Addr = &H6906&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_9_CFG_3
+'Addr = &H6907&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_9_CFG_4
+'Addr = &H6908&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_9_CFG_5
+'Addr = &H6909&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_9_CFG_6
+'Addr = &H690A&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_9_TST_0
+'Addr = &H690B&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_10_CFG_0
+'Addr = &H690C&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_10_CFG_1
+'Addr = &H690D&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_10_CFG_2
+'Addr = &H690E&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_10_CFG_3
+'Addr = &H690F&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_10_CFG_4
+'Addr = &H6910&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_10_CFG_5
+'Addr = &H6911&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_10_CFG_6
+'Addr = &H6912&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_10_TST_0
+'Addr = &H6913&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_11_CFG_0
+'Addr = &H6914&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_11_CFG_1
+'Addr = &H6915&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_11_CFG_2
+'Addr = &H6916&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_11_CFG_3
+'Addr = &H6917&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_11_CFG_4
+'Addr = &H6918&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_11_CFG_5
+'Addr = &H6919&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_11_CFG_6
+'Addr = &H691A&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_11_TST_0
+'Addr = &H691B&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_12_CFG_0
+'Addr = &H691C&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_12_CFG_1
+'Addr = &H691D&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_12_CFG_2
+'Addr = &H691E&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_12_CFG_3
+'Addr = &H691F&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_12_CFG_4
+'Addr = &H6920&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_12_CFG_5
+'Addr = &H6921&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_12_CFG_6
+'Addr = &H6922&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_12_TST_0
+'Addr = &H6923&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_13_CFG_0
+'Addr = &H6924&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_13_CFG_1
+'Addr = &H6925&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_13_CFG_2
+'Addr = &H6926&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_13_CFG_3
+'Addr = &H6927&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_13_CFG_4
+'Addr = &H6928&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_13_CFG_5
+'Addr = &H6929&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_13_CFG_6
+'Addr = &H692A&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_13_TST_0
+'Addr = &H692B&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_14_CFG_0
+'Addr = &H692C&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_14_CFG_1
+'Addr = &H692D&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_14_CFG_2
+'Addr = &H692E&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_14_CFG_3
+'Addr = &H692F&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_14_CFG_4
+'Addr = &H6930&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_14_CFG_5
+'Addr = &H6931&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_14_CFG_6
+'Addr = &H6932&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_14_TST_0
+'Addr = &H6933&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_15_CFG_0
+'Addr = &H6934&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_15_CFG_1
+'Addr = &H6935&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_15_CFG_2
+'Addr = &H6936&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_15_CFG_3
+'Addr = &H6937&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_15_CFG_4
+'Addr = &H6938&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_15_CFG_5
+'Addr = &H6939&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_15_CFG_6
+'Addr = &H693A&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_15_TST_0
+'Addr = &H693B&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_16_CFG_0
+'Addr = &H693C&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_16_CFG_1
+'Addr = &H693D&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_16_CFG_2
+'Addr = &H693E&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_16_CFG_3
+'Addr = &H693F&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_16_CFG_4
+'Addr = &H6940&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_16_CFG_5
+'Addr = &H6941&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_16_CFG_6
+'Addr = &H6942&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_16_TST_0
+'Addr = &H6943&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_IDAC_17_CFG_0
+'Addr = &H6944&
+'CFG_IDAC_REF_RES_TRIM = &HE0
+'End Enum
+'Public Enum WLED_IDAC_17_CFG_1
+'Addr = &H6945&
+'CFG_IDAC_DEF_RES_TRIM = &HF0
+'End Enum
+'Public Enum WLED_IDAC_17_CFG_2
+'Addr = &H6946&
+'CFG_IDAC_BIT6_BIN_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_17_CFG_3
+'Addr = &H6947&
+'CFG_IDAC_BIT0_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_17_CFG_4
+'Addr = &H6948&
+'CFG_IDAC_BIT1_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_17_CFG_5
+'Addr = &H6949&
+'CFG_IDAC_BIT2_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_17_CFG_6
+'Addr = &H694A&
+'CFG_IDAC_BIT3_THERMO_TRIM = &HF8
+'End Enum
+'Public Enum WLED_IDAC_17_TST_0
+'Addr = &H694B&
+'TST_EN_DIS_RDEF = &HEF
+'TST_EN_DAC_CORE = &HDF
+'TST_EN_MIN_SEL = &HBF
+'TST_EN_OPEN_SHORT = &H7F
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_EVENT0
+'Addr = &H694C&
+'EVENT_0 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_EVENT1
+'Addr = &H694D&
+'EVENT_1 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_EVENT2
+'Addr = &H694E&
+'EVENT_2 = &HFC
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_EVENT3
+'Addr = &H694F&
+'EVENT_3 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_EVENT4
+'Addr = &H6950&
+'EVENT_4 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_EVENT5
+'Addr = &H6951&
+'EVENT_5 = &H80
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_EVENT7
+'Addr = &H6952&
+'EVENT_7 = &HFC
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_IRQMSK0
+'Addr = &H6953&
+'IRQ_MASK_EVENT_0 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_IRQMSK1
+'Addr = &H6954&
+'IRQ_MASK_EVENT_1 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_IRQMSK2
+'Addr = &H6955&
+'IRQ_MASK_EVENT_2 = &HFC
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_IRQMSK3
+'Addr = &H6956&
+'IRQ_MASK_EVENT_3 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_IRQMSK4
+'Addr = &H6957&
+'IRQ_MASK_EVENT_4 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_IRQMSK5
+'Addr = &H6958&
+'IRQ_MASK_EVENT_5 = &H80
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_IRQMSK7
+'Addr = &H6959&
+'IRQ_MASK_EVENT_7 = &HFC
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_STATUS0
+'Addr = &H695A&
+'STATUS_0 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_STATUS1
+'Addr = &H695B&
+'STATUS_1 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_STATUS2
+'Addr = &H695C&
+'STATUS_2 = &HFC
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_STATUS3
+'Addr = &H695D&
+'STATUS_3 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_STATUS4
+'Addr = &H695E&
+'STATUS_4 = &H0
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_STATUS5
+'Addr = &H695F&
+'STATUS_5 = &H80
+'End Enum
+'Public Enum WLED_STATUS_EVENTS_WLED_STATUS7
+'Addr = &H6960&
+'STATUS_7 = &HFC
+'End Enum
+'Public Enum BSTLQ_DIG_LOCAL_1
+'Addr = &H6A00&
+'SPARE1 = &HFE
+'SYS_BOOST_DISABLE = &HFD
+'EN_WATCHDOG = &HFB
+'SEL_SOFT_START = &HE7
+'EN_LP_MODE = &HDF
+'CFG_ON_IN_OFF = &HBF
+'SPARE2 = &H7F
+'End Enum
+'Public Enum BSTLQ_DIG_LOCAL_2
+'Addr = &H6A01&
+'SEL_SHUTDOWN_DELAY = &HFC
+'CFG_DIS_IN_WALLETOFF = &HFB
+'CFG_BLANK_TIME = &HF7
+'CFG_DEBOUNCE_TIME = &HCF
+'CFG_DIS_VOUT_OK_FAULT = &HBF
+'End Enum
+'Public Enum BSTLQ_DIG_LOCAL_3
+'Addr = &H6A02&
+'CFG_TON_OFFSET_SETUP = &HC0
+'End Enum
+'Public Enum BSTLQ_DIG_LOCAL_4
+'Addr = &H6A03&
+'BSTLQ_BYPASS_ACTIVE = &HFE
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_0
+'Addr = &H6A04&
+'EN_FREQ_LFSR = &HFE
+'EN_FREQ_AVOID = &HFD
+'SEL_TON_CFG = &H3
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_1
+'Addr = &H6A05&
+'RTC_TIME_WINDOW_CFG = &HC0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_2
+'Addr = &H6A06&
+'FREQ_IP_LSB_POS_CFG = &HF8
+'CFG_FREQ_RETRY = &HC7
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_3
+'Addr = &H6A07&
+'FREQ_0_IP_REL_CFG = &HE0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_4
+'Addr = &H6A08&
+'FREQ_1_IP_REL_CFG = &HE0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_5
+'Addr = &H6A09&
+'FREQ_2_IP_REL_CFG = &HE0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_6
+'Addr = &H6A0A&
+'FREQ_3_IP_REL_CFG = &HE0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_7
+'Addr = &H6A0B&
+'FREQ_IP_REL_MAX_CFG = &HE0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_8
+'Addr = &H6A0C&
+'FREQ_IP_REL_MIN_CFG = &HE0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_9
+'Addr = &H6A0D&
+'FREQ_0_OFFSET_CFG = &HF8
+'FREQ_1_OFFSET_CFG = &HC7
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_10
+'Addr = &H6A0E&
+'FREQ_2_OFFSET_CFG = &HF8
+'FREQ_3_OFFSET_CFG = &HC7
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_11
+'Addr = &H6A0F&
+'FREQ_0_MIN_COUNT_CFG = &H0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_12
+'Addr = &H6A10&
+'FREQ_1_MIN_COUNT_CFG = &H0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_13
+'Addr = &H6A11&
+'FREQ_2_MIN_COUNT_CFG = &H0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_14
+'Addr = &H6A12&
+'FREQ_3_MIN_COUNT_CFG = &H0
+'End Enum
+'Public Enum BSTLQ_DIG_FA_CNTRL_15
+'Addr = &H6A13&
+'CFG_SPARE_FREQ = &H0
+'End Enum
+'Public Enum BSTLQ_ANA_EN_0
+'Addr = &H6A2C&
+'EN_HI_RANGE = &HFE
+'DIS_PD = &HFD
+'End Enum
+'Public Enum BSTLQ_ANA_DCFG_0
+'Addr = &H6A2D&
+'FORCE_BYPASS = &HFE
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_1
+'Addr = &H6A30&
+'SEL_VOUT = &HE0
+'SEL_BLK_TIME = &H1F
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_2
+'Addr = &H6A31&
+'TRIM_VOUT = &HE0
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_3
+'Addr = &H6A32&
+'SEL_VIN_BP_HYST = &HF8
+'FORCE_LP_COMP = &HF7
+'FORCE_FUNC = &HF
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_4
+'Addr = &H6A33&
+'SEL_BP_OFFS = &HF8
+'SEL_FB_FLTR = &HE7
+'SEL_N_PFM_PULSES = &H1F
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_5
+'Addr = &H6A34&
+'SEL_BP_RESP = &HF8
+'SEL_1U_IND = &HF7
+'EN_CLAMP = &HEF
+'FORCE_FAST_COMP = &HDF
+'FORCE_TIMER1_OFF = &HBF
+'SEL_RMT = &H7F
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_6
+'Addr = &H6A35&
+'SEL_TON_GAIN = &HF0
+'SEL_P_TIMEOUT = &H8F
+'RAMP_DISABLE = &H7F
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_7
+'Addr = &H6A36&
+'SEL_VOS_ZXP = &HC0
+'SEL_DRV_STR = &H3F
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_8
+'Addr = &H6A37&
+'EN_TM = &HFE
+'SEL_TM = &HE1
+'End Enum
+'Public Enum BSTLQ_ANA_CFG_9
+'Addr = &H6A38&
+'EN_ZXP_SUPPLY_COMP = &HFE
+'SEL_TON_LOW_RANGE = &HFD
+'SPARES = &H3
+'End Enum
+'Public Enum GPADC_ADC_CFG_SLEEP_STATE_EN
+'Addr = &H7E00&
+'VDD_MON = &HFE
+'TEMP_MON = &HFD
+'FW_AGENT_0 = &HFB
+'FW_AGENT_1 = &HF7
+'FW_AGENT_2 = &HEF
+'End Enum
+'Public Enum GPADC_ADC_CFG_MANUAL_1_CONV_CFG
+'Addr = &H7E01&
+'CH_SEL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MANUAL_1_CONV_RES_LSB
+'Addr = &H7E02&
+'DATA_LSB = &HF0
+'DATA_VALID = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_MANUAL_1_CONV_RES_MSB
+'Addr = &H7E03&
+'DATA_MSB = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MANUAL_2_CONV_CFG
+'Addr = &H7E04&
+'CH_SEL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MANUAL_2_CONV_RES_LSB
+'Addr = &H7E05&
+'DATA_LSB = &HF0
+'DATA_VALID = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_MANUAL_2_CONV_RES_MSB
+'Addr = &H7E06&
+'DATA_MSB = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_1_CFG
+'Addr = &H7E07&
+'ACQ_CFG = &HFC
+'TRIG_MODE = &HF3
+'SCH_RATE = &H8F
+'ACC_EN = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_1_RES_CLEAR
+'Addr = &H7E08&
+'RES_CLEAR = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_1_ACCUM_CLEAR
+'Addr = &H7E09&
+'ACCUM_CLEAR = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_2_CFG
+'Addr = &H7E0A&
+'ACQ_CFG = &HFC
+'TRIG_MODE = &HF3
+'SCH_RATE = &H8F
+'ACC_EN = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_2_RES_CLEAR
+'Addr = &H7E0B&
+'RES_CLEAR = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_2_ACCUM_CLEAR
+'Addr = &H7E0C&
+'ACCUM_CLEAR = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_HW_TRIG_CTL
+'Addr = &H7E0D&
+'HW_TRIG_EN = &HF0
+'SLEEP = &HEF
+'End Enum
+'Public Enum GPADC_ADC_CFG_FW_STATUS
+'Addr = &H7E0E&
+'STATUS_MIRROR = &HE0
+'End Enum
+'Public Enum GPADC_ADC_CFG_PBUCK_CFG
+'Addr = &H7E0F&
+'SCH_RATE = &HF8
+'End Enum
+'Public Enum GPADC_ADC_CFG_PBUCK_ACC_EN_0
+'Addr = &H7E10&
+'BUCK0 = &HFE
+'BUCK1 = &HFD
+'BUCK2 = &HFB
+'BUCK3 = &HF7
+'BUCK4 = &HEF
+'BUCK5 = &HDF
+'BUCK6 = &HBF
+'BUCK7 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_PBUCK_ACC_EN_1
+'Addr = &H7E11&
+'BUCK8 = &HFE
+'BUCK9 = &HFD
+'BUCK10 = &HFB
+'BUCK11 = &HF7
+'BUCK12 = &HEF
+'BUCK13 = &HDF
+'BUCK14 = &HBF
+'End Enum
+'Public Enum GPADC_ADC_CFG_NTC_SHUTDOWN_CFG
+'Addr = &H7E12&
+'MODE = &HFC
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_CFG
+'Addr = &H7E13&
+'SCH_RATE = &HFC
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT_EN0
+'Addr = &H7E14&
+'TDEV1 = &HFE
+'TDEV2 = &HFD
+'TDEV3 = &HFB
+'TDEV4 = &HF7
+'TDEV5 = &HEF
+'TDEV6 = &HDF
+'TDEV7 = &HBF
+'TDEV8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT_EN1
+'Addr = &H7E15&
+'TDIE1 = &HFE
+'TDIE2 = &HFD
+'TDIE3 = &HFB
+'TDIE4 = &HF7
+'TDIE5 = &HEF
+'TDIE6 = &HDF
+'TDIE7 = &HBF
+'TDIE8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT0_RISE_THRES
+'Addr = &H7E16&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT1_RISE_THRES
+'Addr = &H7E17&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT2_RISE_THRES
+'Addr = &H7E18&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT3_RISE_THRES
+'Addr = &H7E19&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT4_RISE_THRES
+'Addr = &H7E1A&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT5_RISE_THRES
+'Addr = &H7E1B&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT6_RISE_THRES
+'Addr = &H7E1C&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT7_RISE_THRES
+'Addr = &H7E1D&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT8_RISE_THRES
+'Addr = &H7E1E&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT9_RISE_THRES
+'Addr = &H7E1F&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT10_RISE_THRES
+'Addr = &H7E20&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT11_RISE_THRES
+'Addr = &H7E21&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT12_RISE_THRES
+'Addr = &H7E22&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT13_RISE_THRES
+'Addr = &H7E23&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT14_RISE_THRES
+'Addr = &H7E24&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT15_RISE_THRES
+'Addr = &H7E25&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT0_FALL_THRES
+'Addr = &H7E26&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT1_FALL_THRES
+'Addr = &H7E27&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT2_FALL_THRES
+'Addr = &H7E28&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT3_FALL_THRES
+'Addr = &H7E29&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT4_FALL_THRES
+'Addr = &H7E2A&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT5_FALL_THRES
+'Addr = &H7E2B&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT6_FALL_THRES
+'Addr = &H7E2C&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT7_FALL_THRES
+'Addr = &H7E2D&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT8_FALL_THRES
+'Addr = &H7E2E&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT9_FALL_THRES
+'Addr = &H7E2F&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT10_FALL_THRES
+'Addr = &H7E30&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT11_FALL_THRES
+'Addr = &H7E31&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT12_FALL_THRES
+'Addr = &H7E32&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT13_FALL_THRES
+'Addr = &H7E33&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT14_FALL_THRES
+'Addr = &H7E34&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_SLOT15_FALL_THRES
+'Addr = &H7E35&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MAN_1_COMP
+'Addr = &H7E36&
+'CONV_COMPLETE = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_MAN_2_COMP
+'Addr = &H7E37&
+'CONV_COMPLETE = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_1_COMP
+'Addr = &H7E38&
+'CONV_COMPLETE = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_2_COMP
+'Addr = &H7E39&
+'CONV_COMPLETE = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_MISC_ADC_FW_GRP_EVENT0
+'Addr = &H7E3A&
+'EVT = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MISC_ADC_FW_GRP_EVENT1
+'Addr = &H7E3B&
+'EVT = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MISC_ADC_GRP_EVENT1
+'Addr = &H7E3C&
+'VDDMON_FALL = &HFE
+'ADC_ERROR = &HFD
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_RISE_EVENT0
+'Addr = &H7E3D&
+'TDEV1 = &HFE
+'TDEV2 = &HFD
+'TDEV3 = &HFB
+'TDEV4 = &HF7
+'TDEV5 = &HEF
+'TDEV6 = &HDF
+'TDEV7 = &HBF
+'TDEV8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_RISE_EVENT1
+'Addr = &H7E3E&
+'TDIE1 = &HFE
+'TDIE2 = &HFD
+'TDIE3 = &HFB
+'TDIE4 = &HF7
+'TDIE5 = &HEF
+'TDIE6 = &HDF
+'TDIE7 = &HBF
+'TDIE8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_FALL_EVENT0
+'Addr = &H7E3F&
+'TDEV1 = &HFE
+'TDEV2 = &HFD
+'TDEV3 = &HFB
+'TDEV4 = &HF7
+'TDEV5 = &HEF
+'TDEV6 = &HDF
+'TDEV7 = &HBF
+'TDEV8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_FALL_EVENT1
+'Addr = &H7E40&
+'TDIE1 = &HFE
+'TDIE2 = &HFD
+'TDIE3 = &HFB
+'TDIE4 = &HF7
+'TDIE5 = &HEF
+'TDIE6 = &HDF
+'TDIE7 = &HBF
+'TDIE8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_MISC_ADC_GRP_STATUS1
+'Addr = &H7E47&
+'VDDMON = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_HIGH_STATUS0
+'Addr = &H7E48&
+'TDEV1 = &HFE
+'TDEV2 = &HFD
+'TDEV3 = &HFB
+'TDEV4 = &HF7
+'TDEV5 = &HEF
+'TDEV6 = &HDF
+'TDEV7 = &HBF
+'TDEV8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_HIGH_STATUS1
+'Addr = &H7E49&
+'TDIE1 = &HFE
+'TDIE2 = &HFD
+'TDIE3 = &HFB
+'TDIE4 = &HF7
+'TDIE5 = &HEF
+'TDIE6 = &HDF
+'TDIE7 = &HBF
+'TDIE8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_LOW_STATUS0
+'Addr = &H7E4A&
+'TDEV1 = &HFE
+'TDEV2 = &HFD
+'TDEV3 = &HFB
+'TDEV4 = &HF7
+'TDEV5 = &HEF
+'TDEV6 = &HDF
+'TDEV7 = &HBF
+'TDEV8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_LOW_STATUS1
+'Addr = &H7E4B&
+'TDIE1 = &HFE
+'TDIE2 = &HFD
+'TDIE3 = &HFB
+'TDIE4 = &HF7
+'TDIE5 = &HEF
+'TDIE6 = &HDF
+'TDIE7 = &HBF
+'TDIE8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_MAN_1_COMP_IRQ_MASK
+'Addr = &H7E4C&
+'MASK = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_MAN_2_COMP_IRQ_MASK
+'Addr = &H7E4D&
+'MASK = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_1_COMP_IRQ_MASK
+'Addr = &H7E4E&
+'MASK = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_SCH_2_COMP_IRQ_MASK
+'Addr = &H7E4F&
+'MASK = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_MISC_ADC_FW_GRP_IRQ_MASK0
+'Addr = &H7E50&
+'EVT_MASK = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MISC_ADC_FW_GRP_IRQ_MASK1
+'Addr = &H7E51&
+'EVT_MASK = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MISC_ADC_GRP_IRQ_MASK1
+'Addr = &H7E52&
+'VDDMON_FALL = &HFE
+'ADC_ERROR = &HFD
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_RISE_IRQ_MASK0
+'Addr = &H7E53&
+'TDEV1 = &HFE
+'TDEV2 = &HFD
+'TDEV3 = &HFB
+'TDEV4 = &HF7
+'TDEV5 = &HEF
+'TDEV6 = &HDF
+'TDEV7 = &HBF
+'TDEV8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_RISE_IRQ_MASK1
+'Addr = &H7E54&
+'TDIE1 = &HFE
+'TDIE2 = &HFD
+'TDIE3 = &HFB
+'TDIE4 = &HF7
+'TDIE5 = &HEF
+'TDIE6 = &HDF
+'TDIE7 = &HBF
+'TDIE8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_FALL_IRQ_MASK0
+'Addr = &H7E55&
+'TDEV1 = &HFE
+'TDEV2 = &HFD
+'TDEV3 = &HFB
+'TDEV4 = &HF7
+'TDEV5 = &HEF
+'TDEV6 = &HDF
+'TDEV7 = &HBF
+'TDEV8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TEMP_MON_FALL_IRQ_MASK1
+'Addr = &H7E56&
+'TDIE1 = &HFE
+'TDIE2 = &HFD
+'TDIE3 = &HFB
+'TDIE4 = &HF7
+'TDIE5 = &HEF
+'TDIE6 = &HDF
+'TDIE7 = &HBF
+'TDIE8 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_VDDMON_FALL_THRES
+'Addr = &H7E57&
+'THRES = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_VDDMON_CFG
+'Addr = &H7E58&
+'CNT_THRES = &HFC
+'INTERVAL = &HE3
+'End Enum
+'Public Enum GPADC_ADC_CFG_INTF_OVERRIDE_1
+'Addr = &H7E59&
+'BLANK_DIS = &HFE
+'ADC_CLK_ON = &HFB
+'End Enum
+'Public Enum GPADC_ADC_CFG_MUXCTRL_OVERRIDE_EN_0
+'Addr = &H7E5A&
+'MUXCTRL_3_0 = &HFE
+'MUXCTRL_9_4 = &HFD
+'MUXCTRL_12_10 = &HFB
+'MUXCTRL_15_13 = &HF7
+'MUXCTRL_17_16 = &HEF
+'MUXCTRL_19_18 = &HDF
+'MUXCTRL_21_20 = &HBF
+'MUXCTRL_23_22 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_MUXCTRL_OVERRIDE_EN_1
+'Addr = &H7E5B&
+'MUXCTRL_24_24 = &HFE
+'MUXCTRL_25_25 = &HFD
+'MUXCTRL_26_26 = &HFB
+'MUXCTRL_27_27 = &HF7
+'MUXCTRL_28_28 = &HEF
+'MUXCTRL_29_29 = &HDF
+'MUXCTRL_30_30 = &HBF
+'MUXCTRL_31_31 = &H7F
+'End Enum
+'Public Enum GPADC_ADC_CFG_MUXCTRL_OVERRIDE_VAL0
+'Addr = &H7E5C&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MUXCTRL_OVERRIDE_VAL1
+'Addr = &H7E5D&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MUXCTRL_OVERRIDE_VAL2
+'Addr = &H7E5E&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_MUXCTRL_OVERRIDE_VAL3
+'Addr = &H7E5F&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_FLEXICHNL_MUXCTRL0
+'Addr = &H7E60&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_FLEXICHNL_MUXCTRL1
+'Addr = &H7E61&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_FLEXICHNL_MUXCTRL2
+'Addr = &H7E62&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_FLEXICHNL_MUXCTRL3
+'Addr = &H7E63&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ICTRL_OVERRIDE
+'Addr = &H7E64&
+'VAL = &HFC
+'EN = &HFB
+'End Enum
+'Public Enum GPADC_ADC_CFG_ATB_OVERRIDE
+'Addr = &H7E65&
+'ATB_EXTRA = &HC0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ATB_1P5_OVERRIDE
+'Addr = &H7E66&
+'ATB_1P5_EN = &HF0
+'End Enum
+'Public Enum GPADC_ADC_CFG_BUCK_I2V_OVERRIDE0
+'Addr = &H7E67&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_BUCK_I2V_OVERRIDE1
+'Addr = &H7E68&
+'VAL = &H80
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_ERROR_DIAG
+'Addr = &H7E69&
+'AGENT = &HF0
+'End Enum
+'Public Enum GPADC_ADC_CFG_TDEV_SAMP_DLY
+'Addr = &H7E6A&
+'DLY = &HF0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ALL_SAMP_DLY
+'Addr = &H7E6B&
+'DLY = &H80
+'End Enum
+'Public Enum GPADC_ADC_CFG_SLEEP_CFG
+'Addr = &H7E6C&
+'LDO_OFF_DLY = &HF8
+'ACTIVE = &HE7
+'LEVEL = &HDF
+'AMP_OFF_DLY = &H3F
+'End Enum
+'Public Enum GPADC_ADC_CFG_TDEV_CFG
+'Addr = &H7E6D&
+'ICTRL = &HCF
+'GAIN_0P3 = &HBF
+'End Enum
+'Public Enum GPADC_ADC_CFG_IBAT_CFG
+'Addr = &H7E6E&
+'EN_HICUR_IBAT = &HFE
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_TRIM_IF_0
+'Addr = &H7E6F&
+'CLK_LOW_CNT = &HE0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_TRIM_IF_1
+'Addr = &H7E70&
+'CLK_HIGH_CNT = &HE0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_TRIM_IF_2
+'Addr = &H7E71&
+'HOLD_CNT = &HF0
+'COMP_SYNC = &HDF
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_TRIM_IF_3
+'Addr = &H7E72&
+'AMP_START_CNT = &H80
+'End Enum
+'Public Enum GPADC_ADC_CFG_VREF_TRIM
+'Addr = &H7E73&
+'LDO_VREF_TRIM = &HE0
+'LDO_VREF_DIS = &HDF
+'End Enum
+'Public Enum GPADC_ADC_CFG_CDAC_TRIM
+'Addr = &H7E74&
+'CDAC_TRIM = &HF8
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_GAIN_1V5_LSB
+'Addr = &H7E75&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_GAIN_1V5_MSB
+'Addr = &H7E76&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_GAIN_5V_LSB
+'Addr = &H7E77&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_GAIN_5V_MSB
+'Addr = &H7E78&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_GAIN_LC_IBAT_LSB
+'Addr = &H7E79&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_GAIN_LC_IBAT_MSB
+'Addr = &H7E7A&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_GAIN_HC_IBAT_LSB
+'Addr = &H7E7B&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_GAIN_HC_IBAT_MSB
+'Addr = &H7E7C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_OFFSET_1V5_LSB
+'Addr = &H7E7D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_OFFSET_1V5_MSB
+'Addr = &H7E7E&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_OFFSET_5V_LSB
+'Addr = &H7E7F&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_OFFSET_5V_MSB
+'Addr = &H7E80&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_OFFSET_LC_IBAT_LSB
+'Addr = &H7E81&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_OFFSET_LC_IBAT_MSB
+'Addr = &H7E82&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_OFFSET_HC_IBAT_LSB
+'Addr = &H7E83&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_ADC_OFFSET_HC_IBAT_MSB
+'Addr = &H7E84&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_ADC_CFG_AMUX_IO_CFG
+'Addr = &H7E85&
+'AMUXAY_PULLDOWN = &HFE
+'AMUXBY_PULLDOWN = &HFD
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT0
+'Addr = &H8000&
+'SLOT0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT1
+'Addr = &H8001&
+'SLOT1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT2
+'Addr = &H8002&
+'SLOT2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT3
+'Addr = &H8003&
+'SLOT3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT4
+'Addr = &H8004&
+'SLOT4 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT5
+'Addr = &H8005&
+'SLOT5 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT6
+'Addr = &H8006&
+'SLOT6 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT7
+'Addr = &H8007&
+'SLOT7 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT8
+'Addr = &H8008&
+'SLOT8 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT9
+'Addr = &H8009&
+'SLOT9 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT10
+'Addr = &H800A&
+'SLOT10 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT11
+'Addr = &H800B&
+'SLOT11 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT12
+'Addr = &H800C&
+'SLOT12 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT13
+'Addr = &H800D&
+'SLOT13 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT14
+'Addr = &H800E&
+'SLOT14 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_SLOT15
+'Addr = &H800F&
+'SLOT15 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU0_SCH_1_CTRL
+'Addr = &H8010&
+'MINMAX = &HFE
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT0
+'Addr = &H8040&
+'SLOT0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT1
+'Addr = &H8041&
+'SLOT1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT2
+'Addr = &H8042&
+'SLOT2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT3
+'Addr = &H8043&
+'SLOT3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT4
+'Addr = &H8044&
+'SLOT4 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT5
+'Addr = &H8045&
+'SLOT5 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT6
+'Addr = &H8046&
+'SLOT6 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT7
+'Addr = &H8047&
+'SLOT7 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT8
+'Addr = &H8048&
+'SLOT8 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT9
+'Addr = &H8049&
+'SLOT9 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT10
+'Addr = &H804A&
+'SLOT10 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT11
+'Addr = &H804B&
+'SLOT11 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT12
+'Addr = &H804C&
+'SLOT12 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT13
+'Addr = &H804D&
+'SLOT13 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT14
+'Addr = &H804E&
+'SLOT14 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_SLOT15
+'Addr = &H804F&
+'SLOT15 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU1_SCH_2_CTRL
+'Addr = &H8050&
+'MINMAX = &HFE
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT0
+'Addr = &H8200&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT0
+'Addr = &H8201&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT1
+'Addr = &H8202&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT1
+'Addr = &H8203&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT2
+'Addr = &H8204&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT2
+'Addr = &H8205&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT3
+'Addr = &H8206&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT3
+'Addr = &H8207&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT4
+'Addr = &H8208&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT4
+'Addr = &H8209&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT5
+'Addr = &H820A&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT5
+'Addr = &H820B&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT6
+'Addr = &H820C&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT6
+'Addr = &H820D&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT7
+'Addr = &H820E&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT7
+'Addr = &H820F&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT8
+'Addr = &H8210&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT8
+'Addr = &H8211&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT9
+'Addr = &H8212&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT9
+'Addr = &H8213&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT10
+'Addr = &H8214&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT10
+'Addr = &H8215&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT11
+'Addr = &H8216&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT11
+'Addr = &H8217&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT12
+'Addr = &H8218&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT12
+'Addr = &H8219&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT13
+'Addr = &H821A&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT13
+'Addr = &H821B&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT14
+'Addr = &H821C&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT14
+'Addr = &H821D&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_LSB_SLOT15
+'Addr = &H821E&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU8_SCH_1_CONV_RES_MSB_SLOT15
+'Addr = &H821F&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT0
+'Addr = &H8280&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT0
+'Addr = &H8281&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT1
+'Addr = &H8282&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT1
+'Addr = &H8283&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT2
+'Addr = &H8284&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT2
+'Addr = &H8285&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT3
+'Addr = &H8286&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT3
+'Addr = &H8287&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT4
+'Addr = &H8288&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT4
+'Addr = &H8289&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT5
+'Addr = &H828A&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT5
+'Addr = &H828B&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT6
+'Addr = &H828C&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT6
+'Addr = &H828D&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT7
+'Addr = &H828E&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT7
+'Addr = &H828F&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT8
+'Addr = &H8290&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT8
+'Addr = &H8291&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT9
+'Addr = &H8292&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT9
+'Addr = &H8293&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT10
+'Addr = &H8294&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT10
+'Addr = &H8295&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT11
+'Addr = &H8296&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT11
+'Addr = &H8297&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT12
+'Addr = &H8298&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT12
+'Addr = &H8299&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT13
+'Addr = &H829A&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT13
+'Addr = &H829B&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_LSB_SLOT14
+'Addr = &H829C&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MIN_MSB_SLOT14
+'Addr = &H829D&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT0
+'Addr = &H829E&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT0
+'Addr = &H829F&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT1
+'Addr = &H82A0&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT1
+'Addr = &H82A1&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT2
+'Addr = &H82A2&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT2
+'Addr = &H82A3&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT3
+'Addr = &H82A4&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT3
+'Addr = &H82A5&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT4
+'Addr = &H82A6&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT4
+'Addr = &H82A7&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT5
+'Addr = &H82A8&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT5
+'Addr = &H82A9&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT6
+'Addr = &H82AA&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT6
+'Addr = &H82AB&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT7
+'Addr = &H82AC&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT7
+'Addr = &H82AD&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT8
+'Addr = &H82AE&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT8
+'Addr = &H82AF&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT9
+'Addr = &H82B0&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT9
+'Addr = &H82B1&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT10
+'Addr = &H82B2&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT10
+'Addr = &H82B3&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT11
+'Addr = &H82B4&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT11
+'Addr = &H82B5&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT12
+'Addr = &H82B6&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT12
+'Addr = &H82B7&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT13
+'Addr = &H82B8&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT13
+'Addr = &H82B9&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_LSB_SLOT14
+'Addr = &H82BA&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_MAX_MSB_SLOT14
+'Addr = &H82BB&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT0
+'Addr = &H82BC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT0
+'Addr = &H82BD&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT0
+'Addr = &H82BE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT0
+'Addr = &H82BF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT1
+'Addr = &H82C0&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT1
+'Addr = &H82C1&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT1
+'Addr = &H82C2&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT1
+'Addr = &H82C3&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT2
+'Addr = &H82C4&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT2
+'Addr = &H82C5&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT2
+'Addr = &H82C6&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT2
+'Addr = &H82C7&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT3
+'Addr = &H82C8&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT3
+'Addr = &H82C9&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT3
+'Addr = &H82CA&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT3
+'Addr = &H82CB&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT4
+'Addr = &H82CC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT4
+'Addr = &H82CD&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT4
+'Addr = &H82CE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT4
+'Addr = &H82CF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT5
+'Addr = &H82D0&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT5
+'Addr = &H82D1&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT5
+'Addr = &H82D2&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT5
+'Addr = &H82D3&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT6
+'Addr = &H82D4&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT6
+'Addr = &H82D5&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT6
+'Addr = &H82D6&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT6
+'Addr = &H82D7&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT7
+'Addr = &H82D8&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT7
+'Addr = &H82D9&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT7
+'Addr = &H82DA&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT7
+'Addr = &H82DB&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT8
+'Addr = &H82DC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT8
+'Addr = &H82DD&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT8
+'Addr = &H82DE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT8
+'Addr = &H82DF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT9
+'Addr = &H82E0&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT9
+'Addr = &H82E1&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT9
+'Addr = &H82E2&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT9
+'Addr = &H82E3&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT10
+'Addr = &H82E4&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT10
+'Addr = &H82E5&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT10
+'Addr = &H82E6&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT10
+'Addr = &H82E7&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT11
+'Addr = &H82E8&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT11
+'Addr = &H82E9&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT11
+'Addr = &H82EA&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT11
+'Addr = &H82EB&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT12
+'Addr = &H82EC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT12
+'Addr = &H82ED&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT12
+'Addr = &H82EE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT12
+'Addr = &H82EF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT13
+'Addr = &H82F0&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT13
+'Addr = &H82F1&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT13
+'Addr = &H82F2&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT13
+'Addr = &H82F3&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT14
+'Addr = &H82F4&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT14
+'Addr = &H82F5&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT14
+'Addr = &H82F6&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT14
+'Addr = &H82F7&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM0_SLOT15
+'Addr = &H82F8&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM1_SLOT15
+'Addr = &H82F9&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM2_SLOT15
+'Addr = &H82FA&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_CONV_ACCUM3_SLOT15
+'Addr = &H82FB&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_COUNTER_BYTE0
+'Addr = &H82FC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_COUNTER_BYTE1
+'Addr = &H82FD&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_COUNTER_BYTE2
+'Addr = &H82FE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU9_SCH_1_COUNTER_BYTE3
+'Addr = &H82FF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT0
+'Addr = &H8300&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT0
+'Addr = &H8301&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT1
+'Addr = &H8302&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT1
+'Addr = &H8303&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT2
+'Addr = &H8304&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT2
+'Addr = &H8305&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT3
+'Addr = &H8306&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT3
+'Addr = &H8307&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT4
+'Addr = &H8308&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT4
+'Addr = &H8309&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT5
+'Addr = &H830A&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT5
+'Addr = &H830B&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT6
+'Addr = &H830C&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT6
+'Addr = &H830D&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT7
+'Addr = &H830E&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT7
+'Addr = &H830F&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT8
+'Addr = &H8310&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT8
+'Addr = &H8311&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT9
+'Addr = &H8312&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT9
+'Addr = &H8313&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT10
+'Addr = &H8314&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT10
+'Addr = &H8315&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT11
+'Addr = &H8316&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT11
+'Addr = &H8317&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT12
+'Addr = &H8318&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT12
+'Addr = &H8319&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT13
+'Addr = &H831A&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT13
+'Addr = &H831B&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT14
+'Addr = &H831C&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT14
+'Addr = &H831D&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_LSB_SLOT15
+'Addr = &H831E&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU10_SCH_2_CONV_RES_MSB_SLOT15
+'Addr = &H831F&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT0
+'Addr = &H8380&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT0
+'Addr = &H8381&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT1
+'Addr = &H8382&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT1
+'Addr = &H8383&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT2
+'Addr = &H8384&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT2
+'Addr = &H8385&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT3
+'Addr = &H8386&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT3
+'Addr = &H8387&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT4
+'Addr = &H8388&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT4
+'Addr = &H8389&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT5
+'Addr = &H838A&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT5
+'Addr = &H838B&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT6
+'Addr = &H838C&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT6
+'Addr = &H838D&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT7
+'Addr = &H838E&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT7
+'Addr = &H838F&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT8
+'Addr = &H8390&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT8
+'Addr = &H8391&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT9
+'Addr = &H8392&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT9
+'Addr = &H8393&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT10
+'Addr = &H8394&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT10
+'Addr = &H8395&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT11
+'Addr = &H8396&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT11
+'Addr = &H8397&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT12
+'Addr = &H8398&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT12
+'Addr = &H8399&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT13
+'Addr = &H839A&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT13
+'Addr = &H839B&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_LSB_SLOT14
+'Addr = &H839C&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MIN_MSB_SLOT14
+'Addr = &H839D&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT0
+'Addr = &H839E&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT0
+'Addr = &H839F&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT1
+'Addr = &H83A0&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT1
+'Addr = &H83A1&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT2
+'Addr = &H83A2&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT2
+'Addr = &H83A3&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT3
+'Addr = &H83A4&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT3
+'Addr = &H83A5&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT4
+'Addr = &H83A6&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT4
+'Addr = &H83A7&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT5
+'Addr = &H83A8&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT5
+'Addr = &H83A9&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT6
+'Addr = &H83AA&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT6
+'Addr = &H83AB&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT7
+'Addr = &H83AC&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT7
+'Addr = &H83AD&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT8
+'Addr = &H83AE&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT8
+'Addr = &H83AF&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT9
+'Addr = &H83B0&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT9
+'Addr = &H83B1&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT10
+'Addr = &H83B2&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT10
+'Addr = &H83B3&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT11
+'Addr = &H83B4&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT11
+'Addr = &H83B5&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT12
+'Addr = &H83B6&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT12
+'Addr = &H83B7&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT13
+'Addr = &H83B8&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT13
+'Addr = &H83B9&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_LSB_SLOT14
+'Addr = &H83BA&
+'DATA_LSB = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_MAX_MSB_SLOT14
+'Addr = &H83BB&
+'DATA_MSB = &HF0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT0
+'Addr = &H83BC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT0
+'Addr = &H83BD&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT0
+'Addr = &H83BE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT0
+'Addr = &H83BF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT1
+'Addr = &H83C0&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT1
+'Addr = &H83C1&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT1
+'Addr = &H83C2&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT1
+'Addr = &H83C3&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT2
+'Addr = &H83C4&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT2
+'Addr = &H83C5&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT2
+'Addr = &H83C6&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT2
+'Addr = &H83C7&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT3
+'Addr = &H83C8&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT3
+'Addr = &H83C9&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT3
+'Addr = &H83CA&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT3
+'Addr = &H83CB&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT4
+'Addr = &H83CC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT4
+'Addr = &H83CD&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT4
+'Addr = &H83CE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT4
+'Addr = &H83CF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT5
+'Addr = &H83D0&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT5
+'Addr = &H83D1&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT5
+'Addr = &H83D2&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT5
+'Addr = &H83D3&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT6
+'Addr = &H83D4&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT6
+'Addr = &H83D5&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT6
+'Addr = &H83D6&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT6
+'Addr = &H83D7&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT7
+'Addr = &H83D8&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT7
+'Addr = &H83D9&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT7
+'Addr = &H83DA&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT7
+'Addr = &H83DB&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT8
+'Addr = &H83DC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT8
+'Addr = &H83DD&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT8
+'Addr = &H83DE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT8
+'Addr = &H83DF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT9
+'Addr = &H83E0&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT9
+'Addr = &H83E1&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT9
+'Addr = &H83E2&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT9
+'Addr = &H83E3&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT10
+'Addr = &H83E4&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT10
+'Addr = &H83E5&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT10
+'Addr = &H83E6&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT10
+'Addr = &H83E7&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT11
+'Addr = &H83E8&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT11
+'Addr = &H83E9&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT11
+'Addr = &H83EA&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT11
+'Addr = &H83EB&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT12
+'Addr = &H83EC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT12
+'Addr = &H83ED&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT12
+'Addr = &H83EE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT12
+'Addr = &H83EF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT13
+'Addr = &H83F0&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT13
+'Addr = &H83F1&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT13
+'Addr = &H83F2&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT13
+'Addr = &H83F3&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT14
+'Addr = &H83F4&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT14
+'Addr = &H83F5&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT14
+'Addr = &H83F6&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT14
+'Addr = &H83F7&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM0_SLOT15
+'Addr = &H83F8&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM1_SLOT15
+'Addr = &H83F9&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM2_SLOT15
+'Addr = &H83FA&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_CONV_ACCUM3_SLOT15
+'Addr = &H83FB&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_COUNTER_BYTE0
+'Addr = &H83FC&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_COUNTER_BYTE1
+'Addr = &H83FD&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_COUNTER_BYTE2
+'Addr = &H83FE&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU11_SCH_2_COUNTER_BYTE3
+'Addr = &H83FF&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK0_ACC0
+'Addr = &H8418&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK0_ACC1
+'Addr = &H8419&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK0_ACC2
+'Addr = &H841A&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK0_ACC3
+'Addr = &H841B&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK0_PFM_ACC_BYTE0
+'Addr = &H841C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK0_PFM_ACC_BYTE1
+'Addr = &H841D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK0_ACC_CNT_BYTE0
+'Addr = &H841E&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK0_ACC_CNT_BYTE1
+'Addr = &H841F&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK1_ACC0
+'Addr = &H8420&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK1_ACC1
+'Addr = &H8421&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK1_ACC2
+'Addr = &H8422&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK1_ACC3
+'Addr = &H8423&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK1_PFM_ACC_BYTE0
+'Addr = &H8424&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK1_PFM_ACC_BYTE1
+'Addr = &H8425&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK1_ACC_CNT_BYTE0
+'Addr = &H8426&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK1_ACC_CNT_BYTE1
+'Addr = &H8427&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK2_ACC0
+'Addr = &H8428&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK2_ACC1
+'Addr = &H8429&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK2_ACC2
+'Addr = &H842A&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK2_ACC3
+'Addr = &H842B&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK2_PFM_ACC_BYTE0
+'Addr = &H842C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK2_PFM_ACC_BYTE1
+'Addr = &H842D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK2_ACC_CNT_BYTE0
+'Addr = &H842E&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK2_ACC_CNT_BYTE1
+'Addr = &H842F&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK3_ACC0
+'Addr = &H8430&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK3_ACC1
+'Addr = &H8431&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK3_ACC2
+'Addr = &H8432&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK3_ACC3
+'Addr = &H8433&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK3_PFM_ACC_BYTE0
+'Addr = &H8434&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK3_PFM_ACC_BYTE1
+'Addr = &H8435&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK3_ACC_CNT_BYTE0
+'Addr = &H8436&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK3_ACC_CNT_BYTE1
+'Addr = &H8437&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK4_ACC0
+'Addr = &H8438&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK4_ACC1
+'Addr = &H8439&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK4_ACC2
+'Addr = &H843A&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK4_ACC3
+'Addr = &H843B&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK4_PFM_ACC_BYTE0
+'Addr = &H843C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK4_PFM_ACC_BYTE1
+'Addr = &H843D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK4_ACC_CNT_BYTE0
+'Addr = &H843E&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK4_ACC_CNT_BYTE1
+'Addr = &H843F&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK5_ACC0
+'Addr = &H8440&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK5_ACC1
+'Addr = &H8441&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK5_ACC2
+'Addr = &H8442&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK5_ACC3
+'Addr = &H8443&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK5_PFM_ACC_BYTE0
+'Addr = &H8444&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK5_PFM_ACC_BYTE1
+'Addr = &H8445&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK5_ACC_CNT_BYTE0
+'Addr = &H8446&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK5_ACC_CNT_BYTE1
+'Addr = &H8447&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK6_ACC0
+'Addr = &H8448&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK6_ACC1
+'Addr = &H8449&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK6_ACC2
+'Addr = &H844A&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK6_ACC3
+'Addr = &H844B&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK6_PFM_ACC_BYTE0
+'Addr = &H844C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK6_PFM_ACC_BYTE1
+'Addr = &H844D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK6_ACC_CNT_BYTE0
+'Addr = &H844E&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK6_ACC_CNT_BYTE1
+'Addr = &H844F&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK7_ACC0
+'Addr = &H8450&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK7_ACC1
+'Addr = &H8451&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK7_ACC2
+'Addr = &H8452&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK7_ACC3
+'Addr = &H8453&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK7_PFM_ACC_BYTE0
+'Addr = &H8454&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK7_PFM_ACC_BYTE1
+'Addr = &H8455&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK7_ACC_CNT_BYTE0
+'Addr = &H8456&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK7_ACC_CNT_BYTE1
+'Addr = &H8457&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK8_ACC0
+'Addr = &H8458&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK8_ACC1
+'Addr = &H8459&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK8_ACC2
+'Addr = &H845A&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK8_ACC3
+'Addr = &H845B&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK8_PFM_ACC_BYTE0
+'Addr = &H845C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK8_PFM_ACC_BYTE1
+'Addr = &H845D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK8_ACC_CNT_BYTE0
+'Addr = &H845E&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK8_ACC_CNT_BYTE1
+'Addr = &H845F&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK9_ACC0
+'Addr = &H8460&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK9_ACC1
+'Addr = &H8461&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK9_ACC2
+'Addr = &H8462&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK9_ACC3
+'Addr = &H8463&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK9_PFM_ACC_BYTE0
+'Addr = &H8464&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK9_PFM_ACC_BYTE1
+'Addr = &H8465&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK9_ACC_CNT_BYTE0
+'Addr = &H8466&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK9_ACC_CNT_BYTE1
+'Addr = &H8467&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK10_ACC0
+'Addr = &H8468&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK10_ACC1
+'Addr = &H8469&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK10_ACC2
+'Addr = &H846A&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK10_ACC3
+'Addr = &H846B&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK10_PFM_ACC_BYTE0
+'Addr = &H846C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK10_PFM_ACC_BYTE1
+'Addr = &H846D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK10_ACC_CNT_BYTE0
+'Addr = &H846E&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK10_ACC_CNT_BYTE1
+'Addr = &H846F&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK11_ACC0
+'Addr = &H8470&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK11_ACC1
+'Addr = &H8471&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK11_ACC2
+'Addr = &H8472&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK11_ACC3
+'Addr = &H8473&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK11_PFM_ACC_BYTE0
+'Addr = &H8474&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK11_PFM_ACC_BYTE1
+'Addr = &H8475&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK11_ACC_CNT_BYTE0
+'Addr = &H8476&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK11_ACC_CNT_BYTE1
+'Addr = &H8477&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK12_ACC0
+'Addr = &H8478&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK12_ACC1
+'Addr = &H8479&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK12_ACC2
+'Addr = &H847A&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK12_ACC3
+'Addr = &H847B&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK12_PFM_ACC_BYTE0
+'Addr = &H847C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK12_PFM_ACC_BYTE1
+'Addr = &H847D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK12_ACC_CNT_BYTE0
+'Addr = &H847E&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK12_ACC_CNT_BYTE1
+'Addr = &H847F&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK13_ACC0
+'Addr = &H8480&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK13_ACC1
+'Addr = &H8481&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK13_ACC2
+'Addr = &H8482&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK13_ACC3
+'Addr = &H8483&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK13_PFM_ACC_BYTE0
+'Addr = &H8484&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK13_PFM_ACC_BYTE1
+'Addr = &H8485&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK13_ACC_CNT_BYTE0
+'Addr = &H8486&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK13_ACC_CNT_BYTE1
+'Addr = &H8487&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK14_ACC0
+'Addr = &H8488&
+'BYTE0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK14_ACC1
+'Addr = &H8489&
+'BYTE1 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK14_ACC2
+'Addr = &H848A&
+'BYTE2 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK14_ACC3
+'Addr = &H848B&
+'BYTE3 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK14_PFM_ACC_BYTE0
+'Addr = &H848C&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK14_PFM_ACC_BYTE1
+'Addr = &H848D&
+'VAL = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK14_ACC_CNT_BYTE0
+'Addr = &H848E&
+'CNT_7_0 = &H0
+'End Enum
+'Public Enum GPADC_BUF_PTMU12_PBUCK14_ACC_CNT_BYTE1
+'Addr = &H848F&
+'CNT_9_8 = &HFC
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_0
+'Addr = &H9F00&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_1
+'Addr = &H9F01&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_2
+'Addr = &H9F02&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_3
+'Addr = &H9F03&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_4
+'Addr = &H9F04&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_5
+'Addr = &H9F05&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_6
+'Addr = &H9F06&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_7
+'Addr = &H9F07&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_8
+'Addr = &H9F08&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_9
+'Addr = &H9F09&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_10
+'Addr = &H9F0A&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_11
+'Addr = &H9F0B&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_12
+'Addr = &H9F0C&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_13
+'Addr = &H9F0D&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_14
+'Addr = &H9F0E&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_15
+'Addr = &H9F0F&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_16
+'Addr = &H9F10&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_17
+'Addr = &H9F11&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_18
+'Addr = &H9F12&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_19
+'Addr = &H9F13&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_20
+'Addr = &H9F14&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_21
+'Addr = &H9F15&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_22
+'Addr = &H9F16&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_23
+'Addr = &H9F17&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_24
+'Addr = &H9F18&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_25
+'Addr = &H9F19&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_26
+'Addr = &H9F1A&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_27
+'Addr = &H9F1B&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_28
+'Addr = &H9F1C&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_29
+'Addr = &H9F1D&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_30
+'Addr = &H9F1E&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_31
+'Addr = &H9F1F&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_32
+'Addr = &H9F20&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_33
+'Addr = &H9F21&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_34
+'Addr = &H9F22&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_35
+'Addr = &H9F23&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_36
+'Addr = &H9F24&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_37
+'Addr = &H9F25&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_38
+'Addr = &H9F26&
+'DATA = &H0
+'End Enum
+'Public Enum SCRATCHPAD_SCRATCH_39
+'Addr = &H9F27&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_0
+'Addr = &HB000&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_1
+'Addr = &HB001&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_2
+'Addr = &HB002&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_3
+'Addr = &HB003&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_4
+'Addr = &HB004&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_5
+'Addr = &HB005&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_6
+'Addr = &HB006&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_7
+'Addr = &HB007&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_8
+'Addr = &HB008&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_9
+'Addr = &HB009&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_10
+'Addr = &HB00A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_11
+'Addr = &HB00B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_12
+'Addr = &HB00C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_13
+'Addr = &HB00D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_14
+'Addr = &HB00E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_15
+'Addr = &HB00F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_16
+'Addr = &HB010&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_17
+'Addr = &HB011&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_18
+'Addr = &HB012&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_19
+'Addr = &HB013&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_20
+'Addr = &HB014&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_21
+'Addr = &HB015&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_22
+'Addr = &HB016&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_23
+'Addr = &HB017&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_24
+'Addr = &HB018&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_25
+'Addr = &HB019&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_26
+'Addr = &HB01A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_27
+'Addr = &HB01B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_28
+'Addr = &HB01C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_29
+'Addr = &HB01D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_30
+'Addr = &HB01E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_31
+'Addr = &HB01F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_32
+'Addr = &HB020&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_33
+'Addr = &HB021&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_34
+'Addr = &HB022&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_35
+'Addr = &HB023&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_36
+'Addr = &HB024&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_37
+'Addr = &HB025&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_38
+'Addr = &HB026&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_39
+'Addr = &HB027&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_40
+'Addr = &HB028&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_41
+'Addr = &HB029&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_42
+'Addr = &HB02A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_43
+'Addr = &HB02B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_44
+'Addr = &HB02C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_45
+'Addr = &HB02D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_46
+'Addr = &HB02E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_47
+'Addr = &HB02F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_48
+'Addr = &HB030&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_49
+'Addr = &HB031&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_50
+'Addr = &HB032&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_51
+'Addr = &HB033&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_52
+'Addr = &HB034&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_53
+'Addr = &HB035&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_54
+'Addr = &HB036&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_55
+'Addr = &HB037&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_56
+'Addr = &HB038&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_57
+'Addr = &HB039&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_58
+'Addr = &HB03A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_59
+'Addr = &HB03B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_60
+'Addr = &HB03C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_61
+'Addr = &HB03D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_62
+'Addr = &HB03E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_63
+'Addr = &HB03F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_64
+'Addr = &HB040&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_65
+'Addr = &HB041&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_66
+'Addr = &HB042&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_67
+'Addr = &HB043&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_68
+'Addr = &HB044&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_69
+'Addr = &HB045&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_70
+'Addr = &HB046&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_71
+'Addr = &HB047&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_72
+'Addr = &HB048&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_73
+'Addr = &HB049&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_74
+'Addr = &HB04A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_75
+'Addr = &HB04B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_76
+'Addr = &HB04C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_77
+'Addr = &HB04D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_78
+'Addr = &HB04E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_79
+'Addr = &HB04F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_80
+'Addr = &HB050&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_81
+'Addr = &HB051&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_82
+'Addr = &HB052&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_83
+'Addr = &HB053&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_84
+'Addr = &HB054&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_85
+'Addr = &HB055&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_86
+'Addr = &HB056&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_87
+'Addr = &HB057&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_88
+'Addr = &HB058&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_89
+'Addr = &HB059&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_90
+'Addr = &HB05A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_91
+'Addr = &HB05B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_92
+'Addr = &HB05C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_93
+'Addr = &HB05D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_94
+'Addr = &HB05E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_95
+'Addr = &HB05F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_96
+'Addr = &HB060&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_97
+'Addr = &HB061&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_98
+'Addr = &HB062&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_99
+'Addr = &HB063&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_100
+'Addr = &HB064&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_101
+'Addr = &HB065&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_102
+'Addr = &HB066&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_103
+'Addr = &HB067&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_104
+'Addr = &HB068&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_105
+'Addr = &HB069&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_106
+'Addr = &HB06A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_107
+'Addr = &HB06B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_108
+'Addr = &HB06C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_109
+'Addr = &HB06D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_110
+'Addr = &HB06E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_111
+'Addr = &HB06F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_112
+'Addr = &HB070&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_113
+'Addr = &HB071&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_114
+'Addr = &HB072&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_115
+'Addr = &HB073&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_116
+'Addr = &HB074&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_117
+'Addr = &HB075&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_118
+'Addr = &HB076&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_119
+'Addr = &HB077&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_120
+'Addr = &HB078&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_121
+'Addr = &HB079&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_122
+'Addr = &HB07A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_123
+'Addr = &HB07B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_124
+'Addr = &HB07C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_125
+'Addr = &HB07D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_126
+'Addr = &HB07E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_127
+'Addr = &HB07F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_128
+'Addr = &HB080&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_129
+'Addr = &HB081&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_130
+'Addr = &HB082&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_131
+'Addr = &HB083&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_132
+'Addr = &HB084&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_133
+'Addr = &HB085&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_134
+'Addr = &HB086&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_135
+'Addr = &HB087&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_136
+'Addr = &HB088&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_137
+'Addr = &HB089&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_138
+'Addr = &HB08A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_139
+'Addr = &HB08B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_140
+'Addr = &HB08C&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_141
+'Addr = &HB08D&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_142
+'Addr = &HB08E&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_143
+'Addr = &HB08F&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_144
+'Addr = &HB090&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_145
+'Addr = &HB091&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_146
+'Addr = &HB092&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_147
+'Addr = &HB093&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_148
+'Addr = &HB094&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_149
+'Addr = &HB095&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_150
+'Addr = &HB096&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_151
+'Addr = &HB097&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_152
+'Addr = &HB098&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_153
+'Addr = &HB099&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_154
+'Addr = &HB09A&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_155
+'Addr = &HB09B&
+'DATA = &H0
+'End Enum
+'Public Enum SGPIO_LUT_ENTRY_156
+'Addr = &HB09C&
+'DATA = &H0
+'End Enum

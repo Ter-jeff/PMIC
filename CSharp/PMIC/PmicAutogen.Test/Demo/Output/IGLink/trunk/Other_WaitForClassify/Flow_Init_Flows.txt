@@ -1,0 +1,22 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1:tabcolor=16777215	Flow Table																																					
+						Flow Domain:																																
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data						
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment	
+						set-error-bin										8		9501																				
+						print	"Flow_OTP_Init_Flows Start"																															
+						print	"Flow_Init_Flows Start"																															
+						Test	Print_Pgm_Information																															
+			CHAR_N25C,CHAR_N5C,CHAR_25C,CHAR_85C,CHAR_125C			print	******************************************																															
+			CHAR_N25C			print	**********SetCHAR_N25C**********																															
+			CHAR_N5C			print	**********SetCHAR_N5C**********																															
+			CHAR_25C			print	**********SetCHAR_25C**********																															
+			CHAR_85C			print	**********SetCHAR_85C**********																															
+			CHAR_125C			print	**********SetCHAR_125C**********																															
+			CHAR_N25C,CHAR_N5C,CHAR_25C,CHAR_85C,CHAR_125C			print	******************************************																															
+						flag-clear	F_OTP_Init																															
+						Test	OTP_Initialize		95000												F_OTP_Init																	
+						Bintable	Bin_OTP_Init																															
+						Test	ReadWaferData_to_OTP_Reg		95100																													
+						print	"Flow_Init_Flows Stop"																															
+						print	"Flow_OTP_Init_Flows Stop"																															
+						return																																

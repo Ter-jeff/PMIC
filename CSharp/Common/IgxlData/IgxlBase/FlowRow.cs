@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace IgxlData.IgxlBase
 {
-    public class FlowRow : IgxlItem
+    [DebuggerDisplay("{Parameter}")]
+    public class FlowRow : IgxlRow
     {
         public const string OpCodeTest = "Test";
         public const string OpCodeBinTable = "BinTable";
-        public const string OpCodeNop = "Nop";
-        public const string OpCodeCharacterize = "Characterize";
+        public const string OpCodeNop = "nop";
+        public const string OpCodeCharacterize = "characterize";
         public const string OpCodeUseLimit = "Use-Limit";
         public const string OpCodeTestDeferLimit = "Test-defer-limits";
 
@@ -61,8 +63,6 @@ namespace IgxlData.IgxlBase
         }
 
         #region Property
-
-        public string SheetName { get; set; }
         public string LineNum { get; set; }
         public string Label { get; set; }
         public string Enable { get; set; }
@@ -71,8 +71,8 @@ namespace IgxlData.IgxlBase
         public string Env { get; set; }
         public string OpCode { get; set; }
         public string Parameter { get; set; }
-        public string Name { get; set; }
-        public string Num { get; set; }
+        public string TName { get; set; }
+        public string TNum { get; set; }
         public string LoLim { get; set; }
         public string HiLim { get; set; }
         public string Scale { get; set; }
@@ -102,8 +102,6 @@ namespace IgxlData.IgxlBase
         public string CtProfileDataFlowStepLocked { get; set; }
         public string Comment { get; set; }
         public string Comment1 { get; set; }
-        public int RowNumber { get; set; }
-
         #endregion
     }
 }

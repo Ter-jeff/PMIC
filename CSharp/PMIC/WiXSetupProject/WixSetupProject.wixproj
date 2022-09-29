@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.6</ProductVersion>
+    <ProjectGuid>f4104095-e0bf-4e6d-9536-922f36269fcd</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>PMICAutogenAddIn</OutputName>
+    <OutputType>Package</OutputType>
+    <SuppressPdbOutput>true</SuppressPdbOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>..\..\..\Publish\PMICAutoGenAddin\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug;AddinFiles=..\PMICAutogenAddIn\bin\$(Configuration)\</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\..\..\Publish\PMICAutoGenAddin\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>AddinFiles=..\PMICAutogenAddIn\bin\$(Configuration)\</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="InstallDirDlg_Customize.wxs" />
+    <Compile Include="Product.wxs" />
+    <Compile Include="WixUI_InstallDir_Customize.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bmp\BannerBmp.png" />
+    <Content Include="Bmp\DialogBmp.png" />
+    <Content Include="Bmp\Background.png" />
+    <Content Include="license.rtf" />
+    <Content Include="ProductConfiguration.wxi" />
+    <Content Include="ProductVersion.wxi" />
+    <Content Include="WixSetupProject.wax" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bmp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PMICAutogenAddIn\PMICAutogenAddIn.csproj">
+      <Name>PMICAutogenAddIn</Name>
+      <Project>{4d7617f4-6b73-4ca0-9480-6847ad9b8b38}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent />
+  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <GenerateProductVersion AssemblyPath="..\PMICAutogenAddIn\bin\$(Configuration)\PMICAutogenAddIn.dll" />
+  </Target>
+  <UsingTask TaskName="GenerateProductVersion" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <AssemblyPath ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Xml" />
+      <Reference Include="System.Xml.Linq" />
+      <Using Namespace="System" />
+      <Using Namespace="System.Xml.Linq" />
+      <Using Namespace="System.Reflection" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+    var assemblyVersion = AssemblyName.GetAssemblyName(AssemblyPath).Version;
+    Log.LogMessage(MessageImportance.High, "******* AssemblyVersion = " + assemblyVersion + " extracted from assembly version of " + AssemblyPath);
+    new XDocument(
+        new XElement("Include", 
+            new XProcessingInstruction("define", "ProductVersion=" + assemblyVersion)))
+        .Save("ProductVersion.wxi");
+  ]]></Code>
+    </Task>
+  </UsingTask>
+  <Target Name="AfterBuild">
+    <RenameFile AssemblyPath="..\PMICAutogenAddIn\bin\$(Configuration)\PMICAutogenAddIn.dll" MyPath="..\..\..\Publish\PMICAutoGenAddin" />
+  </Target>
+  <UsingTask TaskName="RenameFile" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <AssemblyPath ParameterType="System.String" Required="true" />
+      <MyPath ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Reflection" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+    var assemblyVersion = AssemblyName.GetAssemblyName(AssemblyPath).Version;
+    Log.LogMessage(MessageImportance.High, "******* Rename " +MyPath+ " to " + "PMICAutogenAddIn" + assemblyVersion+".msi");
+    File.Copy(
+    MyPath + @"\PMICAutogenAddIn.msi",
+    MyPath + @"\PMICAutogenAddIn_V"+assemblyVersion+".msi",true);
+    File.Delete(MyPath + @"\PMICAutogenAddIn.msi");
+    File.Copy(
+    @"..\PMICAutogenAddIn\PMICAutoGenAddin_Release_Notes.docx",
+    MyPath + @"\PMICAutoGenAddin_Release_Notes.docx",true);
+  ]]></Code>
+    </Task>
+  </UsingTask>
+</Project>

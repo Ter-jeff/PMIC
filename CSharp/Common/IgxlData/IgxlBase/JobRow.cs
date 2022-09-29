@@ -1,6 +1,6 @@
 ﻿namespace IgxlData.IgxlBase
 {
-    public class JobRow : IgxlItem
+    public class JobRow : IgxlRow
     {
         #region Property
 

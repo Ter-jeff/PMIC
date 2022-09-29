@@ -1,0 +1,53 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Flow Table
+						Flow Domain:
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment
+						set-error-bin										999		999																			
+OTP						create-site-var	RunTrim																														
+						assign-site-var	RunTrim -1																														
+		OTP_Production				print	"OTP_Production: WriteToDataLog"																														
+		OTP_FW				print	"OTP_FW"																														
+		OTP_V1				print	"OTP_V1 (ECID Only)---------- Bin2"																														
+		OTP_V1_AVA				print	"OTP_V1_AVA---------- Bin1"																														
+		OTP_V1_APC				print	"OTP_V1_APC--------- Bin1"																														
+		OTP_V1_APD				print	"OTP_V1_APD--------- Bin1"																														
+		OTP_V1_JPC				print	"OTP_V1_JPC--------- Bin1"																														
+		OTP_V1_LPC				print	"OTP_V1_LPC--------- Bin1"																														
+			CHAR_N25C,CHAR_N5C,CHAR_25C,CHAR_85C,CHAR_125C			print	"******************************************"																														
+			CHAR_N25C			print	"********** Set CHAR_N25C **********"																														
+			CHAR_N5C			print	"**********  Set CHAR_N5C  **********"																														
+			CHAR_25C			print	"**********  Set CHAR_25C   **********"																														
+			CHAR_85C			print	"**********  Set CHAR_85C  **********"																														
+			CHAR_125C			print	"********** Set CHAR_125C  **********"																														
+			CHAR_N25C,CHAR_N5C,CHAR_25C,CHAR_85C,CHAR_125C			print	"******************************************"																														
+						nop																															
+						call	Flow_Init_EnableWd																														
+						call	Flow_Init_Flows																														
+						call	Flow_DC_Conti																														
+						Test	PowerUp_DIGITAL																														
+						call	Flow_DC_Leakage																														
+						Test	PowerUp_DIGITAL																														
+						call	Flow_DCTEST_Func																														
+						call	Flow_DCTEST_IDCODE																														
+						call	Flow_SCAN																														Unable generated from Current Input files
+						call	Flow_MBIST																														Unable generated from Current Input files
+						nop	ForcePOR																														
+	PowerUp					Test	ACORE_PowerUp		10010																												
+						call	Flow_BSTLQ_Trim																														
+						call	Flow_BSTLQ_Post_Burn																														
+						call	Flow_BSTLQ_Post_Burn_HV																														
+						call	Flow_BSTLQ_Post_Burn_LV																														
+						call	Flow_BSTLQ_Post_Burn_UHV																														
+						nop	FSM_Active																														
+						call	Flow_LCKBit_CHECK																														
+						Test	OTP_Default_Override_PATT																														
+						If	RunTrim=-1																														
+						Test	TrimSection																														
+		OTP_Enable				call	Flow_OTP_ECIDnCRC_Burn																														
+						EndIf																															
+						call	Flow_OTP_PrePostBurn																														
+						print	PostBurnSection																														
+		OTP_Enable				call	Flow_OTP_PostBurn																														
+	PowerDown					Test	ACORE_PowerDown																														
+						limits-all																															
+						set-device									1		1		Pass																		

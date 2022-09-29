@@ -11,39 +11,22 @@ namespace IgxlData.IgxlSheets
 {
     public class AcSpecSheet : IgxlSheet
     {
-        public string GetAcByTimeSet(string timeset)
-        {
-            foreach (var item in CategoryTimeSetDic)
-                if (item.Value.Contains(timeset, StringComparer.CurrentCultureIgnoreCase))
-                    return item.Key;
-            return "";
-        }
-
-        #region Field
-
         private const string SheetType = "DTACSpecSheet";
-        private readonly List<string> _selectorNameList;
-
-        #endregion
-
-        #region Property
-
-        public List<string> CategoryList { get; set; }
-
         public Dictionary<string, List<string>> CategoryTimeSetDic = new Dictionary<string, List<string>>();
 
-        public List<AcSpec> AcSpecs { get; set; }
-
-        #endregion
-
-        #region Constructor
+        public AcSpecSheet(string sheetName)
+            : base(sheetName)
+        {
+            AcSpecs = new List<AcSpec>();
+            IgxlSheetName = IgxlSheetNameList.AcSpec;
+        }
 
         public AcSpecSheet(ExcelWorksheet sheet, List<string> categoryList, List<string> selectorNameList)
             : base(sheet)
         {
             AcSpecs = new List<AcSpec>();
             CategoryList = categoryList;
-            _selectorNameList = selectorNameList;
+            SelectorNameList = selectorNameList;
             IgxlSheetName = IgxlSheetNameList.AcSpec;
         }
 
@@ -52,32 +35,27 @@ namespace IgxlData.IgxlSheets
         {
             AcSpecs = new List<AcSpec>();
             CategoryList = categoryList;
-            _selectorNameList = selectorNameList;
+            SelectorNameList = selectorNameList;
             IgxlSheetName = IgxlSheetNameList.AcSpec;
         }
 
-        #endregion
+        public List<string> CategoryList { get; set; }
 
-        #region Member Function
+        public List<string> SelectorNameList { get; set; }
+
+        public List<AcSpec> AcSpecs { get; set; }
+
+        public string GetAcByTimeSet(string timeSet)
+        {
+            foreach (var item in CategoryTimeSetDic)
+                if (item.Value.Contains(timeSet, StringComparer.CurrentCultureIgnoreCase))
+                    return item.Key;
+            return "";
+        }
 
         public void AddRow(AcSpec acSpecRow)
         {
             AcSpecs.Add(acSpecRow);
-        }
-
-        protected override void WriteHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteColumnsHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteRows()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Write(string fileName, string version = "")
@@ -116,7 +94,7 @@ namespace IgxlData.IgxlSheets
                 var valueIndex = GetIndexFrom(igxlSheetsVersion, "Value");
                 var selectorsIndex = GetIndexFrom(igxlSheetsVersion, "Selector");
                 var categoryValuesIndex = selectorsIndex + 2;
-                var relativeColumnIndex = selectorsIndex + _selectorNameList.Count + CategoryList.Count * 3;
+                var relativeColumnIndex = selectorsIndex + SelectorNameList.Count + CategoryList.Count * 3;
                 maxCount = Math.Max(maxCount, relativeColumnIndex + 1);
 
                 #region headers
@@ -141,9 +119,9 @@ namespace IgxlData.IgxlSheets
                                 arr[item.indexFrom] = item.columnName;
 
                             if (item.columnName == "Selector" && item.rowIndex + 1 == i)
-                                for (var index = 0; index < _selectorNameList.Count; index++)
+                                for (var index = 0; index < SelectorNameList.Count; index++)
                                 {
-                                    var selectorName = _selectorNameList[index];
+                                    var selectorName = SelectorNameList[index];
                                     arr[selectorsIndex + index] = selectorName;
                                 }
 
@@ -190,12 +168,12 @@ namespace IgxlData.IgxlSheets
                             arr[symbolIndex] = row.Symbol;
                             arr[valueIndex] = "=#N/A";
 
-                            for (var i = 0; i < _selectorNameList.Count; i++)
+                            for (var i = 0; i < SelectorNameList.Count; i++)
                             {
                                 var selectorName =
                                     row.SelectorList.Find(
                                         x =>
-                                            x.SelectorName.Equals(_selectorNameList[i],
+                                            x.SelectorName.Equals(SelectorNameList[i],
                                                 StringComparison.CurrentCultureIgnoreCase));
                                 if (selectorName != null)
                                     arr[selectorsIndex + i] = selectorName.SelectorValue;
@@ -240,8 +218,8 @@ namespace IgxlData.IgxlSheets
                 var valueIndex = GetIndexFrom(igxlSheetsVersion, "Value");
                 var selectorsIndex = GetIndexFrom(igxlSheetsVersion, "Selectors");
                 if (selectorsIndex == -1) selectorsIndex = GetIndexFrom(igxlSheetsVersion, "Selector");
-                var categoryValuesIndex = selectorsIndex + _selectorNameList.Count;
-                var relativeColumnIndex = selectorsIndex + _selectorNameList.Count + CategoryList.Count * 3;
+                var categoryValuesIndex = selectorsIndex + SelectorNameList.Count;
+                var relativeColumnIndex = selectorsIndex + SelectorNameList.Count + CategoryList.Count * 3;
                 maxCount = Math.Max(maxCount, relativeColumnIndex + 1);
 
                 #region headers
@@ -266,9 +244,9 @@ namespace IgxlData.IgxlSheets
                                 arr[item.indexFrom] = item.columnName;
 
                             if (item.columnName == "Selectors" && item.rowIndex + 1 == i)
-                                for (var index = 0; index < _selectorNameList.Count; index++)
+                                for (var index = 0; index < SelectorNameList.Count; index++)
                                 {
-                                    var selectorName = _selectorNameList[index];
+                                    var selectorName = SelectorNameList[index];
                                     arr[selectorsIndex + index] = selectorName;
                                 }
 
@@ -302,20 +280,21 @@ namespace IgxlData.IgxlSheets
                 #endregion
 
                 #region data
+                var mainList = AddBackUpRows(AcSpecs.OfType<IgxlRow>().ToList()).OfType<AcSpec>().ToList();
 
-                for (var index = 0; index < AcSpecs.Count; index++)
+                for (var index = 0; index < mainList.Count; index++)
                 {
-                    var row = AcSpecs[index];
+                    var row = mainList[index];
                     var arr = Enumerable.Repeat("", maxCount).ToArray();
                     if (!string.IsNullOrEmpty(row.Symbol))
                     {
                         arr[0] = row.ColumnA;
                         arr[symbolIndex] = row.Symbol;
                         arr[valueIndex] = "=#N/A";
-                        for (var i = 0; i < _selectorNameList.Count; i++)
+                        for (var i = 0; i < SelectorNameList.Count; i++)
                         {
                             var selectorName = row.SelectorList.Find(x =>
-                                x.SelectorName.Equals(_selectorNameList[i], StringComparison.CurrentCultureIgnoreCase));
+                                x.SelectorName.Equals(SelectorNameList[i], StringComparison.CurrentCultureIgnoreCase));
                             if (selectorName != null)
                                 arr[selectorsIndex + i] = selectorName.SelectorValue;
                             else
@@ -340,7 +319,6 @@ namespace IgxlData.IgxlSheets
 
                     sw.WriteLine(string.Join("\t", arr));
                 }
-
                 #endregion
             }
         }
@@ -405,13 +383,9 @@ namespace IgxlData.IgxlSheets
         public bool IsSymbolExist(string name)
         {
             foreach (var acSpecs in AcSpecs)
-            {
                 if (acSpecs.Symbol.Equals(name, StringComparison.CurrentCultureIgnoreCase))
                     return true;
-            }
             return false;
         }
-
-        #endregion
     }
 }

@@ -1,0 +1,59 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:ui="clr-namespace:MyWpf.Controls.Ribbon.UI"
+                    mc:Ignorable="d">
+    <Style TargetType="ui:RibbonToggleButton">
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="RenderOptions.ClearTypeHint"
+                Value="Enabled" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource MediumFontSize}" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Top" />
+        <Setter Property="SnapsToDevicePixels"
+                Value="True" />
+        <Setter Property="Foreground"
+                Value="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ui:Ribbon, AncestorLevel=1}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ui:RibbonToggleButton">
+                    <Border Margin="{TemplateBinding Margin}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <TextBlock Margin="2,0"
+                                   Text="{TemplateBinding Header}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Foreground"
+                                    Value="{DynamicResource MyDisableTextBrush}" />
+                            <Setter Property="BorderBrush"
+                                    Value="{DynamicResource MyDisableBorderBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="Aqua" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="{DynamicResource MyMouseOver}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

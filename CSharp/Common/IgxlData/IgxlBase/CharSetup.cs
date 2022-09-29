@@ -23,7 +23,7 @@ namespace IgxlData.IgxlBase
     }
 
     [Serializable]
-    public class CharSetup : IgxlItem
+    public class CharSetup : IgxlRow
     {
         public List<CharStep> DeepClone()
         {

@@ -1,46 +1,17 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
 {
     public class InstanceSheet : IgxlSheet
     {
-        #region Field
-
         private const string SheetType = "DTTestInstancesSheet";
-
-        #endregion
-
-        #region Property
-
         public List<InstanceRow> InstanceRows { get; set; }
-
-        #endregion
-
-        #region Constructor
-
-        public InstanceSheet(ExcelWorksheet sheet)
-            : base(sheet)
-        {
-            InstanceRows = new List<InstanceRow>();
-            IgxlSheetName = IgxlSheetNameList.TestInstance;
-        }
-
-        public InstanceSheet(string sheetName)
-            : base(sheetName)
-        {
-            InstanceRows = new List<InstanceRow>();
-            IgxlSheetName = IgxlSheetNameList.TestInstance;
-        }
-
-        #endregion
-
-        #region Member Function
 
         public void AddRow(InstanceRow igxlItem)
         {
@@ -79,21 +50,6 @@ namespace IgxlData.IgxlSheets
             row2.Name = "Print_Footer";
             row2.Args.Add(sheetName);
             InstanceRows.Add(row2);
-        }
-
-        protected override void WriteHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteColumnsHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteRows()
-        {
-            throw new NotImplementedException();
         }
 
         public void WriteNew(string fileName, string version = "2.4")
@@ -226,7 +182,7 @@ namespace IgxlData.IgxlSheets
                     }
                     else
                     {
-                        arr = new[] {"\t"};
+                        arr = new[] { "\t" };
                     }
 
                     sw.WriteLine(string.Join("\t", arr));
@@ -270,6 +226,22 @@ namespace IgxlData.IgxlSheets
                 }
 
             return testNames;
+        }
+
+        #region Constructor
+
+        public InstanceSheet(ExcelWorksheet sheet)
+            : base(sheet)
+        {
+            InstanceRows = new List<InstanceRow>();
+            IgxlSheetName = IgxlSheetNameList.TestInstance;
+        }
+
+        public InstanceSheet(string sheetName)
+            : base(sheetName)
+        {
+            InstanceRows = new List<InstanceRow>();
+            IgxlSheetName = IgxlSheetNameList.TestInstance;
         }
 
         #endregion

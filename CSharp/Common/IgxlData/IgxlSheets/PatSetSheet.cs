@@ -1,39 +1,22 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
 {
     public class PatSetSheet : IgxlSheet
     {
-        #region Property
-
-        public List<PatSet> PatSetRows
-        {
-            set { _patSetData = value; }
-            get { return _patSetData ?? (_patSetData = new List<PatSet>()); }
-        }
-
-        #endregion
-
-        #region Field
-
         private const string SheetType = "DTPatternSetSheet";
-        private List<PatSet> _patSetData;
         private readonly Dictionary<string, int> _patSetNameDictionary;
-
-        #endregion
-
-        #region Constructor
 
         public PatSetSheet(ExcelWorksheet sheet)
             : base(sheet)
         {
-            _patSetData = new List<PatSet>();
+            PatSets = new List<PatSet>();
             IgxlSheetName = IgxlSheetNameList.PatternSet;
             _patSetNameDictionary = new Dictionary<string, int>();
         }
@@ -41,14 +24,22 @@ namespace IgxlData.IgxlSheets
         public PatSetSheet(string sheetName)
             : base(sheetName)
         {
-            _patSetData = new List<PatSet>();
+            PatSets = new List<PatSet>();
             IgxlSheetName = IgxlSheetNameList.PatternSet;
             _patSetNameDictionary = new Dictionary<string, int>();
         }
 
-        #endregion
+        public List<PatSet> PatSets { get; set; }
 
-        #region Member Function
+        public PatSetSheet Remove(IEnumerable<string> patSetNames)
+        {
+            var patSets = new List<PatSet>();
+            foreach (var patSetRow in PatSets)
+                if (!patSetNames.Contains(patSetRow.PatSetName, StringComparer.CurrentCultureIgnoreCase))
+                    patSets.Add(patSetRow);
+            PatSets = patSets;
+            return this;
+        }
 
         public string GetPattenSetNameWithSeq(string patSetName)
         {
@@ -63,10 +54,10 @@ namespace IgxlData.IgxlSheets
 
         public bool IsExistTheSamePatSet(PatSet igxlItem)
         {
-            if (!_patSetData.Exists(x => x.PatSetName.Equals(igxlItem.PatSetName, StringComparison.OrdinalIgnoreCase)))
+            if (!PatSets.Exists(x => x.PatSetName.Equals(igxlItem.PatSetName, StringComparison.OrdinalIgnoreCase)))
                 return false;
 
-            var row = _patSetData.Find(
+            var row = PatSets.Find(
                 x => x.PatSetName.Equals(igxlItem.PatSetName, StringComparison.OrdinalIgnoreCase));
             if (row.PatSetRows.Count != igxlItem.PatSetRows.Count)
                 return false;
@@ -78,7 +69,7 @@ namespace IgxlData.IgxlSheets
 
         public void AddPatSet(PatSet igxlItem)
         {
-            _patSetData.Add(igxlItem);
+            PatSets.Add(igxlItem);
             if (igxlItem.PatSetName == null) return;
             if (!_patSetNameDictionary.ContainsKey(igxlItem.PatSetName))
                 _patSetNameDictionary.Add(igxlItem.PatSetName, 0);
@@ -86,20 +77,20 @@ namespace IgxlData.IgxlSheets
 
         public bool IsExist(PatSet patSet)
         {
-            return PatSetRows.Exists(x =>
+            return PatSets.Exists(x =>
                 x.PatSetName.Equals(patSet.PatSetName, StringComparison.CurrentCultureIgnoreCase));
         }
 
         public bool IsExist(string patSetName)
         {
-            return PatSetRows.Exists(x => x.PatSetName.Equals(patSetName, StringComparison.CurrentCultureIgnoreCase));
+            return PatSets.Exists(x => x.PatSetName.Equals(patSetName, StringComparison.CurrentCultureIgnoreCase));
         }
 
         public void AddPatSets(List<PatSet> igxlItems)
         {
             foreach (var igxlItem in igxlItems)
             {
-                _patSetData.Add(igxlItem);
+                PatSets.Add(igxlItem);
                 if (igxlItem.PatSetName == null) continue;
                 if (!_patSetNameDictionary.ContainsKey(igxlItem.PatSetName))
                     _patSetNameDictionary.Add(igxlItem.PatSetName, 0);
@@ -108,22 +99,7 @@ namespace IgxlData.IgxlSheets
 
         public long GetPatSetCnt()
         {
-            return _patSetData.Count;
-        }
-
-        protected override void WriteHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteColumnsHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteRows()
-        {
-            throw new NotImplementedException();
+            return PatSets.Count;
         }
 
         public override void Write(string fileName, string version = "")
@@ -153,7 +129,7 @@ namespace IgxlData.IgxlSheets
 
         private void WriteSheet(string fileName, string version, SheetInfo igxlSheetsVersion)
         {
-            if (PatSetRows.Count == 0) return;
+            if (PatSets.Count == 0) return;
 
             using (var sw = new StreamWriter(fileName, false))
             {
@@ -187,20 +163,13 @@ namespace IgxlData.IgxlSheets
                 #endregion
 
                 #region data
-
-                var mainList = _patSetData.Where(x => !x.IsBackup).ToList();
-                var backupList = _patSetData.Where(x => x.IsBackup).ToList();
-                if (backupList.Any())
-                {
-                    var empty = new PatSet();
-                    empty.PatSetRows.Add(new PatSetRow());
-                    mainList.Add(empty);
-                    mainList.AddRange(backupList);
-                }
+                var mainList = AddBackUpRows(PatSets.OfType<IgxlRow>().ToList()).OfType<PatSet>().ToList();
 
                 for (var index = 0; index < mainList.Count; index++)
                 {
                     var patSet = mainList[index];
+                    if (patSet.PatSetRows.Count == 0)
+                        sw.WriteLine("");
                     for (var i = 0; i < patSet.PatSetRows.Count; i++)
                     {
                         var row = patSet.PatSetRows[i];
@@ -234,21 +203,21 @@ namespace IgxlData.IgxlSheets
                 sw.WriteLine(
                     "\tPattern Set\tTime Domain\tEnable\tFile/Group Name\tBurst\tStart Label\tStop Label\tComment\t");
 
-                var backupList = _patSetData.Where(x => x.IsBackup).ToList();
-                var mainList = _patSetData.Where(x => !x.IsBackup).ToList();
+                var backupList = PatSets.Where(x => x.IsBackup).ToList();
+                var mainList = PatSets.Where(x => !x.IsBackup).ToList();
 
                 foreach (var patSet in mainList)
-                foreach (var patSetRow in patSet.PatSetRows)
-                    sw.WriteLine("{0}{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}", "\t", patSet.PatSetName,
-                        patSetRow.TimeDomain, patSetRow.Enable, patSetRow.File, patSetRow.Burst, patSetRow.StartLabel,
-                        patSetRow.StopLabel, patSetRow.Comment);
+                    foreach (var patSetRow in patSet.PatSetRows)
+                        sw.WriteLine("{0}{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}", "\t", patSet.PatSetName,
+                            patSetRow.TimeDomain, patSetRow.Enable, patSetRow.File, patSetRow.Burst, patSetRow.StartLabel,
+                            patSetRow.StopLabel, patSetRow.Comment);
                 if (backupList.Count != 0)
                     sw.WriteLine("\t\t\t\t\t\t\t\t\t");
                 foreach (var patSet in backupList)
-                foreach (var patSetRow in patSet.PatSetRows)
-                    sw.WriteLine("{0}{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}", "\t", patSet.PatSetName,
-                        patSetRow.TimeDomain, patSetRow.Enable, patSetRow.File, patSetRow.Burst, patSetRow.StartLabel,
-                        patSetRow.StopLabel, patSetRow.Comment);
+                    foreach (var patSetRow in patSet.PatSetRows)
+                        sw.WriteLine("{0}{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}", "\t", patSet.PatSetName,
+                            patSetRow.TimeDomain, patSetRow.Enable, patSetRow.File, patSetRow.Burst, patSetRow.StartLabel,
+                            patSetRow.StopLabel, patSetRow.Comment);
             }
         }
 
@@ -258,17 +227,15 @@ namespace IgxlData.IgxlSheets
             using (var sw = File.AppendText(newFile))
             {
                 foreach (var patSet in patSets)
-                foreach (var patSetRow in patSet.PatSetRows)
-                {
-                    var columnA = patSetRow.ColumnA ?? "";
-                    sw.WriteLine(columnA + "\t" + patSet.PatSetName + "\t" + patSetRow.TdGroup + "\t" +
-                                 patSetRow.TimeDomain + "\t" + patSetRow.Enable + "\t" + patSetRow.File +
-                                 "\t" + patSetRow.Burst + "\t" + patSetRow.StartLabel + "\t" + patSetRow.StopLabel +
-                                 "\t" + patSetRow.Comment + "\t");
-                }
+                    foreach (var patSetRow in patSet.PatSetRows)
+                    {
+                        var columnA = patSetRow.ColumnA ?? "";
+                        sw.WriteLine(columnA + "\t" + patSet.PatSetName + "\t" + patSetRow.TdGroup + "\t" +
+                                     patSetRow.TimeDomain + "\t" + patSetRow.Enable + "\t" + patSetRow.File +
+                                     "\t" + patSetRow.Burst + "\t" + patSetRow.StartLabel + "\t" + patSetRow.StopLabel +
+                                     "\t" + patSetRow.Comment + "\t");
+                    }
             }
         }
-
-        #endregion
     }
 }

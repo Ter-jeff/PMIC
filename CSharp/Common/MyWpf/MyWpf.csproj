@@ -34,15 +34,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAPICodePack">
-      <HintPath>..\packages\Windows API Code Pack 1.1\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack.Shell">
-      <HintPath>..\packages\Windows API Code Pack 1.1\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,18 +55,74 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\MyWindow.cs" />
-    <Compile Include="Controls\FlowDocumentExtension.cs" />
-    <Compile Include="Controls\FsRichTextBox.xaml.cs">
-      <DependentUpon>FsRichTextBox.xaml</DependentUpon>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MyImageButton.xaml.cs">
+      <DependentUpon>MyImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MyStatusBar.xaml.cs">
+      <DependentUpon>MyStatusBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MyWindowBase.cs" />
+    <Compile Include="Controls\EnumFileFilter.cs" />
+    <Compile Include="Controls\MyWindow.xaml.cs">
+      <DependentUpon>MyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\RibbonMenuButton.xaml.cs">
+      <DependentUpon>RibbonMenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SheetListWindow.xaml.cs">
+      <DependentUpon>SheetListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\RibbonToggleButton.xaml.cs">
+      <DependentUpon>RibbonToggleButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WaitFormControl.xaml.cs">
+      <DependentUpon>WaitFormControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WaitFormMain.xaml.cs">
+      <DependentUpon>WaitFormMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MyWindowCommandBar.xaml.cs">
+      <DependentUpon>MyWindowCommandBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MyMenuButton.xaml.cs">
+      <DependentUpon>MyMenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\Ribbon.xaml.cs">
+      <DependentUpon>Ribbon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\RibbonButton.xaml.cs">
+      <DependentUpon>RibbonButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\RibbonCommands.cs" />
+    <Compile Include="Controls\Ribbon\UI\RibbonGroup.xaml.cs">
+      <DependentUpon>RibbonGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\RibbonPage.xaml.cs">
+      <DependentUpon>RibbonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\RibbonState.cs" />
+    <Compile Include="Controls\Ribbon\UI\RibbonTab.xaml.cs">
+      <DependentUpon>RibbonTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\SettingButton.xaml.cs">
+      <DependentUpon>SettingButton.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Ribbon\UI\WindowCommands.cs" />
+    <Compile Include="Controls\Ribbon\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Controls\Ribbon\Converters\DoubleMultiplier.cs" />
+    <Compile Include="Controls\Ribbon\Converters\NullToVisibleConverter.cs" />
+    <Compile Include="Controls\Ribbon\Converters\RibbonStateToVisibilityConverter.cs" />
     <Compile Include="Controls\HelpWindow.xaml.cs">
       <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\EnumFileFilter.cs" />
-    <Compile Include="Converter\OrientationConverter.cs" />
-    <Compile Include="Converter\TextToVisibilityConverter.cs" />
+    <Compile Include="Converters\OrientationConverter.cs" />
+    <Compile Include="Converters\TextToVisibilityConverter.cs" />
     <Compile Include="Model\HelpFileRow.cs" />
+    <Compile Include="Controls\Ribbon\NotificationObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -84,10 +139,12 @@
     <Compile Include="Controls\TextBoxButton.xaml.cs">
       <DependentUpon>TextBoxButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\ViewModelBase.cs" />
+    <Compile Include="Controls\Ribbon\PropertySupport.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,19 +153,83 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\FsRichTextBox.xaml">
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MyImageButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MyStatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MyWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Ribbon\UI\RibbonMenuButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SheetListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\HelpWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MyMenuButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Ribbon\UI\RibbonToggleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\WaitFormControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\WaitFormMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MyWindowCommandBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Ribbon\UI\Ribbon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Ribbon\UI\RibbonButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Ribbon\UI\RibbonGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Ribbon\UI\RibbonPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Ribbon\UI\RibbonTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Ribbon\UI\SettingButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\StyleTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ColorTheme.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\DefaultStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -122,8 +243,24 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\shell32_3191.ico" />
+    <Resource Include="Resources\shell32_3191.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\close.png" />
+    <Resource Include="Resources\maximize.png" />
+    <Resource Include="Resources\minimize.png" />
+    <Resource Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{8eead19d-ead8-4a6d-819c-ac47b59a08f1}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Teradyne_T.ico" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

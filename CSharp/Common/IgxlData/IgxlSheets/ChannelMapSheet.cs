@@ -1,10 +1,10 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
@@ -64,14 +64,14 @@ namespace IgxlData.IgxlSheets
 
         #region Member Function
 
-        protected override void WriteHeader()
+        protected void WriteHeader()
         {
             IgxlWriter.WriteLine(
                 "DTChanMap,version=2.6:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1:dataformat=signal\tChannel Map");
             IgxlWriter.WriteLine("");
         }
 
-        protected override void WriteColumnsHeader()
+        protected void WriteColumnsHeader()
         {
             var viewMode = "";
             _isPogo = _channelData.Find(p => p.Sites.Exists(a => Regex.IsMatch(a, "ch", RegexOptions.IgnoreCase))) ==
@@ -88,7 +88,7 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine("Comment");
         }
 
-        protected override void WriteRows()
+        protected void WriteRows()
         {
             foreach (var chanel in _channelData)
             {
@@ -200,7 +200,7 @@ namespace IgxlData.IgxlSheets
                     }
                     else
                     {
-                        arr = new[] {"\t"};
+                        arr = new[] { "\t" };
                     }
 
                     sw.WriteLine(string.Join("\t", arr));

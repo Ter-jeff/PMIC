@@ -1,11 +1,11 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using System;
 using System.Collections.Generic;
-using IgxlData.IgxlBase;
 
 namespace IgxlData.Others.MultiTimeSet
 {
     [Serializable]
-    public class ComTimeSetBasic : Tset
+    public class ComTimeSetBasic : TSet
     {
         public Dictionary<string, double> ShiftInReserve;
 

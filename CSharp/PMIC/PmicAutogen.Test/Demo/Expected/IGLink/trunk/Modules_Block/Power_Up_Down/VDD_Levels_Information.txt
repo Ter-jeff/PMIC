@@ -1,0 +1,30 @@
+WS Bump Name	LV	NV	HV	UHV	SEQ	Comment				
+VDD_MAIN_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_MAIN_LDO_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_MAIN_SNS_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_BUCK0_2_7_11_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_BUCK1_8_9_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_BUCK3_14_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_MAIN_SNS_WLED_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_MAIN_DRV_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_MAIN_WIDAC_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_MAIN1_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_RTC_ALT_UVI80	2	3.3	4.8	4.8	1					
+VDD_MAIN_WBOOST_UVI80	2.5	3.8	4.8	4.8	1					
+VDD_LDO19_UVI80	1.35	1.5	1.65	1.65	2					
+VDD_ANA_UVI80	1.35	1.5	1.65	1.65	2					
+VDD_DIG_UVI80	1.35	1.5	1.65	1.65	2					
+VDD_BOOST_UVI80	3	3.8	4.8	4.8	3					
+VDD_BOOST_LDO_UVI80	3	3.8	4.8	4.8	3					
+VDD_BOOST_SNS_UVI80	3	3.8	4.8	4.8	3					
+VDD_LDO2_UVI80	3	3.8	4.8	4.8	3					
+VDD_LDO5_UVI80	3	3.8	4.8	4.8	3					
+VDDIO_1V2_UVI80	1.2	1.2	1.2	1.2	4	Supply for GPIO				
+VDDIO_BUCK3_UVI80	1.8	1.8	1.8	1.8	4					
+VDD_LDO3_14_UVI80	0.8	1.225	1.4	1.4	4					
+VDD_HI_INT1_UVI80	2.5	3.8	4.8	4.8	1	*Raise first to VDD_MAIN level during Seq1 then increase to VDD_HI_INT1 level in Seq2				
+VDD_HI_INT2_UVI80	2.5	3.8	4.8	4.8	1	*Raise first to VDD_MAIN level during Seq1 then increase to VDD_HI_INT2 level in Seq2				
+VDD_HI_INT3_UVI80	2.5	3.8	4.8	4.8	1	*Raise first to VDD_MAIN level during Seq1 then increase to VDD_HI_INT3 level in Seq2				
+VDD_HI_INT4_UVI80	2.5	3.8	4.8	4.8	1	*Raise first to VDD_MAIN level during Seq1 then increase to VDD_HI_INT4 level in Seq2				
+VDD_HI_INT5_UVI80	2.5	3.8	4.8	4.8	1	*Raise first to VDD_MAIN level during Seq1 then increase to VDD_HI_INT5 level in Seq2				
+VDD_HI_INT6_UVI80	2.5	3.8	4.8	4.8	1	*Raise first to VDD_MAIN level during Seq1 then increase to VDD_HI_INT6 level in Seq2				

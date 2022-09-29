@@ -1,6 +1,6 @@
 ﻿namespace IgxlData.IgxlReader
 {
-    public enum SheetType
+    public enum SheetTypes
     {
         DTFlowtableSheet,
         DTTestInstancesSheet,
@@ -17,6 +17,9 @@
         DTUnknown,
         DTPortMapSheet,
         DTCharacterizationSheet,
-        DTPatternSubroutineSheet
+        DTPatternSubroutineSheet,
+        Cls,
+        Bas,
+        DTMainFlow
     }
 }

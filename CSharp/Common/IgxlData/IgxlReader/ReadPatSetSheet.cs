@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using CommonLib.Extension;
 using IgxlData.IgxlBase;
 using IgxlData.IgxlSheets;
 using OfficeOpenXml;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace IgxlData.IgxlReader
 {
@@ -12,7 +14,78 @@ namespace IgxlData.IgxlReader
         private const int StartColumnIndex = 2;
         private readonly List<string> _headers = new List<string>();
 
-        #region Private Function
+        public PatSetSheet GetSheet(Stream stream, string sheetName)
+        {
+            var patSetSheet = new PatSetSheet(sheetName);
+            var isBackup = false;
+            var i = 1;
+            var patSetRows = new List<PatSetRow>();
+            using (var sr = new StreamReader(stream))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    if (i > StartRowIndex)
+                    {
+                        var patSetRow = GetPatSetRow(line, sheetName, i);
+                        if (string.IsNullOrEmpty(patSetRow.PatternSet))
+                        {
+                            isBackup = true;
+                            continue;
+                        }
+                        patSetRow.IsBackup = isBackup;
+                        patSetRows.Add(patSetRow);
+                    }
+                    i++;
+                }
+
+                var group = patSetRows.ChunkBy(x => x.PatternSet).ToList();
+                foreach (var item in group)
+                {
+                    var patSet = new PatSet();
+                    patSet.PatSetName = item.Key;
+                    patSet.PatSetRows.AddRange(item);
+                    patSet.IsBackup = item.All(x => x.IsBackup);
+                    patSetSheet.AddPatSet(patSet);
+                }
+            }
+            return patSetSheet;
+        }
+
+        private PatSetRow GetPatSetRow(string line, string sheetName, int row)
+        {
+            var arr = line.Split('\t');
+            var patSetRow = new PatSetRow();
+            patSetRow.RowNum = row;
+            patSetRow.SheetName = sheetName;
+            var index = StartColumnIndex - 1;
+            var content = GetCellText(arr, 0);
+            patSetRow.ColumnA = content;
+            content = GetCellText(arr, index);
+            patSetRow.PatternSet = content;
+            index++;
+            content = GetCellText(arr, index);
+            patSetRow.TimeDomain = content;
+            index++;
+            content = GetCellText(arr, index);
+            patSetRow.Enable = content;
+            index++;
+            content = GetCellText(arr, index);
+            patSetRow.File = content;
+            index++;
+            content = GetCellText(arr, index);
+            patSetRow.Burst = content;
+            index++;
+            content = GetCellText(arr, index);
+            patSetRow.StartLabel = content;
+            index++;
+            content = GetCellText(arr, index);
+            patSetRow.StopLabel = content;
+            index++;
+            content = GetCellText(arr, index);
+            patSetRow.Comment = content;
+            return patSetRow;
+        }
 
         private PatSetRow GetPatSetRow(ExcelWorksheet sheet, int row)
         {
@@ -56,10 +129,6 @@ namespace IgxlData.IgxlReader
             return patSetRow;
         }
 
-        #endregion
-
-        #region public Function
-
         public PatSetSheet GetSheet(string fileName)
         {
             return GetSheet(ConvertTxtToExcelSheet(fileName));
@@ -90,18 +159,17 @@ namespace IgxlData.IgxlReader
                 patSetRows.Add(patSetRow);
             }
 
-            var group = patSetRows.GroupBy(x => x.PatternSet).ToList();
+            var group = patSetRows.ChunkBy(x => x.PatternSet).ToList();
             foreach (var item in group)
             {
                 var patSet = new PatSet();
                 patSet.PatSetName = item.Key;
                 patSet.PatSetRows.AddRange(item);
+                patSet.IsBackup = item.All(x => x.IsBackup);
                 patSetSheet.AddPatSet(patSet);
             }
 
             return patSetSheet;
         }
-
-        #endregion
     }
 }

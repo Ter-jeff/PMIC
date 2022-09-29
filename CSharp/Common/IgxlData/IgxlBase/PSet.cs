@@ -2,7 +2,7 @@
 
 namespace IgxlData.IgxlBase
 {
-    public class PSet : IgxlItem
+    public class PSet : IgxlRow
     {
         public string Comment;
         public string InstrumentType;

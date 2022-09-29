@@ -6,9 +6,6 @@ namespace MyWpf.Model
     public class HelpFileRow : INotifyPropertyChanged
     {
         private string _fileName;
-
-        private bool _select;
-
         public string FileName
         {
             get { return _fileName; }
@@ -22,6 +19,7 @@ namespace MyWpf.Model
             }
         }
 
+        private bool _select;
         public bool Select
         {
             get { return _select; }
@@ -36,10 +34,12 @@ namespace MyWpf.Model
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected void OnPropertyChanged([CallerMemberName] string propertyname = null)
         {
-            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            }
         }
     }
 }

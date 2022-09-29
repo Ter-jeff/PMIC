@@ -1,0 +1,223 @@
+﻿<controls:MyWindow x:Class="PmicAutogen.PmicMainWindow"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:controls="clr-namespace:MyWpf.Controls;assembly=MyWpf"
+                   xmlns:ui="clr-namespace:MyWpf.Controls.Ribbon.UI;assembly=MyWpf"
+                   Title="PMIC Autogen"
+                   mc:Ignorable="d"
+                   Height="800"
+                   Width="1000"
+                   WindowStartupLocation="CenterScreen">
+    <controls:MyWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MyWpf;component/Styles/StyleTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="SytleTabItem"
+                   TargetType="{x:Type TabItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TabItem}">
+                            <Grid>
+                                <Border Name="Border"
+                                        Margin="-2,0,0,-1"
+                                        Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"
+                                        BorderThickness="1,1,1,1"
+                                        BorderBrush="{DynamicResource MyBorderBrush}">
+                                    <ContentPresenter x:Name="ContentSite"
+                                                      VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"
+                                                      ContentSource="Header"
+                                                      Margin="12,2,12,2"
+                                                      RecognizesAccessKey="True" />
+                                </Border>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected"
+                                         Value="True">
+                                    <Setter TargetName="Border"
+                                            Property="Background"
+                                            Value="{StaticResource BackgroundDarkBrush}" />
+                                    <Setter TargetName="Border"
+                                            Property="BorderThickness"
+                                            Value="1,1,1,0" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="SytleCheckBox"
+                   TargetType="CheckBox">
+                <Setter Property="VerticalContentAlignment"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="4" />
+                <Setter Property="Padding"
+                        Value="2" />
+                <Setter Property="FontSize"
+                        Value="{DynamicResource NormalFontSize}" />
+                <Setter Property="Height"
+                        Value="22" />
+            </Style>
+            <Style x:Key="SytleTextBoxButton"
+                   TargetType="controls:TextBoxButton">
+                <Setter Property="Margin"
+                        Value="30,4" />
+            </Style>
+            <Style x:Key="StyleSeparator"
+                   TargetType="{x:Type Separator}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Separator}">
+                            <Border Background="{DynamicResource MyBorderBrush}"
+                                    BorderBrush="{DynamicResource MyBorderBrush}"
+                                    BorderThickness="0.5"
+                                    SnapsToDevicePixels="true" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </controls:MyWindow.Resources>
+    <Grid Background="{StaticResource BackgroundDarkBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions >
+        <TabControl Grid.Row="0"
+                    Background="{StaticResource BackgroundDarkBrush}"
+                    BorderBrush="{StaticResource MyBorderBrush}"
+                    Margin="20,10">
+            <TabItem Header="Autogen"
+                     Style="{StaticResource SytleTabItem}">
+                <StackPanel Orientation="Horizontal">
+                    <ui:RibbonGroup Header="PMIC">
+                        <ui:RibbonButton x:Name="Btn_LoadFiles"
+                                         Header="LoadFiles"
+                                         ImageSource="Resources\folder.png"
+                                         Click="button_LoadFiles_Click"></ui:RibbonButton>
+                        <ui:RibbonButton x:Name="Btn_RunAutogen"
+                                         IsEnabled="{Binding BtnSettingIsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                         Header="Run&#x0d;&#x0a;Autogen"
+                                         ImageSource="Resources\play.png"
+                                         Click="button_RunAutogen_Click"></ui:RibbonButton>
+                        <ui:RibbonButton x:Name="Btn_Setting"
+                                         Header="Setting"
+                                         ImageSource="Resources\Settings.png"
+                                         IsEnabled="{Binding BtnSettingIsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                         Click="button_Setting_Click"></ui:RibbonButton>
+                    </ui:RibbonGroup>
+                    <Separator Style="{StaticResource StyleSeparator}" />
+                    <ui:RibbonGroup Header="Block">
+                        <WrapPanel Orientation="Vertical">
+                            <Button Margin="4"
+                                    Height="22"
+                                    BorderThickness="0"
+                                    FontSize="{DynamicResource NormalFontSize}"
+                                    Padding="2"
+                                    Click="button_Clear_Click">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Border BorderBrush="{StaticResource MyBorderBrush}"
+                                                BorderThickness="1">
+                                            <TextBlock Text="Clear"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"></TextBlock>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                            <CheckBox x:Name="button_Basic"
+                                      Style="{StaticResource SytleCheckBox}"
+                                      IsChecked="{Binding BasicIsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding BasicIsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock Text="Basic"></TextBlock>
+                            </CheckBox>
+                            <CheckBox x:Name="button_Scan"
+                                      Style="{StaticResource SytleCheckBox}"
+                                      IsChecked="{Binding ScanIsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding ScanIsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock Text="Scan"></TextBlock>
+                            </CheckBox>
+                            <CheckBox x:Name="button_Mbist"
+                                      Style="{StaticResource SytleCheckBox}"
+                                      IsChecked="{Binding MbistIsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding MbistIsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock Text="Mbist"></TextBlock>
+                            </CheckBox>
+                            <CheckBox x:Name="button_OTP"
+                                      Style="{StaticResource SytleCheckBox}"
+                                      IsChecked="{Binding OTPIsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding OTPIsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock Text="OTP"></TextBlock>
+                            </CheckBox>
+                            <CheckBox x:Name="button_VBT"
+                                      Style="{StaticResource SytleCheckBox}"
+                                      IsChecked="{Binding VBTIsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding VBTIsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock Text="VBT"></TextBlock>
+                            </CheckBox>
+                        </WrapPanel>
+                    </ui:RibbonGroup>
+                    <Separator Style="{StaticResource StyleSeparator}" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Row="1"
+              Margin="10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions >
+            <controls:TextBoxButton Grid.Row="0"
+                                    x:Name="Setting"
+                                    Style="{StaticResource SytleTextBoxButton}"
+                                    Header="Setting(*.xlsx)"
+                                    Click="Setting_Click" />
+            <controls:TextBoxButton Grid.Row="1"
+                                    x:Name="PatternPath"
+                                    Style="{StaticResource SytleTextBoxButton}"
+                                    Header="Pattern Path"
+                                    Click="PatternPath_Click" />
+            <controls:TextBoxButton Grid.Row="2"
+                                    x:Name="TimeSetPath"
+                                    Style="{StaticResource SytleTextBoxButton}"
+                                    Header="TimeSet Path"
+                                    Click="TimeSetPath_Click" />
+            <controls:TextBoxButton Grid.Row="3"
+                                    x:Name="LibraryPath"
+                                    Style="{StaticResource SytleTextBoxButton}"
+                                    Header="Libraray Path"
+                                    Click="LibraryPath_Click" />
+            <controls:TextBoxButton Grid.Row="4"
+                                    x:Name="ExtraSheetPath"
+                                    Style="{StaticResource SytleTextBoxButton}"
+                                    Header="ExtraSheet Path"
+                                    Click="ExtraSheetPath_Click" />
+            <RichTextBox  Grid.Row="5"
+                          Name="MyRichTextBox"
+                          VerticalScrollBarVisibility="Auto"
+                          Margin="10"
+                          Padding="10"
+                          VerticalAlignment="Stretch"
+                          HorizontalAlignment="Stretch">
+                <RichTextBox.Resources>
+                    <Style TargetType="{x:Type Paragraph}">
+                        <Setter Property="Margin"
+                                Value="0,10" />
+                    </Style>
+                </RichTextBox.Resources>
+            </RichTextBox>
+        </Grid>
+        <controls:MyStatusBar Grid.Row="2"
+                              x:Name="MyStatusBar"></controls:MyStatusBar>
+    </Grid>
+</controls:MyWindow>

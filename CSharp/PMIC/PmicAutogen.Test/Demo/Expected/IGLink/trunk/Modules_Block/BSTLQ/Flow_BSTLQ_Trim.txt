@@ -1,0 +1,65 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Flow Table
+						Flow Domain:
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment
+						set-error-bin										999		999																			
+						Print	"BSTLQ_Trim Start"																														
+		TTIME				Test	BSTLQ_Trim_Header																														
+						Test	BSTLQ_ZCD_Trim_Gentool														F_BSTLQ_ZCD_Trim_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_ZCD_Trim_Gentool																														
+						Test	BSTLQ_OVA_Trim_Gentool														F_BSTLQ_OVA_Trim_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_OVA_Trim_Gentool																														
+						Test	BSTLQ_OVLO_Comp_Test_Gentool														F_BSTLQ_OVLO_Comp_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_OVLO_Comp_Test_Gentool																														
+						Test	BSTLQ_UVLO_Comp_Test_Gentool														F_BSTLQ_UVLO_Comp_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_UVLO_Comp_Test_Gentool																														
+						Test	BSTLQ_BP_Comp_Test_Gentool														F_BSTLQ_BP_Comp_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_BP_Comp_Test_Gentool																														
+						Test	BSTLQ_PNRDSON_Test_Gentool														F_BSTLQ_PNRDSON_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_PNRDSON_Test_Gentool																														
+						Test	BSTLQ_Leakage_Test_Gentool														F_BSTLQ_Leakage_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_Leakage_Test_Gentool																														
+						Test	BSTLQ_ZX_Comp_Ibias_Gentool														F_BSTLQ_ZX_Comp_Ibias_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_ZX_Comp_Ibias_Gentool																														
+						Test	BSTLQ_CL_Test_Gentool														F_BSTLQ_CL_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_CL_Test_Gentool																														
+						Test	BSTLQ_VSAFE_Comp_Test_Gentool														F_BSTLQ_VSAFE_Comp_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_VSAFE_Comp_Test_Gentool																														
+						Test	BSTLQ_VTH_VSAFE_Test_Gentool														F_BSTLQ_VTH_VSAFE_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_VTH_VSAFE_Test_Gentool																														
+						Test	BSTLQ_IQ_Test_Gentool														F_BSTLQ_IQ_Test_Gentool_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_IQ_Test_Gentool																														
+						Test	BSTLQ_IQ_Test_Gentool_FWTrim														F_BSTLQ_IQ_Test_Gentool_FWTrim_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_IQ_Test_Gentool_FWTrim																														
+						Test	BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI														F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI																														
+						Test	BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_Meas														F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_Trim_Meas,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_Meas																														
+						Test	BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV														F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV																														
+						Test	BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_Meas														F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_Trim_Meas,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_Meas																														
+						Test	BSTLQ_IQ_Test_Gentool_FW_ATB_3StepTrim														F_BSTLQ_IQ_Test_Gentool_FW_ATB_3StepTrim_Trim,F_BSTLQ																
+		A_Enable_MP_SBIN				BinTable	Bin_BSTLQ																														
+						BinTable	Bin_BSTLQ_IQ_Test_Gentool_FW_ATB_3StepTrim																														
+		TTIME				Test	BSTLQ_Trim_Footer																														
+						Print	"BSTLQ_Trim End"																														
+		B_DebugPrint_Instrument_Status				Test	Debug_Print_Instrument_Status_Check_End																														
+						Return																															

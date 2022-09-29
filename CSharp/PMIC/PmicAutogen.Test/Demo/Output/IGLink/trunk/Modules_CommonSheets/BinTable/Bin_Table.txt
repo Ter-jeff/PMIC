@@ -1,0 +1,144 @@
+DTBintablesSheet,version=2.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Bin Tables
+	
+	Name	Item List	Op	Sort	Bin	Result	Items0	Items1	Items2	Items3	Items4	Items5	Items6	Items7	Items8	Items9	Items10	Items11	Items12	Items13	Items14	Items15	Items16	Items17	Items18	Items19	Items20	Items21	Items22	Items23	Items24	Items25	Items26	Items27	Items28	Items29	Items30	Items31	Items32	Items33	Items34	Items35	Items36	Items37	Items38	Items39	Items40	Items41	Items42	Items43	Items44	Items45	Items46	Items47	Items48	Items49	Items50	Items51	Items52	Items53	Items54	Items55	Items56	Items57	Items58	Items59	Items60	Items61	Items62	Items63	Items64	Items65	Items66	Items67	Items68	Items69	Items70	Items71	Items72	Items73	Items74	Items75	Items76	Items77	Items78	Items79	Comment
+	Bin_System_Error		AND	99	6	Fail	T																																																																																
+	Bin_DC_open	F_open	AND	5	5	Fail-Stop	T																																																																																
+	Bin_DC_short	F_short	AND	6	5	Fail-Stop	T																																																																																
+	Bin_DC_open_short	F_open,F_short	AND	7	5	Fail-Stop	T	T																																																																															
+	Bin_DC_powershort	F_powershort	AND	8	5	Fail-Stop	T																																																																																
+	Bin_DC_poweropen	F_poweropen	AND	8	5	Fail-Stop	T																																																																																
+	Bin_AutoZ_check	F_AutoZ_check	AND	9997	9	Fail-Stop	T																																																																																
+	Bin_DC_Alarm_Fail	F_DC_Alarm_Fail	AND	7	5	Fail-Stop	T																																																																																
+	Bin_SET_ERROR_DC_Conti	F_SET_ERROR_DC_Conti	AND	9999	9	Fail	T																																																																																
+	Bin_IDS	F_IDS	AND	9999	9	Fail	T																																																																																
+	Bin_IDS_ACTIVE_NV	F_IDS_ACTIVE_NV	AND	170	7	Fail	T																																																																																
+	Bin_IDS_OFF_NV	F_IDS_OFF_NV	AND	171	7	Fail	T																																																																																
+	Bin_IDS_TRY_NV	F_IDS_TRY_NV	AND	172	7	Fail	T																																																																																
+	Bin_IDS_ACTIVE_HV	F_IDS_ACTIVE_HV	AND	173	7	Fail	T																																																																																
+	Bin_IDS_OFF_HV	F_IDS_OFF_HV	AND	174	7	Fail	T																																																																																
+	Bin_IDS_TRY_HV	F_IDS_TRY_HV	AND	175	7	Fail	T																																																																																
+	Bin_IDS_ACTIVE_LV	F_IDS_ACTIVE_LV	AND	176	7	Fail	T																																																																																
+	Bin_IDS_OFF_LV	F_IDS_OFF_LV	AND	177	7	Fail	T																																																																																
+	Bin_IDS_TRY_LV	F_IDS_TRY_LV	AND	178	7	Fail	T																																																																																
+	Bin_SET_ERROR_IDS	F_SET_ERROR_IDS	AND	9999	9	Fail	T																																																																																
+	Bin_Leakage	F_Leakage	AND	9999	9	Fail	T																																																																																
+	Bin_Leakage_IO_1p2_LOW	F_Leakage_IO_1p2_LOW	AND	179	7	Fail	T																																																																																
+	Bin_Leakage_IO_1p2_HIGH	F_Leakage_IO_1p2_HIGH	AND	180	7	Fail	T																																																																																
+	Bin_Leakage_IO_3p8_LOW	F_Leakage_IO_3p8_LOW	AND	181	7	Fail	T																																																																																
+	Bin_Leakage_IO_3p8_HIGH	F_Leakage_IO_3p8_HIGH	AND	182	7	Fail	T																																																																																
+	Bin_Leakage_Ana_GRP1_LOW	F_Leakage_Ana_GRP1_LOW	AND	183	7	Fail	T																																																																																
+	Bin_Leakage_Ana_GRP1_HIGH	F_Leakage_Ana_GRP1_HIGH	AND	184	7	Fail	T																																																																																
+	Bin_SET_ERROR_DC_Leakage	F_SET_ERROR_DC_Leakage	AND	9999	9	Fail	T																																																																																
+	Bin_IO	F_IO	AND	9999	9	Fail	T																																																																																
+	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_HNLV	F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_H_Flag,F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_N_Flag,F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_L_Flag	AND	185	7	Fail	T	T	T																																																																														
+	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_NLV	F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_N_Flag,F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_L_Flag	AND	186	7	Fail	T	T																																																																															
+	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_HLV	F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_H_Flag,F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_L_Flag	AND	187	7	Fail	T	T																																																																															
+	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_HNV	F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_H_Flag,F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_N_Flag	AND	188	7	Fail	T	T																																																																															
+	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_HV	F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_H_Flag	AND	189	7	Fail	T																																																																																
+	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_NV	F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_N_Flag	AND	190	7	Fail	T																																																																																
+	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_LV	F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_L_Flag	AND	191	7	Fail	T																																																																																
+	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_UHV	F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_UH_Flag	AND	192	7	Fail	T																																																																																
+	Bin_SET_ERROR_DCTEST_FUNC	F_SET_ERROR_DCTEST_FUNC	AND	9999	9	Fail	T																																																																																
+	Bin_JTAG	F_JTAG	AND	9999	9	Fail	T																																																																																
+	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_HNLV	F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_H_Flag,F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_N_Flag,F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_L_Flag	AND	193	7	Fail	T	T	T																																																																														
+	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_NLV	F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_N_Flag,F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_L_Flag	AND	194	7	Fail	T	T																																																																															
+	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_HLV	F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_H_Flag,F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_L_Flag	AND	195	7	Fail	T	T																																																																															
+	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_HNV	F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_H_Flag,F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_N_Flag	AND	196	7	Fail	T	T																																																																															
+	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_HV	F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_H_Flag	AND	197	7	Fail	T																																																																																
+	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_NV	F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_N_Flag	AND	198	7	Fail	T																																																																																
+	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_LV	F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_L_Flag	AND	199	7	Fail	T																																																																																
+	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_UHV	F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_UH_Flag	AND	200	7	Fail	T																																																																																
+	Bin_SET_ERROR_DCTEST_IDCODE	F_SET_ERROR_DCTEST_IDCODE	AND	9999	9	Fail	T																																																																																
+	Bin_SCAN	F_SCAN	AND	9999	9	Fail	T																																																																																
+	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_HNLV	F_XXXXX_CH_SAA_COM_AUT_HV,F_XXXXX_CH_SAA_COM_AUT_NV,F_XXXXX_CH_SAA_COM_AUT_LV	AND	20	7	Fail	T	T	T																																																																														
+	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_NLV	F_XXXXX_CH_SAA_COM_AUT_NV,F_XXXXX_CH_SAA_COM_AUT_LV	AND	30	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_HLV	F_XXXXX_CH_SAA_COM_AUT_HV,F_XXXXX_CH_SAA_COM_AUT_LV	AND	40	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_HNV	F_XXXXX_CH_SAA_COM_AUT_HV,F_XXXXX_CH_SAA_COM_AUT_NV	AND	50	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_HV	F_XXXXX_CH_SAA_COM_AUT_HV	AND	80	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_NV	F_XXXXX_CH_SAA_COM_AUT_NV	AND	70	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_LV	F_XXXXX_CH_SAA_COM_AUT_LV	AND	60	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_UHV	F_XXXXX_CH_SAA_COM_AUT_UHV	AND	201	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_HNLV	F_XXXXX_SC_SAA_COM_AUT_TSU_HV,F_XXXXX_SC_SAA_COM_AUT_TSU_NV,F_XXXXX_SC_SAA_COM_AUT_TSU_LV	AND	21	7	Fail	T	T	T																																																																														
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_NLV	F_XXXXX_SC_SAA_COM_AUT_TSU_NV,F_XXXXX_SC_SAA_COM_AUT_TSU_LV	AND	31	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_HLV	F_XXXXX_SC_SAA_COM_AUT_TSU_HV,F_XXXXX_SC_SAA_COM_AUT_TSU_LV	AND	41	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_HNV	F_XXXXX_SC_SAA_COM_AUT_TSU_HV,F_XXXXX_SC_SAA_COM_AUT_TSU_NV	AND	51	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_HV	F_XXXXX_SC_SAA_COM_AUT_TSU_HV	AND	81	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_NV	F_XXXXX_SC_SAA_COM_AUT_TSU_NV	AND	71	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_LV	F_XXXXX_SC_SAA_COM_AUT_TSU_LV	AND	61	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_UHV	F_XXXXX_SC_SAA_COM_AUT_TSU_UHV	AND	202	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_HNLV	F_XXXXX_SC_SAA_COM_AUT_PL00_HV,F_XXXXX_SC_SAA_COM_AUT_PL00_NV,F_XXXXX_SC_SAA_COM_AUT_PL00_LV	AND	22	7	Fail	T	T	T																																																																														
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_NLV	F_XXXXX_SC_SAA_COM_AUT_PL00_NV,F_XXXXX_SC_SAA_COM_AUT_PL00_LV	AND	32	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_HLV	F_XXXXX_SC_SAA_COM_AUT_PL00_HV,F_XXXXX_SC_SAA_COM_AUT_PL00_LV	AND	42	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_HNV	F_XXXXX_SC_SAA_COM_AUT_PL00_HV,F_XXXXX_SC_SAA_COM_AUT_PL00_NV	AND	52	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_HV	F_XXXXX_SC_SAA_COM_AUT_PL00_HV	AND	82	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_NV	F_XXXXX_SC_SAA_COM_AUT_PL00_NV	AND	72	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_LV	F_XXXXX_SC_SAA_COM_AUT_PL00_LV	AND	62	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_UHV	F_XXXXX_SC_SAA_COM_AUT_PL00_UHV	AND	203	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HNLV	F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HV,F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NV,F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_LV	AND	23	7	Fail	T	T	T																																																																														
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NLV	F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NV,F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_LV	AND	33	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HLV	F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HV,F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_LV	AND	43	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HNV	F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HV,F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NV	AND	53	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HV	F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HV	AND	83	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NV	F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NV	AND	73	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_LV	F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_LV	AND	63	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_UHV	F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_UHV	AND	204	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HNLV	F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HV,F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NV,F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_LV	AND	24	7	Fail	T	T	T																																																																														
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NLV	F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NV,F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_LV	AND	34	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HLV	F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HV,F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_LV	AND	44	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HNV	F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HV,F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NV	AND	54	7	Fail	T	T																																																																															
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HV	F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HV	AND	84	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NV	F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NV	AND	74	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_LV	F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_LV	AND	64	7	Fail	T																																																																																
+	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_UHV	F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_UHV	AND	205	7	Fail	T																																																																																
+	Bin_SET_ERROR_SCAN	F_SET_ERROR_SCAN	AND	9999	9	Fail	T																																																																																
+	Bin_MBIST	F_MBIST	AND	9999	9	Fail	T																																																																																
+	Bin_MBIST_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_HNLV	F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_HV,F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_NV,F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_LV	AND	90	7	Fail	T	T	T																																																																														
+	Bin_MBIST_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_NLV	F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_NV,F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_LV	AND	100	7	Fail	T	T																																																																															
+	Bin_MBIST_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_HLV	F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_HV,F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_LV	AND	110	7	Fail	T	T																																																																															
+	Bin_MBIST_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_HNV	F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_HV,F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_NV	AND	120	7	Fail	T	T																																																																															
+	Bin_MBIST_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_HV	F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_HV	AND	150	7	Fail	T																																																																																
+	Bin_MBIST_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_NV	F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_NV	AND	140	7	Fail	T																																																																																
+	Bin_MBIST_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_LV	F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_LV	AND	130	7	Fail	T																																																																																
+	Bin_MBIST_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_UHV	F_XXXXX_BI_BST_JTG_UNS_MBIST_BYP_UHV	AND	206	7	Fail	T																																																																																
+	Bin_SET_ERROR_MBIST	F_SET_ERROR_MBIST	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ	F_BSTLQ	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_ZCD_Trim_Gentool	F_BSTLQ_ZCD_Trim_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_OVA_Trim_Gentool	F_BSTLQ_OVA_Trim_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_OVLO_Comp_Test_Gentool	F_BSTLQ_OVLO_Comp_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_UVLO_Comp_Test_Gentool	F_BSTLQ_UVLO_Comp_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_BP_Comp_Test_Gentool	F_BSTLQ_BP_Comp_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_PNRDSON_Test_Gentool	F_BSTLQ_PNRDSON_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_Leakage_Test_Gentool	F_BSTLQ_Leakage_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_ZX_Comp_Ibias_Gentool	F_BSTLQ_ZX_Comp_Ibias_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_CL_Test_Gentool	F_BSTLQ_CL_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_VSAFE_Comp_Test_Gentool	F_BSTLQ_VSAFE_Comp_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_VTH_VSAFE_Test_Gentool	F_BSTLQ_VTH_VSAFE_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool	F_BSTLQ_IQ_Test_Gentool_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FWTrim	F_BSTLQ_IQ_Test_Gentool_FWTrim_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI	F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_Meas	F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_Trim_Meas	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV	F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_Meas	F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_Trim_Meas	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_ATB_3StepTrim	F_BSTLQ_IQ_Test_Gentool_FW_ATB_3StepTrim_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_SET_ERROR_BSTLQ_Trim	F_SET_ERROR_BSTLQ_Trim	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_ZCD_PostBurn_Gentool	F_BSTLQ_ZCD_Trim_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_OVA_PostBurn_Gentool	F_BSTLQ_OVA_Trim_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_OVLO_Comp_Test_Gentool_PostBurn	F_BSTLQ_OVLO_Comp_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_UVLO_Comp_Test_Gentool_PostBurn	F_BSTLQ_UVLO_Comp_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_BP_Comp_Test_Gentool_PostBurn	F_BSTLQ_BP_Comp_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_PNRDSON_Test_Gentool_PostBurn	F_BSTLQ_PNRDSON_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_Leakage_Test_Gentool_PostBurn	F_BSTLQ_Leakage_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_ZX_Comp_Ibias_Gentool_PostBurn	F_BSTLQ_ZX_Comp_Ibias_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_CL_Test_Gentool_PostBurn	F_BSTLQ_CL_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_VSAFE_Comp_Test_Gentool_PostBurn	F_BSTLQ_VSAFE_Comp_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_VTH_VSAFE_Test_Gentool_PostBurn	F_BSTLQ_VTH_VSAFE_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_PostBurn	F_BSTLQ_IQ_Test_Gentool_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FWTrim_PostBurn	F_BSTLQ_IQ_Test_Gentool_FWTrim_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_PostBurn	F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_PostBurn_Meas	F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaI_PostBurn_Meas	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_PostBurn	F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_PostBurn_Meas	F_BSTLQ_IQ_Test_Gentool_FW_DTB_AnaV_PostBurn_Meas	AND	9999	9	Fail	T																																																																																
+	Bin_BSTLQ_IQ_Test_Gentool_FW_ATB_3StepTrim_PostBurn	F_BSTLQ_IQ_Test_Gentool_FW_ATB_3StepTrim_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_SET_ERROR_BSTLQ_PostBurn	F_SET_ERROR_BSTLQ_PostBurn	AND	9999	9	Fail	T																																																																																
+	Bin_Test		AND	99	6	Fail	T																																																																																
+	F_OTP	AND	5	5	Fail-Stop	T																																																																																	

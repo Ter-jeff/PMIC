@@ -1,44 +1,32 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
 {
     public class DcSpecSheet : IgxlSheet
     {
-        #region Field
-
-        private readonly List<DcSpec> _dcSpecs;
-        private readonly List<string> _selectorNameList;
         private const string SheetType = "DTDCSpecSheet";
 
-        #endregion
-
-        #region Property
-
-        public List<string> CategoryList { get; set; }
-
-        public List<DcSpec> GetDcSpecsData()
+        public DcSpecSheet(string sheetName)
+            : base(sheetName)
         {
-            return _dcSpecs;
+            DcSpecs = new List<DcSpec>();
+            IgxlSheetName = IgxlSheetNameList.AcSpec;
         }
-
-        #endregion
-
-        #region Constructor
 
         public DcSpecSheet(string sheetName, List<string> catList)
             : base(sheetName)
         {
             CategoryList = catList;
-            _dcSpecs = new List<DcSpec>();
-            _selectorNameList = GetSelectorList().Select(x => x.SelectorName).ToList();
+            DcSpecs = new List<DcSpec>();
+            SelectorNameList = GetSelectorList().Select(x => x.SelectorName).ToList();
             IgxlSheetName = IgxlSheetNameList.DcSpec;
         }
 
@@ -46,8 +34,8 @@ namespace IgxlData.IgxlSheets
             : base(sheet)
         {
             CategoryList = catList;
-            _dcSpecs = new List<DcSpec>();
-            _selectorNameList = selectorNameList;
+            DcSpecs = new List<DcSpec>();
+            SelectorNameList = selectorNameList;
             IgxlSheetName = IgxlSheetNameList.DcSpec;
         }
 
@@ -55,36 +43,42 @@ namespace IgxlData.IgxlSheets
             : base(sheetName)
         {
             CategoryList = catList;
-            _dcSpecs = new List<DcSpec>();
-            _selectorNameList = selectorNameList;
+            DcSpecs = new List<DcSpec>();
+            SelectorNameList = selectorNameList;
             IgxlSheetName = IgxlSheetNameList.DcSpec;
         }
 
-        #endregion
+        public List<DcSpec> DcSpecs { get; set; }
+        public List<string> SelectorNameList { get; set; }
 
-        #region Member Function
+        public List<string> CategoryList { get; set; }
+
+        public List<DcSpec> GetDcSpecsData()
+        {
+            return DcSpecs;
+        }
 
         public List<Selector> CreateSelectorList()
         {
             var selectorList = new List<Selector>();
-            foreach (var name in _selectorNameList) selectorList.Add(new Selector(name, ""));
+            foreach (var name in SelectorNameList) selectorList.Add(new Selector(name, ""));
             return selectorList;
         }
 
         public void AddRow(DcSpec dcSpecs)
         {
             if (!ExistDcSpecs(dcSpecs.Symbol))
-                _dcSpecs.Add(dcSpecs);
+                DcSpecs.Add(dcSpecs);
         }
 
         public void AddRows(List<DcSpec> dcSpecsList)
         {
             foreach (var dcSpecs in dcSpecsList)
                 if (!ExistDcSpecs(dcSpecs.Symbol))
-                    _dcSpecs.Add(dcSpecs);
+                    DcSpecs.Add(dcSpecs);
         }
 
-        protected override void WriteHeader()
+        protected void WriteHeader()
         {
             const string header =
                 "DTDCSpecSheet,version=2.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1\tDC Specs";
@@ -93,13 +87,13 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine();
         }
 
-        protected override void WriteColumnsHeader()
+        protected void WriteColumnsHeader()
         {
             var firstColumnsName = new StringBuilder();
             var secondColumnsName = new StringBuilder();
             firstColumnsName.Append("\t\t\tSelector\t\t");
             secondColumnsName.Append("\tSymbol\tValue\tName\tVal\tTyp\t");
-            foreach (var category in _dcSpecs[0].CategoryList)
+            foreach (var category in DcSpecs[0].CategoryList)
             {
                 firstColumnsName.Append(category.Name);
                 firstColumnsName.Append("\t");
@@ -110,36 +104,36 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine(secondColumnsName.ToString());
         }
 
-        protected override void WriteRows()
+        protected void WriteRows()
         {
-            foreach (var dcSpecs in _dcSpecs)
-            foreach (var selector in dcSpecs.SelectorList)
-            {
-                var dcSpecRow = new StringBuilder();
-                dcSpecRow.Append(dcSpecs.SpecialComment);
-                dcSpecRow.Append("\t");
-                dcSpecRow.Append(dcSpecs.Symbol);
-                dcSpecRow.Append("\t");
-                dcSpecRow.Append(dcSpecs.Value);
-                dcSpecRow.Append("\t");
-                dcSpecRow.Append(selector.SelectorName);
-                dcSpecRow.Append("\t");
-                dcSpecRow.Append(selector.SelectorValue);
-                dcSpecRow.Append("\t");
-                foreach (var category in dcSpecs.CategoryList)
+            foreach (var dcSpecs in DcSpecs)
+                foreach (var selector in dcSpecs.SelectorList)
                 {
-                    // Write category
-                    dcSpecRow.Append(category.Typ);
+                    var dcSpecRow = new StringBuilder();
+                    dcSpecRow.Append(dcSpecs.SpecialComment);
                     dcSpecRow.Append("\t");
-                    dcSpecRow.Append(category.Min);
+                    dcSpecRow.Append(dcSpecs.Symbol);
                     dcSpecRow.Append("\t");
-                    dcSpecRow.Append(category.Max);
+                    dcSpecRow.Append(dcSpecs.Value);
                     dcSpecRow.Append("\t");
-                }
+                    dcSpecRow.Append(selector.SelectorName);
+                    dcSpecRow.Append("\t");
+                    dcSpecRow.Append(selector.SelectorValue);
+                    dcSpecRow.Append("\t");
+                    foreach (var category in dcSpecs.CategoryList)
+                    {
+                        // Write category
+                        dcSpecRow.Append(category.Typ);
+                        dcSpecRow.Append("\t");
+                        dcSpecRow.Append(category.Min);
+                        dcSpecRow.Append("\t");
+                        dcSpecRow.Append(category.Max);
+                        dcSpecRow.Append("\t");
+                    }
 
-                dcSpecRow.Append(dcSpecs.Comment);
-                IgxlWriter.WriteLine(dcSpecRow.ToString());
-            }
+                    dcSpecRow.Append(dcSpecs.Comment);
+                    IgxlWriter.WriteLine(dcSpecRow.ToString());
+                }
         }
 
         public override void Write(string fileName, string version = "")
@@ -169,7 +163,7 @@ namespace IgxlData.IgxlSheets
 
         private void WriteSheet2P0(string fileName, string version, SheetInfo igxlSheetsVersion)
         {
-            if (_dcSpecs.Count == 0) return;
+            if (DcSpecs.Count == 0) return;
 
             using (var sw = new StreamWriter(fileName, false))
             {
@@ -178,7 +172,7 @@ namespace IgxlData.IgxlSheets
                 var valueIndex = GetIndexFrom(igxlSheetsVersion, "Value");
                 var selectorsIndex = GetIndexFrom(igxlSheetsVersion, "Selector");
                 var categoryValuesIndex = selectorsIndex + 2;
-                var relativeColumnIndex = selectorsIndex + _selectorNameList.Count + CategoryList.Count * 3;
+                var relativeColumnIndex = selectorsIndex + SelectorNameList.Count + CategoryList.Count * 3;
                 maxCount = Math.Max(maxCount, relativeColumnIndex + 1);
 
                 #region headers
@@ -203,9 +197,9 @@ namespace IgxlData.IgxlSheets
                                 arr[item.indexFrom] = item.columnName;
 
                             if (item.columnName == "Selector" && item.rowIndex + 1 == i)
-                                for (var index = 0; index < _selectorNameList.Count; index++)
+                                for (var index = 0; index < SelectorNameList.Count; index++)
                                 {
-                                    var selectorName = _selectorNameList[index];
+                                    var selectorName = SelectorNameList[index];
                                     arr[selectorsIndex + index] = selectorName;
                                 }
 
@@ -240,9 +234,9 @@ namespace IgxlData.IgxlSheets
 
                 #region data
 
-                for (var index = 0; index < _dcSpecs.Count; index++)
+                for (var index = 0; index < DcSpecs.Count; index++)
                 {
-                    var row = _dcSpecs[index];
+                    var row = DcSpecs[index];
                     foreach (var selector in row.SelectorList)
                     {
                         var arr = Enumerable.Repeat("", maxCount).ToArray();
@@ -252,12 +246,12 @@ namespace IgxlData.IgxlSheets
                             arr[symbolIndex] = row.Symbol;
                             arr[valueIndex] = "=#N/A";
 
-                            for (var i = 0; i < _selectorNameList.Count; i++)
+                            for (var i = 0; i < SelectorNameList.Count; i++)
                             {
                                 var selectorName =
                                     row.SelectorList.Find(
                                         x =>
-                                            x.SelectorName.Equals(_selectorNameList[i],
+                                            x.SelectorName.Equals(SelectorNameList[i],
                                                 StringComparison.CurrentCultureIgnoreCase));
                                 if (selectorName != null)
                                     arr[selectorsIndex + i] = selectorName.SelectorValue;
@@ -280,7 +274,7 @@ namespace IgxlData.IgxlSheets
                         }
                         else
                         {
-                            arr = new[] {"\t"};
+                            arr = new[] { "\t" };
                         }
 
                         sw.WriteLine(string.Join("\t", arr));
@@ -290,14 +284,14 @@ namespace IgxlData.IgxlSheets
                 #endregion
             }
 
-            var testSetting = _dcSpecs.Find(x => !string.IsNullOrEmpty(x.SpecialComment));
+            var testSetting = DcSpecs.Find(x => !string.IsNullOrEmpty(x.SpecialComment));
             if (testSetting != null)
                 AddVersion(fileName, testSetting.SpecialComment);
         }
 
         private void WriteSheet3P0(string fileName, string version, SheetInfo igxlSheetsVersion)
         {
-            if (_dcSpecs.Count == 0) return;
+            if (DcSpecs.Count == 0) return;
 
             using (var sw = new StreamWriter(fileName, false))
             {
@@ -305,8 +299,8 @@ namespace IgxlData.IgxlSheets
                 var symbolIndex = GetIndexFrom(igxlSheetsVersion, "Symbol");
                 var valueIndex = GetIndexFrom(igxlSheetsVersion, "Value");
                 var selectorsIndex = GetIndexFrom(igxlSheetsVersion, "Selectors");
-                var categoryValuesIndex = selectorsIndex + _selectorNameList.Count;
-                var relativeColumnIndex = selectorsIndex + _selectorNameList.Count + CategoryList.Count * 3;
+                var categoryValuesIndex = selectorsIndex + SelectorNameList.Count;
+                var relativeColumnIndex = selectorsIndex + SelectorNameList.Count + CategoryList.Count * 3;
                 maxCount = Math.Max(maxCount, relativeColumnIndex + 1);
 
                 #region headers
@@ -340,9 +334,9 @@ namespace IgxlData.IgxlSheets
                                 arr[item.indexFrom] = item.columnName;
 
                             if (item.columnName == "Selectors" && item.rowIndex + 1 == i)
-                                for (var index = 0; index < _selectorNameList.Count; index++)
+                                for (var index = 0; index < SelectorNameList.Count; index++)
                                 {
-                                    var selectorName = _selectorNameList[index];
+                                    var selectorName = SelectorNameList[index];
                                     arr[selectorsIndex + index] = selectorName;
                                 }
 
@@ -377,19 +371,19 @@ namespace IgxlData.IgxlSheets
 
                 #region data
 
-                for (var index = 0; index < _dcSpecs.Count; index++)
+                for (var index = 0; index < DcSpecs.Count; index++)
                 {
-                    var row = _dcSpecs[index];
+                    var row = DcSpecs[index];
                     var arr = Enumerable.Repeat("", maxCount).ToArray();
                     if (!string.IsNullOrEmpty(row.Symbol))
                     {
                         arr[0] = row.ColumnA;
                         arr[symbolIndex] = row.Symbol;
                         arr[valueIndex] = "=#N/A";
-                        for (var i = 0; i < _selectorNameList.Count; i++)
+                        for (var i = 0; i < SelectorNameList.Count; i++)
                         {
                             var selectorName = row.SelectorList.Find(x =>
-                                x.SelectorName.Equals(_selectorNameList[i], StringComparison.CurrentCultureIgnoreCase));
+                                x.SelectorName.Equals(SelectorNameList[i], StringComparison.CurrentCultureIgnoreCase));
                             if (selectorName != null)
                                 arr[selectorsIndex + i] = selectorName.SelectorValue;
                             else
@@ -409,7 +403,7 @@ namespace IgxlData.IgxlSheets
                     }
                     else
                     {
-                        arr = new[] {"\t"};
+                        arr = new[] { "\t" };
                     }
 
                     sw.WriteLine(string.Join("\t", arr));
@@ -418,7 +412,7 @@ namespace IgxlData.IgxlSheets
                 #endregion
             }
 
-            var testSetting = _dcSpecs.Find(x => !string.IsNullOrEmpty(x.SpecialComment));
+            var testSetting = DcSpecs.Find(x => !string.IsNullOrEmpty(x.SpecialComment));
             if (testSetting != null)
                 AddVersion(fileName, testSetting.SpecialComment);
         }
@@ -435,19 +429,19 @@ namespace IgxlData.IgxlSheets
 
         public DcSpec FindDcSpecs(string symbol)
         {
-            return _dcSpecs.Find(dc => dc.Symbol.Equals(symbol));
+            return DcSpecs.Find(dc => dc.Symbol.Equals(symbol));
         }
 
         public bool ExistDcSpecs(string symbol)
         {
-            return _dcSpecs.Exists(dc => dc.Symbol.Equals(symbol));
+            return DcSpecs.Exists(dc => dc.Symbol.Equals(symbol));
         }
 
         public bool FindValue(string dcCategory, string dcSelector, ref string frequencyName)
         {
             if (Regex.IsMatch(frequencyName, "^_"))
                 frequencyName = Regex.Replace(frequencyName, "^_", "");
-            foreach (var dcSpec in _dcSpecs)
+            foreach (var dcSpec in DcSpecs)
                 if (dcSpec.Symbol.Equals(frequencyName, StringComparison.CurrentCultureIgnoreCase))
                     if (dcSpec.CategoryList.Exists(x =>
                             x.Name.Equals(dcCategory, StringComparison.CurrentCultureIgnoreCase)))
@@ -491,13 +485,5 @@ namespace IgxlData.IgxlSheets
                ) return -1;
             return CategoryList.FindIndex(x => x.Equals(category, StringComparison.OrdinalIgnoreCase));
         }
-
-
-        //public DcSpecs FindDcSpecs(string symbol)
-        //{
-        //    return DcSpecSheet.FindDcSpecs(symbol);
-        //}
-
-        #endregion
     }
 }

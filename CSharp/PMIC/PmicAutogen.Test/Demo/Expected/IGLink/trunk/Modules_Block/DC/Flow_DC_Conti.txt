@@ -1,0 +1,33 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Flow Table
+						Flow Domain:
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment
+						set-error-bin										999		999																			
+						Print	"DC_Conti Start"																														
+		TTIME				Test	DC_Conti_Header		1																												
+						Flag-Clear	F_open																														
+						Flag-Clear	F_short																														
+						Flag-Clear	F_Conti_VoltageClamp_Check																														
+		D_OpenSocket				Test	DGS_Relay_On		100																												
+		PPMUOS				Flag-true	F_WalkingZ_DC_Continuity_Neg																														
+						nop	SetPower_Alarm																														
+		WalkingZ			X	Test	WalkingZ_DC_Continuity_Neg		199												F_DC_Alarm_Fail																
+						Test	IO_Continuity_Serial_Continuity_Neg		298												F_DC_Alarm_Fail																
+						BinTable	Bin_DC_open																														
+						BinTable	Bin_DC_short																														
+						BinTable	Bin_DC_Alarm_Fail																														
+		Analog				Test	Analog_Continuity_Serial_ATB_DC30_ALL_Neg		397												F_DC_Alarm_Fail																
+						BinTable	Bin_DC_open																														
+						BinTable	Bin_DC_short																														
+						BinTable	Bin_DC_Alarm_Fail																														
+		Analog				Test	Analog_Continuity_Serial_UVI_ANALOG_Neg		496												F_DC_Alarm_Fail																
+						BinTable	Bin_DC_open																														
+						BinTable	Bin_DC_short																														
+						BinTable	Bin_DC_Alarm_Fail																														
+						BinTable	Bin_Conti_VoltageClamp_Check																														
+		D_OpenSocket				Test	DGS_Relay_Off		595																												
+		AutoZOnly				set-device										9		9997	Fail																		
+						nop	PowerUp																														
+		TTIME				Test	DC_Conti_Footer		694																												
+						Print	"DC_Conti End"																														
+						Return																															

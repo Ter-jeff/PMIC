@@ -1,8 +1,8 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using IgxlData.NonIgxlSheets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using IgxlData.IgxlBase;
-using IgxlData.NonIgxlSheets;
 
 namespace IgxlData.VBT
 {

@@ -5,19 +5,9 @@ namespace IgxlData.IgxlBase
 {
     public class AcSpec : Spec
     {
-        #region Field
-
-        #endregion
-
-        #region Property
-
         public List<CategoryInSpec> CategoryList { get; set; }
 
         public List<Selector> SelectorList { get; set; }
-
-        #endregion
-
-        #region Constructor
 
         public AcSpec()
         {
@@ -31,10 +21,6 @@ namespace IgxlData.IgxlBase
             CategoryList = new List<CategoryInSpec>();
             SelectorList = selectorList.Select(p => new Selector(p.SelectorName, p.SelectorValue)).ToList();
         }
-
-        #endregion
-
-        #region Member function
 
         public void InsertCategory(int index, CategoryInSpec categoryInSpec)
         {
@@ -58,7 +44,5 @@ namespace IgxlData.IgxlBase
                     return categoryInSpec;
             return null;
         }
-
-        #endregion
     }
 }

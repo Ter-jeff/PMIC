@@ -2,25 +2,21 @@
 {
     public class GlobalSpec : Spec
     {
-        #region Property
-
         public string Job { get; set; }
 
-        #endregion
+        public GlobalSpec()
+        {
+        }
 
-        #region Constructor
-
-        public GlobalSpec(string glbSym) : base(glbSym)
+        public GlobalSpec(string symbol) : base(symbol)
         {
             Job = "";
         }
 
-        public GlobalSpec(string glbSym, string glbValue = "", string glbJob = "", string glbComm = "")
-            : base(glbSym, glbValue, glbComm)
+        public GlobalSpec(string symbol, string value = "", string job = "", string comment = "")
+            : base(symbol, value, comment)
         {
-            Job = glbJob;
+            Job = job;
         }
-
-        #endregion
     }
 }

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using IgxlData.IgxlBase;
+﻿using IgxlData.IgxlBase;
 using IgxlData.IgxlSheets;
 using OfficeOpenXml;
+using System.Collections.Generic;
 
 namespace IgxlData.IgxlReader
 {
-    public class ReadBintableSheet : IgxlSheetReader
+    public class ReadBinTableSheet : IgxlSheetReader
     {
         private const int StartRowIndex = 3;
         private const int StartColumnIndex = 2;

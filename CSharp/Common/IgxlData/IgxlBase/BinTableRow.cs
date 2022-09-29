@@ -9,7 +9,7 @@ namespace IgxlData.IgxlBase
 {
     [Serializable]
     [DebuggerDisplay("{Name}")]
-    public class BinTableRow : IgxlItem
+    public class BinTableRow : IgxlRow
     {
         #region Property
 

@@ -1,6 +1,7 @@
 ﻿using IgxlData.IgxlBase;
 using IgxlData.IgxlSheets;
 using OfficeOpenXml;
+using System.IO;
 
 namespace IgxlData.IgxlReader
 {
@@ -9,7 +10,56 @@ namespace IgxlData.IgxlReader
         private const int StartRowIndex = 3;
         private const int StartColumnIndex = 2;
 
-        #region Private Function
+        public GlobalSpecSheet GetSheet(Stream stream, string sheetName)
+        {
+            var globalSpecSheet = new GlobalSpecSheet(sheetName, false);
+            var isBackup = false;
+            var i = 1;
+            using (var sr = new StreamReader(stream))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    if (i > StartRowIndex)
+                    {
+                        var globalSpec = GetGlobalSpecRow(line, sheetName, i);
+                        if (string.IsNullOrEmpty(globalSpec.Symbol))
+                        {
+                            isBackup = true;
+                            continue;
+                        }
+
+                        globalSpec.IsBackup = isBackup;
+                        globalSpecSheet.AddRow(globalSpec);
+                    }
+                    i++;
+                }
+            }
+            return globalSpecSheet;
+        }
+
+        private GlobalSpec GetGlobalSpecRow(string line, string sheetName, int row)
+        {
+            var arr = line.Split('\t');
+            var globalSpec = new GlobalSpec();
+            globalSpec.RowNum = row;
+            globalSpec.SheetName = sheetName;
+            var index = StartColumnIndex - 1;
+            var content = GetCellText(arr, 0);
+            globalSpec.ColumnA = content;
+            content = GetCellText(arr, index);
+            globalSpec.Symbol = content;
+            index++;
+            content = GetCellText(arr, index);
+            globalSpec.Job = content;
+            index++;
+            content = GetCellText(arr, index);
+            globalSpec.Value = content;
+            index++;
+            content = GetCellText(arr, index);
+            globalSpec.Comment = content;
+            return globalSpec;
+        }
 
         private GlobalSpec GetGlobalSpecRow(ExcelWorksheet sheet, int row)
         {
@@ -41,10 +91,6 @@ namespace IgxlData.IgxlReader
             return new GlobalSpec(symbol, value, job, comment);
         }
 
-        #endregion
-
-        #region public Function
-
         public GlobalSpecSheet GetSheet(string fileName)
         {
             return GetSheet(ConvertTxtToExcelSheet(fileName));
@@ -66,7 +112,5 @@ namespace IgxlData.IgxlReader
 
             return globalSpecSheet;
         }
-
-        #endregion
     }
 }

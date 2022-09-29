@@ -3,10 +3,8 @@
 namespace IgxlData.IgxlBase
 {
     [DebuggerDisplay("{PinName}")]
-    public class Pin
+    public class Pin : IgxlRow
     {
-        #region Constructor
-
         public Pin(string pinName, string pinType, string comment = "")
         {
             PinName = pinName;
@@ -15,16 +13,10 @@ namespace IgxlData.IgxlBase
             Comment = comment;
         }
 
-        #endregion
-
-        #region Property
-
         public string PinName { get; set; }
         public string PinType { get; set; }
         public string ChannelType { get; set; }
         public string InstrumentType { get; set; }
         public string Comment { get; set; }
-
-        #endregion
     }
 }

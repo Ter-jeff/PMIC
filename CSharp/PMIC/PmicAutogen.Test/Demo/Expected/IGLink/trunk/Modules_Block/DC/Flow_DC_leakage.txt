@@ -1,0 +1,28 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Flow Table
+						Flow Domain:
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment
+						set-error-bin										999		999																			
+						Print	"DC_leakage Start"																														
+		TTIME				Test	DC_leakage_Header		10000																												
+						Test	Leakage_IO_1p2_LOW		10100												F_Leakage_IO_1p2_LOW,F_Leakage																
+		A_Enable_MP_SBIN				BinTable	Bin_Leakage																														
+						BinTable	Bin_Leakage_IO_1p2_LOW																														
+						Test	Leakage_IO_1p2_HIGH		10200												F_Leakage_IO_1p2_HIGH,F_Leakage																
+		A_Enable_MP_SBIN				BinTable	Bin_Leakage																														
+						BinTable	Bin_Leakage_IO_1p2_HIGH																														
+						Test	Leakage_IO_3p8_LOW		10300												F_Leakage_IO_3p8_LOW,F_Leakage																
+		A_Enable_MP_SBIN				BinTable	Bin_Leakage																														
+						BinTable	Bin_Leakage_IO_3p8_LOW																														
+						Test	Leakage_IO_3p8_HIGH		10400												F_Leakage_IO_3p8_HIGH,F_Leakage																
+		A_Enable_MP_SBIN				BinTable	Bin_Leakage																														
+						BinTable	Bin_Leakage_IO_3p8_HIGH																														
+						Test	Leakage_Ana_GRP1_LOW		10500												F_Leakage_Ana_GRP1_LOW,F_Leakage																
+		A_Enable_MP_SBIN				BinTable	Bin_Leakage																														
+						BinTable	Bin_Leakage_Ana_GRP1_LOW																														
+						Test	Leakage_Ana_GRP1_HIGH		10600												F_Leakage_Ana_GRP1_HIGH,F_Leakage																
+		A_Enable_MP_SBIN				BinTable	Bin_Leakage																														
+						BinTable	Bin_Leakage_Ana_GRP1_HIGH																														
+		TTIME				Test	DC_leakage_Footer		10700																												
+						Print	"DC_leakage End"																														
+						Return																															

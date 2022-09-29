@@ -1,0 +1,4 @@
+
+								CP1	CP1	FT	FT	
+		flowtable	instance	testname	testnumber	scale	units	lolim	hilim	lolim	hilim	comment	
+		Dummy_flow	Dummy_instance	Dummy_testanme	999		V	-1	1	-1	1	

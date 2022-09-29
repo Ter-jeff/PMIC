@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\CSharp\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\CSharp\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D225BEFE-B0AD-4830-88EA-11647EE5AECC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoTestSystem</RootNamespace>
+    <AssemblyName>AutoTestSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\AutoTestSystem\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\packages\Windows API Code Pack 1.1\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\packages\Windows API Code Pack 1.1\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.4.2.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.116.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.116.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.EF6.1.0.116.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.116.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.116.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\ComIni.cs" />
+    <Compile Include="Setting\SettingIni.cs" />
+    <Compile Include="SqlManager.cs" />
+    <Compile Include="TeradyneMail.cs" />
+    <Compile Include="UI\SettingViewModel.cs" />
+    <Compile Include="UI\Enable\EnablesWindow.xaml.cs">
+      <DependentUpon>EnablesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Function\InputFileChange.cs" />
+    <Compile Include="Model\PathRow.cs" />
+    <Compile Include="Model\QueueFile.cs" />
+    <Compile Include="UI\Enable\EnableRow.cs" />
+    <Compile Include="UI\Site\SiteRow.cs" />
+    <Compile Include="UI\Site\SiteWindow.xaml.cs">
+      <DependentUpon>SiteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ViewModelMain.cs" />
+    <Compile Include="Model\ProjectRow.cs" />
+    <Page Include="UI\Enable\EnablesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Setting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UI\Site\SiteWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpFiles\Auto Test System Introduction_20220711.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\CommonLib\CommonLib.csproj">
+      <Project>{8eead19d-ead8-4a6d-819c-ac47b59a08f1}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\IgxlData\IgxlData.csproj">
+      <Project>{e1557014-bb6d-41bc-92f6-877002282ca1}</Project>
+      <Name>IgxlData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\MyWpf\MyWpf.csproj">
+      <Project>{535aba9c-2ff4-486d-b566-e9a0ff9428c7}</Project>
+      <Name>MyWpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ReaderLib\DebugPlanReaderLib.csproj">
+      <Project>{b592b587-8748-461f-bd8f-67a782b8e0d5}</Project>
+      <Name>DebugPlanReaderLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoIgxl\AutoIgxl.csproj">
+      <Project>{912715ff-c1fe-4f63-88c1-9d852ce13ee9}</Project>
+      <Name>AutoIgxl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoProgram\AutoProgram.csproj">
+      <Project>{20dddc11-035a-4ad5-bb79-c9110b4df393}</Project>
+      <Name>AutoProgram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShmooLog\ShmooLog.csproj">
+      <Project>{61DF9DCE-0E29-4C39-B58C-7B4CA80510BE}</Project>
+      <Name>ShmooLog</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Teradyne_T.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\CSharp\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\CSharp\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\..\CSharp\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\..\CSharp\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

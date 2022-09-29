@@ -1,0 +1,941 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E7B1018B-959C-4351-A49D-B01D7DADF630}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PmicAutogen.Test</RootNamespace>
+    <AssemblyName>PmicAutogen.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Moq, Version=4.17.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Moq.4.17.2\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>..\Packages\System.Threading.Tasks.Extensions.4.5.4\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="FileDiff\FileComparer.cs" />
+    <Compile Include="FileDiff\FileComparisonReport.cs" />
+    <Compile Include="FileDiff\FileDiff.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestRun.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Demo\Expected\ErrorReport.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\SimulatedConfig.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\BSTLQ\Flow_BSTLQ_PostBurn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\BSTLQ\Flow_BSTLQ_PostBurn_HV.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\BSTLQ\Flow_BSTLQ_PostBurn_LV.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\BSTLQ\Flow_BSTLQ_PostBurn_UHV.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\BSTLQ\Flow_BSTLQ_Trim.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\BSTLQ\TestInst_BSTLQ.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DCTest_Func\Flow_DCTEST_FUNC.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DCTest_Func\Flow_DCTEST_IDCODE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DCTest_Func\TestInst_DCTEST_FUNC.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DCTest_Func\TestInst_DCTEST_IDCODE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\Flow_DC_Conti.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\Flow_DC_leakage.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\Flow_PMIC_IDS_HV.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\Flow_PMIC_IDS_LV.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\Flow_PMIC_IDS_NV.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\PMIC_IDS.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\PMIC_Leakage.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\TestInst_DC_Conti.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\TestInst_DC_leakage.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\DC\TestInst_PMIC_IDS.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\Digital_Scan_Mbist\CharSetUp_PMIC.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\Digital_Scan_Mbist\Flow_Mbist.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\Digital_Scan_Mbist\Flow_Scan.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\Digital_Scan_Mbist\PatSet_Mbist.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\Digital_Scan_Mbist\PatSet_Scan.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\Digital_Scan_Mbist\TestInst_Mbist.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\Digital_Scan_Mbist\TestInst_Scan.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\AHB_register_map.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\AHB_REG_MAP1.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\AHB_REG_MAP2.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\AHB_REG_MAP3.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\AHB_REG_MAP4.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\AHB_REG_MAP5.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\AHB_REG_MAP6.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\AHB_REG_MAP7.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\Flow_OTP_ECIDnCRC_Burn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\Flow_OTP_PostBurn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\Flow_OTP_PrePostBurn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\OTP_register_map.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\OTP_register_map_back.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\OTP_SETUP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\PatSets_OTP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\OTP\TestInst_OTP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Block\Power_Up_Down\VDD_Levels_Information.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\AC_Spec\AC_Specs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\BinTable\Bin_Table.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\ChannelMap\ChannelMap.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\DC_Spec\DC_Specs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Global_Spec\Global Specs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Job\JobList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Levels\Levels_Analog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Levels\Levels_BSCAN.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Levels\Levels_Func.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Levels\Levels_WLED_Boost.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\LimitSheet\QQ_LimitSheet.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Main_Flow\Flow_Init_EnableWd.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Main_Flow\Flow_Main_CP1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\PatternSet\PatSets_All.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\PinMap\PinMap.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\Ports\PortMap.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\TestInstance\TestInst_Common.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\TimeSets\TIMESET_PMIC_Dummy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\TimeSets\TIMESET_XXXXX_C_BI_SI_2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\TimeSets\TIMESET_XXXXX_C_IO_SI_1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\TimeSets\TIMESET_XXXXX_C_JT_SI_3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\TimeSets\TIMESET_XXXXX_C_JT_SI_AHB_2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_CommonSheets\TimeSets\TIMESET_XXXXX_C_SC_SI_1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\DATALOG_HEADER.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\Exec_IP_Module.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\LibTestNameGrp7.cls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\LIB_Common.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\LIB_Common_GlobalConstant.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\LIB_EEPROM.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\LIB_Globals_Generic.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\LIB_TName.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\VBT_000_Capital_ReDefiner.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\VBT_LIB_Common.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\VBT_LIB_DebugFunc.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\VBT_LIB_DebugPrint.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\VBT_LIB_Nwire_WriteRead.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\VBT_LIB_Nwire_WriteRead_SPMI.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Common\VBT_LIB_Spotcal.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_DC\VBT_LIB_DC_Conti_PMIC.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_DC\VBT_LIB_DC_IDS_PMIC.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_DC\VBT_LIB_DC_Leak_PMIC.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Digital\LIB_Digital_Shmoo.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Digital\LIB_Digital_Shmoo_Setup.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Digital\VBT_LIB_Digital_Functional_T.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Digital\VBT_LIB_Digital_Shmoo.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_DSP\DSP_GlobalVariables.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_DSP\Dsp_Module_Common.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_DSP\Dsp_Module_MegaCell.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_LimitSheet\CurrentLimit.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_LimitSheet\LibLimitSet.cls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_LimitSheet\QQ_LimitSheet.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_LimitSheet\UpdateLimit.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_LimitSheet\VBT_LIB_TestLimit.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Modules_Lib_TER\Library_Powerup\VBT_LIB_PowerLevelStatus_Read.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\AHB_register_map_back.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\DSP_OTP_LIB.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\Flow_Init_Flows.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\Flow_LCKBit_CHECK.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\LIB_OTP_BURN.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\LIB_OTP_Common.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\LIB_OTP_CRC.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\LIB_OTP_Function.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\LIB_OTP_Type_Syntax.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\trunk\Other_WaitForClassify\VBT_LIB_OTP.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\FreeRunClk_TDR_TRUE_32Clk_8Idle.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\nWire_JTAG.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\nWire_JTAG_BitField.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\nWire_SPMI.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\nWire_SPMI_BitField.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\SGPIOBF.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\SPI.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\SPMI.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\SPMIBF.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Expected\IGLink\xml_Files\UART_x3_RX.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\AHB_register_map_back.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\Bin_Table.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\Flow_Init_EnableWd.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\Flow_Init_Flows.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\Flow_LCKBit_CHECK.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\Flow_OTP_ECIDnCRC_Burn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\Flow_OTP_PostBurn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\Flow_OTP_PrePostBurn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\OTP_register_map_back.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\PatSets_OTP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\PortMap.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\QQ_LimitSheet.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\TestInst_Common.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\TestInst_OTP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\ExtraSheets\TIMESET_PMIC_Dummy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_BI_SI_1.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_BI_SI_2.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_IO_SI_1.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_JT_SI_1.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_JT_SI_2.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_JT_SI_3.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_JT_SI_AHB_1.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_JT_SI_AHB_2.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_JT_SI_MBIST_1.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_SC_SI_1.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_SC_SI_CH_1.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_SC_SI_CH_2.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_SC_SI_TSU_1.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\K\ProjectName\TimeSet\TIMESET_XXXXX_C_SC_SI_TSU_2.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\DATALOG_HEADER.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\Exec_IP_Module.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\LibTestNameGrp7.cls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\LIB_Common.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\LIB_Common_GlobalConstant.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\LIB_EEPROM.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\LIB_Globals_Generic.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\LIB_TName.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\VBT_000_Capital_ReDefiner.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\VBT_LIB_Common.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\VBT_LIB_DebugFunc.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\VBT_LIB_DebugPrint.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\VBT_LIB_Nwire_WriteRead.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\VBT_LIB_Nwire_WriteRead_SPMI.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Common\VBT_LIB_Spotcal.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_DC\VBT_LIB_DC_Conti_PMIC.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_DC\VBT_LIB_DC_IDS_PMIC.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_DC\VBT_LIB_DC_Leak_PMIC.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Digital\LIB_Digital_Shmoo.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Digital\LIB_Digital_Shmoo_Setup.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Digital\VBT_LIB_Digital_Functional_T.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_Digital\VBT_LIB_Digital_Shmoo.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_DSP\DSP_GlobalVariables.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_DSP\Dsp_Module_Common.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\Library_DSP\Dsp_Module_MegaCell.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\LimitSheet\CurrentLimit.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\LimitSheet\LibLimitSet.cls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\LimitSheet\QQ_LimitSheet.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\LimitSheet\UpdateLimit.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\LimitSheet\VBT_LIB_TestLimit.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\AHB_register_map.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\DSP_OTP_LIB.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\Flow_Init_Flows.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\Flow_LCKBit_CHECK.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\Flow_OTP_ECIDnCRC_Burn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\Flow_OTP_PostBurn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\Flow_OTP_PrePostBurn.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\LIB_OTP_BURN.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\LIB_OTP_Common.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\LIB_OTP_CRC.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\LIB_OTP_Function.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\LIB_OTP_Type_Syntax.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\OTP_register_map.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\PatSets_OTP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\TestInst_OTP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\Input\LibBas_PMIC\PMIC\OTP\VBT_LIB_OTP.bas">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v10.00_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v10.10_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v10.20_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v3.60_j750.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v5.30_flex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v8.10_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v8.20_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v8.30_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\IGXLSheetsVersion\v9.00_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v10.00_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v10.10_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v10.20_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v3.60_j750.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v5.30_flex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v8.10_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v8.20_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v8.30_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\v9.00_ultraflex.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\bin.Manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\cmp.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\diff.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\diff3.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\libgcc_s_seh-1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\libiconv2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\libintl3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\libstdc++-6.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\libwinpthread-1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\mingwm10.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\plugins\accessible\qtaccessiblewidgets.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\plugins\codecs\qcncodecs4.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\plugins\codecs\qjpcodecs4.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\plugins\codecs\qkrcodecs4.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\plugins\codecs\qtwcodecs4.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\plugins\platforms\qwindows.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\plugins\printsupport\windowsprintersupport.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\Qt5Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\Qt5Gui.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\Qt5PrintSupport.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\Qt5Widgets.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\README-Qt.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\README-Utilities.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\regex2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\sdiff.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\bin\sed.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\ChangeLog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\COPYING.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\DIFF-EXT-LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\diff_ext_for_kdiff3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\diff_ext_for_kdiff3_64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\kdiff3.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KDiff3\README_WIN.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KDiff3\kdiff3.exe.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KDiff3\qt.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Demo\Expected\IGLink\xml_Files\FRC.pa">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Expected\IGLink\xml_Files\FRCRef.pa">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Expected\IGLink\xml_Files\FRCRef_differential.pa">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\CPU_BIST\PP_XXXXX_C_FULP_BI_XXXX_BST_JTG_UNS_ALLFRV_SI_MBIST_BYP_1_A0_1908121855.PAT.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\CPU_SCAN\PP_XXXXX_C_PL00_CH_CL00_SAA_COM_AUT_ALLFRV_SI_1_A0_1908130046.PAT.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\CPU_SCAN\PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_PL00_4_A0_1909152233.PAT.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\CPU_SCAN\PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_PL00_1_A0_1908130046.PAT.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\CPU_SCAN\PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TSU_1_A0_1908130046.PAT.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\HARD_IP\PP_XXXXX_C_FULP_IO_XXXX_BSR_JTG_HIZ_ALLFRV_SI_HIGHZ_1_A0_1908121850.ATP.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\HARD_IP\PP_XXXXX_C_FULP_IO_XXXX_BSR_JTG_HIZ_ALLFRV_SI_HIGHZ_1_A0_1908121850.PAT.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\HARD_IP\PP_XXXXX_C_FULP_IO_XXXX_BSR_JTG_UNS_ALLFRV_SI_VIH_1_A0_1908121850.ATP.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\HARD_IP\PP_XXXXX_C_FULP_IO_XXXX_BSR_JTG_UNS_ALLFRV_SI_VIH_1_A0_1908121850.PAT.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\K\ProjectName\HARD_IP\PP_XXXXX_C_FULP_JT_XXXX_WIR_JTG_UNS_ALLFRV_SI_IDCODE_1_A0_1908121850.PAT.gz">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\ProjectName_A0_otp_AVA.otp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\ProjectName_A0_OTP_register_map.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\ProjectName_A0_Pattern_List_Ext_20190823.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\ProjectName_A0_scgh_file#1_20200207.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\ProjectName_A0_VBTPOP_Gen_tool_MP10P_BuckSW_UVI80_DiffMeter_20200430.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\ProjectName_A1_TestPlan_20220226.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\Input\Setting.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="IGDataXML\IGXLSheetsVersion\IGXLSheets.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IGDataXML\SheetClassMapping\IGXL.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\CommonLib\CommonLib.csproj">
+      <Project>{8eead19d-ead8-4a6d-819c-ac47b59a08f1}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\IgxlData\IgxlData.csproj">
+      <Project>{e1557014-bb6d-41bc-92f6-877002282ca1}</Project>
+      <Name>IgxlData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PmicAutogen\PmicAutogen.csproj">
+      <Project>{d465f410-903d-41dd-81de-59f731fdb19b}</Project>
+      <Name>PmicAutogen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

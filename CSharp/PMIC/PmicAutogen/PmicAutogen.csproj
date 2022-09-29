@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D465F410-903D-41DD-81DE-59F731FDB19B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PmicAutogen</RootNamespace>
+    <AssemblyName>PmicAutogen</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Singleton\CharSetupSingleton.cs" />
+    <Compile Include="UI\VDDRefRow.cs" />
+    <Compile Include="UI\VDDRefWindow.xaml.cs">
+      <DependentUpon>VDDRefWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ViewModelMain.cs" />
+    <Page Include="Config\ProjectConfig\ProjectConfigSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PmicMainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Config\NamingRule\ScanConfigFileReader.cs" />
+    <Compile Include="Config\ProjectConfig\ProjectConfigSetting.xaml.cs">
+      <DependentUpon>ProjectConfigSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Config\ProjectConfig\ProjectConfigSettingReader.cs" />
+    <Compile Include="Config\ProjectConfig\ProJectConfigSheetReader.cs" />
+    <Compile Include="Config\ProjectConfig\ProjectConfigSingleton.cs" />
+    <Compile Include="Config\SheetConfigReader.cs" />
+    <Compile Include="GenerateIgxl\Basic\BasicMain.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenAC\AcSpecsMain.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenContiVbt\VbtComment.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenContiVbt\VbtDictionaryReader.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenContiVbt\VbtParser.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\Base\DcContiConst.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\Base\DcContiTestBase.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\Base\DcContiTestOpenShortAnalogPmic.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\Base\DcContiTestOpenShortIoPmic.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\Base\DcContiTestOpenShortPowerPmic.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\Base\DcForceCondition.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\Base\DcTestLimit.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\Base\RelayStatus.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenConti\DcContiMain.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDcTest\DcTestMain.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDcTest\Writer\DcTestBinTableWriter.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDcTest\Writer\DcTestFlowWriter.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDcTest\Writer\DcTestInstanceWriter.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDcTest\Writer\DcTestWriter.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDc\DcInitial\DcCategory.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDc\DcInitial\DcCategoryType.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDc\DcInitial\DcCatInit.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDc\PowerOverWrite\PowerOverWrite.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenDc\PowerOverWrite\PowerOverWriteRow.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenIds\IdsMain.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenLeakage\LeakageMain.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenLevel\LevelMain.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenPatSet\PatSetGenerator.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenPatSet\PatSetStatus.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenPatSet\SubPatInfo.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenTimeSet\TimesetChecker.cs" />
+    <Compile Include="GenerateIgxl\Basic\GenTimeSet\TimeSetGenerator.cs" />
+    <Compile Include="GenerateIgxl\MainBase.cs" />
+    <Compile Include="GenerateIgxl\Mbist\MbistMain.cs" />
+    <Compile Include="GenerateIgxl\Mbist\Writer\MbistBinTableWriter.cs" />
+    <Compile Include="GenerateIgxl\Mbist\Writer\MbistCharacterization.cs" />
+    <Compile Include="GenerateIgxl\Mbist\Writer\MbistFlowTableWriter.cs" />
+    <Compile Include="GenerateIgxl\Mbist\Writer\MbistInstanceWriter.cs" />
+    <Compile Include="GenerateIgxl\Mbist\Writer\MbistPatSetWriter.cs" />
+    <Compile Include="GenerateIgxl\OTP\OtpMain.cs" />
+    <Compile Include="GenerateIgxl\OTP\Reader\OTPDefaultReglist.cs" />
+    <Compile Include="GenerateIgxl\OTP\Reader\OTPFileReader.cs" />
+    <Compile Include="GenerateIgxl\OTP\Reader\OtpRegister.cs" />
+    <Compile Include="GenerateIgxl\OTP\Writer\SetJATGPinName.cs" />
+    <Compile Include="GenerateIgxl\OTP\Writer\WriterAHBRegisterMap.cs" />
+    <Compile Include="GenerateIgxl\OTP\Writer\WriterOTPRegisterMap.cs" />
+    <Compile Include="GenerateIgxl\OTP\Writer\WriterOTPSetup.cs" />
+    <Compile Include="GenerateIgxl\PmicGenerator.cs" />
+    <Compile Include="GenerateIgxl\PostAction\GenGlobal\GenCharacterizationGlobalSpec.cs" />
+    <Compile Include="GenerateIgxl\PostAction\GenGlobal\GenVddLevelsXSeqGlobalSpec.cs" />
+    <Compile Include="GenerateIgxl\PostAction\GenJob\JobMain.cs" />
+    <Compile Include="GenerateIgxl\PostAction\GenMainFlow\MainFlowMain.cs" />
+    <Compile Include="GenerateIgxl\PostAction\GenTestNumber\Base\TestNumberBase.cs" />
+    <Compile Include="GenerateIgxl\PostAction\GenTestNumber\Business\TestNumberSheetReader.cs" />
+    <Compile Include="GenerateIgxl\PostAction\GenTestNumber\TestNumberMain.cs" />
+    <Compile Include="GenerateIgxl\PostAction\ModifyChannelMap\ChannelMapPostMain.cs" />
+    <Compile Include="GenerateIgxl\PostAction\PostActionMain.cs" />
+    <Compile Include="GenerateIgxl\PostAction\PostCheck\DuplicateInstanceChecker.cs" />
+    <Compile Include="GenerateIgxl\PostAction\SortPinMap\SortPinMap.cs" />
+    <Compile Include="GenerateIgxl\PostAction\SPMI\SPMIMain.cs" />
+    <Compile Include="GenerateIgxl\PreAction\PreActionMain.cs" />
+    <Compile Include="GenerateIgxl\PreAction\Reader\JobMapReader.cs" />
+    <Compile Include="GenerateIgxl\PreAction\Reader\ReadBasLib\BasMain.cs" />
+    <Compile Include="GenerateIgxl\PreAction\Writer\GenBinTable\BinTableMain.cs" />
+    <Compile Include="GenerateIgxl\PreAction\Writer\GenChannelMap\ChannelMapMain.cs" />
+    <Compile Include="GenerateIgxl\PreAction\Writer\GenPinMap\PinMapMain.cs" />
+    <Compile Include="GenerateIgxl\PreAction\Writer\GenPinMap\PortMapModify\PortMapModifier.cs" />
+    <Compile Include="GenerateIgxl\Scan\ScanMain.cs" />
+    <Compile Include="GenerateIgxl\Scan\Writer\ScanBinTableWriter.cs" />
+    <Compile Include="GenerateIgxl\Scan\Writer\ScanCharacterization.cs" />
+    <Compile Include="GenerateIgxl\Scan\Writer\ScanFlowTableWriter.cs" />
+    <Compile Include="GenerateIgxl\Scan\Writer\ScanInstanceWriter.cs" />
+    <Compile Include="GenerateIgxl\Scan\Writer\ScanPatsetWriter.cs" />
+    <Compile Include="GenerateIgxl\Scan\Writer\ScanWriter.cs" />
+    <Compile Include="GenerateIgxl\Scan\Writer\SetNop.cs" />
+    <Compile Include="GenerateIgxl\VbtGenTool\Checker\AhbRegisterChecker.cs" />
+    <Compile Include="GenerateIgxl\VbtGenTool\Checker\BitFieldChecker.cs" />
+    <Compile Include="GenerateIgxl\VbtGenTool\Checker\PatternChecker.cs" />
+    <Compile Include="GenerateIgxl\VbtGenTool\Checker\PinNameChecker.cs" />
+    <Compile Include="GenerateIgxl\VbtGenTool\VbtGenMain.cs" />
+    <Compile Include="InputPackages\Base\ExcelInput.cs" />
+    <Compile Include="InputPackages\Base\Input.cs" />
+    <Compile Include="InputPackages\InputPackage.cs" />
+    <Compile Include="InputPackages\InputPackageAutomation.cs" />
+    <Compile Include="InputPackages\Inputs\InputFileType.cs" />
+    <Compile Include="InputPackages\Inputs\InputOTPRegisterMap.cs" />
+    <Compile Include="InputPackages\Inputs\InputPatternListCsv.cs" />
+    <Compile Include="InputPackages\Inputs\InputScgh.cs" />
+    <Compile Include="InputPackages\Inputs\InputTestPlan.cs" />
+    <Compile Include="InputPackages\Inputs\InputVBTGenTool.cs" />
+    <Compile Include="Inputs\CopyLib\CopyLibFiles.cs" />
+    <Compile Include="Inputs\CopyXml\CopyNwireXmlFiles.cs" />
+    <Compile Include="Inputs\CopyXml\TesterConfigPinType.cs" />
+    <Compile Include="Inputs\CopyXml\TesterConfigRowItem.cs" />
+    <Compile Include="Inputs\CopyXml\TesterConfigTypeItem.cs" />
+    <Compile Include="Inputs\OtpFiles\OtpManager.cs" />
+    <Compile Include="Inputs\PatternList\PatternListMap.cs" />
+    <Compile Include="Inputs\PatternList\PatternListReader.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Base\IProdCharItem.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Base\PatternWithMode.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Base\ProdCharRow.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Base\ProdCharRowMbist.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Base\ProdCharRowScan.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Base\ScanNopType.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Business\MbistPatsetConstructor.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Business\ProdCharPatsetConstructor.cs" />
+    <Compile Include="Inputs\ScghFile\ProChar\Business\ScanPatsetConstructor.cs" />
+    <Compile Include="Inputs\ScghFile\Reader\ProdCharSheet.cs" />
+    <Compile Include="Inputs\ScghFile\Reader\ProdCharSheetReader.cs" />
+    <Compile Include="Inputs\ScghFile\Reader\ProdCharSheetRow.cs" />
+    <Compile Include="Inputs\ScghFile\ScghFileManager.cs" />
+    <Compile Include="Inputs\Setting\BinNumber\BinNumberRuleCondition.cs" />
+    <Compile Include="Inputs\Setting\BinNumber\BinNumberRuleRow.cs" />
+    <Compile Include="Inputs\Setting\BinNumber\BinNumberSingleton.cs" />
+    <Compile Include="Inputs\Setting\BinNumber\EnumBinNumDefBlock.cs" />
+    <Compile Include="Inputs\Setting\BinNumber\Reader\BinNumberRangeReader.cs" />
+    <Compile Include="Inputs\Setting\BinNumber\SoftBinRangeData.cs" />
+    <Compile Include="Inputs\Setting\SettingManager.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\AhbRegisterMapReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\BscanCharReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTestConti\DcTestContinuityReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTestConti\DcTestContiRow.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTestConti\DcTestContiSheet.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTestConti\DcTestContiSheetLimit.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\Analog_DigCap.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\Analog_Src.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\CurrentRange.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\ForceClass.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\ForceCondition.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\HardipCharSetup.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\HardIpPattern.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\MeasLimit.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\MeasPin.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\MeasType.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\MiscInfo.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\PatChildRow.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\PatSubChildRow.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\PatternRow.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\SortLimitPin.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\SweepCode.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\TestPlanRow.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\TestPlanSequence.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\Base\TimeSetUsed.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\PatternClass.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\TestPlanPatParser.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\TestPlanReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\TestPlanSheet.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\DcTest\TestPlanSheetPatPreprocess.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\IfoldPowerTableReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\IoLevelsReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\IoPinGroupReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\IoPinMapReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\OTPSetupReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\PmicIdsReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\PmicLeakageReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\PortDefineReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\PowerOverWriteReader.cs" />
+    <Compile Include="Inputs\TestPlan\Reader\VDDLevelsReader.cs" />
+    <Compile Include="Inputs\TestPlan\SheetStructureManager.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanManager.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Base\PreCheckBase.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckAhbRegisterMap.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckBscanChar.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckChannelMap.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckDcTestContinuity.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckGenMainFlow.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckHardip.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckIfoldPowerTable.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckIoLevels.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckIoPinGroup.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckOtpSetup.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckPinMap.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckPmicIds.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckPmicLeakage.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckPortDefine.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckPowerOverWrite.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanPreCheck\Sheet\PreCheckVddLevels.cs" />
+    <Compile Include="Inputs\TestPlan\TestPlanSetValidation\SetValidtionManager.cs" />
+    <Compile Include="Inputs\VbtGenTool\Reader\TestParameterReader.cs" />
+    <Compile Include="Inputs\VbtGenTool\Reader\VbtGenTestPaneReader.cs" />
+    <Compile Include="Inputs\VbtGenTool\VbtGenToolManager.cs" />
+    <Compile Include="Local\Const\Category.cs" />
+    <Compile Include="Local\Const\PmicConst.cs" />
+    <Compile Include="Local\Const\TimeSetConst.cs" />
+    <Compile Include="Local\FolderStructure.cs" />
+    <Compile Include="Local\InputFiles.cs" />
+    <Compile Include="Local\LocalSpecs.cs" />
+    <Compile Include="Local\StaticOtp.cs" />
+    <Compile Include="Local\StaticScgh.cs" />
+    <Compile Include="Local\StaticSetting.cs" />
+    <Compile Include="Local\StaticTestPlan.cs" />
+    <Compile Include="Local\StaticVbtGenTool.cs" />
+    <Compile Include="Local\TestProgram.cs" />
+    <Compile Include="Local\Version\SrcInfoRow.cs" />
+    <Compile Include="Local\Version\VersionControl.cs" />
+    <Compile Include="PmicMainWindow.xaml.cs">
+      <DependentUpon>PmicMainWindow.xaml</DependentUpon>
+      <SubType>
+      </SubType>
+    </Compile>
+    <Page Include="UI\VDDRefWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\Config.xlsx" />
+    <EmbeddedResource Include="IGXLConfig\SimulatedConfigTemplate.tmp" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <EmbeddedResource Include="HelpFiles\Setting.xlsx" />
+    <EmbeddedResource Include="Protocol\FRC.pa" />
+    <EmbeddedResource Include="Protocol\FRCRef.pa" />
+    <EmbeddedResource Include="Protocol\FRCRef_differential.pa" />
+    <EmbeddedResource Include="Setting\Setting.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\CommonLib\CommonLib.csproj">
+      <Project>{8eead19d-ead8-4a6d-819c-ac47b59a08f1}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\CommonReadLib\CommonReaderLib.csproj">
+      <Project>{99CD234B-F122-474E-93CE-794833C07565}</Project>
+      <Name>CommonReaderLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\IgxlData\IgxlData.csproj">
+      <Project>{e1557014-bb6d-41bc-92f6-877002282ca1}</Project>
+      <Name>IgxlData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\MyWpf\MyWpf.csproj">
+      <Project>{535aba9c-2ff4-486d-b566-e9a0ff9428c7}</Project>
+      <Name>MyWpf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\folder.png" />
+    <Resource Include="Resources\play.png" />
+    <Resource Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\NamingRule\Scan_Config.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="IGXLConfig\SimulatedConfig.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="IGXLConfig\SimulatedConfigTypeMapping.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\FreeRunClk_TDR_TRUE_32Clk_8Idle.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\nWire_JTAG.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\nWire_JTAG_BitField.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\nWire_SPMI.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\nWire_SPMI_BitField.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\SGPIOBF.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\SPI.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\SPMI.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\SPMIBF.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Protocol\UART_x3_RX.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

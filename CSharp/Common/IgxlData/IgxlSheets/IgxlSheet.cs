@@ -1,73 +1,32 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
-using Microsoft.Office.Interop.Excel;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
 {
     [Serializable]
     [DebuggerDisplay("{SheetName}")]
-    public abstract class IgxlSheet : ICloneable
+    public abstract class IgxlSheet
     {
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
-
-        #region Field
-
-        protected StreamWriter IgxlWriter;
         protected string IgxlSheetContext;
-
-        #endregion
-
-        #region Property
+        protected StreamWriter IgxlWriter;
 
         public string SheetName { get; set; }
         public string IgxlSheetName { get; set; }
         public string JobName { get; set; }
 
-        #endregion
-
-        #region Constructor
-
-        protected IgxlSheet(Worksheet sheet)
-        {
-            IgxlSheetContext = sheet.Cells[1, 1].Text;
-            SheetName = sheet.Name;
-        }
-
-        protected IgxlSheet(ExcelWorksheet sheet)
-        {
-            IgxlSheetContext = sheet.Cells[1, 1].Text;
-            SheetName = sheet.Name;
-        }
-
-        protected IgxlSheet(string sheetName)
-        {
-            SheetName = sheetName;
-        }
-
-        #endregion
-
-        #region Member function
-
         protected void GetStreamWriter(string fileName)
         {
             IgxlWriter = new StreamWriter(fileName);
         }
-
-        protected abstract void WriteHeader();
-
-        protected abstract void WriteColumnsHeader();
-
-        protected abstract void WriteRows();
 
         public abstract void Write(string fileName, string version = "");
 
@@ -194,7 +153,7 @@ namespace IgxlData.IgxlSheets
                 if (file.EndsWith("_ultraflex.xml", StringComparison.CurrentCultureIgnoreCase))
                 {
                     var xs = new XmlSerializer(typeof(IGXLVersion));
-                    var igxlConfig = (IGXLVersion) xs.Deserialize(File.OpenRead(file));
+                    var igxlConfig = (IGXLVersion)xs.Deserialize(File.OpenRead(file));
                     foreach (var sheetItemClass in igxlConfig.Sheets)
                     {
                         var sheetName = sheetItemClass.sheetName;
@@ -219,7 +178,7 @@ namespace IgxlData.IgxlSheets
             return igxlConfigDic;
         }
 
-        protected static void SetField(SheetInfo igxlSheetsVersion, int i, string[] arr)
+        protected void SetField(SheetInfo igxlSheetsVersion, int i, string[] arr)
         {
             if (igxlSheetsVersion.Field != null)
                 foreach (var item in igxlSheetsVersion.Field)
@@ -227,7 +186,7 @@ namespace IgxlData.IgxlSheets
                         arr[item.columnIndex] = item.fieldName;
         }
 
-        protected static void SetColumns(SheetInfo igxlSheetsVersion, int i, string[] arr)
+        protected void SetColumns(SheetInfo igxlSheetsVersion, int i, string[] arr)
         {
             if (igxlSheetsVersion.Columns.Column != null)
                 foreach (var item in igxlSheetsVersion.Columns.Column)
@@ -241,7 +200,7 @@ namespace IgxlData.IgxlSheets
                 }
         }
 
-        protected static void WriteHeader(string[] arr, StreamWriter sw)
+        protected void WriteHeader(string[] arr, StreamWriter sw)
         {
             if (arr.Any(x => !string.IsNullOrEmpty(x)))
                 sw.WriteLine(string.Join("\t", arr).TrimEnd('\t'));
@@ -249,8 +208,7 @@ namespace IgxlData.IgxlSheets
                 sw.WriteLine('\t');
         }
 
-        protected static void SetRelativeColumn(SheetInfo igxlSheetsVersion, int i, string[] arr,
-            int relativeColumnIndex)
+        protected void SetRelativeColumn(SheetInfo igxlSheetsVersion, int i, string[] arr, int relativeColumnIndex)
         {
             if (igxlSheetsVersion.Columns.RelativeColumn != null)
                 foreach (var item in igxlSheetsVersion.Columns.RelativeColumn)
@@ -289,6 +247,37 @@ namespace IgxlData.IgxlSheets
             return -1;
         }
 
-        #endregion
+        protected IgxlSheet(Worksheet sheet)
+        {
+            IgxlSheetContext = sheet.Cells[1, 1].Text;
+            SheetName = sheet.Name;
+        }
+
+        protected IgxlSheet(ExcelWorksheet sheet)
+        {
+            IgxlSheetContext = sheet.Cells[1, 1].Text;
+            SheetName = sheet.Name;
+        }
+
+        protected IgxlSheet(string sheetName)
+        {
+            SheetName = sheetName;
+        }
+
+        protected List<IgxlRow> AddBackUpRows(List<IgxlRow> rows)
+        {
+            var mainList = rows.Where(x => !x.IsBackup).ToList();
+            var backupList = rows.Where(x => x.IsBackup).ToList();
+            if (backupList.Any())
+            {
+                var type = rows.First().GetType();
+                var empty = (IgxlRow)Activator.CreateInstance(type);
+                for (int i = 0; i < 10; i++)
+                { mainList.Add(empty); }
+                mainList.AddRange(backupList);
+            }
+            return mainList;
+        }
     }
+
 }

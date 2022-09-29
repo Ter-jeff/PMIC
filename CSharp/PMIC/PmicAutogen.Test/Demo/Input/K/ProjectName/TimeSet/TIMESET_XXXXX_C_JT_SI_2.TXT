@@ -1,0 +1,68 @@
+DFF 1.4	Time Sets (Basic)																
+																	
+	Timing Mode:	Single		Master Timeset Name:													
+	Time Domain:																
+																	
+		Cycle	Pin Group			Data		Drive				Compare			Edge Resolution		
+	Time Set	Period	Name	Clock Period	Setup	Src	Fmt	On	Data	Return	Off	Mode	Open	Close	Mode	Comment	
+	tsetJTAG	41.6E-09	DFT_CTRL1		i/o	PAT	RL	0	20.8E-09	33.3E-09		Off			Auto		
+	tsetJTAG	41.6E-09	DFT_CTRL0		i/o	PAT	NR	0	0			Off			Auto		
+	tsetJTAG	41.6E-09	GPIO2		i/o	PAT	NR	0	0			Off			Auto		
+	tsetJTAG	41.6E-09	GPIO3		i/o	PAT	NR	0	0			Off			Auto		
+	tsetJTAG	41.6E-09	GPIO4		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	CPU_TRIGGER0_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	CPU_TRIGGER1_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPU_TRIGGER0_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPU_TRIGGER1_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	UVWARN_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	VDD_BOOST_UVLO_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	DBLCLICK_DET		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	BUTTON1		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	BUTTON2		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	BUTTON3		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	BUTTON4		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	BUTTONO1		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	BUTTONO2		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	BUTTONO3		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	RESET_IN1		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	RESET_IN2		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	RESET_IN3		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SHDN		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	CRASH_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	FAULT_OUT_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	RESET_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SYS_ALIVE		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SGPIO_READY_REQ		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	ACTIVE_READY		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SLEEP_32K		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	OUT_32K		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SPMI_SCLK		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SPMI_SDATA		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SGPIO_SCLK		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SGPIO_SDATA		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO1		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO5		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO6		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO7		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO8		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO9		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO10		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO11		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO12		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO13		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO14		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO15		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO16		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO17		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO18		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO19		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO20		i/o	PAT	NR	0	0			Off			Auto		
+	tsetJTAG	41.6E-09	GPIO21		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO22		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO23		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO24		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO25		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO26		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	GPIO27		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	SCRASH_L		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		
+	tsetJTAG	41.6E-09	REQUEST_DFU		i/o	PAT	NR	0	0.0		0	Edge	32.0E-09		Auto		

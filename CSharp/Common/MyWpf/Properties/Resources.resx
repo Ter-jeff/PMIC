@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,102 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddQuickAccessCommandName" xml:space="preserve">
+    <value>AddToQuickAccess</value>
+  </data>
+  <data name="AddQuickAccessCommandTooltip" xml:space="preserve">
+    <value>Add to quick access</value>
+  </data>
+  <data name="AutoHideRibbonDescription" xml:space="preserve">
+    <value>Hide ribbon. Click on the application bar at the top to display it.</value>
+  </data>
+  <data name="AutoHideRibbonTitle" xml:space="preserve">
+    <value>Auto-hide ribbon</value>
+  </data>
+  <data name="BlendInRibbonCommandName" xml:space="preserve">
+    <value>BlendInRibbon</value>
+  </data>
+  <data name="BlendInRibbonCommandTooltip" xml:space="preserve">
+    <value>Blend in ribbon</value>
+  </data>
+  <data name="CloseAppMenuCommandName" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="CloseAppMenuCommandTooltip" xml:space="preserve">
+    <value>CloseAppMenu</value>
+  </data>
+  <data name="CloseCommandName" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CloseCommandTooltip" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ExpressionNotProperty" xml:space="preserve">
+    <value>Expression is not a property.</value>
+  </data>
+  <data name="HelpCommandName" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HelpCommandTooltip" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="MaximizeCommandName" xml:space="preserve">
+    <value>Maximize</value>
+  </data>
+  <data name="MaximizeCommandTooltip" xml:space="preserve">
+    <value>Maximize</value>
+  </data>
+  <data name="MinimizeCommandName" xml:space="preserve">
+    <value>Minimize</value>
+  </data>
+  <data name="MinimizeCommandTooltip" xml:space="preserve">
+    <value>Minimize</value>
+  </data>
+  <data name="NotMemberAccessExpression" xml:space="preserve">
+    <value>Cannot access member in Expression.</value>
+  </data>
+  <data name="OpenAppMenuCommandName" xml:space="preserve">
+    <value>OpenAppMenu</value>
+  </data>
+  <data name="OpenAppMenuCommandTooltip" xml:space="preserve">
+    <value>Open the application menu</value>
+  </data>
+  <data name="OpenAppMenuHeader" xml:space="preserve">
+    <value>FILE</value>
+  </data>
+  <data name="OpenRibbonOptionsCommandName" xml:space="preserve">
+    <value>OpenRibbonOptions</value>
+  </data>
+  <data name="OpenRibbonOptionsCommandTooltip" xml:space="preserve">
+    <value>Ribbon visibility options</value>
+  </data>
+  <data name="RemoveQuickAccessCommandName" xml:space="preserve">
+    <value>RemoveFromQuickAccess</value>
+  </data>
+  <data name="RemoveQuickAccessCommandTooltip" xml:space="preserve">
+    <value>Remove from quick access</value>
+  </data>
+  <data name="RestoreDownCommandName" xml:space="preserve">
+    <value>RestoreDown</value>
+  </data>
+  <data name="RestoreDownCommandTooltip" xml:space="preserve">
+    <value>Restore down</value>
+  </data>
+  <data name="ShowTabsAndCommandsDescription" xml:space="preserve">
+    <value>Permanently displays the ribbons tabs and commands.</value>
+  </data>
+  <data name="ShowTabsAndCommandsTitle" xml:space="preserve">
+    <value>Show tabs and commands</value>
+  </data>
+  <data name="ShowTabsDescription" xml:space="preserve">
+    <value>Displays only the tabs. Click on a tab to displays its commands.</value>
+  </data>
+  <data name="ShowTabsTitle" xml:space="preserve">
+    <value>Show tabs</value>
+  </data>
 </root>

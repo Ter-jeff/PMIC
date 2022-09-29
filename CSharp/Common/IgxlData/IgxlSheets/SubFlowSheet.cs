@@ -1,10 +1,10 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
@@ -30,14 +30,12 @@ namespace IgxlData.IgxlSheets
 
         public FlowRows FlowRows { get; set; }
 
-        #region Member Function
 
         public void InsertRow(int index, FlowRows flowRows)
         {
             FlowRows.InsertRange(index, flowRows);
         }
 
-        // For Relay
         public void InsertRow(int index, FlowRow flowRow)
         {
             FlowRows.Insert(index, flowRow);
@@ -45,7 +43,6 @@ namespace IgxlData.IgxlSheets
 
         public void AddRow(FlowRow igxlItem)
         {
-            //throw new System.NotImplementedException();
             FlowRows.Add(igxlItem);
         }
 
@@ -72,7 +69,6 @@ namespace IgxlData.IgxlSheets
                     getFirst = true;
                 }
 
-                // the last row
                 if (idx == FlowRows.Count - 1 && getFirst)
                 {
                     groupEnd = FlowRows.Count;
@@ -82,21 +78,6 @@ namespace IgxlData.IgxlSheets
 
             for (var i = flowIndex; i < groupEnd; i++) flowRows.Add(FlowRows[i]);
             return flowRows;
-        }
-
-        protected override void WriteHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteColumnsHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteRows()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Write(string fileName, string version = "")
@@ -198,8 +179,8 @@ namespace IgxlData.IgxlSheets
                     arr[envIndex] = row.Env;
                     arr[opcodeIndex] = row.OpCode;
                     arr[parameterIndex] = row.Parameter;
-                    arr[tNameIndex] = row.Name;
-                    arr[tNumIndex] = row.Num;
+                    arr[tNameIndex] = row.TName;
+                    arr[tNumIndex] = row.TNum;
                     arr[loLimIndex] = row.LoLim;
                     arr[hiLimIndex] = row.HiLim;
                     arr[scaleIndex] = row.Scale;
@@ -264,8 +245,8 @@ namespace IgxlData.IgxlSheets
                     arr[5] = fr.Env;
                     arr[6] = fr.OpCode;
                     arr[7] = fr.Parameter;
-                    arr[8] = fr.Name;
-                    arr[9] = fr.Num;
+                    arr[8] = fr.TName;
+                    arr[9] = fr.TNum;
                     arr[10] = fr.LoLim;
                     arr[11] = fr.HiLim;
                     arr[12] = fr.Scale;
@@ -405,7 +386,5 @@ namespace IgxlData.IgxlSheets
                 return this;
             return null;
         }
-
-        #endregion
     }
 }

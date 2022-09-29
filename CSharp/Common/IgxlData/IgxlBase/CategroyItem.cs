@@ -1,13 +1,10 @@
-﻿namespace IgxlData.IgxlBase
+﻿using System.Diagnostics;
+
+namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{Name}")]
     public class CategoryInSpec
     {
-        #region Field
-
-        #endregion
-
-        #region Constructor
-
         public CategoryInSpec(string name, string typ, string min, string max)
         {
             Name = name;
@@ -20,16 +17,9 @@
         {
             Name = name;
         }
-
-        #endregion
-
-        #region Property
-
         public string Name { get; set; }
         public string Typ { get; set; }
         public string Min { get; set; }
         public string Max { get; set; }
-
-        #endregion
     }
 }

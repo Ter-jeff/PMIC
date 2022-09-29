@@ -1,6 +1,6 @@
 ﻿namespace IgxlData.IgxlBase
 {
-    public class WaveDefRow : IgxlItem
+    public class WaveDefRow : IgxlRow
     {
         //	Relative Offset	Primitive Parameters	Comment
 

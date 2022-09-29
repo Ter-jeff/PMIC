@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+	<?define ProductName = "PMIC Autogen AddIn" ?>
+	<?define ProductManufacturer = "Teradyne" ?>
+	<?define ProductUpgradeCode = "79B9AD7F-200C-4250-A814-F9A8F37E8B5B" ?>
+</Include>

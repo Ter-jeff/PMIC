@@ -1,9 +1,9 @@
 ﻿namespace IgxlData.IgxlBase
 {
-    public class PatSetRow
+    public class PatSetRow : IgxlRow
     {
-        public string ColumnA { get; set; }
         public string PatternSet { get; set; }
+        //old reversion
         public string TdGroup { get; set; }
         public string TimeDomain { get; set; }
         public string Enable { get; set; }

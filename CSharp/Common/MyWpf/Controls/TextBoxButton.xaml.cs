@@ -10,12 +10,9 @@ namespace MyWpf.Controls
     {
         public TextBoxButton()
         {
-            ImageSource = new BitmapImage(new Uri("pack://application:,,,/MyWpf;component/Resource/shell32_3191.ico"));
+            ImageSource = new BitmapImage(new Uri("pack://application:,,,/MyWpf;component/Resources/shell32_3191.ico"));
             InitializeComponent();
         }
-
-        public event EventHandler Click;
-        public event EventHandler TextChanged;
 
         public ImageSource ImageSource
         {
@@ -23,9 +20,9 @@ namespace MyWpf.Controls
             set { SetValue(ImageSourceProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for ImageSource.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageSourceProperty =
             DependencyProperty.Register("ImageSource", typeof(ImageSource), typeof(TextBoxButton), new PropertyMetadata(null));
+
         public Orientation Orientation
         {
             get { return (Orientation)GetValue(OrientationProperty); }
@@ -53,11 +50,15 @@ namespace MyWpf.Controls
         public static readonly DependencyProperty TextProperty =
               DependencyProperty.Register("Text", typeof(string), typeof(TextBoxButton), new PropertyMetadata(null));
 
+        public event EventHandler TextChanged;
+
         private void TextBoxButtonTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextChanged != null)
                 TextChanged(this, EventArgs.Empty);
         }
+
+        public event EventHandler Click;
 
         private void TextBoxButtonButton_Click(object sender, RoutedEventArgs e)
         {

@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace IgxlData.IgxlBase
 {
-    public class CharStepConst : IgxlItem
+    public class CharStepConst : IgxlRow
     {
         public const string ModeXShmoo = "X Shmoo";
         public const string ModeYShmoo = "Y Shmoo";
@@ -60,7 +60,7 @@ namespace IgxlData.IgxlBase
     }
 
     [Serializable]
-    public class CharStep : IgxlItem
+    public class CharStep : IgxlRow
     {
         #region Constructor
 

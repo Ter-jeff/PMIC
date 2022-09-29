@@ -1,38 +1,28 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
 {
     public class GlobalSpecSheet : IgxlSheet
     {
-        #region Property
-
         public List<GlobalSpec> GetGlobalSpecs()
         {
             return GlobalSpecsRows;
         }
-
-        #endregion
 
         public bool IsExist(string symbol)
         {
             return GlobalSpecsRows.Exists(x => x.Symbol.Equals(symbol, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        #region Field
-
         private const string SheetType = "DTGlobalSpecSheet";
         public List<GlobalSpec> GlobalSpecsRows;
-
-        #endregion
-
-        #region Constructor
 
         public GlobalSpecSheet(ExcelWorksheet sheet, bool isAddDefault = true)
             : base(sheet)
@@ -51,10 +41,6 @@ namespace IgxlData.IgxlSheets
                 AddDefaultRow();
             IgxlSheetName = IgxlSheetNameList.GlobalSpec;
         }
-
-        #endregion
-
-        #region Member Function
 
         public void AddRow(GlobalSpec globalSpec)
         {
@@ -113,7 +99,7 @@ namespace IgxlData.IgxlSheets
             AddRow(vphDefault);
         }
 
-        protected override void WriteHeader()
+        protected void WriteHeader()
         {
             const string headerLine =
                 "DTGlobalSpecSheet,version=2.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1\tGlobal Specs\t\t\t\t";
@@ -121,13 +107,13 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine("\t\t\t\t\t");
         }
 
-        protected override void WriteColumnsHeader()
+        protected void WriteColumnsHeader()
         {
             const string columnsName = "\tSymbol\tJob\tValue\tComment\t";
             IgxlWriter.WriteLine(columnsName);
         }
 
-        protected override void WriteRows()
+        protected void WriteRows()
         {
             foreach (var globalSpec in GlobalSpecsRows)
             {
@@ -211,7 +197,7 @@ namespace IgxlData.IgxlSheets
                     }
                     else
                     {
-                        arr = new[] {"\t"};
+                        arr = new[] { "\t" };
                     }
 
                     sw.WriteLine(string.Join("\t", arr));
@@ -220,7 +206,5 @@ namespace IgxlData.IgxlSheets
                 #endregion
             }
         }
-
-        #endregion
     }
 }

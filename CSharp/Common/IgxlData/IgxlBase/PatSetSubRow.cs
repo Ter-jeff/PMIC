@@ -1,6 +1,6 @@
 ﻿namespace IgxlData.IgxlBase
 {
-    public class PatSetSubRow : IgxlItem
+    public class PatSetSubRow : IgxlRow
     {
         #region Property
 

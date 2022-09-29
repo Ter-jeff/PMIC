@@ -1,0 +1,11 @@
+DTCharacterizationSheet,version=2.6:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Characterization
+	
+					Parameter		Range						Test Limits		Algorithm				Apply To			Device Margin			Adjust			Shmoo			Interpose Functions												Output				Output Destinations
+	Setup Name	Test Method	Step Name	Mode	Type	Name	Calc Field	From	To	Steps	Step Size	Perform Test	Low	High	Name	Arguments	Results Check	Transition	Pins	Pin Exec Mode	Time Sets	Contexts	Patterns	Instances	Backoff	Spec Name	From Setup	Axis Execution Order	Function	Arguments	Pre Setup	Arguments	Pre Step	Arguments	Pre Point	Arguments	Post Point	Arguments	Post Step	Arguments	Post Setup	Arguments	Format	Text File	Sheet	Suspend Datalog	Text File	Sheet	Datalog	Immediate Win	Output Win	Comment
+	Shmoo_1D_VDD_MAIN_UVI80	Retest	VDD_MAIN_UVI80	X Shmoo	Level	Vps	Step Size	0	0	10					Linear	6			VDD_MAIN_UVI80	Simultaneous								X-Y[-Z]											PrintShmooInfo	VDD_MAIN_UVI80			Enhanced	Disable	Disable	TRUE			Enable	Disable	Disable	
+	Shmoo_2D_VDD_MAIN_UVI80_vs_SCAN_PERIOD	Retest	VDD_MAIN_UVI80	X Shmoo	Level	Vps	Step Size	0	0	10					Linear	6			VDD_MAIN_UVI80	Simultaneous								X-Y[-Z]											PrintShmooInfo	VDD_MAIN_UVI80			Enhanced	Disable	Disable	TRUE			Enable	Disable	Disable	
+	Shmoo_2D_VDD_MAIN_UVI80_vs_SCAN_PERIOD	Retest	PERIOD	Y Shmoo	Global Spec	SCAN_Speed	Step Size	5000000	28000000	10					Linear	6				Simultaneous								X-Y[-Z]											PrintShmooInfo	CorePower			Enhanced	Disable	Disable	TRUE			Enable	Disable	Disable	
+	Shmoo_2D_VDD_MAIN_UVI80_vs_MBIST_PERIOD	Retest	VDD_MAIN_UVI80	X Shmoo	Level	Vps	Step Size	0	0	10					Linear	6			VDD_MAIN_UVI80	Simultaneous								X-Y[-Z]											PrintShmooInfo	VDD_MAIN_UVI80			Enhanced	Disable	Disable	TRUE			Enable	Disable	Disable	
+	Shmoo_2D_VDD_MAIN_UVI80_vs_MBIST_PERIOD	Retest	PERIOD	Y Shmoo	Global Spec	Mbist_Speed	Step Size	5000000	28000000	10					Linear	6				Simultaneous								X-Y[-Z]											PrintShmooInfo	CorePower			Enhanced	Disable	Disable	TRUE			Enable	Disable	Disable	
+	Shmoo_2D_SPMI	Retest	Axis_1	X Shmoo	Global Spec	SPMI_Speed	Step Size	5000000	60000000	20					Linear					Simultaneous								X-Y[-Z]															Enhanced			TRUE	Disable	Disable	Enable	Disable	Disable	
+	Shmoo_2D_SPMI	Retest	Axis_2	Y Shmoo	Global Spec	SPMIDataStrobe	Step Size	0.1	0.9	8					Linear					Simultaneous																										TRUE						

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using IgxlData.IgxlSheets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using IgxlData.IgxlBase;
-using IgxlData.IgxlSheets;
 
 namespace IgxlData.Others
 {
@@ -59,7 +59,7 @@ namespace IgxlData.Others
         private int GetDivideIndex(KeyValuePair<string, SubFlowSheet> flow)
         {
             var loopList = flow.Value.FlowRows.Where(x => x.OpCode != null)
-                .Select((v, i) => new {opcode = v.OpCode, index = i})
+                .Select((v, i) => new { opcode = v.OpCode, index = i })
                 .Where(x => Regex.IsMatch(x.opcode, "if|else|endif|for|next|test", RegexOptions.IgnoreCase)).ToList();
             var ifValue = 0;
             var forValue = 0;
@@ -88,12 +88,12 @@ namespace IgxlData.Others
 
         private FlowRow GetSubFlowCall(string subSheetName)
         {
-            return new FlowRow {OpCode = "Call", Parameter = subSheetName};
+            return new FlowRow { OpCode = "Call", Parameter = subSheetName };
         }
 
         private FlowRow GetReturnCall()
         {
-            return new FlowRow {OpCode = "Return"};
+            return new FlowRow { OpCode = "return" };
         }
 
         #region Field

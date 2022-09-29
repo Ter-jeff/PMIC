@@ -1,17 +1,16 @@
-﻿using System;
+﻿using IgxlData.IgxlSheets;
+using Ionic.Zip;
+using Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
-using IgxlData.IgxlBase;
-using IgxlData.IgxlSheets;
-using Microsoft.Office.Interop.Excel;
-using OfficeOpenXml;
-using Teradyne.Oasis.IGData;
 using Teradyne.Oasis.IGData.Utilities;
+using BinTableSheet = IgxlData.IgxlSheets.BinTableSheet;
 using PortMapSheet = IgxlData.IgxlSheets.PortMapSheet;
 
 namespace IgxlData.IgxlReader
@@ -85,7 +84,7 @@ namespace IgxlData.IgxlReader
             try
             {
                 var xs = new XmlSerializer(typeof(IGXL));
-                var sysData = (IGXL) xs.Deserialize(sr);
+                var sysData = (IGXL)xs.Deserialize(sr);
                 sr.Close();
                 result = sysData;
             }
@@ -95,6 +94,13 @@ namespace IgxlData.IgxlReader
             }
 
             return result;
+        }
+
+        public string GetCellText(string[] arr, int i)
+        {
+            if (i < arr.Length)
+                return arr[i];
+            return "";
         }
 
         public string GetCellText(ExcelWorksheet sheet, int row, int column)
@@ -184,7 +190,7 @@ namespace IgxlData.IgxlReader
             return GetIgxlSheet(sheet, sheetType);
         }
 
-        private IgxlSheet GetIgxlSheet(ExcelWorksheet sheet, SheetTypes sheetType)
+        public IgxlSheet GetIgxlSheet(ExcelWorksheet sheet, SheetTypes sheetType)
         {
             switch (sheetType)
             {
@@ -199,7 +205,7 @@ namespace IgxlData.IgxlReader
                 case SheetTypes.DTTimesetBasicSheet:
                     return new ReadTimeSetSheet().GetSheet(sheet);
                 case SheetTypes.DTChanMap:
-                    return new ReadChanMapSheet().ReadSheet(sheet);
+                    return new ReadChanMapSheet().GetSheet(sheet);
                 case SheetTypes.DTJobListSheet:
                     return new ReadJobListSheet().GetSheet(sheet);
                 case SheetTypes.DTGlobalSpecSheet:
@@ -253,7 +259,7 @@ namespace IgxlData.IgxlReader
                     index++;
                     if (line != null)
                     {
-                        var arr = line.Split(new[] {'\t'}, StringSplitOptions.None);
+                        var arr = line.Split(new[] { '\t' }, StringSplitOptions.None);
                         var cnt = 0;
                         foreach (var item in arr)
                         {
@@ -281,7 +287,7 @@ namespace IgxlData.IgxlReader
                     index++;
                     if (line != null)
                     {
-                        var arr = line.Split(new[] {'\t'}, StringSplitOptions.None);
+                        var arr = line.Split(new[] { '\t' }, StringSplitOptions.None);
                         var cnt = 0;
                         foreach (var item in arr)
                         {
@@ -342,38 +348,6 @@ namespace IgxlData.IgxlReader
         #endregion
 
         #region read *.txt
-
-        public List<IgxlSheet> GetIgxlSheets(string path, SheetTypes type)
-        {
-            var igxlSheets = new List<IgxlSheet>();
-            using (var zipArchive = ZipFile.Open(path, ZipArchiveMode.Read))
-            {
-                var zipArchiveEntries = zipArchive.Entries.ToList();
-                foreach (var zipArchiveEntry in zipArchiveEntries)
-                {
-                    var sheetName = Path.GetFileNameWithoutExtension(zipArchiveEntry.Name);
-                    if (sheetName != null)
-                    {
-                        var stream = zipArchiveEntry.Open();
-                        var firstLine = "";
-                        using (var sr = new StreamReader(stream))
-                        {
-                            firstLine = sr.ReadLine();
-                        }
-
-                        if (firstLine != null)
-                        {
-                            var sheetType = GetIgxlSheetType(firstLine);
-                            if (sheetType == type)
-                                igxlSheets.Add(CreateIgxlSheet(sheetName, zipArchiveEntry.Open(), sheetType));
-                        }
-                    }
-                }
-            }
-
-            return igxlSheets;
-        }
-
         public List<IgxlSheet> GetIgxlSheetsByFolder(string path, SheetTypes type)
         {
             var igxlSheets = new List<IgxlSheet>();
@@ -436,6 +410,9 @@ namespace IgxlData.IgxlReader
 
         public SheetTypes GetIgxlSheetType(string text)
         {
+            if (string.IsNullOrEmpty(text))
+                return SheetTypes.DTUnknown;
+
             if (Regex.IsMatch(text, SheetTypes.DTFlowtableSheet.ToString()))
                 return SheetTypes.DTFlowtableSheet;
             if (Regex.IsMatch(text, SheetTypes.DTTestInstancesSheet.ToString()))
@@ -478,31 +455,28 @@ namespace IgxlData.IgxlReader
             }
         }
 
-        public List<string> GetEnables(string text)
+        public List<string> GetEnables(string igxl)
         {
             var enables = new List<string>();
-            using (var zipArchive = ZipFile.Open(text, ZipArchiveMode.Read))
+            using (var zip = new ZipFile(igxl))
             {
-                var zipArchiveEntries = zipArchive.Entries.ToList();
-                foreach (var zipArchiveEntry in zipArchiveEntries)
+                var entries = zip.Entries.ToList();
+                foreach (var entry in entries)
                 {
-                    var sheetName = Path.GetFileNameWithoutExtension(zipArchiveEntry.Name);
+                    var sheetName = Path.GetFileNameWithoutExtension(entry.FileName);
                     if (sheetName != null)
                     {
-                        var stream = zipArchiveEntry.Open();
+                        var stream = entry.OpenReader();
                         var firstLine = "";
                         using (var sr = new StreamReader(stream))
                         {
                             firstLine = sr.ReadLine();
                         }
 
-                        if (firstLine != null)
-                        {
-                            stream = zipArchiveEntry.Open();
-                            var type = GetIgxlSheetType(firstLine);
-                            if (type == SheetTypes.DTFlowtableSheet)
-                                enables.AddRange(new ReadFlowSheet().GetEnables(stream, sheetName));
-                        }
+                        stream = entry.OpenReader();
+                        var type = GetIgxlSheetType(firstLine);
+                        if (type == SheetTypes.DTFlowtableSheet)
+                            enables.AddRange(new ReadFlowSheet().GetEnables(stream, sheetName));
                     }
                 }
             }
@@ -512,31 +486,28 @@ namespace IgxlData.IgxlReader
             return enables.OrderBy(x => x).ToList();
         }
 
-        public List<string> GetJobs(string text)
+        public List<string> GetJobs(string igxl)
         {
             var jobs = new List<string>();
-            using (var zipArchive = ZipFile.Open(text, ZipArchiveMode.Read))
+            using (var zip = new ZipFile(igxl))
             {
-                var zipArchiveEntries = zipArchive.Entries.ToList();
-                foreach (var zipArchiveEntry in zipArchiveEntries)
+                var entries = zip.Entries.ToList();
+                foreach (var entry in entries)
                 {
-                    var sheetName = Path.GetFileNameWithoutExtension(zipArchiveEntry.Name);
+                    var sheetName = Path.GetFileNameWithoutExtension(entry.FileName);
                     if (sheetName != null)
                     {
-                        var stream = zipArchiveEntry.Open();
+                        var stream = entry.OpenReader();
                         var firstLine = "";
                         using (var sr = new StreamReader(stream))
                         {
                             firstLine = sr.ReadLine();
                         }
 
-                        if (firstLine != null)
-                        {
-                            stream = zipArchiveEntry.Open();
-                            var type = GetIgxlSheetType(firstLine);
-                            if (type == SheetTypes.DTJobListSheet)
-                                jobs.AddRange(new ReadJobListSheet().GetJobs(stream, sheetName));
-                        }
+                        stream = entry.OpenReader();
+                        var type = GetIgxlSheetType(firstLine);
+                        if (type == SheetTypes.DTJobListSheet)
+                            jobs.AddRange(new ReadJobListSheet().GetJobs(stream, sheetName));
                     }
                 }
             }
@@ -544,6 +515,167 @@ namespace IgxlData.IgxlReader
             return jobs.Distinct().ToList();
         }
 
+        public SubFlowSheet GetSubFlowSheet(string name, Stream stream)
+        {
+            return new ReadFlowSheet().GetSheet(ConvertStreamToExcelSheet(name, stream));
+        }
+
+        public JobListSheet GetJobListSheet(string name, Stream stream)
+        {
+            return new ReadJobListSheet().GetSheet(ConvertStreamToExcelSheet(name, stream));
+        }
+
+        public BinTableSheet GetBinTableSheet(string name, Stream stream)
+        {
+            return new ReadBinTableSheet().GetSheet(ConvertStreamToExcelSheet(name, stream));
+        }
+
+        public IgxlSheet GetIgxlSheet(Stream stream, string sheetName, SheetTypes sheetType)
+        {
+            switch (sheetType)
+            {
+                case SheetTypes.DTFlowtableSheet:
+                    {
+                        return new ReadFlowSheet().GetSheet(stream, sheetName);
+                    }
+                case SheetTypes.DTTestInstancesSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadInstanceSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTLevelSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadLevelSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTPatternSetSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadPatSetSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTPatternSubroutineSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadPatSubroutineSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTTimesetBasicSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadTimeSetSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTBintablesSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadBinTableSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTChanMap:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadChanMapSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTJobListSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadJobListSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTGlobalSpecSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadGlobalSpecSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTACSpecSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadAcSpecSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTDCSpecSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadDcSpecSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTPinMap:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return new ReadPinMapSheet().GetSheet(sheet);
+                    }
+                case SheetTypes.DTPortMapSheet:
+                    {
+                        var sheet = ConvertStreamToExcelSheet(sheetName, stream);
+                        return GetPortMapSheet(sheet);
+                    }
+                case SheetTypes.DTUnknown:
+                    break;
+            }
+            return null;
+        }
         #endregion
+
+        public List<string> GetSites(string igxl)
+        {
+            var terChanMap = "";
+            var sites = new List<string>();
+            if (!File.Exists(igxl))
+                return sites;
+            using (var zip = new ZipFile(igxl))
+            {
+                var entries = zip.Entries.ToList();
+                foreach (var entry in entries)
+                {
+                    var sheetName = Path.GetFileNameWithoutExtension(entry.FileName);
+                    if (sheetName == "tl_WorkBookProperties_")
+                    {
+                        var stream = entry.OpenReader();
+                        var lines = new List<string>();
+                        using (var sr = new StreamReader(stream))
+                        {
+                            while (!sr.EndOfStream)
+                            {
+                                var line = sr.ReadLine();
+                                lines.Add(line);
+                            }
+                        }
+                        terChanMap = GetTerChanMap(lines);
+                        break;
+                    }
+                }
+            }
+
+            if (!string.IsNullOrEmpty(terChanMap))
+            {
+                using (var zip = new ZipFile(igxl))
+                {
+                    var entries = zip.Entries.ToList();
+                    foreach (var entry in entries)
+                    {
+                        var sheetName = Path.GetFileNameWithoutExtension(entry.FileName);
+                        if (sheetName == terChanMap)
+                        {
+                            var stream = entry.OpenReader();
+                            string firstLine = "";
+                            using (var sr = new StreamReader(stream))
+                                firstLine = sr.ReadLine();
+
+                            stream = entry.OpenReader();
+                            SheetTypes type = GetIgxlSheetType(firstLine);
+                            if (type == SheetTypes.DTChanMap)
+                                sites.AddRange(new ReadChanMapSheet().GetSites(stream, sheetName));
+                        }
+                    }
+                }
+            }
+
+            return sites.ToList();
+        }
+
+        private string GetTerChanMap(List<string> lines)
+        {
+            foreach (var line in lines)
+            {
+                var arr = line.Split('\t');
+                if (arr.First().Equals("terChanMap", StringComparison.CurrentCultureIgnoreCase))
+                    return arr.Last();
+            }
+            return "";
+        }
     }
 }

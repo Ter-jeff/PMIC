@@ -1,0 +1,40 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1:tabcolor=16777215	Flow Table																																					
+						Flow Domain:																																
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data						
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment	
+						print	"Flow_Table_Main_Init_EnableWd Start"																															
+			CP1_1X,CP1_CHAR,CP2_1X,CP1_2X,CP2_2X,CP3_1X			enable-flow-word	CP																															
+			FT1_2X,FT1_CHAR			enable-flow-word	FT																															
+		OTP_Production				enable-flow-word	OTP_Production																															
+		A_Enable_TTR				nop	Done for VBT align																															
+		A_Enable_PostBurn				nop	Done for VBT align																															
+		A_Enable_GoNoGo				nop	Done for VBT align																															
+		A_Enable_OTP_Burn				nop	Done for VBT align																															
+		A_Enable_OTP_OneShotBurn				nop	Done for VBT align																															
+		A_Enable_OTP_FWBurn				nop	Done for VBT align																															
+		A_Enable_All_DataLog				nop	Seems same usage as below																															
+		A_Enable_LimitSheet_Log_Precise				nop	Seems same usage as above																															
+		A_MainFunCheck				nop	Enable Main Function check																															
+		B_Debug_ForceReTrim				nop	Done for VBT align																															
+		B_Debug_Instrument_Current_State				nop																																
+		B_Debug_OTP_PrintDataToFile				nop	DO we need this?																															
+		B_Debug_JTAGwithDSSC				nop																																
+		B_Debug_1D_SHMOO				nop																																
+		B_Debug_2D_SHMOO				nop																																
+		T_MCname				nop																																
+		OTP_FTProg		!OTP_ECID_ONLY		nop																																
+		OTP_BlankCheck				nop																																
+		OTP_REVISION_CHK				nop																																
+		OTP_FW_Dlog_CHK				nop																																
+		DebugPrintFlag				nop																																
+		VBG_Golden_Point				nop																																
+				OTP_ECID_ONLY		disable-flow-word	A_Enable_OTP_OneShotBurn																															
+		A_Enable_OTP_FWBurn				disable-flow-word	A_Enable_OTP_OneShotBurn																															
+		!A_Enable_OTP_Burn				disable-flow-word	A_Enable_OTP_FWBurn																															
+		!A_Enable_OTP_Burn				disable-flow-word	A_Enable_OTP_OneShotBurn																															
+		OTP_FW_Dlog_CHK				enable-flow-word	A_Enable_OTP_FWBurn																															
+		B_Debug_ForceReTrim				disable-flow-word	A_Enable_OTP_Burn																															
+						flag-clear	F_OneShot_Enable																															
+		A_Enable_OTP_OneShotBurn				flag-true	F_OneShot_Enable																															
+						print	"Flow_Table_Main_Init_EnableWd Stop"																															
+						return																																

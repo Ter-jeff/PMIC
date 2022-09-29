@@ -1,10 +1,10 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 
 namespace IgxlData.IgxlSheets
 {
@@ -53,21 +53,6 @@ namespace IgxlData.IgxlSheets
 
         #region Member Function
 
-        protected override void WriteHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteColumnsHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteRows()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void Write(string fileName, string version = "")
         {
             if (string.IsNullOrEmpty(version))
@@ -83,13 +68,13 @@ namespace IgxlData.IgxlSheets
                         sw.WriteLine("\t{0}\t{1}\t{2}\t{3}", "", pin.PinName.Replace("/", ""), pin.PinType,
                             pin.Comment);
                     foreach (var pinGroup in GroupList)
-                    foreach (var pin in pinGroup.PinList)
-                    {
-                        if (string.IsNullOrEmpty(pin.PinType) && IsPinExist(pin.PinName))
-                            pin.PinType = GetPin(pin.PinName).PinType;
-                        sw.WriteLine("\t{0}\t{1}\t{2}\t{3}", pinGroup.PinName, pin.PinName.Replace("/", ""),
-                            pin.PinType, pin.Comment);
-                    }
+                        foreach (var pin in pinGroup.PinList)
+                        {
+                            if (string.IsNullOrEmpty(pin.PinType) && IsPinExist(pin.PinName))
+                                pin.PinType = GetPin(pin.PinName).PinType;
+                            sw.WriteLine("\t{0}\t{1}\t{2}\t{3}", pinGroup.PinName, pin.PinName.Replace("/", ""),
+                                pin.PinType, pin.Comment);
+                        }
                 }
             else
                 throw new Exception(string.Format("The PinMap sheet version:{0} is not supported!", version));
@@ -171,6 +156,13 @@ namespace IgxlData.IgxlSheets
             var pinList = PinList.FindAll(p =>
                 p.PinType.Equals(PinMapConst.TypePower, StringComparison.OrdinalIgnoreCase));
             return pinList;
+        }
+
+        public List<string> GetAllPins()
+        {
+            var pins = PinList.Select(x => x.PinName).ToList();
+            pins.AddRange(GroupList.Select(x => x.PinName));
+            return pins;
         }
 
         public List<Pin> GetIoPins()

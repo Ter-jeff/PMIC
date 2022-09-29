@@ -1,12 +1,12 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
@@ -26,7 +26,7 @@ namespace IgxlData.IgxlSheets
 
         #endregion
 
-        public List<Tset> Tsets;
+        public List<TSet> Tsets;
 
         #endregion
 
@@ -37,7 +37,7 @@ namespace IgxlData.IgxlSheets
         public string TimeDomain { get; set; }
         public string StrobeRefSetup { get; set; }
 
-        public List<Tset> TimeSetsData
+        public List<TSet> TimeSetsData
         {
             get { return Tsets; }
             set { Tsets = value; }
@@ -50,7 +50,7 @@ namespace IgxlData.IgxlSheets
         public TimeSetBasicSheet(ExcelWorksheet sheet)
             : base(sheet)
         {
-            Tsets = new List<Tset>();
+            Tsets = new List<TSet>();
             IgxlSheetName = IgxlSheetNameList.TimeSetsBasic;
             TimingMode = "";
         }
@@ -58,7 +58,7 @@ namespace IgxlData.IgxlSheets
         public TimeSetBasicSheet(string sheetName)
             : base(sheetName)
         {
-            Tsets = new List<Tset>();
+            Tsets = new List<TSet>();
             IgxlSheetName = IgxlSheetNameList.TimeSetsBasic;
             TimingMode = "";
         }
@@ -66,7 +66,7 @@ namespace IgxlData.IgxlSheets
         public TimeSetBasicSheet(ExcelWorksheet sheet, string timingMode)
             : base(sheet)
         {
-            Tsets = new List<Tset>();
+            Tsets = new List<TSet>();
             TimingMode = timingMode;
             IgxlSheetName = IgxlSheetNameList.TimeSetsBasic;
         }
@@ -74,7 +74,7 @@ namespace IgxlData.IgxlSheets
         public TimeSetBasicSheet(string sheetName, string timingMode)
             : base(sheetName)
         {
-            Tsets = new List<Tset>();
+            Tsets = new List<TSet>();
             TimingMode = timingMode;
             IgxlSheetName = IgxlSheetNameList.TimeSetsBasic;
         }
@@ -83,7 +83,7 @@ namespace IgxlData.IgxlSheets
             string strobeRefSetup)
             : base(sheet)
         {
-            Tsets = new List<Tset>();
+            Tsets = new List<TSet>();
             TimingMode = timingMode;
             MasterTimeSet = masterTimeSet;
             TimeDomain = timeDomain;
@@ -95,7 +95,7 @@ namespace IgxlData.IgxlSheets
             string strobeRefSetup)
             : base(sheetName)
         {
-            Tsets = new List<Tset>();
+            Tsets = new List<TSet>();
             TimingMode = timingMode;
             MasterTimeSet = masterTimeSet;
             TimeDomain = timeDomain;
@@ -107,7 +107,7 @@ namespace IgxlData.IgxlSheets
 
         #region Member Function
 
-        protected override void WriteHeader()
+        protected void WriteHeader()
         {
             const string header =
                 "DTTimesetBasicSheet,version=1.4:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1\tTime Sets (Basic)\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
@@ -120,7 +120,7 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
         }
 
-        protected override void WriteColumnsHeader()
+        protected void WriteColumnsHeader()
         {
             const string columnsName =
                 "\t\tCycle\tPin Group\t\t\tData\t\tDrive\t\t\t\tCompare\t\t\tEdge Resolution\t\t";
@@ -129,58 +129,58 @@ namespace IgxlData.IgxlSheets
                 "\tTime Set\tPeriod\tName\tClock Period\tSetup\tSrc\tFmt\tOn\tData\tReturn\tOff\tMode\tOpen\tClose\tMode\tComment\t");
         }
 
-        protected override void WriteRows()
+        protected void WriteRows()
         {
             foreach (var timeSets in Tsets)
-            foreach (var timingRow in timeSets.TimingRows)
-            {
-                var row = new StringBuilder();
-                row.Append("\t");
-                row.Append(timeSets.Name);
-                row.Append("\t");
-                row.Append(timeSets.CyclePeriod);
-                row.Append("\t");
+                foreach (var timingRow in timeSets.TimingRows)
+                {
+                    var row = new StringBuilder();
+                    row.Append("\t");
+                    row.Append(timeSets.Name);
+                    row.Append("\t");
+                    row.Append(timeSets.CyclePeriod);
+                    row.Append("\t");
 
-                row.Append(timingRow.PinGrpName);
-                row.Append("\t");
-                row.Append(timingRow.PinGrpClockPeriod);
-                row.Append("\t");
-                row.Append(timingRow.PinGrpSetup);
-                row.Append("\t");
+                    row.Append(timingRow.PinGrpName);
+                    row.Append("\t");
+                    row.Append(timingRow.PinGrpClockPeriod);
+                    row.Append("\t");
+                    row.Append(timingRow.PinGrpSetup);
+                    row.Append("\t");
 
-                row.Append(timingRow.DataSrc);
-                row.Append("\t");
-                row.Append(timingRow.DataFmt);
-                row.Append("\t");
+                    row.Append(timingRow.DataSrc);
+                    row.Append("\t");
+                    row.Append(timingRow.DataFmt);
+                    row.Append("\t");
 
-                row.Append(timingRow.DriveOn);
-                row.Append("\t");
-                row.Append(timingRow.DriveData);
-                row.Append("\t");
-                row.Append(timingRow.DriveReturn);
-                row.Append("\t");
-                row.Append(timingRow.DriveOff);
-                row.Append("\t");
+                    row.Append(timingRow.DriveOn);
+                    row.Append("\t");
+                    row.Append(timingRow.DriveData);
+                    row.Append("\t");
+                    row.Append(timingRow.DriveReturn);
+                    row.Append("\t");
+                    row.Append(timingRow.DriveOff);
+                    row.Append("\t");
 
-                row.Append(timingRow.CompareMode);
-                row.Append("\t");
-                row.Append(timingRow.CompareOpen);
-                row.Append("\t");
-                row.Append(timingRow.CompareClose);
-                row.Append("\t");
-                //row.Append(timingRow.CompareClkOffset);
-                //row.Append("\t");
-                //row.Append(timingRow.CompareRefOffset);
-                //row.Append("\t");
+                    row.Append(timingRow.CompareMode);
+                    row.Append("\t");
+                    row.Append(timingRow.CompareOpen);
+                    row.Append("\t");
+                    row.Append(timingRow.CompareClose);
+                    row.Append("\t");
+                    //row.Append(timingRow.CompareClkOffset);
+                    //row.Append("\t");
+                    //row.Append(timingRow.CompareRefOffset);
+                    //row.Append("\t");
 
-                row.Append(timingRow.EdgeMode);
-                row.Append("\t");
+                    row.Append(timingRow.EdgeMode);
+                    row.Append("\t");
 
-                row.Append(timingRow.Comment);
-                row.Append("\t");
+                    row.Append(timingRow.Comment);
+                    row.Append("\t");
 
-                IgxlWriter.WriteLine(row.ToString());
-            }
+                    IgxlWriter.WriteLine(row.ToString());
+                }
         }
 
         public override void Write(string fileName, string version = "")
@@ -288,7 +288,7 @@ namespace IgxlData.IgxlSheets
                         var arr = Enumerable.Repeat("", maxCount).ToArray();
                         if (!string.IsNullOrEmpty(row.PinGrpName))
                         {
-                            arr[0] = tset.ColumnA;
+                            arr[0] = row.ColumnA;
                             arr[timeSetIndex] = tset.Name;
                             arr[periodIndex] = tset.CyclePeriod;
                             arr[nameIndex] = row.PinGrpName;
@@ -309,7 +309,7 @@ namespace IgxlData.IgxlSheets
                         }
                         else
                         {
-                            arr = new[] {"\t"};
+                            arr = new[] { "\t" };
                         }
 
                         sw.WriteLine(string.Join("\t", arr));
@@ -320,7 +320,7 @@ namespace IgxlData.IgxlSheets
             }
         }
 
-        public void AddTimeSet(Tset timeSet)
+        public void AddTimeSet(TSet timeSet)
         {
             Tsets.Add(timeSet);
         }

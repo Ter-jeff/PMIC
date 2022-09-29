@@ -1,17 +1,17 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using IgxlData.IgxlSheets;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows.Forms;
-using IgxlData.IgxlBase;
-using IgxlData.IgxlSheets;
+using System.Windows;
 
 namespace IgxlData.Others
 {
     [Serializable]
-    public class CurrentChannelMapRow : IgxlItem
+    public class CurrentChannelMapRow : IgxlRow
     {
         #region Constructor
 
@@ -139,34 +139,34 @@ namespace IgxlData.Others
             {
                 var currentChannelMap = CurrentChannel[type];
                 foreach (var row in sheet.ChannelMapRows)
-                foreach (var site in row.Sites)
-                    if (site.Contains('.'))
-                    {
-                        var chan = site.Split('.').Last();
-                        foreach (var item in currentChannelMap)
+                    foreach (var site in row.Sites)
+                        if (site.Contains('.'))
                         {
-                            var dibChannel = item.DibChannel.Split('.').Last();
-                            if (chan.Equals(dibChannel, StringComparison.CurrentCultureIgnoreCase))
+                            var chan = site.Split('.').Last();
+                            foreach (var item in currentChannelMap)
                             {
-                                pins.Add(row.DeviceUnderTestPinName);
-                                break;
-                            }
+                                var dibChannel = item.DibChannel.Split('.').Last();
+                                if (chan.Equals(dibChannel, StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    pins.Add(row.DeviceUnderTestPinName);
+                                    break;
+                                }
 
-                            var signalName = item.SignalName.Split('.').Last();
-                            if (chan.Equals(signalName, StringComparison.CurrentCultureIgnoreCase))
-                            {
-                                pins.Add(row.DeviceUnderTestPinName);
-                                break;
-                            }
+                                var signalName = item.SignalName.Split('.').Last();
+                                if (chan.Equals(signalName, StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    pins.Add(row.DeviceUnderTestPinName);
+                                    break;
+                                }
 
-                            var testerChannel = item.TesterChannel.Split('.').Last();
-                            if (chan.Equals(testerChannel, StringComparison.CurrentCultureIgnoreCase))
-                            {
-                                pins.Add(row.DeviceUnderTestPinName);
-                                break;
+                                var testerChannel = item.TesterChannel.Split('.').Last();
+                                if (chan.Equals(testerChannel, StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    pins.Add(row.DeviceUnderTestPinName);
+                                    break;
+                                }
                             }
                         }
-                    }
             }
 
             return pins.Distinct().ToList();

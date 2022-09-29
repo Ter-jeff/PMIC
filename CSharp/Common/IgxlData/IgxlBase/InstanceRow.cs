@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 namespace IgxlData.IgxlBase
 {
     [Serializable]
-    public class InstanceRow : IgxlItem
+    public class InstanceRow : IgxlRow
     {
         #region Constructor
 
@@ -111,8 +111,6 @@ namespace IgxlData.IgxlBase
 
         #region Property
 
-        public string SheetName { get; set; }
-        public int RowNum { get; set; }
         public string TestName { get; set; }
         public string Type { get; set; }
         public string Name { get; set; }

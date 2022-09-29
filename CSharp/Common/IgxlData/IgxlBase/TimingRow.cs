@@ -1,33 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{PinGrpName}")]
     [Serializable]
-    public class TimingRow
+    public class TimingRow : IgxlRow
     {
-        #region Property
-
-        public string PinGrpName { get; set; }
-        public string PinGrpClockPeriod { get; set; }
-        public string PinGrpSetup { get; set; }
-        public string DataSrc { get; set; }
-        public string DataFmt { get; set; }
-        public string DriveOn { get; set; }
-        public string DriveData { get; set; }
-        public string DriveReturn { get; set; }
-        public string DriveOff { get; set; }
-        public string CompareMode { get; set; }
-        public string CompareOpen { get; set; }
-        public string CompareClose { get; set; }
-        public string CompareClkOffset { get; set; }
-        public string CompareRefOffset { get; set; }
-        public string EdgeMode { get; set; }
-        public string Comment { get; set; }
-
-        #endregion
-
-        #region Constructor
-
         public TimingRow()
         {
         }
@@ -54,6 +33,21 @@ namespace IgxlData.IgxlBase
             Comment = comment;
         }
 
-        #endregion
+        public string PinGrpName { get; set; }
+        public string PinGrpClockPeriod { get; set; }
+        public string PinGrpSetup { get; set; }
+        public string DataSrc { get; set; }
+        public string DataFmt { get; set; }
+        public string DriveOn { get; set; }
+        public string DriveData { get; set; }
+        public string DriveReturn { get; set; }
+        public string DriveOff { get; set; }
+        public string CompareMode { get; set; }
+        public string CompareOpen { get; set; }
+        public string CompareClose { get; set; }
+        public string CompareClkOffset { get; set; }
+        public string CompareRefOffset { get; set; }
+        public string EdgeMode { get; set; }
+        public string Comment { get; set; }
     }
 }

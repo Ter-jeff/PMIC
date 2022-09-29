@@ -1,10 +1,10 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using IgxlData.IgxlSheets;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using IgxlData.IgxlBase;
-using IgxlData.IgxlSheets;
 
 namespace IgxlData.Others.MultiTimeSet
 {
@@ -102,7 +102,7 @@ namespace IgxlData.Others.MultiTimeSet
             return maxFrequency;
         }
 
-        private double GetFrequency(Tset tset)
+        private double GetFrequency(TSet tset)
         {
             double period;
             if (double.TryParse(tset.CyclePeriod, out period)) return 1 / period;
@@ -110,7 +110,7 @@ namespace IgxlData.Others.MultiTimeSet
             return GetFrequencyValue(tset);
         }
 
-        private double GetFrequencyValue(Tset tset)
+        private double GetFrequencyValue(TSet tset)
         {
             var equation = tset.CyclePeriod.Replace("=", "").Replace("(", "").Replace(")", "");
             var varName = Regex.IsMatch(equation, @"/_")

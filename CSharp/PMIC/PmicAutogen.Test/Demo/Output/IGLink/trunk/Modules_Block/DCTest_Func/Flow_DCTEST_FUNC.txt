@@ -1,0 +1,23 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Flow Table
+						Flow Domain:
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment
+						set-error-bin										999		999																			
+						Print	"DCTEST_FUNC Start"																														
+		TTIME				Test	DCTEST_FUNC_Header		20000																												
+						Test	FUNC_VIH_PP_XXXXX_C_FULP_IO_XXXX_BSR_JTG_UNS_ALLFRV_SI_VIH_NV		20100												F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_N_Flag,F_IO																	vih
+						Test	FUNC_VIH_PP_XXXXX_C_FULP_IO_XXXX_BSR_JTG_UNS_ALLFRV_SI_VIH_LV		20200												F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_L_Flag,F_IO																	vih
+						Test	FUNC_VIH_PP_XXXXX_C_FULP_IO_XXXX_BSR_JTG_UNS_ALLFRV_SI_VIH_HV		20300												F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_H_Flag,F_IO																	vih
+						Test	FUNC_VIH_PP_XXXXX_C_FULP_IO_XXXX_BSR_JTG_UNS_ALLFRV_SI_VIH_UHV		20400												F_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_UH_Flag,F_IO																	vih
+		A_Enable_MP_SBIN				BinTable	Bin_IO																														
+		BinTable				BinTable	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_HNLV																														
+		BinTable				BinTable	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_NLV																														
+		BinTable				BinTable	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_HLV																														
+		BinTable				BinTable	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_HNV																														
+		BinTable				BinTable	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_HV																														
+		BinTable				BinTable	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_NV																														
+		BinTable				BinTable	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_LV																														
+		BinTable				BinTable	Bin_DCTEST_FUNC_vih_XXXXX_IO_BSR_JTG_UNS_VIH_UHV																														
+		TTIME				Test	DCTEST_FUNC_Footer		20500																												
+						Print	"DCTEST_FUNC End"																														
+						Return																															

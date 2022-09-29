@@ -1,13 +1,17 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <ResourceDictionary.MergedDictionaries>
-        <!--<ResourceDictionary Source="/CodeProjectLibrary;component/ResourceDictionaries/ImageButtonDictionary.xaml" />
-        -->
-        <!--<ResourceDictionary Source="/CodeProjectLibrary;component/ResourceDictionaries/ButtonDictionary.xaml"/>-->
-        <!--
-        <ResourceDictionary Source="/CodeProjectLibrary;component/MenuButton.xaml" />
-        <ResourceDictionary Source="/CodeProjectLibrary;component/GroupButton.xaml" />-->
-        <ResourceDictionary Source="/MyWpf;component/Styles/DefaultStyle.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="/MyWpf;component/Styles/ColorTheme.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="/MyWpf;component/Styles/ColorTheme.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Styles/StyleTheme.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/Ribbon/UI/RibbonGroup.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/Ribbon/UI/RibbonPage.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/Ribbon/UI/RibbonButton.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/Ribbon/UI/RibbonToggleButton.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/Ribbon/UI/RibbonMenuButton.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/Ribbon/UI/Ribbon.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/Ribbon/UI/RibbonTab.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/Ribbon/UI/SettingButton.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/MyImageButton.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/MyMenuButton.xaml" />
+        <ResourceDictionary Source="/MyWpf;component/Controls/MyWindow.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

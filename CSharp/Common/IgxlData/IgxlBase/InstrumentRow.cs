@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using OfficeOpenXml;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
-using OfficeOpenXml;
 
 namespace IgxlData.IgxlBase
 {

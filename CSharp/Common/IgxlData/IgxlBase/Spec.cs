@@ -3,36 +3,27 @@
 namespace IgxlData.IgxlBase
 {
     [DebuggerDisplay("{Symbol}")]
-    public abstract class Spec : IgxlItem
+    public abstract class Spec : IgxlRow
     {
-        #region Property
-
         public string Symbol { get; set; }
         public string Value { get; set; }
         public string Comment { get; set; }
 
-        #endregion
-
-        #region Constructor
-
         protected Spec()
         {
         }
-
-        protected Spec(string specSym)
+        protected Spec(string symbol)
         {
-            Symbol = specSym;
+            Symbol = symbol;
             Value = "";
             Comment = "";
         }
 
-        protected Spec(string specSym, string specVal = "", string specComm = "")
+        protected Spec(string symbol, string value = "", string comment = "")
         {
-            Symbol = specSym;
-            Value = specVal;
-            Comment = specComm;
+            Symbol = symbol;
+            Value = value;
+            Comment = comment;
         }
-
-        #endregion
     }
 }

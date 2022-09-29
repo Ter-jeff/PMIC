@@ -1,6 +1,6 @@
 ﻿namespace IgxlData.IgxlBase
 {
-    public class MixedSigRow : IgxlItem
+    public class MixedSigRow : IgxlRow
     {
         #region Property
 

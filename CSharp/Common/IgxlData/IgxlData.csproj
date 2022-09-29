@@ -34,82 +34,36 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetZip, Version=1.16.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DotNetZip.1.16.0\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IG-Data">
-      <HintPath>..\Packages\Oasis\IG-Data.dll</HintPath>
+      <HintPath>..\packages\Oasis\IG-Data.dll</HintPath>
     </Reference>
     <Reference Include="IGLinkBase">
-      <HintPath>..\Packages\Oasis\IGLinkBase.dll</HintPath>
+      <HintPath>..\packages\Oasis\IGLinkBase.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="OasisUtilityLib">
-      <HintPath>..\Packages\Oasis\OasisUtilityLib.dll</HintPath>
+      <HintPath>..\packages\Oasis\OasisUtilityLib.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IgxlBase\SheetType.cs" />
     <Compile Include="IgxlManager\SheetTypeRow.cs" />
     <Compile Include="IgxlReader\ReadPinMapSheet.cs" />
     <Compile Include="IgxlSheets\OtherSheet.cs" />
     <Compile Include="IgxlSheets\BasFile.cs" />
-    <Compile Include="Zip\ComHelper.cs" />
-    <Compile Include="Zip\CRC32.cs" />
-    <Compile Include="Zip\EncryptionAlgorithm.cs" />
-    <Compile Include="Zip\Events.cs" />
-    <Compile Include="Zip\Exceptions.cs" />
-    <Compile Include="Zip\ExtractExistingFileAction.cs" />
-    <Compile Include="Zip\FileSelector.cs" />
-    <Compile Include="Zip\OffsetStream.cs" />
-    <Compile Include="Zip\Shared.cs" />
-    <Compile Include="Zip\WinZipAes.cs" />
-    <Compile Include="Zip\ZipConstants.cs" />
-    <Compile Include="Zip\ZipCrypto.cs" />
-    <Compile Include="Zip\ZipDirEntry.cs" />
-    <Compile Include="Zip\ZipEntry.cs" />
-    <Compile Include="Zip\ZipEntry.Extract.cs" />
-    <Compile Include="Zip\ZipEntry.Read.cs" />
-    <Compile Include="Zip\ZipEntry.Write.cs" />
-    <Compile Include="Zip\ZipEntrySource.cs" />
-    <Compile Include="Zip\ZipErrorAction.cs" />
-    <Compile Include="Zip\ZipFile.AddUpdate.cs" />
-    <Compile Include="Zip\ZipFile.Check.cs" />
-    <Compile Include="Zip\ZipFile.cs" />
-    <Compile Include="Zip\ZipFile.Events.cs" />
-    <Compile Include="Zip\ZipFile.Extract.cs" />
-    <Compile Include="Zip\ZipFile.Read.cs" />
-    <Compile Include="Zip\ZipFile.Save.cs" />
-    <Compile Include="Zip\ZipFile.SaveSelfExtractor.cs" />
-    <Compile Include="Zip\ZipFile.Selector.cs" />
-    <Compile Include="Zip\ZipFile.x-IEnumerable.cs" />
-    <Compile Include="Zip\ZipInputStream.cs" />
-    <Compile Include="Zip\ZipOutputStream.cs" />
-    <Compile Include="Zip\ZipSegmentedStream.cs" />
-    <Compile Include="Zip\Zlib\Deflate.cs" />
-    <Compile Include="Zip\Zlib\DeflateStream.cs" />
-    <Compile Include="Zip\Zlib\GZipStream.cs" />
-    <Compile Include="Zip\Zlib\Inflate.cs" />
-    <Compile Include="Zip\Zlib\InfTree.cs" />
-    <Compile Include="Zip\Zlib\ParallelDeflateOutputStream.cs" />
-    <Compile Include="Zip\Zlib\Tree.cs" />
-    <Compile Include="Zip\Zlib\Zlib.cs" />
-    <Compile Include="Zip\Zlib\ZlibBaseStream.cs" />
-    <Compile Include="Zip\Zlib\ZlibCodec.cs" />
-    <Compile Include="Zip\Zlib\ZlibConstants.cs" />
-    <Compile Include="Zip\Zlib\ZlibStream.cs" />
     <Compile Include="IgxlBase\BinTableRows.cs" />
     <Compile Include="IgxlBase\FlowRows.cs" />
     <Compile Include="IgxlBase\PSet.cs" />
@@ -151,7 +105,7 @@
     <Compile Include="IgxlBase\DiffLevel.cs" />
     <Compile Include="IgxlBase\FlowRow.cs" />
     <Compile Include="IgxlBase\GlobalSpec.cs" />
-    <Compile Include="IgxlBase\IgxlItem.cs" />
+    <Compile Include="IgxlBase\IgxlRow.cs" />
     <Compile Include="IgxlBase\InstanceRow.cs" />
     <Compile Include="IgxlBase\InstrumentRow.cs" />
     <Compile Include="IgxlBase\IOLevel.cs" />
@@ -194,7 +148,9 @@
     <Compile Include="IgxlSheets\IgxlWorkBook.cs" />
     <Compile Include="IgxlManager\ManifestSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IgxlReader\ReadPatSubroutineSheet.cs" />
     <Compile Include="VBT\VbtFunctionBase.cs" />
+    <Compile Include="Zip\ZipFile.AddUpdate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IGDataXML\IGXLSheetsVersion\IGXLSheets.xsd">

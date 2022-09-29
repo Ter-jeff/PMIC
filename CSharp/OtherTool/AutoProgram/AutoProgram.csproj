@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{20DDDC11-035A-4AD5-BB79-C9110B4DF393}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoProgram</RootNamespace>
+    <AssemblyName>AutoProgram</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLineLib">
+      <HintPath>..\packages\CommandLineLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.16.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DotNetZip.1.16.0\lib\net40\DotNetZip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.2.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BlockType.cs" />
+    <Compile Include="Base\Category.cs" />
+    <Compile Include="Base\TimeSetConst.cs" />
+    <Compile Include="IgxlDataReader.cs" />
+    <Compile Include="Reader\TimesetReader.cs" />
+    <Compile Include="Writer\UpdateGlobalSpecSheet.cs" />
+    <Compile Include="Writer\UpdateTimeSet.cs" />
+    <Compile Include="Writer\UpdateAcSpecs.cs" />
+    <Compile Include="Reader\DlexChecker.cs" />
+    <Compile Include="AutoProgramMain.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Writer\UpdateJobList.cs" />
+    <Compile Include="Writer\UpdateMainFlow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\CommonLib\CommonLib.csproj">
+      <Project>{8eead19d-ead8-4a6d-819c-ac47b59a08f1}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\CommonReadLib\CommonReaderLib.csproj">
+      <Project>{99cd234b-f122-474e-93ce-794833c07565}</Project>
+      <Name>CommonReaderLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\IgxlData\IgxlData.csproj">
+      <Project>{e1557014-bb6d-41bc-92f6-877002282ca1}</Project>
+      <Name>IgxlData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ReaderLib\DebugPlanReaderLib.csproj">
+      <Project>{B592B587-8748-461F-BD8F-67A782B8E0D5}</Project>
+      <Name>DebugPlanReaderLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShmooLog\ShmooLog.csproj">
+      <Project>{61df9dce-0e29-4c39-b58c-7b4ca80510be}</Project>
+      <Name>ShmooLog</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,12 +1,28 @@
-﻿using System.ComponentModel;
+﻿using IgxlData.IgxlReader;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace IgxlData.IgxlManager
 {
     public class SheetTypeRow
     {
-        private string _type;
+        private string _fullname;
         private string _name;
+        private string _type;
+        private SheetTypes _sheetType;
+
+        public string FullName
+        {
+            get { return _fullname; }
+            set
+            {
+                if (_fullname != value)
+                {
+                    _fullname = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public string Name
         {
@@ -29,6 +45,19 @@ namespace IgxlData.IgxlManager
                 if (_type != value)
                 {
                     _type = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public SheetTypes SheetType
+        {
+            get { return _sheetType; }
+            set
+            {
+                if (_sheetType != value)
+                {
+                    _sheetType = value;
                     OnPropertyChanged();
                 }
             }

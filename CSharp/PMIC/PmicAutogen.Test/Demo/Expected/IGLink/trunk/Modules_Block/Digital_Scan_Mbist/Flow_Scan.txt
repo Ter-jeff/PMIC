@@ -1,0 +1,85 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Flow Table
+						Flow Domain:
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment
+						set-error-bin										999		999																			
+						Print	"Scan Start"																														
+		TTIME				Test	Scan_Header		480000																												
+						Test	SaChain_PP_XXXXX_C_PL00_CH_CL00_SAA_COM_AUT_ALLFRV_SI_HV		480100												F_XXXXX_CH_SAA_COM_AUT_HV,F_SCAN																
+						Test	SaChain_PP_XXXXX_C_PL00_CH_CL00_SAA_COM_AUT_ALLFRV_SI_NV		480200												F_XXXXX_CH_SAA_COM_AUT_NV,F_SCAN																
+						Test	SaChain_PP_XXXXX_C_PL00_CH_CL00_SAA_COM_AUT_ALLFRV_SI_LV		480300												F_XXXXX_CH_SAA_COM_AUT_LV,F_SCAN																
+						Test	SaChain_PP_XXXXX_C_PL00_CH_CL00_SAA_COM_AUT_ALLFRV_SI_UHV		480400												F_XXXXX_CH_SAA_COM_AUT_UHV,F_SCAN																
+		B_Debug_1D_SHMOO				characterize	SaChain_PP_XXXXX_C_PL00_CH_CL00_SAA_COM_AUT_ALLFRV_SI_NV Shmoo_1D_VDD_MAIN_UVI80																														
+		B_Debug_2D_SHMOO				characterize	SaChain_PP_XXXXX_C_PL00_CH_CL00_SAA_COM_AUT_ALLFRV_SI_NV Shmoo_2D_VDD_MAIN_UVI80_vs_SCAN_PERIOD																														
+		A_Enable_MP_SBIN				BinTable	Bin_SCAN																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_HNLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_NLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_HLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_HNV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_HV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_NV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_LV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_CH_SAA_COM_AUT_UHV																														
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TSU_HV		480500												F_XXXXX_SC_SAA_COM_AUT_TSU_HV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TSU_NV		480600												F_XXXXX_SC_SAA_COM_AUT_TSU_NV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TSU_LV		480700												F_XXXXX_SC_SAA_COM_AUT_TSU_LV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TSU_UHV		480800												F_XXXXX_SC_SAA_COM_AUT_TSU_UHV,F_SCAN																
+		B_Debug_1D_SHMOO				characterize	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TSU_NV Shmoo_1D_VDD_MAIN_UVI80																														
+		B_Debug_2D_SHMOO				characterize	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TSU_NV Shmoo_2D_VDD_MAIN_UVI80_vs_SCAN_PERIOD																														
+		A_Enable_MP_SBIN				BinTable	Bin_SCAN																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_HNLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_NLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_HLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_HNV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_HV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_NV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_LV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TSU_UHV																														
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_PL00_HV		480900												F_XXXXX_SC_SAA_COM_AUT_PL00_HV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_PL00_NV		481000												F_XXXXX_SC_SAA_COM_AUT_PL00_NV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_PL00_LV		481100												F_XXXXX_SC_SAA_COM_AUT_PL00_LV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_PL00_UHV		481200												F_XXXXX_SC_SAA_COM_AUT_PL00_UHV,F_SCAN																
+		B_Debug_1D_SHMOO				characterize	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_PL00_NV Shmoo_1D_VDD_MAIN_UVI80																														
+		B_Debug_2D_SHMOO				characterize	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_PL00_NV Shmoo_2D_VDD_MAIN_UVI80_vs_SCAN_PERIOD																														
+		A_Enable_MP_SBIN				BinTable	Bin_SCAN																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_HNLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_NLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_HLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_HNV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_HV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_NV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_LV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_PL00_UHV																														
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_TSU_HV		481300												F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_TSU_NV		481400												F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_TSU_LV		481500												F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_LV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_TSU_UHV		481600												F_XXXXX_SC_SAA_COM_AUT_TDF_TSU_UHV,F_SCAN																
+		B_Debug_1D_SHMOO				characterize	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_TSU_NV Shmoo_1D_VDD_MAIN_UVI80																														
+		B_Debug_2D_SHMOO				characterize	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_TSU_NV Shmoo_2D_VDD_MAIN_UVI80_vs_SCAN_PERIOD																														
+		A_Enable_MP_SBIN				BinTable	Bin_SCAN																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HNLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HNV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_HV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_NV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_LV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_TSU_UHV																														
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_PL00_HV		481700												F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_PL00_NV		481800												F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_PL00_LV		481900												F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_LV,F_SCAN																
+						Test	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_PL00_UHV		482000												F_XXXXX_SC_SAA_COM_AUT_TDF_PL00_UHV,F_SCAN																
+		B_Debug_1D_SHMOO				characterize	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_PL00_NV Shmoo_1D_VDD_MAIN_UVI80																														
+		B_Debug_2D_SHMOO				characterize	Sa_PP_XXXXX_C_PL00_SC_CL00_SAA_COM_AUT_ALLFRV_SI_TDF_PL00_NV Shmoo_2D_VDD_MAIN_UVI80_vs_SCAN_PERIOD																														
+		A_Enable_MP_SBIN				BinTable	Bin_SCAN																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HNLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HLV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HNV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_HV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_NV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_LV																														
+		BinTable				BinTable	Bin_SCAN_XXXXX_SC_SAA_COM_AUT_TDF_PL00_UHV																														
+		TTIME				Test	Scan_Footer		482100																												
+						Print	"Scan End"																														
+						Return																															

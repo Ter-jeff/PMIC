@@ -1,0 +1,18 @@
+﻿<Window x:Class="MyWpf.Controls.WaitFormMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MyWpf.Controls"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Title="WaitFormMain" Height="70" Width="500">
+    <Border BorderThickness="1" BorderBrush="Black">
+        <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0">
+            <controls:WaitFormControl></controls:WaitFormControl>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" DockPanel.Dock="Top" Margin="10,2">
+                <TextBlock Text="Please Wait" FontSize="20"></TextBlock>
+                <TextBlock x:Name="Description" x:FieldModifier="public" Text="Loading..." ></TextBlock>
+            </StackPanel>
+        </DockPanel>
+    </Border>
+</Window>

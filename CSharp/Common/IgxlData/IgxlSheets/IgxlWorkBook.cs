@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
+using System.Windows;
 using System.Xml.Serialization;
 using Teradyne.Oasis.IGData.Utilities;
 
@@ -11,6 +11,11 @@ namespace IgxlData.IgxlSheets
 {
     public class IgxlWorkBook
     {
+        public const string MainBinTableName = "Bin_Table";
+        private KeyValuePair<string, GlobalSpecSheet> _glbSpecSheetPair;
+        private IGXL _igxlConfig;
+        private KeyValuePair<string, PinMapSheet> _pinMapPair;
+
         public IgxlWorkBook()
         {
             _pinMapPair = new KeyValuePair<string, PinMapSheet>();
@@ -34,16 +39,6 @@ namespace IgxlData.IgxlSheets
             FlowUsedInteger = new List<string>();
         }
 
-        #region Field
-
-        public const string MainBinTableName = "Bin_Table";
-        private KeyValuePair<string, PinMapSheet> _pinMapPair;
-        private KeyValuePair<string, GlobalSpecSheet> _glbSpecSheetPair;
-        private IGXL _igxlConfig;
-
-        #endregion
-
-        #region Property
 
         public Dictionary<string, SubFlowSheet> SubFlowSheets { get; }
 
@@ -70,22 +65,6 @@ namespace IgxlData.IgxlSheets
         public Dictionary<string, MixedSignalSheet> MixedSignalSheets { get; }
 
         public List<string> FlowUsedInteger { set; get; }
-
-        public BinTableSheet GetMainBinTblSheet()
-        {
-            BinTableSheet binTable = null;
-            foreach (var binTblPair in BinTableSheets)
-                if (binTblPair.Value.SheetName.Equals(MainBinTableName))
-                {
-                    binTable = binTblPair.Value;
-                    break;
-                }
-
-            if (binTable == null)
-                throw new Exception(string.Format(
-                    "Can't find main bin table sheet, which sheet name is: {0} in IgxlWorkBook. ", MainBinTableName));
-            return binTable;
-        }
 
         public Dictionary<string, BinTableSheet> BinTableSheets { get; }
 
@@ -134,9 +113,23 @@ namespace IgxlData.IgxlSheets
 
         public Dictionary<string, IgxlSheet> AllIgxlSheets { get; }
 
-        #endregion
+        public BinTableSheet GetMainBinTblSheet()
+        {
+            BinTableSheet binTable = null;
+            foreach (var binTblPair in BinTableSheets)
+                if (binTblPair.Value.SheetName.Equals(MainBinTableName))
+                {
+                    binTable = binTblPair.Value;
+                    break;
+                }
 
-        #region Member Function
+            if (binTable == null)
+            {
+                throw new Exception(string.Format(
+                    "Can't find main bin table sheet, which sheet name is: {0} in IgxlWorkBook. ", MainBinTableName));
+            }
+            return binTable;
+        }
 
         public CharSheet GetCharSheet(string sheetName)
         {
@@ -226,7 +219,7 @@ namespace IgxlData.IgxlSheets
         private void AddPatSetSheet(PatSetSheet patSetSheet, string fileSubPath)
         {
             if (patSetSheet == null) return;
-            if (!patSetSheet.PatSetRows.Any()) return;
+            if (!patSetSheet.PatSets.Any()) return;
             var subFileSubName = GetSubFileSubName(fileSubPath, patSetSheet.SheetName);
             if (!PatSetSheets.ContainsKey(subFileSubName))
             {
@@ -352,7 +345,7 @@ namespace IgxlData.IgxlSheets
                 }
 
                 var filePath = Path.GetDirectoryName(igxlSheetPair.Key);
-                if (!Directory.Exists(filePath))
+                if (filePath != null && !Directory.Exists(filePath))
                     Directory.CreateDirectory(filePath);
                 igxlSheetPair.Value.Write(igxlSheetPair.Key + ".txt", sheetVersion);
             }
@@ -378,7 +371,7 @@ namespace IgxlData.IgxlSheets
                 }
 
                 var filePath = Path.GetDirectoryName(igxlSheetPair.Key);
-                if (!Directory.Exists(filePath))
+                if (filePath != null && !Directory.Exists(filePath))
                     Directory.CreateDirectory(filePath);
                 igxlSheetPair.Value.Write(igxlSheetPair.Key + ".txt", sheetVersion);
             }
@@ -418,7 +411,7 @@ namespace IgxlData.IgxlSheets
             try
             {
                 var xs = new XmlSerializer(typeof(IGXL));
-                var sysData = (IGXL) xs.Deserialize(sr);
+                var sysData = (IGXL)xs.Deserialize(sr);
                 sr.Close();
                 result = sysData;
             }
@@ -448,72 +441,38 @@ namespace IgxlData.IgxlSheets
         {
             foreach (var igxlSheet in igxlSheets)
                 if (igxlSheet.Key is MainFlowSheet)
-                    AddMainFlowSheet((MainFlowSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddMainFlowSheet((MainFlowSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is ChannelMapSheet)
-                    AddChannelMapSheet((ChannelMapSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddChannelMapSheet((ChannelMapSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is PinMapSheet)
-                    PinMapPair = new KeyValuePair<string, PinMapSheet>(igxlSheet.Value, (PinMapSheet) igxlSheet.Key);
+                    PinMapPair = new KeyValuePair<string, PinMapSheet>(igxlSheet.Value, (PinMapSheet)igxlSheet.Key);
                 else if (igxlSheet.Key is PortMapSheet)
-                    AddPortMapSheet((PortMapSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddPortMapSheet((PortMapSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is SubFlowSheet)
-                    AddSubFlowSheet((SubFlowSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddSubFlowSheet((SubFlowSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is BinTableSheet)
-                    AddBinTblSheet((BinTableSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddBinTblSheet((BinTableSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is InstanceSheet)
-                    AddInsSheet((InstanceSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddInsSheet((InstanceSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is PatSetSheet)
-                    AddPatSetSheet((PatSetSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddPatSetSheet((PatSetSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is GlobalSpecSheet)
                     GlbSpecSheetPair =
-                        new KeyValuePair<string, GlobalSpecSheet>(igxlSheet.Value, (GlobalSpecSheet) igxlSheet.Key);
+                        new KeyValuePair<string, GlobalSpecSheet>(igxlSheet.Value, (GlobalSpecSheet)igxlSheet.Key);
                 else if (igxlSheet.Key is DcSpecSheet)
-                    AddDcSpecSheet((DcSpecSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddDcSpecSheet((DcSpecSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is AcSpecSheet)
-                    AddAcSpecSheet((AcSpecSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddAcSpecSheet((AcSpecSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is LevelSheet)
-                    AddLevelSheet((LevelSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddLevelSheet((LevelSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is TimeSetBasicSheet)
-                    AddTimeSetSheet((TimeSetBasicSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddTimeSetSheet((TimeSetBasicSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is PatSetSubSheet)
-                    AddPatSetSubSheet((PatSetSubSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddPatSetSubSheet((PatSetSubSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is CharSheet)
-                    AddCharSheet((CharSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddCharSheet((CharSheet)igxlSheet.Key, igxlSheet.Value);
                 else if (igxlSheet.Key is JobListSheet)
-                    AddJobListSheet((JobListSheet) igxlSheet.Key, igxlSheet.Value);
+                    AddJobListSheet((JobListSheet)igxlSheet.Key, igxlSheet.Value);
         }
-
-        //public void Add(string path, IgxlSheet igxlSheet)
-        //{
-        //    if (igxlSheet is ChannelMapSheet)
-        //        AddChannelMapSheet(path, (ChannelMapSheet)igxlSheet);
-        //    else if (igxlSheet is PinMapSheet)
-        //        PinMapPair = new KeyValuePair<string, PinMapSheet>(path, (PinMapSheet)igxlSheet);
-        //    else if (igxlSheet is PortMapSheet)
-        //        AddPortMapSheet(path, (PortMapSheet)igxlSheet);
-        //    else if (igxlSheet is SubFlowSheet)
-        //        AddSubFlowSheet(path, (SubFlowSheet)igxlSheet);
-        //    else if (igxlSheet is BinTableSheet)
-        //        AddBinTblSheet(path, (BinTableSheet)igxlSheet);
-        //    else if (igxlSheet is InstanceSheet)
-        //        AddInsSheet(path, (InstanceSheet)igxlSheet);
-        //    else if (igxlSheet is PatSetSheet)
-        //        AddPatSetSheet(path, (PatSetSheet)igxlSheet);
-        //    else if (igxlSheet is GlobalSpecSheet)
-        //        GlbSpecSheetPair = new KeyValuePair<string, GlobalSpecSheet>(path, (GlobalSpecSheet)igxlSheet);
-        //    else if (igxlSheet is DcSpecSheet)
-        //        AddDcSpecSheet(path, (DcSpecSheet)igxlSheet);
-        //    else if (igxlSheet is AcSpecSheet)
-        //        AddAcSpecSheet(path, (AcSpecSheet)igxlSheet);
-        //    else if (igxlSheet is LevelSheet)
-        //        AddLevelSheet(path, (LevelSheet)igxlSheet);
-        //    else if (igxlSheet is TimeSetBasicSheet)
-        //        AddTimeSetSheet(path, (TimeSetBasicSheet)igxlSheet);
-        //    else if (igxlSheet is PatSetSubSheet)
-        //        AddPatSetSubSheet(path, (PatSetSubSheet)igxlSheet);
-        //    else if (igxlSheet is CharSheet)
-        //        AddCharSheet(path, (CharSheet)igxlSheet);
-        //}
-
-        #endregion
     }
 }

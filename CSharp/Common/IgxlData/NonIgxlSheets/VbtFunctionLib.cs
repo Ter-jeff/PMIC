@@ -1,11 +1,12 @@
-﻿using System;
+﻿using CommonLib.Enum;
+using CommonLib.ErrorReport;
+using IgxlData.VBT;
+using Ionic.Zip;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
-using CommonLib.EpplusErrorReport;
-using IgxlData.VBT;
 
 namespace IgxlData.NonIgxlSheets
 {
@@ -32,28 +33,29 @@ namespace IgxlData.NonIgxlSheets
 
         public List<VbtFunctionBase> VbtLib { get; set; }
 
-        public void Read(string text)
+        public void Read(string igxl)
         {
             VbtLib = new List<VbtFunctionBase>();
 
-            using (var zipArchive = ZipFile.Open(text, ZipArchiveMode.Read))
+            using (var zip = new ZipFile(igxl))
             {
-                var zipArchiveEntries = zipArchive.Entries.ToList();
-                zipArchiveEntries.ForEach(x=>GetVbtLib(x));
+                var entries = zip.Entries.ToList();
+                foreach (var entry in entries)
+                    GetVbtLib(entry);
             }
         }
 
-        private void GetVbtLib(ZipArchiveEntry zipArchiveEntry)
+        private void GetVbtLib(ZipEntry zipEntry)
         {
-            if (zipArchiveEntry.Name.StartsWith("VBT_", StringComparison.CurrentCultureIgnoreCase) ||
-                zipArchiveEntry.Name.StartsWith("LIB_", StringComparison.CurrentCultureIgnoreCase))
+            if (zipEntry.FileName.StartsWith("VBT_", StringComparison.CurrentCultureIgnoreCase) ||
+                zipEntry.FileName.StartsWith("LIB_", StringComparison.CurrentCultureIgnoreCase))
             {
-                var stream = zipArchiveEntry.Open();
+                var stream = zipEntry.OpenReader();
                 using (var sr = new StreamReader(stream))
                 {
-                    var extension = Path.GetExtension(zipArchiveEntry.Name);
+                    var extension = Path.GetExtension(zipEntry.FileName);
                     if (extension.ToLower() == ".bas")
-                        VbtLib.AddRange(ReadBasFile(sr, zipArchiveEntry.Name));
+                        VbtLib.AddRange(ReadBasFile(sr, zipEntry.FileName));
                 }
             }
         }
@@ -145,7 +147,7 @@ namespace IgxlData.NonIgxlSheets
             var resultVbt = VbtLib.Find(a => a.FunctionName.ToLower() == functionName.ToLower());
             if (resultVbt == null)
             {
-                EpplusErrorManager.AddError(EnumErrorType.MisVbtModule, ErrorLevel.Error, "", 0,
+                ErrorManager.AddError(EnumErrorType.MisVbtModule, EnumErrorLevel.Error, "", 0,
                     string.Format("The VBT function: {0} can not find in VBT library!", functionName));
                 resultVbt = new VbtFunctionBase();
                 resultVbt.FunctionName = functionName;
@@ -174,7 +176,7 @@ namespace IgxlData.NonIgxlSheets
             if (!MissingParams.Contains(functionName + "&" + paramName))
             {
                 var errorMessage = "Missing Parameter in " + functionName + " : " + paramName;
-                EpplusErrorManager.AddError(EnumErrorType.MissingParameter, ErrorLevel.Error, "", 0,
+                ErrorManager.AddError(EnumErrorType.MissingParameter, EnumErrorLevel.Error, "", 0,
                     errorMessage, paramName, functionName);
                 MissingParams.Add(functionName + "&" + paramName);
             }

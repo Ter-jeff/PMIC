@@ -1,12 +1,12 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
@@ -135,7 +135,7 @@ namespace IgxlData.IgxlSheets
             _levelData.Add(levelRow);
         }
 
-        protected override void WriteHeader()
+        protected void WriteHeader()
         {
             const string header =
                 "DTLevelSheet,version=2.1:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1\tPin Levels";
@@ -143,13 +143,13 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine();
         }
 
-        protected override void WriteColumnsHeader()
+        protected void WriteColumnsHeader()
         {
             const string columnsName = "\tPin/Group\tSeq.\tParameter\tValue\tComment\t";
             IgxlWriter.WriteLine(columnsName);
         }
 
-        protected override void WriteRows()
+        protected void WriteRows()
         {
             foreach (var levelRow in _levelData)
             {
@@ -250,7 +250,7 @@ namespace IgxlData.IgxlSheets
                     }
                     else
                     {
-                        arr = new[] {"\t"};
+                        arr = new[] { "\t" };
                     }
 
                     sw.WriteLine(string.Join("\t", arr));

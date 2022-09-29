@@ -1,18 +1,143 @@
-﻿using System.Collections.Generic;
-using IgxlData.IgxlBase;
+﻿using IgxlData.IgxlBase;
 using IgxlData.IgxlSheets;
 using OfficeOpenXml;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace IgxlData.IgxlReader
 {
     public class ReadDcSpecSheet : IgxlSheetReader
     {
         private const int StartRowIndex = 3;
+        private const int EndRowIndex = 4;
         private const int StartColumnIndex = 7;
 
-        #region Private Function
+        public DcSpecSheet GetSheet(Stream stream, string sheetName)
+        {
+            var dcSpecSheet = new DcSpecSheet(sheetName);
+            var isBackup = false;
+            var i = 1;
+            var categoryLine = "";
+            var categoryList = new List<string>();
+            var selectorLine = "";
+            var selectorNameList = new List<string>();
+            using (var sr = new StreamReader(stream))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    if (i > EndRowIndex)
+                    {
+                        var acSpec = GetDcSpecsRow(line, sheetName, i, selectorNameList,
+                            categoryLine, selectorLine);
+                        if (string.IsNullOrEmpty(acSpec.Symbol))
+                        {
+                            isBackup = true;
+                            continue;
+                        }
 
-        private DcSpec GetDcSpecsRow(ExcelWorksheet sheet, int row)
+                        acSpec.IsBackup = isBackup;
+                        dcSpecSheet.AddRow(acSpec);
+                    }
+                    else
+                    {
+                        var arr = line.Split('\t');
+                        var maxColumnCount = arr.Length;
+
+                        if (i == StartRowIndex)
+                        {
+                            for (var col = StartColumnIndex; col < maxColumnCount; col++)
+                            {
+                                var value = arr[col];
+                                if (!string.IsNullOrEmpty(value) && col != StartColumnIndex)
+                                {
+                                    categoryList.Add(value);
+                                    categoryLine = line;
+                                }
+                            }
+                        }
+                        else if (i == StartRowIndex + 1)
+                        {
+                            for (var col = StartColumnIndex; col < maxColumnCount; col++)
+                            {
+                                var value = arr[col];
+                                if (!string.IsNullOrEmpty(value))
+                                {
+                                    selectorNameList.Add(value);
+                                    selectorLine = line;
+                                }
+                            }
+
+                            selectorNameList = selectorNameList.Distinct().ToList();
+                            selectorNameList.Remove("Comment");
+                        }
+                    }
+                    i++;
+                }
+            }
+            dcSpecSheet.CategoryList = categoryList;
+            dcSpecSheet.SelectorNameList = selectorNameList;
+            return dcSpecSheet;
+        }
+
+        private DcSpec GetDcSpecsRow(string line, string sheetName, int row, List<string> selectorNameList,
+            string categoryLine, string selectorLine)
+        {
+            var arr = line.Split('\t');
+            var arrCategory = categoryLine.Split('\t');
+            var arrSelector = selectorLine.Split('\t');
+
+            var symbol = arr[1];
+            var name = "";
+            var comment = "";
+            var typ = "";
+            var min = "";
+            var max = "";
+            var categoryInSpecs = new List<CategoryInSpec>();
+            var selectorList = new List<Selector>();
+            for (var i = StartColumnIndex + selectorNameList.Count - 1; i < arr.Length; i++)
+            {
+                var category = arrCategory[i].Trim();
+                if (!string.IsNullOrEmpty(category))
+                {
+                    if (!string.IsNullOrEmpty(name))
+                        categoryInSpecs.Add(new CategoryInSpec(name, typ, min, max));
+                    name = category;
+                }
+
+                var selectorName = arrSelector[i].Trim();
+                var value = arr[i].Trim();
+                switch (FormatStringForCompare(selectorName))
+                {
+                    case "TYP":
+                        typ = value;
+                        selectorList.Add(new Selector("Typ", "Typ"));
+                        break;
+                    case "MIN":
+                        min = value;
+                        selectorList.Add(new Selector("Min", "Min"));
+                        break;
+                    case "MAX":
+                        max = value;
+                        selectorList.Add(new Selector("Max", "Max"));
+                        break;
+                    case "COMMENT":
+                        comment = value;
+                        break;
+                }
+            }
+
+            categoryInSpecs.Add(new CategoryInSpec(name, typ, min, max));
+            var dcSpec = new DcSpec(symbol, selectorList, "", comment);
+            dcSpec.RowNum = row;
+            dcSpec.SheetName = sheetName;
+            foreach (var categoryInSpec in categoryInSpecs)
+                dcSpec.AddCategory(categoryInSpec);
+            return dcSpec;
+        }
+
+        private DcSpec GetDcSpecRow(ExcelWorksheet sheet, int row)
         {
             var symbol = GetMergeCellValue(sheet, row, 2).Trim();
             var name = "";
@@ -61,10 +186,6 @@ namespace IgxlData.IgxlReader
             return dcSpecs;
         }
 
-        #endregion
-
-        #region public Function
-
         public DcSpecSheet GetSheet(string fileName)
         {
             return GetSheet(ConvertTxtToExcelSheet(fileName));
@@ -94,13 +215,11 @@ namespace IgxlData.IgxlReader
             {
                 var symbol = GetMergeCellValue(sheet, i, 2).Trim();
                 if (string.IsNullOrEmpty(symbol)) break;
-                var lDataRow = GetDcSpecsRow(sheet, i);
+                var lDataRow = GetDcSpecRow(sheet, i);
                 dcSpecSheet.AddRow(lDataRow);
             }
 
             return dcSpecSheet;
         }
-
-        #endregion
     }
 }

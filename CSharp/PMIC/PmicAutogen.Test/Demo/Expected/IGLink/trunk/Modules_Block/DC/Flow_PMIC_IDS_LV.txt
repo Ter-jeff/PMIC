@@ -1,0 +1,23 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Flow Table
+						Flow Domain:
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment
+						set-error-bin										999		999																			
+						Print	"PMIC_IDS_LV Start"																														
+		TTIME				Test	PMIC_IDS_LV_Header		430000																												
+						Test	IDS_ACTIVE_PreSetUp		430100												F_IDS_ACTIVE_LV,F_IDS																
+						Test	IDS_ACTIVE		430200												F_IDS_ACTIVE_LV,F_IDS																
+		A_Enable_MP_SBIN				BinTable	Bin_IDS																														
+						BinTable	Bin_IDS_ACTIVE_LV																														
+						Test	IDS_OFF_PreSetUp		430300												F_IDS_OFF_LV,F_IDS																
+						Test	IDS_OFF		430400												F_IDS_OFF_LV,F_IDS																
+		A_Enable_MP_SBIN				BinTable	Bin_IDS																														
+						BinTable	Bin_IDS_OFF_LV																														
+						Test	IDS_TRY_PreSetUp		430500												F_IDS_TRY_LV,F_IDS																
+						Test	IDS_TRY		430600												F_IDS_TRY_LV,F_IDS																
+		A_Enable_MP_SBIN				BinTable	Bin_IDS																														
+						BinTable	Bin_IDS_TRY_LV																														
+		TTIME				Test	PMIC_IDS_LV_Footer		430700																												
+						Print	"PMIC_IDS_LV End"																														
+		B_DebugPrint_Instrument_Status				Test	Debug_Print_Instrument_Status_Check_End		430800																												
+						Return																															

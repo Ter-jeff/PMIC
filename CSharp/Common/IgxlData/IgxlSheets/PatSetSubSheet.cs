@@ -1,10 +1,10 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
@@ -19,7 +19,7 @@ namespace IgxlData.IgxlSheets
 
         #region Property
 
-        public List<PatSetSubRow> PatSetSubData { set; get; }
+        public List<PatSetSubRow> PatSetSubRows { set; get; }
 
         #endregion
 
@@ -28,14 +28,14 @@ namespace IgxlData.IgxlSheets
         public PatSetSubSheet(ExcelWorksheet sheet)
             : base(sheet)
         {
-            PatSetSubData = new List<PatSetSubRow>();
+            PatSetSubRows = new List<PatSetSubRow>();
             IgxlSheetName = IgxlSheetNameList.PatternSubroutine;
         }
 
         public PatSetSubSheet(string sheetName)
             : base(sheetName)
         {
-            PatSetSubData = new List<PatSetSubRow>();
+            PatSetSubRows = new List<PatSetSubRow>();
             IgxlSheetName = IgxlSheetNameList.PatternSubroutine;
         }
 
@@ -45,17 +45,17 @@ namespace IgxlData.IgxlSheets
 
         public void AddRow(PatSetSubRow igxlItem)
         {
-            PatSetSubData.Add(igxlItem);
+            PatSetSubRows.Add(igxlItem);
         }
 
         // 20161027 add by JN 
         public long GetPatSetSubCnt()
         {
-            return PatSetSubData.Count;
+            return PatSetSubRows.Count;
         }
         // 20161027 add by JN 
 
-        protected override void WriteHeader()
+        protected void WriteHeader()
         {
             const string header =
                 "DTPatternSubroutineSheet,version=2.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Pattern Subroutine";
@@ -64,13 +64,13 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine();
         }
 
-        protected override void WriteColumnsHeader()
+        protected void WriteColumnsHeader()
         {
         }
 
-        protected override void WriteRows()
+        protected void WriteRows()
         {
-            foreach (var patSetSub in PatSetSubData)
+            foreach (var patSetSub in PatSetSubRows)
             {
                 var row = new StringBuilder();
                 row.Append("\t");
@@ -102,7 +102,7 @@ namespace IgxlData.IgxlSheets
 
         private void WriteSheet(string fileName, string version, SheetInfo igxlSheetsVersion)
         {
-            if (PatSetSubData.Count == 0) return;
+            if (PatSetSubRows.Count == 0) return;
 
             using (var sw = new StreamWriter(fileName, false))
             {
@@ -130,9 +130,9 @@ namespace IgxlData.IgxlSheets
 
                 #region data
 
-                for (var index = 0; index < PatSetSubData.Count; index++)
+                for (var index = 0; index < PatSetSubRows.Count; index++)
                 {
-                    var row = PatSetSubData[index];
+                    var row = PatSetSubRows[index];
                     var arr = Enumerable.Repeat("", maxCount).ToArray();
                     if (!string.IsNullOrEmpty(row.PatternFileName))
                     {
@@ -142,7 +142,7 @@ namespace IgxlData.IgxlSheets
                     }
                     else
                     {
-                        arr = new[] {"\t"};
+                        arr = new[] { "\t" };
                     }
 
                     sw.WriteLine(string.Join("\t", arr));
@@ -153,5 +153,15 @@ namespace IgxlData.IgxlSheets
         }
 
         #endregion
+
+        public void AddRows(List<PatSetSubRow> patSetSubRows)
+        {
+            foreach (var patSetSubRow in patSetSubRows)
+            {
+                if (!PatSetSubRows.Exists(x => x.PatternFileName.Equals(patSetSubRow.PatternFileName, StringComparison.CurrentCultureIgnoreCase)))
+                    AddRow(patSetSubRow);
+            }
+        }
+
     }
 }

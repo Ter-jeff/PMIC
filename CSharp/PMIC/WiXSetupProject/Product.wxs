@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include ProductConfiguration.wxi ?>
+<?include ProductVersion.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <?define PMICAutogenAddIn_TargetDir=$(var.PMICAutogenAddIn.TargetDir)?>
+
+  <Product Id="*" Name="$(var.ProductName) Version $(var.ProductVersion)" Language="1033"
+	         Version="$(var.ProductVersion)" Manufacturer="$(var.ProductManufacturer)"
+	         UpgradeCode="$(var.ProductUpgradeCode)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" InstallPrivileges="limited" Platform="x64" />
+
+    <Property Id="OLDREG" Value="NotFound" Secure="yes">
+      <RegistrySearch Id="OleReg" Root="HKCU"
+			                Key="Software\Microsoft\Office\Excel\Addins\Teradyne.PMICAutogenAddIn" Name="Manifest" Type="raw" />
+    </Property>
+
+    <Condition Message="Please remove old PMICAutogenAddIn !!!">
+      <![CDATA[Installed OR OLDREG="NotFound"]]>
+    </Condition>
+
+    <MajorUpgrade AllowDowngrades="no"
+                  AllowSameVersionUpgrades="yes"
+		           		IgnoreRemoveFailure="no"
+		              DowngradeErrorMessage="Newer version already installed."
+		              Schedule="afterInstallInitialize" />
+
+    <Property Id="VSTORUNTIMEREDIST">
+      <RegistrySearch Id="VSTORuntimeRedist" Root="HKLM" Key="SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" Name="Version"
+			                Type="raw" />
+    </Property>
+
+    <Condition
+			Message="The Visual Studio 2010 Tools for Office Runtime is not installed.&#x0d;
+      Please download and install from http://www.microsoft.com/en-us/download/details.aspx?id=20479.">
+      <![CDATA[Installed OR VSTORUNTIMEREDIST>="10.0.30319"]]>
+    </Condition>
+
+    <PropertyRef Id="NETFRAMEWORK45" />
+
+    <Condition Message="This application requires .NET Framework 4.5.">
+      <![CDATA[Installed OR NETFRAMEWORK45]]>
+    </Condition>
+
+    <Media Id="1" Cabinet="PMICAutogenAddIn.cab" EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="PMIC Add-in" Level="1">
+      <ComponentRef Id="APPLICATIONROOTDIRECTORY_PERMISSION" />
+      <ComponentGroupRef Id="RegComponents" />
+      <ComponentGroupRef Id="Files" />
+      <ComponentGroupRef Id="Help_files" />
+      <ComponentGroupRef Id="IGDataXML_files" />
+    </Feature>
+
+    <Property Id="UNLOADADDIN" Secure='yes' />
+    <Property Id="WIXUI_INSTALLDIR" Value="APPLICATIONROOTDIRECTORY" />
+    <UIRef Id="WixUI_InstallDir_Customize" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="Bmp\BannerBmp.png" />
+    <WixVariable Id="WixUIDialogBmp" Value="Bmp\DialogBmp.png" />
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="MANUFACTUREDIRECTORY" Name="$(var.ProductManufacturer)">
+        <Directory Id="APPLICATIONROOTDIRECTORY" Name="$(var.ProductName)">
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <!-- Installer folder permission -->
+    <!-- Guid cannot be "*" -->
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Component Id="APPLICATIONROOTDIRECTORY_PERMISSION" Guid="{B146DB97-3A41-402C-841B-8D5D01582D7A}">
+        <CreateFolder>
+          <util:PermissionEx User="SYSTEM" GenericAll="yes" />
+          <util:PermissionEx User="Administrators" GenericAll="yes" />
+          <util:PermissionEx User="Everyone" GenericRead="yes" Read="yes" ReadAttributes="yes" GenericExecute="yes"
+					                   TakeOwnership="no" GenericWrite="no" WriteAttributes="no" ReadPermission="yes"
+					                   ChangePermission="no" />
+          <util:PermissionEx User="Users" Domain="[LOCAL_MACHINE_NAME]" GenericRead="yes" Read="yes" ReadAttributes="yes"
+					                   GenericExecute="yes" TakeOwnership="no" GenericWrite="no" WriteAttributes="no"
+					                   ReadPermission="yes" ChangePermission="no" />
+        </CreateFolder>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="RegComponents" Directory="APPLICATIONROOTDIRECTORY">
+      <Component Id="RegistryKeys" Guid="6F06E122-B475-4180-9081-1BD3266E65FE">
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\Excel\AddIns\PMICAutogenAddIn">
+          <RegistryValue Id="RegKey_Manifest" Name="Manifest"
+					               Value="[APPLICATIONROOTDIRECTORY]PMICAutogenAddIn.vsto|vstolocal" Type="string" KeyPath="yes" />
+          <RegistryValue Id="RegKey_FriendlyName" Name="FriendlyName" Value="PMIC Add-In" Type="string" />
+          <RegistryValue Id="RegKey_Description" Name="Description" Value="Add-In for PMIC Autogen" Type="string" />
+        </RegistryKey>
+      </Component>
+      <Component Id="Unload" Guid="026FD621-F798-4313-86CE-8B69141402EA">
+        <Condition>UNLOADADDIN</Condition>
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\Excel\AddIns\PMICAutogenAddIn">
+          <RegistryValue Id="RegKey_UnLoadBehavior" Name="LoadBehavior" Value="0" Type="integer" />
+        </RegistryKey>
+      </Component>
+      <Component Id="Load" Guid="41EBF635-98FE-4DA4-BAB3-687DB09EE8E7">
+        <Condition>Not (UNLOADADDIN)</Condition>
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\Excel\AddIns\PMICAutogenAddIn">
+          <RegistryValue Id="RegKey_LoadBehavior" Name="LoadBehavior" Value="3" Type="integer" />
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Component Id="MyWpf.dll" Guid="E7905122-F90E-4237-897C-95AF065D6AB7">
+        <File Id="MyWpf.dll" Source="$(var.PMICAutogenAddIn_TargetDir)MyWpf.dll" />
+      </Component>
+      <Component Id="DotNetZip.dll" Guid="8DDF19FA-D5D6-498C-81F4-230111B52103">
+        <File Id="DotNetZip.dll" Source="$(var.PMICAutogenAddIn_TargetDir)DotNetZip.dll" />
+      </Component>
+      <Component Id="PMICAutogenAddIn.vsto" Guid="E76A85C3-26F8-4396-9948-F243110F6D61">
+        <File Id="PMICAutogenAddIn.vsto" KeyPath="yes" Source="$(var.PMICAutogenAddIn_TargetDir)PMICAutogenAddIn.vsto" />
+      </Component>
+      <Component Id="PMICAutogenAddIn.dll.manifest" Guid="1A91BCCC-BF8F-4654-BD2E-BD385DEF530B">
+        <File Id="PMICAutogenAddIn.dll.manifest" KeyPath="yes"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)PMICAutogenAddIn.dll.manifest" />
+      </Component>
+      <Component Id="PMICAutogenAddIn.dll.config" Guid="3A1EF3F7-BC51-4866-A483-9076BAC8A9E4">
+        <File Id="PMICAutogenAddIn.dll.config" KeyPath="yes"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)PMICAutogenAddIn.dll.config" />
+      </Component>
+      <Component Id="CommonLib.dll" Guid="F69FF6A5-0198-45C9-A0C9-D8C497FAC9DD">
+        <File Id="CommonLib.dll" Source="$(var.PMICAutogenAddIn_TargetDir)CommonLib.dll" />
+      </Component>
+      <Component Id="Newtonsoft.Json.dll" Guid="E5CC5216-2E02-491F-8B62-2CCFB1A587C0">
+        <File Id="Newtonsoft.Json.dll" Source="$(var.PMICAutogenAddIn_TargetDir)Newtonsoft.Json.dll" />
+      </Component>
+      <Component Id="IG_Data.dll" Guid="419e5607-fa45-4d08-908f-302a50a11821">
+        <File Id="IG_Data.dll" Name="IG-Data.dll" Source="$(var.PMICAutogenAddIn_TargetDir)IG-Data.dll" />
+      </Component>
+      <!--<Component Id="DocumentFormat.OpenXml.dll" Guid="f6d9815f-591c-4375-b263-3525ac433329">
+				<File Id="DocumentFormat.OpenXml.dll" Name="DocumentFormat.OpenXml.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)DocumentFormat.OpenXml.dll" />
+			</Component>-->
+      <Component Id="ProgramUtils.dll" Guid="6f0e3699-520f-4fa6-9010-20eabfeabde2">
+        <File Id="ProgramUtils.dll" Name="ProgramUtils.dll" Source="$(var.PMICAutogenAddIn_TargetDir)ProgramUtils.dll" />
+      </Component>
+      <Component Id="log4net.dll" Guid="4e773ca5-e672-44a8-b01a-12e5997e5165">
+        <File Id="log4net.dll" Name="log4net.dll" Source="$(var.PMICAutogenAddIn_TargetDir)log4net.dll" />
+      </Component>
+      <Component Id="Microsoft.WindowsAPICodePack.dll" Guid="01bf574c-fc43-4a42-b3ab-c3183c72e266">
+        <File Id="Microsoft.WindowsAPICodePack.dll" Name="Microsoft.WindowsAPICodePack.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)Microsoft.WindowsAPICodePack.dll" />
+      </Component>
+      <Component Id="OasisUtilityLib.dll" Guid="02ce076b-5d2e-4fc1-8481-63d12854cb88">
+        <File Id="OasisUtilityLib.dll" Name="OasisUtilityLib.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)OasisUtilityLib.dll" />
+      </Component>
+      <Component Id="IGLinkBase.dll" Guid="5af9746b-48d5-4f87-b0e0-6dbd1affc42b">
+        <File Id="IGLinkBase.dll" Name="IGLinkBase.dll" Source="$(var.PMICAutogenAddIn_TargetDir)IGLinkBase.dll" />
+      </Component>
+      <Component Id="IgxlData.dll" Guid="0a6c9e64-d7fd-4e67-bf7d-12177fb7fe33">
+        <File Id="IgxlData.dll" Name="IgxlData.dll" Source="$(var.PMICAutogenAddIn_TargetDir)IgxlData.dll" />
+      </Component>
+      <Component Id="Microsoft.WindowsAPICodePack.Shell.dll" Guid="dba75a8b-e676-4dbf-a7f7-81f067b2f68b">
+        <File Id="Microsoft.WindowsAPICodePack.Shell.dll" Name="Microsoft.WindowsAPICodePack.Shell.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)Microsoft.WindowsAPICodePack.Shell.dll" />
+      </Component>
+      <Component Id="Microsoft.Office.Tools.dll" Guid="b6f66467-305d-4b8c-ac2c-57f8080fb247">
+        <File Id="Microsoft.Office.Tools.dll" Name="Microsoft.Office.Tools.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)Microsoft.Office.Tools.dll" />
+      </Component>
+      <Component Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Guid="582aeaaf-5dd3-4015-9c98-bbf13e0b1426">
+        <File Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Name="Microsoft.Office.Tools.Common.v4.0.Utilities.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)Microsoft.Office.Tools.Common.v4.0.Utilities.dll" />
+      </Component>
+      <Component Id="Microsoft.Office.Tools.Common.dll" Guid="44bed8b8-29d4-40ce-ba12-31f3a6095a79">
+        <File Id="Microsoft.Office.Tools.Common.dll" Name="Microsoft.Office.Tools.Common.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)Microsoft.Office.Tools.Common.dll" />
+      </Component>
+      <Component Id="EPPlus.dll" Guid="89a6b2bb-7801-4ad1-8b7d-8ed81e9f8dce">
+        <File Id="EPPlus.dll" Name="EPPlus.dll" Source="$(var.PMICAutogenAddIn_TargetDir)EPPlus.dll" />
+      </Component>
+      <Component Id="PMICAutogenAddIn.dll" Guid="bb82eb60-8540-4a50-99b3-7a2426e77cdc">
+        <File Id="PMICAutogenAddIn.dll" Name="PMICAutogenAddIn.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)PMICAutogenAddIn.dll" />
+      </Component>
+      <Component Id="Microsoft.VisualStudio.Tools.Applications.Runtime.dll" Guid="ab9e8b12-cc39-4b94-8698-15e32aaf9a38">
+        <File Id="Microsoft.VisualStudio.Tools.Applications.Runtime.dll"
+				      Name="Microsoft.VisualStudio.Tools.Applications.Runtime.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)Microsoft.VisualStudio.Tools.Applications.Runtime.dll" />
+      </Component>
+      <Component Id="Microsoft.Office.Tools.Excel.dll" Guid="33e141c1-6f23-4d8c-8e49-b174dcdea384">
+        <File Id="Microsoft.Office.Tools.Excel.dll" Name="Microsoft.Office.Tools.Excel.dll"
+				      Source="$(var.PMICAutogenAddIn_TargetDir)Microsoft.Office.Tools.Excel.dll" />
+      </Component>
+      <Component Id="PmicAutogen.dll" Guid="09C5215E-912B-454E-9E84-D93245A9087E">
+        <File Id="PmicAutogen.dll" Name="PmicAutogen.dll" Source="$(var.PMICAutogenAddIn_TargetDir)PmicAutogen.dll" />
+      </Component>
+      <Component Id="CommonReaderLib.dll" Guid="612C2D22-1E61-4456-8CBA-7D47519B6265">
+        <File Id="CommonReaderLib.dll" Name="CommonReaderLib.dll" Source="$(var.PMICAutogenAddIn_TargetDir)CommonReaderLib.dll" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="Files">
+      <ComponentRef Id="DotNetZip.dll" />
+      <ComponentRef Id="MyWpf.dll" />
+      <ComponentRef Id="CommonLib.dll" />
+      <ComponentRef Id="Newtonsoft.Json.dll" />
+      <ComponentRef Id="PMICAutogenAddIn.dll.manifest" />
+      <ComponentRef Id="PMICAutogenAddIn.dll.config" />
+      <ComponentRef Id="PMICAutogenAddIn.vsto" />
+      <ComponentRef Id="IG_Data.dll"/>
+      <!--<ComponentRef Id="DocumentFormat.OpenXml.dll" />-->
+      <ComponentRef Id="ProgramUtils.dll" />
+      <ComponentRef Id="log4net.dll" />
+      <ComponentRef Id="Microsoft.WindowsAPICodePack.dll" />
+      <ComponentRef Id="OasisUtilityLib.dll" />
+      <ComponentRef Id="IGLinkBase.dll" />
+      <ComponentRef Id="IgxlData.dll" />
+      <ComponentRef Id="Microsoft.WindowsAPICodePack.Shell.dll" />
+      <ComponentRef Id="Microsoft.Office.Tools.dll" />
+      <ComponentRef Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" />
+      <ComponentRef Id="Microsoft.Office.Tools.Common.dll" />
+      <ComponentRef Id="EPPlus.dll" />
+      <ComponentRef Id="PMICAutogenAddIn.dll" />
+      <ComponentRef Id="Microsoft.VisualStudio.Tools.Applications.Runtime.dll" />
+      <ComponentRef Id="Microsoft.Office.Tools.Excel.dll" />
+      <ComponentRef Id="PmicAutogen.dll" />
+      <ComponentRef Id="CommonReaderLib.dll" />
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Directory Id="Help" Name="Help">
+        <Component Id="Help_PMICAutogenHelp.chm" Guid="9c68b41b-0054-4b5b-9ad2-be6561c759d3">
+          <File Id="Help_PMICAutogenHelp.chm" Name="PMICAutogenHelp.chm"
+					      Source="$(var.PMICAutogenAddIn_TargetDir)Help\PMICAutogenHelp.chm" KeyPath="yes" ReadOnly="yes" />
+        </Component>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="Help_files">
+      <ComponentRef Id="Help_PMICAutogenHelp.chm" />
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Directory Id="IGDataXML" Name="IGDataXML">
+        <Directory Id="SheetClassMapping" Name="SheetClassMapping">
+          <Component Id="IGDataXML_SheetClassMapping_v8.10_ultraflex.xml" Guid="b346c0be-a9ef-4835-b1f5-71bedff47cb3">
+            <File Id="IGDataXML_SheetClassMapping_v8.10_ultraflex.xml" Name="v8.10_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v8.10_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_v10.10_ultraflex.xml" Guid="4b226fac-e17a-4258-9418-bb96045292d1">
+            <File Id="IGDataXML_SheetClassMapping_v10.10_ultraflex.xml" Name="v10.10_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v10.10_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_v10.00_ultraflex.xml" Guid="23bd55ef-b931-49cd-a7ed-0afa25a58f87">
+            <File Id="IGDataXML_SheetClassMapping_v10.00_ultraflex.xml" Name="v10.00_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v10.00_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_v9.00_ultraflex.xml" Guid="03b43679-594a-44d6-abce-0229b6548305">
+            <File Id="IGDataXML_SheetClassMapping_v9.00_ultraflex.xml" Name="v9.00_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v9.00_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_v8.30_ultraflex.xml" Guid="28841ba3-5463-4359-ad32-825b280c047c">
+            <File Id="IGDataXML_SheetClassMapping_v8.30_ultraflex.xml" Name="v8.30_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v8.30_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_v8.20_ultraflex.xml" Guid="004b9689-2c64-4656-87df-533823451265">
+            <File Id="IGDataXML_SheetClassMapping_v8.20_ultraflex.xml" Name="v8.20_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v8.20_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_v5.30_flex.xml" Guid="0ff9e9a7-3cb9-4824-9d39-936dec2b5c1d">
+            <File Id="IGDataXML_SheetClassMapping_v5.30_flex.xml" Name="v5.30_flex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v5.30_flex.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_v10.20_ultraflex.xml" Guid="1ab30d1d-4109-4170-875a-89fddbe47bc2">
+            <File Id="IGDataXML_SheetClassMapping_v10.20_ultraflex.xml" Name="v10.20_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v10.20_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_v3.60_j750.xml" Guid="eb06303b-7172-4b4d-b566-52324b478418">
+            <File Id="IGDataXML_SheetClassMapping_v3.60_j750.xml" Name="v3.60_j750.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\v3.60_j750.xml" />
+          </Component>
+          <Component Id="IGDataXML_SheetClassMapping_IGXL.xsd" Guid="7af02ab2-a72f-4517-95e4-a7ab95309be6">
+            <File Id="IGDataXML_SheetClassMapping_IGXL.xsd" Name="IGXL.xsd"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\SheetClassMapping\IGXL.xsd" />
+          </Component>
+        </Directory>
+        <Directory Id="IGXLSheetsVersion" Name="IGXLSheetsVersion">
+          <Component Id="IGDataXML_IGXLSheetsVersion_v10.10_ultraflex.xml" Guid="1409af71-ffe9-4152-994a-52b8707c5022">
+            <File Id="IGDataXML_IGXLSheetsVersion_v10.10_ultraflex.xml" Name="v10.10_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v10.10_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_v10.00_ultraflex.xml" Guid="96001871-efc7-4596-9e2d-90f829217fc0">
+            <File Id="IGDataXML_IGXLSheetsVersion_v10.00_ultraflex.xml" Name="v10.00_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v10.00_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_v9.00_ultraflex.xml" Guid="77fc6408-cab3-4d9f-b537-66dfb2a89490">
+            <File Id="IGDataXML_IGXLSheetsVersion_v9.00_ultraflex.xml" Name="v9.00_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v9.00_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_v8.30_ultraflex.xml" Guid="f4e3b1e0-eeb3-4c08-b799-e2aa7744172a">
+            <File Id="IGDataXML_IGXLSheetsVersion_v8.30_ultraflex.xml" Name="v8.30_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v8.30_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_v8.20_ultraflex.xml" Guid="1b6df667-0cac-4980-8496-2f25a2ee2052">
+            <File Id="IGDataXML_IGXLSheetsVersion_v8.20_ultraflex.xml" Name="v8.20_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v8.20_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_v8.10_ultraflex.xml" Guid="67d46f2f-d527-4167-9af2-5d9aa7c66933">
+            <File Id="IGDataXML_IGXLSheetsVersion_v8.10_ultraflex.xml" Name="v8.10_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v8.10_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_v5.30_flex.xml" Guid="afbcc9c2-222e-4037-9474-24a5ba683d04">
+            <File Id="IGDataXML_IGXLSheetsVersion_v5.30_flex.xml" Name="v5.30_flex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v5.30_flex.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_v3.60_j750.xml" Guid="c3eee871-09f9-41fe-8757-e07d9ff5d7e0">
+            <File Id="IGDataXML_IGXLSheetsVersion_v3.60_j750.xml" Name="v3.60_j750.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v3.60_j750.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_v10.20_ultraflex.xml" Guid="630362ac-6297-4ac9-9c69-2e1cc6ab90a8">
+            <File Id="IGDataXML_IGXLSheetsVersion_v10.20_ultraflex.xml" Name="v10.20_ultraflex.xml"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\v10.20_ultraflex.xml" />
+          </Component>
+          <Component Id="IGDataXML_IGXLSheetsVersion_IGXLSheets.xsd" Guid="871621f6-8e8c-46c4-8fff-d6502f1ca8db">
+            <File Id="IGDataXML_IGXLSheetsVersion_IGXLSheets.xsd" Name="IGXLSheets.xsd"
+						      Source="$(var.PMICAutogenAddIn_TargetDir)IGDataXML\IGXLSheetsVersion\IGXLSheets.xsd" />
+          </Component>
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="IGDataXML_files">
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v8.10_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v10.10_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v10.00_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v9.00_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v8.30_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v8.20_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v5.30_flex.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v10.20_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_v3.60_j750.xml" />
+      <ComponentRef Id="IGDataXML_SheetClassMapping_IGXL.xsd" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v10.10_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v10.00_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v9.00_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v8.30_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v8.20_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v8.10_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v5.30_flex.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v3.60_j750.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_v10.20_ultraflex.xml" />
+      <ComponentRef Id="IGDataXML_IGXLSheetsVersion_IGXLSheets.xsd" />
+    </ComponentGroup>
+  </Fragment>
+
+</Wix>

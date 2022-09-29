@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:controls="clr-namespace:MyWpf.Controls"
+                    mc:Ignorable="d">
+    <Style TargetType="controls:MyImageButton">
+        <Setter Property="SnapsToDevicePixels"
+                Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:MyImageButton">
+                    <Border Margin="{TemplateBinding Margin}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Padding="{TemplateBinding Padding}">
+                        <Image Grid.Row="0"
+                               Margin="10"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               RenderOptions.BitmapScalingMode="Fant"
+                               Source="{TemplateBinding ImageSource}"
+                               Stretch="UniformToFill" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Foreground"
+                                    Value="{DynamicResource MyDisableTextBrush}" />
+                            <Setter Property="BorderBrush"
+                                    Value="{DynamicResource MyDisableBorderBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="SkyBlue" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,21 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1:tabcolor=16777215	Flow Table																																					
+						Flow Domain:																																
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data						
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment	
+		!A_Enable_OTP_Burn				return																																
+						print	"Flow_OTP_ECID_Burn Start"																															
+						Test	OTP_CHECK_DefaultReal		95300												F_OTP_CHECK_DefaultReal																	
+						Bintable	Bin_OTP_CHECK_DefaultReal																															
+		OTP_cmpAHB				Test	OTP_AHBvsOTP_PreBurn_Comp														F_OTP_AHBvsOTP_PreBurn_Comp																	
+						Bintable	Bin_OTP_AHBvsOTP_PreBurn_Comp																															
+						Test	OTP_Burn_Header																															
+						Test	OTP_Burn		95400												F_OTP_Burn_ECID																	
+						Bintable	Bin_OTP_Burn_ECID																															
+						Test	OTP_Burn_Footer																															
+						Test	OTP_Burn_CRC_Header																															
+						Test	OTP_CRCCALC														F_OTP_Burn_CRC																	
+						Test	OTP_Burn_CRC														F_OTP_Burn_CRC																	
+						Bintable	Bin_OTP_Burn_CRC																															
+						Test	OTP_Burn_CRC_Footer																															
+						print	"Flow_OTP_ECIDnCRC_Burn Stop"																															
+						return																								

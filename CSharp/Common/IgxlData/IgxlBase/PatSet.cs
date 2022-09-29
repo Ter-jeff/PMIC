@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace IgxlData.IgxlBase
 {
-    public class PatSet : IgxlItem
+    [DebuggerDisplay("{PatSetName}")]
+    public class PatSet : IgxlRow
     {
-        #region Property
-
         public string PatSetName { get; set; }
         public List<PatSetRow> PatSetRows { get; set; }
-        public bool IsBackup { get; set; }
 
         public PatSet()
         {
@@ -44,16 +43,13 @@ namespace IgxlData.IgxlBase
             return string.Join("", arr);
         }
 
-
         public string GetNewPatSetName(List<string> patterns)
         {
             if (patterns.Count == 0)
                 return "";
 
             patterns = patterns.Where(x => !Regex.IsMatch(x, @"_IN\w{2}_", RegexOptions.IgnoreCase)).ToList();
-
             var max = patterns.Max(x => x.Split('_').Length);
-
             var arr = new bool[max];
             var first = patterns.First().Split('_');
             foreach (var pattern in patterns)
@@ -90,10 +86,7 @@ namespace IgxlData.IgxlBase
                     final[index] = string.Join("_", one);
                 }
             }
-
             return string.Join("_", final);
         }
-
-        #endregion
     }
 }

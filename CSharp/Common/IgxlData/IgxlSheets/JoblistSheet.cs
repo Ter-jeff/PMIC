@@ -1,10 +1,10 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
@@ -30,7 +30,7 @@ namespace IgxlData.IgxlSheets
 
         public Dictionary<string, int> HeaderIndex { get; set; } = new Dictionary<string, int>();
 
-        protected override void WriteHeader()
+        protected void WriteHeader()
         {
             const string header =
                 "DTJobListSheet,version=2.5:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Job List";
@@ -40,7 +40,7 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine();
         }
 
-        protected override void WriteColumnsHeader()
+        protected void WriteColumnsHeader()
         {
             var firstRow = new StringBuilder();
             var secondRow = new StringBuilder();
@@ -51,7 +51,7 @@ namespace IgxlData.IgxlSheets
             IgxlWriter.WriteLine(secondRow.ToString());
         }
 
-        protected override void WriteRows()
+        protected void WriteRows()
         {
             foreach (var job in Rows)
             {
@@ -218,7 +218,7 @@ namespace IgxlData.IgxlSheets
                     }
                     else
                     {
-                        arr = new[] {"\t"};
+                        arr = new[] { "\t" };
                     }
 
                     sw.WriteLine(string.Join("\t", arr));
@@ -237,6 +237,5 @@ namespace IgxlData.IgxlSheets
         {
             return Rows.Find(x => x.JobName.Equals(job, StringComparison.OrdinalIgnoreCase));
         }
-
     }
 }

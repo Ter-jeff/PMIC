@@ -1,8 +1,8 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using IgxlData.IgxlBase;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
@@ -32,22 +32,6 @@ namespace IgxlData.IgxlSheets
         public void AddRows(List<CharSetup> charSetups)
         {
             CharSetups.AddRange(charSetups);
-        }
-
-
-        protected override void WriteHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteColumnsHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteRows()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Write(string fileName, string version = "")
@@ -221,7 +205,7 @@ namespace IgxlData.IgxlSheets
                         }
                         else
                         {
-                            arr = new[] {"\t"};
+                            arr = new[] { "\t" };
                         }
 
                         sw.WriteLine(string.Join("\t", arr));

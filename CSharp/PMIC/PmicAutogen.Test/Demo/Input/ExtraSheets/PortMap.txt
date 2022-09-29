@@ -1,0 +1,19 @@
+DTPortMapSheet,version=2.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1:tabcolor=16777215	Port Map																												
+																													
+		Protocol													Function														
+	Port Name	Family	Type	Settings	Setting0	Setting1	Setting2	Setting3	Setting4	Setting5	Setting6	Setting7	Setting8	Setting9	Name	Pin	Properties	Property0	Property1	Property2	Property3	Property4	Property5	Property6	Property7	Property8	Property9	Comment	
+	ADG1414_PINS	nWire	SPIPORT	MaxWaitUntilTimeout=0.100;	0.100										SCLK	ADG1414_SCLK													
+	ADG1414_PINS														SYNCN	ADG1414_SYNC													
+	ADG1414_PINS														DIN	ADG1414_DIN													
+	ADG1414_PINS														SDO	ADG1414_SDO													
+	ADG1414_PINS														RESETN	ADG1414_RESET													
+	NWIRE_SPMI	nWire	SPMIPORT	MaxWaitUntilTimeout=0.100;											SPMI_SCLK	SPMI_SCLK													
+	NWIRE_SPMI														SPMI_SDATA	SPMI_SDATA													
+	FRC_PINS	nWire	Clock	IgnoreContextChanges=True;	True										ClockOut	XOUT													
+	FRC_PINS														RefClk	REFCLK_32KHZ													
+	NWIRE_JTAG	nWire	JTAGPORT												TCK	DFT_CTRL1													
+	NWIRE_JTAG														TMS	GPIO3													
+	NWIRE_JTAG														TDI	GPIO2													
+	NWIRE_JTAG														TDO	GPIO4													
+																													
+	NWIRE_JTAG														TRST	DFT_CTRL0													

@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="MyWpf.Controls.MyWindowCommandBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:properties="clr-namespace:MyWpf.Properties"
+             xmlns:controls="clr-namespace:MyWpf.Controls"
+             xmlns:ui="clr-namespace:MyWpf.Controls.Ribbon.UI"
+             d:DesignHeight="36"
+             d:DesignWidth="400"
+             Background="AliceBlue"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="WindowTitleStyle"
+                   TargetType="TextBlock">
+                <Setter Property="FontSize"
+                        Value="12" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
+                <Setter Property="Background"
+                        Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=ui:Ribbon, ResourceId=WindowBackgroundBrush}}" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid x:Name="CommandBar"
+          HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="MySettingBar"
+                    Grid.Column="0"
+                    Margin="3"
+                    Orientation="Horizontal"
+                    WindowChrome.IsHitTestVisibleInChrome="True"></StackPanel>
+        <TextBlock Grid.Column="1"
+                   Margin="10,0,0,0"
+                   TextAlignment="Center"
+                   HorizontalAlignment="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:MyWindowCommandBar}},Path=TitleHorizontalAlignment}"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource WindowTitleStyle}"
+                   Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:MyWindowCommandBar}},Path=Title}" />
+        <controls:MyImageButton Grid.Column="2"
+                                x:Name="HelpButton"
+                                x:FieldModifier="public"
+                                ImageSource="/MyWpf;component/Resources/help.png"
+                                ToolTip="{x:Static properties:Resources.HelpCommandTooltip}"></controls:MyImageButton>
+        <controls:MyImageButton Grid.Column="3"
+                                ImageSource="/MyWpf;component/Resources/minimize.png"
+                                Command="{x:Static ui:WindowCommands.Minimize}"
+                                ToolTip="{x:Static properties:Resources.MinimizeCommandTooltip}"></controls:MyImageButton>
+        <controls:MyImageButton Grid.Column="4"
+                                ImageSource="/MyWpf;component/Resources/maximize.png"
+                                Command="{x:Static ui:WindowCommands.Maximize}"
+                                ToolTip="{x:Static properties:Resources.MaximizeCommandName}"></controls:MyImageButton>
+        <controls:MyImageButton Grid.Column="5"
+                                ImageSource="/MyWpf;component/Resources/close.png"
+                                Command="{x:Static ApplicationCommands.Close}"
+                                ToolTip="{x:Static properties:Resources.CloseCommandTooltip}"></controls:MyImageButton>
+    </Grid>
+</UserControl>

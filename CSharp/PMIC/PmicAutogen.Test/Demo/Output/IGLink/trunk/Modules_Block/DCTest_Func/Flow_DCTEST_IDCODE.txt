@@ -1,0 +1,23 @@
+DTFlowtableSheet,version=3.0:platform=Jaguar:toprow=-1:leftcol=-1:rightcol=-1	Flow Table
+						Flow Domain:
+			Gate			Command				Limits		Datalog Display Results			Bin Number		Sort Number			Action			Group				Device			Debug		CT Profile Data
+	Label	Enable	Job	Part	Env	Opcode	Parameter	TName	TNum	LoLim	HiLim	Scale	Units	Format	Pass	Fail	Pass	Fail	Result	Pass	Fail	State	Specifier	Sense	Condition	Name	Sense	Condition	Name	Assume	Sites	Elapsed Time (s)	Background Type	Serialize	Resource Lock	Flow Step Locked	Comment
+						set-error-bin										999		999																			
+						Print	"DCTEST_IDCODE Start"																														
+		TTIME				Test	DCTEST_IDCODE_Header		70000																												
+						Test	IDCODE_IDCODE_PP_XXXXX_C_FULP_JT_XXXX_WIR_JTG_UNS_ALLFRV_SI_IDCODE_NV		70100												F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_N_Flag,F_JTAG																	idcode
+						Test	IDCODE_IDCODE_PP_XXXXX_C_FULP_JT_XXXX_WIR_JTG_UNS_ALLFRV_SI_IDCODE_LV		70200												F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_L_Flag,F_JTAG																	idcode
+						Test	IDCODE_IDCODE_PP_XXXXX_C_FULP_JT_XXXX_WIR_JTG_UNS_ALLFRV_SI_IDCODE_HV		70300												F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_H_Flag,F_JTAG																	idcode
+						Test	IDCODE_IDCODE_PP_XXXXX_C_FULP_JT_XXXX_WIR_JTG_UNS_ALLFRV_SI_IDCODE_UHV		70400												F_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_UH_Flag,F_JTAG																	idcode
+		A_Enable_MP_SBIN				BinTable	Bin_JTAG																														
+		BinTable				BinTable	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_HNLV																														
+		BinTable				BinTable	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_NLV																														
+		BinTable				BinTable	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_HLV																														
+		BinTable				BinTable	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_HNV																														
+		BinTable				BinTable	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_HV																														
+		BinTable				BinTable	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_NV																														
+		BinTable				BinTable	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_LV																														
+		BinTable				BinTable	Bin_DCTEST_IDCODE_idcode_XXXXX_JT_WIR_JTG_UNS_IDCODE_UHV																														
+		TTIME				Test	DCTEST_IDCODE_Footer		70500																												
+						Print	"DCTEST_IDCODE End"																														
+						Return																															

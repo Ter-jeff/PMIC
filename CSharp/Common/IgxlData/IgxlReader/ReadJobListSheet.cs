@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using CommonLib.Utility;
+﻿using CommonLib.Extension;
 using IgxlData.IgxlBase;
 using IgxlData.IgxlSheets;
 using OfficeOpenXml;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace IgxlData.IgxlReader
 {
@@ -54,7 +54,100 @@ namespace IgxlData.IgxlReader
         private int _testInsIndex = -1;
         private int _waveDefineIndex = -1;
 
-        #region public Function
+        private const int StartRowIndex = 4;
+        private const int StartColumnIndex = 2;
+
+        public JobListSheet GetSheet(Stream stream, string sheetName)
+        {
+            var jobListSheet = new JobListSheet(sheetName);
+            var isBackup = false;
+            var i = 1;
+            using (var sr = new StreamReader(stream))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    if (i > StartRowIndex)
+                    {
+                        var jobRow = GetJobRow(line, sheetName, i);
+                        if (string.IsNullOrEmpty(jobRow.JobName))
+                        {
+                            isBackup = true;
+                            continue;
+                        }
+
+                        jobRow.IsBackup = isBackup;
+                        jobListSheet.AddRow(jobRow);
+                    }
+                    i++;
+                }
+            }
+            return jobListSheet;
+        }
+
+        private JobRow GetJobRow(string line, string sheetName, int row)
+        {
+            var arr = line.Split('\t');
+            var jobRow = new JobRow();
+            jobRow.RowNum = row;
+            jobRow.SheetName = sheetName;
+            var index = StartColumnIndex - 1;
+            var content = GetCellText(arr, 0);
+            jobRow.ColumnA = content;
+            content = GetCellText(arr, index);
+            jobRow.JobName = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.PinMap = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.TestInstance = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.FlowTable = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.AcSpecs = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.DcSpecs = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.PatternSets = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.BinTable = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.Characterization = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.MixedSignalTiming = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.WaveDefinition = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.PSets = content;
+            index++;
+            jobRow.Signals = string.Empty;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.PortMap = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.FractionalBus = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.ConcurrentSequence = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.SpikeCheckConfig = content;
+            index++;
+            content = GetCellText(arr, index);
+            jobRow.Comment = content;
+            return jobRow;
+        }
 
         public List<string> GetJobs(Stream stream, string sheetName)
         {
@@ -67,7 +160,7 @@ namespace IgxlData.IgxlReader
                     var line = sr.ReadLine();
                     if (line != null)
                     {
-                        var arr = line.Split(new[] {'\t'}, StringSplitOptions.None);
+                        var arr = line.Split(new[] { '\t' }, StringSplitOptions.None);
                         if (arr.Count() > 3)
                         {
                             var job = arr[1];
@@ -109,58 +202,59 @@ namespace IgxlData.IgxlReader
             return _jobListSheet;
         }
 
-        #endregion
-
-        #region Private Function
-
         private JobListSheet ReadSheetData()
         {
             for (var i = _startRowNumber + 1; i <= _endRowNumber; i++)
             {
-                var row = new JobRow();
-                row.LineNum = i.ToString();
-                if (_jobNameIndex != -1)
-                    row.JobName = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _jobNameIndex).Trim();
-                if (_pinMapIndex != -1)
-                    row.PinMap = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _pinMapIndex).Trim();
-                if (_testInsIndex != -1)
-                    row.TestInstance = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _testInsIndex).Trim();
-                if (_flowTableIndex != -1)
-                    row.FlowTable = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _flowTableIndex).Trim();
-                if (_acSpecIndex != -1)
-                    row.AcSpecs = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _acSpecIndex).Trim();
-                if (_dcSpecIndex != -1)
-                    row.DcSpecs = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _dcSpecIndex).Trim();
-                if (_patternSetsIndex != -1)
-                    row.PatternSets = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _patternSetsIndex).Trim();
-                if (_binTableIndex != -1)
-                    row.BinTable = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _binTableIndex).Trim();
-                if (_characterizationIndex != -1)
-                    row.Characterization = EpplusOperation
-                        .GetMergedCellValue(_excelWorksheet, i, _characterizationIndex).Trim();
-                if (_mixSignalIndex != -1)
-                    row.MixedSignalTiming =
-                        EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _mixSignalIndex).Trim();
-                if (_waveDefineIndex != -1)
-                    row.WaveDefinition =
-                        EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _waveDefineIndex).Trim();
-                if (_pSetsIndex != -1)
-                    row.PSets = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _pSetsIndex).Trim();
-                if (_signalIndex != -1)
-                    row.Signals = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _signalIndex).Trim();
-                if (_portMapIndex != -1)
-                    row.PortMap = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _portMapIndex).Trim();
-                if (_fractionalIndex != -1)
-                    row.FractionalBus = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _fractionalIndex).Trim();
-                if (_concurrentSeqIndex != -1)
-                    row.ConcurrentSequence = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _concurrentSeqIndex)
-                        .Trim();
-                if (_commentIndex != -1)
-                    row.Comment = EpplusOperation.GetMergedCellValue(_excelWorksheet, i, _commentIndex).Trim();
+                var row = GetJobRow(i);
                 _jobListSheet.AddRow(row);
             }
 
             return _jobListSheet;
+        }
+
+        private JobRow GetJobRow(int i)
+        {
+            var row = new JobRow();
+            row.LineNum = i.ToString();
+            if (_jobNameIndex != -1)
+                row.JobName = _excelWorksheet.GetMergedCellValue(i, _jobNameIndex).Trim();
+            if (_pinMapIndex != -1)
+                row.PinMap = _excelWorksheet.GetMergedCellValue(i, _pinMapIndex).Trim();
+            if (_testInsIndex != -1)
+                row.TestInstance = _excelWorksheet.GetMergedCellValue(i, _testInsIndex).Trim();
+            if (_flowTableIndex != -1)
+                row.FlowTable = _excelWorksheet.GetMergedCellValue(i, _flowTableIndex).Trim();
+            if (_acSpecIndex != -1)
+                row.AcSpecs = _excelWorksheet.GetMergedCellValue(i, _acSpecIndex).Trim();
+            if (_dcSpecIndex != -1)
+                row.DcSpecs = _excelWorksheet.GetMergedCellValue(i, _dcSpecIndex).Trim();
+            if (_patternSetsIndex != -1)
+                row.PatternSets = _excelWorksheet.GetMergedCellValue(i, _patternSetsIndex).Trim();
+            if (_binTableIndex != -1)
+                row.BinTable = _excelWorksheet.GetMergedCellValue(i, _binTableIndex).Trim();
+            if (_characterizationIndex != -1)
+                row.Characterization = _excelWorksheet.GetMergedCellValue(i, _characterizationIndex).Trim();
+            if (_mixSignalIndex != -1)
+                row.MixedSignalTiming =
+                    _excelWorksheet.GetMergedCellValue(i, _mixSignalIndex).Trim();
+            if (_waveDefineIndex != -1)
+                row.WaveDefinition =
+                    _excelWorksheet.GetMergedCellValue(i, _waveDefineIndex).Trim();
+            if (_pSetsIndex != -1)
+                row.PSets = _excelWorksheet.GetMergedCellValue(i, _pSetsIndex).Trim();
+            if (_signalIndex != -1)
+                row.Signals = _excelWorksheet.GetMergedCellValue(i, _signalIndex).Trim();
+            if (_portMapIndex != -1)
+                row.PortMap = _excelWorksheet.GetMergedCellValue(i, _portMapIndex).Trim();
+            if (_fractionalIndex != -1)
+                row.FractionalBus = _excelWorksheet.GetMergedCellValue(i, _fractionalIndex).Trim();
+            if (_concurrentSeqIndex != -1)
+                row.ConcurrentSequence = _excelWorksheet.GetMergedCellValue(i, _concurrentSeqIndex)
+                    .Trim();
+            if (_commentIndex != -1)
+                row.Comment = _excelWorksheet.GetMergedCellValue(i, _commentIndex).Trim();
+            return row;
         }
 
         private void Reset()
@@ -192,7 +286,7 @@ namespace IgxlData.IgxlReader
         {
             for (var i = _startColNumber; i <= _endColNumber; i++)
             {
-                var lStrHeader = EpplusOperation.GetCellValue(_excelWorksheet, _startRowNumber, i).Trim();
+                var lStrHeader = _excelWorksheet.GetCellValue(_startRowNumber, i).Trim();
                 if (lStrHeader.Equals(ConHeaderJobName, StringComparison.OrdinalIgnoreCase))
                 {
                     _jobNameIndex = i;
@@ -321,13 +415,13 @@ namespace IgxlData.IgxlReader
             var rowNum = _endRowNumber > 10 ? 10 : _endRowNumber;
             var colNum = _endColNumber > 10 ? 10 : _endColNumber;
             for (var i = 1; i <= rowNum; i++)
-            for (var j = 1; j <= colNum; j++)
-                if (EpplusOperation.GetCellValue(_excelWorksheet, i, j).Trim()
-                    .Equals(ConHeaderJobName, StringComparison.OrdinalIgnoreCase))
-                {
-                    _startRowNumber = i;
-                    return true;
-                }
+                for (var j = 1; j <= colNum; j++)
+                    if (_excelWorksheet.GetCellValue(i, j).Trim()
+                        .Equals(ConHeaderJobName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        _startRowNumber = i;
+                        return true;
+                    }
 
             return false;
         }
@@ -345,7 +439,5 @@ namespace IgxlData.IgxlReader
 
             return false;
         }
-
-        #endregion
     }
 }

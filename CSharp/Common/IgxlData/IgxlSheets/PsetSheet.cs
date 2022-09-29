@@ -1,9 +1,9 @@
-﻿using System;
+﻿using IgxlData.IgxlBase;
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using IgxlData.IgxlBase;
-using OfficeOpenXml;
 using Teradyne.Oasis.IGData.Utilities;
 
 namespace IgxlData.IgxlSheets
@@ -40,20 +40,6 @@ namespace IgxlData.IgxlSheets
         public void AddRow(PSet pSet)
         {
             PSets.Add(pSet);
-        }
-
-        protected override void WriteHeader()
-        {
-        }
-
-        protected override void WriteColumnsHeader()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void WriteRows()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Write(string fileName, string version = "")
@@ -131,7 +117,7 @@ namespace IgxlData.IgxlSheets
                     }
                     else
                     {
-                        arr = new[] {"\t"};
+                        arr = new[] { "\t" };
                     }
 
                     sw.WriteLine(string.Join("\t", arr));
@@ -153,12 +139,12 @@ namespace IgxlData.IgxlSheets
             //Name	Pin	Instrument Type	This large heading makes AutoFit enlarge the row height	par1
 
             var subHeaders = new List<string>
-                {"", "Name", "Pin", "Instrument Type", "This large heading makes AutoFit enlarge the row height"};
+                { "", "Name", "Pin", "Instrument Type", "This large heading makes AutoFit enlarge the row height" };
 
             writer.WriteLine(string.Join("\t", subHeaders));
             foreach (var pSet in PSets)
             {
-                var info = new List<string> {"", pSet.Name, pSet.Pin, pSet.InstrumentType, ""};
+                var info = new List<string> { "", pSet.Name, pSet.Pin, pSet.InstrumentType, "" };
                 info.AddRange(pSet.Parameters.Select(p => p.Value));
                 writer.WriteLine(string.Join("\t", info));
             }

@@ -1,22 +1,22 @@
-﻿using System;
+﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using MyWpf.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows;
-using Microsoft.WindowsAPICodePack.Dialogs;
-using MyWpf.Model;
 
 namespace MyWpf.Controls
 {
     /// <summary>
-    ///     Interaction logic for HelpWindow.xaml
+    /// Interaction logic for HelpWindow.xaml
     /// </summary>
     public partial class HelpWindow : Window
     {
-        private readonly Dictionary<string, Stream> _resources = new Dictionary<string, Stream>();
         public ObservableCollection<HelpFileRow> HelpFileRows = new ObservableCollection<HelpFileRow>();
+        private Dictionary<string, Stream> _resources = new Dictionary<string, Stream>();
 
         public HelpWindow()
         {
@@ -37,7 +37,7 @@ namespace MyWpf.Controls
 
             HelpFileRows = new ObservableCollection<HelpFileRow>();
             foreach (var resourceName in resourceSelectList)
-                HelpFileRows.Add(new HelpFileRow {FileName = resourceName.Key, Select = true});
+                HelpFileRows.Add(new HelpFileRow() { FileName = resourceName.Key, Select = true });
             DataGrid.ItemsSource = HelpFileRows;
             return this;
         }
@@ -45,26 +45,26 @@ namespace MyWpf.Controls
         private void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new CommonOpenFileDialog();
-            dialog.Title = @"Select Output Directory";
             dialog.IsFolderPicker = true;
 
             if (dialog.ShowDialog() == CommonFileDialogResult.Cancel) return;
 
             foreach (HelpFileRow item in DataGrid.Items)
+            {
                 if (item.Select)
                 {
                     var fileName = item.FileName;
                     if (_resources.ContainsKey(fileName))
+                    {
                         using (var resource = _resources[fileName])
                         {
                             var file = Path.Combine(dialog.FileName, fileName);
                             using (Stream output = File.OpenWrite(file))
-                            {
                                 resource.CopyTo(output);
-                            }
                         }
+                    }
                 }
-
+            }
             Process.Start("explorer.exe", dialog.FileName);
             Close();
         }

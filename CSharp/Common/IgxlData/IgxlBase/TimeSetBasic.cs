@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{Name}")]
     [Serializable]
-    public class Tset : IgxlItem
+    public class TSet
     {
-        #region Constructor
-
-        public Tset()
+        public TSet()
         {
             TimingRows = new List<TimingRow>();
         }
 
-        #endregion
+        public string Name { get; set; }
+        public string CyclePeriod { get; set; }
+        public List<TimingRow> TimingRows { get; set; }
 
-        #region Member Function
         public void AddTimingRows(List<TimingRow> timingRows)
         {
             TimingRows.AddRange(timingRows);
@@ -25,15 +26,5 @@ namespace IgxlData.IgxlBase
         {
             TimingRows.Add(timingRow);
         }
-
-        #endregion
-
-        #region Property
-
-        public string Name { get; set; }
-        public string CyclePeriod { get; set; }
-        public List<TimingRow> TimingRows { get; set; }
-
-        #endregion
     }
 }

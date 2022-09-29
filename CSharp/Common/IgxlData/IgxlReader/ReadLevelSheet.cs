@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using IgxlData.IgxlBase;
+﻿using IgxlData.IgxlBase;
 using IgxlData.IgxlSheets;
 using OfficeOpenXml;
+using System.Collections.Generic;
 
 namespace IgxlData.IgxlReader
 {

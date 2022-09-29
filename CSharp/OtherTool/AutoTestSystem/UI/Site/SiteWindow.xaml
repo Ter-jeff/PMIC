@@ -1,0 +1,61 @@
+﻿<Window x:Class="AutoTestSystem.UI.Site.SiteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        Title="Select sites"
+        Height="570"
+        Width="400">
+    <Grid Background="{StaticResource BackgroundDarkBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel  Grid.Row="0"
+                     VerticalAlignment="Stretch"
+                     HorizontalAlignment="Stretch">
+            <ListBox VerticalAlignment="Stretch"
+                     HorizontalAlignment="Stretch"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     Height="500"
+                     Background="{StaticResource BackgroundDarkBrush}"
+                     Name="ListBox"
+                     KeyDown="ListBox_KeyDown">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Name="CheckBoxZone"
+                                  IsChecked="{Binding Select,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                  Margin="0,5,0,0">
+                            <CheckBox.Content>
+                                <TextBlock Text="{Binding Site,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                            </CheckBox.Content>
+                        </CheckBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <DockPanel Grid.Row="1"
+                   HorizontalAlignment="Right">
+            <Button x:Name="OkButton"
+                    Content="OK"
+                    FontSize="12"
+                    HorizontalAlignment="Right"
+                    Width="70"
+                    Margin="5"
+                    Click="OKButton_Click"></Button>
+            <Button x:Name="Clear"
+                    Content="Clear"
+                    FontSize="12"
+                    HorizontalAlignment="Right"
+                    Width="70"
+                    Margin="5"
+                    Click="Clear_Click"></Button>
+            <Button x:Name="CancelButton"
+                    Content="Cancel"
+                    FontSize="12"
+                    HorizontalAlignment="Right"
+                    Width="70"
+                    Margin="5"
+                    Click="Cancel_Click"></Button>
+        </DockPanel>
+    </Grid>
+</Window>

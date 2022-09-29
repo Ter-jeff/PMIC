@@ -67,6 +67,7 @@ namespace IgxlData.IgxlBase
         }
 
         public string SpecialComment { get; set; }
+        public int RowNum { get; set; }
 
         #endregion
     }

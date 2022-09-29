@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonLib.Extension;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -6,21 +7,16 @@ using System.Linq;
 namespace IgxlData.IgxlBase
 {
     [DebuggerDisplay("{PinName}")]
-    public class PinGroup
+    public class PinGroup : IgxlRow
     {
-        #region Constructor
-
         public PinGroup(string pinGrpName)
         {
             PinName = pinGrpName;
             PinList = new List<Pin>();
         }
 
-        #endregion
-
-        #region Property
-
         public string PinName { get; set; }
+
         public List<Pin> PinList { get; set; }
 
         private string _pinType;
@@ -35,10 +31,6 @@ namespace IgxlData.IgxlBase
             }
             set { _pinType = value; }
         }
-
-        #endregion
-
-        #region Member Function
 
         public void AddPin(Pin pin)
         {
@@ -60,7 +52,8 @@ namespace IgxlData.IgxlBase
             foreach (var pin in pins)
                 if (!PinList.Exists(a => a.PinName.Equals(pin.PinName, StringComparison.OrdinalIgnoreCase)))
                 {
-                    var newPin = new Pin(pin.PinName, pin.PinType, comment);
+                    var newPin = pin.CloneJson();
+                    newPin.Comment = comment;
                     PinList.Add(newPin);
                 }
         }
@@ -74,7 +67,5 @@ namespace IgxlData.IgxlBase
                     PinList.Add(newPin);
                 }
         }
-
-        #endregion
     }
 }
