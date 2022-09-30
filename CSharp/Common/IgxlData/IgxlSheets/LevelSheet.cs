@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Teradyne.Oasis.IGData.Utilities;
 
@@ -14,7 +12,6 @@ namespace IgxlData.IgxlSheets
     [Serializable]
     public class LevelSheet : IgxlSheet
     {
-        #region Property
 
         public List<LevelRow> LevelRows
         {
@@ -22,16 +19,8 @@ namespace IgxlData.IgxlSheets
             set { _levelData = value; }
         }
 
-        #endregion
-
-        #region Field
-
         private const string SheetType = "DTLevelSheet";
         private List<LevelRow> _levelData;
-
-        #endregion
-
-        #region Constructor
 
         public LevelSheet(ExcelWorksheet sheet)
             : base(sheet)
@@ -46,10 +35,6 @@ namespace IgxlData.IgxlSheets
             _levelData = new List<LevelRow>();
             IgxlSheetName = IgxlSheetNameList.PinLevel;
         }
-
-        #endregion
-
-        #region Member Function
 
         public void AddDiffLevel(DiffLevel diffLevel)
         {
@@ -259,18 +244,5 @@ namespace IgxlData.IgxlSheets
                 #endregion
             }
         }
-
-        public LevelSheet DeepClone()
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, this);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as LevelSheet;
-            }
-        }
-
-        #endregion
     }
 }

@@ -65,17 +65,6 @@ namespace PmicAutogen.Inputs.ScghFile.Reader
             return all;
         }
 
-        public ProdCharSheetRow DeepClone()
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, this);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as ProdCharSheetRow;
-            }
-        }
-
         public bool IsBist()
         {
             return FlowName.ToUpper().Contains("BIST");

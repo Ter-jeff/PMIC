@@ -20,16 +20,6 @@ namespace PmicAutogen.Inputs.VbtGenTool.Reader
 
         public VbtGenTestPlanRow VbtGenTestPlanRow { get; set; }
 
-        public VbtGenTestPlanRowPlus DeepClone()
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, this);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as VbtGenTestPlanRowPlus;
-            }
-        }
     }
 
     [Serializable]
@@ -128,28 +118,11 @@ namespace PmicAutogen.Inputs.VbtGenTool.Reader
     [Serializable]
     public class VbtGenTestPlanSheet
     {
-        #region Constructor
-
         public VbtGenTestPlanSheet(string sheetName)
         {
             SheetName = sheetName;
             RowList = new List<VbtGenTestPlanRowPlus>();
         }
-
-        #endregion
-
-        public VbtGenTestPlanSheet DeepClone()
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, this);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as VbtGenTestPlanSheet;
-            }
-        }
-
-        #region Property
 
         public string SheetName { get; set; }
         public int SheetSequence { get; set; }
@@ -159,8 +132,6 @@ namespace PmicAutogen.Inputs.VbtGenTool.Reader
         public string ModuleName { get; set; }
         public List<VbtGenTestPlanRowPlus> RowList { get; set; }
         public Dictionary<string, int> HeaderIndex { get; set; } = new Dictionary<string, int>();
-
-        #endregion
     }
 
     public class VbtGenTestPlanSheetReader

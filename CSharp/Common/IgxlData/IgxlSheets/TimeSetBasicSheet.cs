@@ -325,17 +325,6 @@ namespace IgxlData.IgxlSheets
             Tsets.Add(timeSet);
         }
 
-        public TimeSetBasicSheet DeepClone()
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, this);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as TimeSetBasicSheet;
-            }
-        }
-
         #endregion
     }
 }

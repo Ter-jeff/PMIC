@@ -176,7 +176,7 @@ namespace IgxlData.IgxlReader
         {
             var flowRow = new FlowRow();
             flowRow.SheetName = sheet.Name;
-            flowRow.LineNum = row.ToString();
+            flowRow.RowNum = row;
             var content = GetCellText(sheet, row, 1);
             flowRow.ColumnA = content;
             var index = StartColumnIndex;

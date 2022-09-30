@@ -52,8 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\AxisData.cs" />
+    <Compile Include="Base\AxisDictValue.cs" />
     <Compile Include="Base\Device.cs" />
     <Compile Include="Base\DeviceTestedSummary.cs" />
+    <Compile Include="Base\FreqModeShmooId.cs" />
+    <Compile Include="Base\ShmooId.cs" />
+    <Compile Include="Base\ShmooSetup.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="Base\ClassShmooPlot.cs" />
     <Compile Include="Base\ColorSetting.cs" />

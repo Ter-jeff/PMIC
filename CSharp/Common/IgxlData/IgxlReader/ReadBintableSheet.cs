@@ -18,7 +18,7 @@ namespace IgxlData.IgxlReader
             var binRow = new BinTableRow();
             var index = 2;
             string lStrContent;
-            binRow.LinNum = row;
+            binRow.RowNum = row;
             lStrContent = GetCellText(sheet, row, index);
             binRow.Name = lStrContent;
             index++;

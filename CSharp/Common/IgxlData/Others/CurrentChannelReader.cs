@@ -1,11 +1,10 @@
-﻿using IgxlData.IgxlBase;
+﻿using CommonLib.Extension;
+using IgxlData.IgxlBase;
 using IgxlData.IgxlSheets;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 
 namespace IgxlData.Others
@@ -13,8 +12,6 @@ namespace IgxlData.Others
     [Serializable]
     public class CurrentChannelMapRow : IgxlRow
     {
-        #region Constructor
-
         public CurrentChannelMapRow()
         {
             TesterChannel = string.Empty;
@@ -22,26 +19,9 @@ namespace IgxlData.Others
             SignalName = string.Empty;
         }
 
-        #endregion
-
-        public CurrentChannelMapRow DeepClone()
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, this);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as CurrentChannelMapRow;
-            }
-        }
-
-        #region Property
-
         public string TesterChannel { get; set; }
         public string DibChannel { get; set; }
         public string SignalName { get; set; }
-
-        #endregion
     }
 
     public class CurrentChannelReader

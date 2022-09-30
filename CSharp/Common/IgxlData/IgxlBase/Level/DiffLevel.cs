@@ -34,43 +34,24 @@ namespace IgxlData.IgxlBase
         }
 
         public string PinName { get; set; }
-
         public string Vicm { get; set; }
-
         public string Vid { get; set; }
-
         public string DVid0 { get; set; }
-
         public string DVid1 { get; set; }
-
         public string DVicm0 { get; set; }
-
         public string DVicm1 { get; set; }
-
         public string Vod { get; set; }
-
         public string VodAlt1 { get; set; }
-
         public string VodAlt2 { get; set; }
-
         public string DVod0 { get; set; }
-
         public string DVod1 { get; set; }
-
         public string Iol { get; set; }
-
         public string Ioh { get; set; }
-
         public string VodTyp { get; set; }
-
         public string VocmTyp { get; set; }
-
         public string Vt { get; set; }
-
         public string Vcl { get; set; }
-
         public string Vch { get; set; }
-
         public string DriverMode { get; set; }
     }
 }

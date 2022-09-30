@@ -6,8 +6,7 @@ namespace IgxlData.IgxlBase
     public class IoLevel
     {
         public IoLevel(string pinName, string vil, string vih, string vol, string voh, string vohAlt1, string vohAtl2,
-            string iol,
-            string ioh, string vt, string vcl, string vch, string voutLoTyp, string voutHiTyp, string driverMode)
+            string iol, string ioh, string vt, string vcl, string vch, string voutLoTyp, string voutHiTyp, string driverMode)
         {
             PinName = pinName;
             Vil = vil;

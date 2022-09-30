@@ -138,9 +138,9 @@
       <Component Id="CommonLib.dll" Guid="F69FF6A5-0198-45C9-A0C9-D8C497FAC9DD">
         <File Id="CommonLib.dll" Source="$(var.PMICAutogenAddIn_TargetDir)CommonLib.dll" />
       </Component>
-      <Component Id="Newtonsoft.Json.dll" Guid="E5CC5216-2E02-491F-8B62-2CCFB1A587C0">
+      <!--<Component Id="Newtonsoft.Json.dll" Guid="E5CC5216-2E02-491F-8B62-2CCFB1A587C0">
         <File Id="Newtonsoft.Json.dll" Source="$(var.PMICAutogenAddIn_TargetDir)Newtonsoft.Json.dll" />
-      </Component>
+      </Component>-->
       <Component Id="IG_Data.dll" Guid="419e5607-fa45-4d08-908f-302a50a11821">
         <File Id="IG_Data.dll" Name="IG-Data.dll" Source="$(var.PMICAutogenAddIn_TargetDir)IG-Data.dll" />
       </Component>
@@ -213,7 +213,7 @@
       <ComponentRef Id="DotNetZip.dll" />
       <ComponentRef Id="MyWpf.dll" />
       <ComponentRef Id="CommonLib.dll" />
-      <ComponentRef Id="Newtonsoft.Json.dll" />
+      <!--<ComponentRef Id="Newtonsoft.Json.dll" />-->
       <ComponentRef Id="PMICAutogenAddIn.dll.manifest" />
       <ComponentRef Id="PMICAutogenAddIn.dll.config" />
       <ComponentRef Id="PMICAutogenAddIn.vsto" />

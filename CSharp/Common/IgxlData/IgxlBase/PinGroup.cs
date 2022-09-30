@@ -52,7 +52,7 @@ namespace IgxlData.IgxlBase
             foreach (var pin in pins)
                 if (!PinList.Exists(a => a.PinName.Equals(pin.PinName, StringComparison.OrdinalIgnoreCase)))
                 {
-                    var newPin = pin.CloneJson();
+                    var newPin = pin.DeepClone();
                     newPin.Comment = comment;
                     PinList.Add(newPin);
                 }

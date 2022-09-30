@@ -1,8 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace IgxlData.IgxlBase
 {
     [DebuggerDisplay("{PinName}")]
+    [Serializable]
     public class Pin : IgxlRow
     {
         public Pin(string pinName, string pinType, string comment = "")

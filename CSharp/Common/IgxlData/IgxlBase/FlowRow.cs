@@ -62,8 +62,6 @@ namespace IgxlData.IgxlBase
             return envs.Exists(x => x.Equals(env, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        #region Property
-        public string LineNum { get; set; }
         public string Label { get; set; }
         public string Enable { get; set; }
         public string Job { get; set; }
@@ -102,6 +100,5 @@ namespace IgxlData.IgxlBase
         public string CtProfileDataFlowStepLocked { get; set; }
         public string Comment { get; set; }
         public string Comment1 { get; set; }
-        #endregion
     }
 }

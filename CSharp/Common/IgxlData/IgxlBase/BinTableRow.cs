@@ -11,9 +11,6 @@ namespace IgxlData.IgxlBase
     [DebuggerDisplay("{Name}")]
     public class BinTableRow : IgxlRow
     {
-        #region Property
-
-        public int LinNum { get; set; }
         public string Name { get; set; }
         public string ItemList { get; set; }
         public string Op { get; set; }
@@ -24,13 +21,8 @@ namespace IgxlData.IgxlBase
         public string Comment { get; set; }
         public List<string> Items { get; set; }
 
-        #endregion
-
-        #region Constructor
-
         public BinTableRow()
         {
-            LinNum = 0;
             Name = "";
             ItemList = "";
             Op = "";
@@ -41,38 +33,6 @@ namespace IgxlData.IgxlBase
             ExtraBinDictionary = new Dictionary<string, string>();
             Items = new List<string>();
         }
-
-        public BinTableRow DeepClone()
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, this);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as BinTableRow;
-            }
-        }
-
-        public BinTableRow CopyBinTableRow()
-        {
-            var binTableRow = new BinTableRow();
-            binTableRow.LinNum = LinNum;
-            binTableRow.Name = Name;
-            binTableRow.ItemList = ItemList;
-            binTableRow.Op = Op;
-            binTableRow.Sort = Sort;
-            binTableRow.Bin = Bin;
-            binTableRow.Result = Result;
-            binTableRow.Comment = Comment;
-            binTableRow.ExtraBinDictionary = new Dictionary<string, string>();
-            binTableRow.Items = new List<string>();
-            foreach (var dicItem in ExtraBinDictionary) binTableRow.ExtraBinDictionary.Add(dicItem.Key, dicItem.Value);
-
-            foreach (var listItem in Items) binTableRow.Items.Add(listItem);
-            return binTableRow;
-        }
-
-        #endregion
     }
 
     public class BinTableRowComparer : IEqualityComparer<BinTableRow>
