@@ -1,10 +1,11 @@
-﻿namespace IgxlData.IgxlBase
+﻿using System.Diagnostics;
+
+namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{JobName}")]
+
     public class JobRow : IgxlRow
     {
-        #region Property
-
-        public string LineNum { get; set; }
         public string JobName { get; set; }
         public string PinMap { get; set; }
         public string TestInstance { get; set; }
@@ -28,7 +29,6 @@
 
         public JobRow()
         {
-            LineNum = "";
             JobName = "";
             PinMap = "";
             TestInstance = "";
@@ -50,7 +50,5 @@
             SpikeCheckConfig = "";
             Comment = "";
         }
-
-        #endregion
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{PortName}")]
     public class PortRow : IgxlRow
     {
         public PortRow()

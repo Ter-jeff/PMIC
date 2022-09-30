@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,11 +9,10 @@ using System.Text.RegularExpressions;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{TestName}")]
     [Serializable]
     public class InstanceRow : IgxlRow
     {
-        #region Constructor
-
         public InstanceRow()
         {
             SheetName = "";
@@ -36,8 +36,6 @@ namespace IgxlData.IgxlBase
             PayloadList = new List<string>();
             Comment = "";
         }
-
-        #endregion
 
         public string GetPropertyValue(string propertyName)
         {
@@ -109,8 +107,6 @@ namespace IgxlData.IgxlBase
             return null;
         }
 
-        #region Property
-
         public string TestName { get; set; }
         public string Type { get; set; }
         public string Name { get; set; }
@@ -129,7 +125,5 @@ namespace IgxlData.IgxlBase
         public string Comment { get; set; }
         public List<string> InitList { get; set; }
         public List<string> PayloadList { get; set; }
-
-        #endregion
     }
 }

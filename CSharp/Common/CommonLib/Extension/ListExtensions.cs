@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace CommonLib.Extension
 {
-    // Static class to contain the extension methods.
     public static class ListExtensions
     {
         public static IEnumerable<IGrouping<TKey, TSource>> ChunkBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)

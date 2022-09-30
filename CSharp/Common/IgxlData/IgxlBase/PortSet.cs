@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{PortName}")]
     public class PortSet
     {
         public PortSet()

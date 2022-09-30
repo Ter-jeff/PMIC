@@ -1,5 +1,8 @@
-﻿namespace IgxlData.IgxlBase
+﻿using System.Diagnostics;
+
+namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{PatternSet}")]
     public class PatSetRow : IgxlRow
     {
         public string PatternSet { get; set; }

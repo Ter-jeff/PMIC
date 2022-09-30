@@ -1,5 +1,8 @@
-﻿namespace IgxlData.IgxlBase
+﻿using System.Diagnostics;
+
+namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{Name}")]
     public class Selector
     {
         public Selector()

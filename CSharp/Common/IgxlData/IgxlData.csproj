@@ -60,6 +60,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IgxlBase\CharSetupConst.cs" />
+    <Compile Include="IgxlBase\CharStepConst.cs" />
+    <Compile Include="IgxlBase\Level\Dc30Level.cs" />
+    <Compile Include="IgxlBase\Level\DcviPowerLevel.cs" />
     <Compile Include="IgxlManager\SheetTypeRow.cs" />
     <Compile Include="IgxlReader\ReadPinMapSheet.cs" />
     <Compile Include="IgxlSheets\OtherSheet.cs" />
@@ -102,7 +106,7 @@
     <Compile Include="IgxlBase\CharSetup.cs" />
     <Compile Include="IgxlBase\CharStep.cs" />
     <Compile Include="IgxlBase\DcSpec.cs" />
-    <Compile Include="IgxlBase\DiffLevel.cs" />
+    <Compile Include="IgxlBase\Level\DiffLevel.cs" />
     <Compile Include="IgxlBase\FlowRow.cs" />
     <Compile Include="IgxlBase\GlobalSpec.cs" />
     <Compile Include="IgxlBase\IgxlRow.cs" />
@@ -116,11 +120,10 @@
     <Compile Include="IgxlBase\PatSetRow.cs" />
     <Compile Include="IgxlBase\PatSetSubRow.cs" />
     <Compile Include="IgxlBase\Pin.cs" />
-    <Compile Include="IgxlBase\PinBase.cs" />
     <Compile Include="IgxlBase\PinGroup.cs" />
     <Compile Include="IgxlBase\PortRow.cs" />
     <Compile Include="IgxlBase\PortSet.cs" />
-    <Compile Include="IgxlBase\PowerLevel.cs" />
+    <Compile Include="IgxlBase\Level\PowerLevel.cs" />
     <Compile Include="IgxlBase\Selector.cs" />
     <Compile Include="IgxlBase\Spec.cs" />
     <Compile Include="IgxlBase\TimeSetBasic.cs" />

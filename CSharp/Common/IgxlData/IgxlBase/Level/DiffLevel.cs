@@ -1,8 +1,10 @@
-﻿namespace IgxlData.IgxlBase
+﻿using System.Diagnostics;
+
+namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{PinName}")]
     public class DiffLevel
     {
-        #region Constructor
 
         public DiffLevel(string pinName, string vicm, string vid, string dVid0, string dVid1, string dVicm0,
             string dVicm1, string vod,
@@ -30,14 +32,6 @@
             Vch = vch;
             DriverMode = driverMode;
         }
-
-        #endregion
-
-        #region Field
-
-        #endregion
-
-        #region Property
 
         public string PinName { get; set; }
 
@@ -78,7 +72,5 @@
         public string Vch { get; set; }
 
         public string DriverMode { get; set; }
-
-        #endregion
     }
 }

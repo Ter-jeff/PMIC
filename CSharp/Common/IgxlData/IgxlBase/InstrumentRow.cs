@@ -1,10 +1,12 @@
 ﻿using OfficeOpenXml;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{Instrument}")]
     public class InstrumentRow
     {
         public InstrumentRow(string min, string max, string currentType, string isMerge, string instrument,

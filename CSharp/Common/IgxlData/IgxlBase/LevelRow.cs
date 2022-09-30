@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{PinName}")]
     [Serializable]
-    public class LevelRow
+    public class LevelRow : IgxlRow
     {
-        #region Constructor
 
         public LevelRow(string pinName, string parameter, string value, string comment)
         {
@@ -14,10 +15,6 @@ namespace IgxlData.IgxlBase
             _value = value;
             _comment = comment;
         }
-
-        #endregion
-
-        #region Member Function
 
         public bool IsBlankRow()
         {
@@ -29,18 +26,10 @@ namespace IgxlData.IgxlBase
             return false;
         }
 
-        #endregion
-
-        #region Field
-
         private string _pinName;
         private string _parameter;
         private string _value;
         private string _comment;
-
-        #endregion
-
-        #region Property
 
         public string PinName
         {
@@ -67,8 +56,5 @@ namespace IgxlData.IgxlBase
         }
 
         public string SpecialComment { get; set; }
-        public int RowNum { get; set; }
-
-        #endregion
     }
 }

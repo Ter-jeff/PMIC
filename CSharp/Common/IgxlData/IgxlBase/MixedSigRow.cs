@@ -1,9 +1,11 @@
-﻿namespace IgxlData.IgxlBase
+﻿using System.Diagnostics;
+
+namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{Name}")]
+
     public class MixedSigRow : IgxlRow
     {
-        #region Property
-
         public string Name { get; set; }
         public string Subset { get; set; }
         public string Type { get; set; }
@@ -22,7 +24,5 @@
         public string Offset { get; set; }
         public string OldInstData { get; set; }
         public string Comment { get; set; }
-
-        #endregion
     }
 }

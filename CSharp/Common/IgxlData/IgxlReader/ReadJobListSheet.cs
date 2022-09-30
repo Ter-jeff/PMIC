@@ -216,7 +216,7 @@ namespace IgxlData.IgxlReader
         private JobRow GetJobRow(int i)
         {
             var row = new JobRow();
-            row.LineNum = i.ToString();
+            row.RowNum = i;
             if (_jobNameIndex != -1)
                 row.JobName = _excelWorksheet.GetMergedCellValue(i, _jobNameIndex).Trim();
             if (_pinMapIndex != -1)

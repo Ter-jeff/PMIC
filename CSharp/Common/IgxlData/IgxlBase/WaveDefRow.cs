@@ -1,11 +1,10 @@
-﻿namespace IgxlData.IgxlBase
+﻿using System.Diagnostics;
+
+namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{WaveDefName}")]
     public class WaveDefRow : IgxlRow
     {
-        //	Relative Offset	Primitive Parameters	Comment
-
-        #region Property
-
         public string WaveDefName { get; set; }
         public string WaveDefType { get; set; }
         public string WaveDefComponent { get; set; }
@@ -15,7 +14,5 @@
         public string RelativeOffset { get; set; }
         public string PrimitiveParameters { get; set; }
         public string Comment { get; set; }
-
-        #endregion
     }
 }

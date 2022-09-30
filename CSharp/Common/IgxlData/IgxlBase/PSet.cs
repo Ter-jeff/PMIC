@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{Name}")]
     public class PSet : IgxlRow
     {
-        public string Comment;
         public string InstrumentType;
         public string Name;
         public Dictionary<string, string> Parameters;
         public string Pin;
         public string ThislargeheadingmakesAutoFitenlargetherowheight;
+        public string Comment;
 
         public PSet()
         {

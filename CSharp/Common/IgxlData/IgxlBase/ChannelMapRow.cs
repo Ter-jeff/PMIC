@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace IgxlData.IgxlBase
 {
+    [DebuggerDisplay("{DeviceUnderTestPinName}")]
     public class ChannelMapRow : IgxlRow
     {
         public ChannelMapRow()

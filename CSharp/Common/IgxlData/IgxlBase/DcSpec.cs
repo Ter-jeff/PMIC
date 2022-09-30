@@ -5,12 +5,6 @@ namespace IgxlData.IgxlBase
 {
     public class DcSpec : Spec
     {
-        #region Field
-
-        #endregion
-
-        #region Property
-
         public List<CategoryInSpec> CategoryList { get; set; }
 
         public List<Selector> SelectorList { get; set; }
@@ -22,10 +16,6 @@ namespace IgxlData.IgxlBase
             get { return CategoryList.Count; }
             set { throw new NotImplementedException(); }
         }
-
-        #endregion
-
-        #region Constructor
 
         public DcSpec()
         {
@@ -45,10 +35,6 @@ namespace IgxlData.IgxlBase
             CategoryList = new List<CategoryInSpec>();
             SelectorList = selectorList;
         }
-
-        #endregion
-
-        #region Member Function
 
         public void AddCategory(CategoryInSpec categoryInSpec)
         {
@@ -74,7 +60,5 @@ namespace IgxlData.IgxlBase
         {
             CategoryList.Insert(index, categoryInSpec);
         }
-
-        #endregion
     }
 }
